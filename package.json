@@ -1,0 +1,17 @@
+{
+  "name": "morsebrowser-react-monorepo",
+  "private": true,
+  "packageManager": "npm@10.9.7",
+  "workspaces": ["packages/*", "apps/web"],
+  "scripts": {
+    "dev":       "turbo dev",
+    "build":     "turbo build",
+    "test":      "turbo test",
+    "typecheck": "turbo typecheck",
+    "mobile":    "cd apps/mobile && npx expo start"
+  },
+  "devDependencies": {
+    "turbo":      "^2.0.0",
+    "typescript": "^5.4.0"
+  }
+}

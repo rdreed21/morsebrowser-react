@@ -1,0 +1,38 @@
+import { render, screen, waitFor } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import type { WordListOption } from '@morsebrowser/core';
+import { MorseAppProvider, useMorseApp } from '../context/MorseAppContext';
+import { useLessonDeepLinks } from './useLessonDeepLinks';
+
+function TestApp({ loadLesson }: { loadLesson: (option: WordListOption) => Promise<void> }) {
+  const { lessonDeepLinkPending } = useMorseApp();
+  useLessonDeepLinks(loadLesson);
+  return <div data-testid="pending">{String(lessonDeepLinkPending)}</div>;
+}
+
+describe('useLessonDeepLinks', () => {
+  afterEach(() => {
+    window.history.replaceState({}, '', '/');
+  });
+
+  it('clears lessonDeepLinkPending after deep link resolves', async () => {
+    window.history.replaceState(
+      {},
+      '',
+      '/?selectedClass=BC1&selectedGroup=REA&selectedLesson=REA',
+    );
+
+    const loadLesson = vi.fn(async () => {});
+
+    render(
+      <MorseAppProvider>
+        <TestApp loadLesson={loadLesson} />
+      </MorseAppProvider>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId('pending')).toHaveTextContent('false');
+    });
+    expect(loadLesson).toHaveBeenCalled();
+  });
+});

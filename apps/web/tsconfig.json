@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2020","DOM","DOM.Iterable"],
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@morsebrowser/core": ["../../packages/core/dist/index.d.ts"],
+      "@morsebrowser/types": ["../../packages/types/dist/index.d.ts"]
+    }
+  },
+  "include": ["src","vite.config.ts"],
+  "exclude": ["node_modules","dist"]
+}

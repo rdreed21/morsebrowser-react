@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "LICW Morsebrowser",
+    "slug": "morsebrowser",
+    "version": "1.0.0",
+    "platforms": [
+      "ios"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "net.reedgames.morsebrowser",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ],
+        "NSMicrophoneUsageDescription": "Required by audio framework."
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "react-native-audio-api",
+        {
+          "enableBackgroundAudio": true
+        }
+      ],
+      "expo-sharing"
+    ],
+    "scheme": "morsebrowser",
+    "assetBundlePatterns": [
+      "assets/wordfiles/**/*"
+    ]
+  }
+}

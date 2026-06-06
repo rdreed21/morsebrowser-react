@@ -1,0 +1,7 @@
+node_modules
+.turbo
+dist
+.expo
+*.tsbuildinfo
+.env
+visual-diff-output

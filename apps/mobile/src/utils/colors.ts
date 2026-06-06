@@ -1,0 +1,22 @@
+/** Bootstrap 5 colors — matches rdreed21/morsebrowser_dev fork */
+export const C = {
+  primary:         '#0d6efd',
+  primaryDark:     '#0a58ca',
+  secondary:       '#6c757d',
+  success:         '#198754',
+  danger:          '#dc3545',
+  info:            '#0dcaf0',
+  warning:         '#ffc107',
+  light:           '#f8f9fa',
+  dark:            '#212529',
+  border:          '#dee2e6',
+  inputBg:         '#fff',
+  inputBgDark:     '#2b2b2b',
+  textMuted:       '#6c757d',
+  bg:              '#fff',
+  bgDark:          '#1a1a2e',
+  cardBg:          '#f8f9fa',
+  cardBgDark:      '#2b2b2b',
+  outlinePrimary:  '#0d6efd',
+  outlineDanger:   '#dc3545',
+} as const;
