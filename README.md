@@ -150,3 +150,5 @@ prefers bug reports there over direct email so nothing gets lost.
   what's left, known issues
 - [`ANDROID_FRAMEWORK.md`](ANDROID_FRAMEWORK.md) — plan for extending the mobile app to
   Android
+- [`LESSON_DATA_PIPELINE.md`](LESSON_DATA_PIPELINE.md) — idea for consolidating lesson/
+  preset data sync into one spot instead of three
