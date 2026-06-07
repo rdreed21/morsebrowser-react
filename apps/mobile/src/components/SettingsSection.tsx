@@ -1,4 +1,4 @@
-import React, { useState, type ReactNode } from 'react';
+import React, { useEffect, useState, type ReactNode } from 'react';
 import {
   View, Text, TouchableOpacity, StyleSheet, LayoutAnimation,
 } from 'react-native';
@@ -8,6 +8,8 @@ interface SettingsSectionProps {
   title: string;
   badge?: string;
   defaultOpen?: boolean;
+  /** When this flips to true, the section collapses itself (e.g. on playback start). */
+  collapseWhen?: boolean;
   children: ReactNode;
 }
 
@@ -15,6 +17,7 @@ export function SettingsSection({
   title,
   badge,
   defaultOpen = false,
+  collapseWhen = false,
   children,
 }: SettingsSectionProps) {
   const t = useTheme();
@@ -24,6 +27,13 @@ export function SettingsSection({
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setOpen(o => !o);
   };
+
+  useEffect(() => {
+    if (collapseWhen) {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      setOpen(false);
+    }
+  }, [collapseWhen]);
 
   return (
     <View style={[s.container, { backgroundColor: t.bg, borderColor: t.border }]}>
@@ -35,7 +45,7 @@ export function SettingsSection({
         <View style={s.headerLeft}>
           <Text style={[s.title, { color: t.text }]}>{title}</Text>
           {badge ? (
-            <View style={[s.badge, { backgroundColor: t.success }]}>
+            <View style={[s.badge, { backgroundColor: t.badgeBg }]}>
               <Text style={s.badgeText}>{badge}</Text>
             </View>
           ) : null}

@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { useMorseApp } from '../context/MorseAppContext';
-import { useMorsePlayback } from '../hooks/useMorsePlayback';
+import { useMorsePlaybackControls } from '../context/MorsePlaybackContext';
 import { getDisplayWord } from '../utils/words';
 import { useTheme } from '../utils/theme';
 
 export function WordCards() {
   const app = useMorseApp();
   const t = useTheme();
-  const { setWordIndex } = useMorsePlayback();
+  const { setWordIndex } = useMorsePlaybackControls();
   const scrollRef = useRef<ScrollView>(null);
   const cardLayouts = useRef<Record<number, number>>({});
 

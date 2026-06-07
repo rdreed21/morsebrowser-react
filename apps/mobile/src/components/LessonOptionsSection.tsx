@@ -45,6 +45,23 @@ export function LessonOptionsSection() {
       </View>
 
       <View style={s.row}>
+        <CheckToggle label="Sticky Sets" checked={app.ifStickySets} onChange={app.setIfStickySets} />
+      </View>
+      {app.ifStickySets && (
+        <TextInput
+          style={[s.textInput, {
+            borderColor: t.border,
+            color: t.inputText,
+            backgroundColor: t.inputBg,
+          }]}
+          value={app.stickySets}
+          onChangeText={app.setStickySets}
+          placeholder="Sticky set text"
+          placeholderTextColor={t.textMuted}
+        />
+      )}
+
+      <View style={s.row}>
         <CheckToggle label="Override Size" checked={app.ifOverrideMinMax} onChange={app.setIfOverrideMinMax} />
       </View>
       {app.ifOverrideMinMax && (
@@ -79,6 +96,7 @@ export function LessonOptionsSection() {
       <View style={s.chipRow}>
         <CheckToggle label="Randomize" checked={app.randomizeLessons} onChange={app.setRandomizeLessons} />
         <CheckToggle label="Keep Lines" checked={app.newlineChunking} onChange={app.setNewlineChunking} />
+        <CheckToggle label="Shuffle Intra-group" checked={app.shuffleIntraGroup} onChange={app.setShuffleIntraGroup} />
       </View>
 
       <Text style={[s.legend, s.legendSpaced, { color: t.textMuted }]}>Timing</Text>
@@ -93,6 +111,58 @@ export function LessonOptionsSection() {
           step={1}
         />
       </View>
+
+      <View style={s.row}>
+        <CheckToggle label="Speed Intervals" checked={app.speedInterval} onChange={app.setSpeedInterval} />
+      </View>
+      {app.speedInterval && (
+        <View style={s.intervalGroup}>
+          <View style={s.intervalRow}>
+            <Text style={[s.intervalLabel, { color: t.textMuted }]}>Timings</Text>
+            <TextInput
+              style={[s.intervalInput, {
+                borderColor: t.border,
+                color: t.inputText,
+                backgroundColor: t.inputBg,
+              }]}
+              value={app.intervalTimingsText}
+              onChangeText={app.setIntervalTimingsText}
+              placeholder="e.g. 60, 60, 60"
+              placeholderTextColor={t.textMuted}
+            />
+          </View>
+          <View style={s.intervalRow}>
+            <Text style={[s.intervalLabel, { color: t.textMuted }]}>WPM</Text>
+            <TextInput
+              style={[s.intervalInput, {
+                borderColor: t.border,
+                color: t.inputText,
+                backgroundColor: t.inputBg,
+              }]}
+              value={app.intervalWpmText}
+              onChangeText={app.setIntervalWpmText}
+              placeholder="e.g. 15, 20, 25"
+              placeholderTextColor={t.textMuted}
+              keyboardType="numbers-and-punctuation"
+            />
+          </View>
+          <View style={s.intervalRow}>
+            <Text style={[s.intervalLabel, { color: t.textMuted }]}>FWPM</Text>
+            <TextInput
+              style={[s.intervalInput, {
+                borderColor: t.border,
+                color: t.inputText,
+                backgroundColor: t.inputBg,
+              }]}
+              value={app.intervalFwpmText}
+              onChangeText={app.setIntervalFwpmText}
+              placeholder="e.g. 15, 18, 20"
+              placeholderTextColor={t.textMuted}
+              keyboardType="numbers-and-punctuation"
+            />
+          </View>
+        </View>
+      )}
 
       <Text style={[s.legend, s.legendSpaced, { color: t.textMuted }]}>Trail</Text>
       <View style={s.chipRow}>
@@ -134,6 +204,25 @@ const s = StyleSheet.create({
     borderRadius: 6,
     padding:      8,
     fontSize:     14,
+  },
+  intervalGroup: { gap: 6 },
+  intervalRow: {
+    flexDirection: 'row',
+    alignItems:    'center',
+    gap:           8,
+  },
+  intervalLabel: {
+    fontSize:  12,
+    fontWeight: '600',
+    width:     52,
+  },
+  intervalInput: {
+    flex:              1,
+    borderWidth:       1,
+    borderRadius:      6,
+    paddingVertical:   6,
+    paddingHorizontal: 10,
+    fontSize:          14,
   },
   syncBtn: { paddingHorizontal: 8, paddingVertical: 4 },
   syncBtnText: { fontSize: 12 },

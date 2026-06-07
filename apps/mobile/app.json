@@ -6,7 +6,9 @@
     "platforms": [
       "ios"
     ],
+    "icon": "./assets/images/icon.png",
     "ios": {
+      "icon": "./assets/images/icon.png",
       "supportsTablet": false,
       "bundleIdentifier": "net.reedgames.morsebrowser",
       "infoPlist": {
@@ -28,7 +30,8 @@
     ],
     "scheme": "morsebrowser",
     "assetBundlePatterns": [
-      "assets/wordfiles/**/*"
+      "assets/wordfiles/**/*",
+      "assets/presets/**/*"
     ]
   }
 }

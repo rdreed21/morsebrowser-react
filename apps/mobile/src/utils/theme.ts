@@ -17,6 +17,7 @@ export interface Theme {
   accentMuted: string;
   lockActiveBg: string;
   headerBg: string;
+  badgeBg: string;
   chipText: string;
   chipTextActive: string;
   chipBorder: string;
@@ -40,6 +41,7 @@ const lightTheme: Theme = {
   accentMuted:       C.primary,
   lockActiveBg:      '#cfe2ff',
   headerBg:          C.primary,
+  badgeBg:           C.success,
   chipText:          C.primary,
   chipTextActive:    '#fff',
   chipBorder:        C.outlinePrimary,
@@ -63,6 +65,10 @@ const darkTheme: Theme = {
   accentMuted:     '#9ec5fe',
   lockActiveBg:    '#1a3a6b',
   headerBg:        '#1a3a6b',
+  // Darker than the dark theme's `success` (#75b798) — that shade is tuned for
+  // legibility against the dark background, but is too light for white badge text
+  // to sit on top of with sufficient contrast.
+  badgeBg:         '#1f6e49',
   chipText:        '#9ec5fe',
   chipTextActive:  '#fff',
   chipBorder:      '#6ea8fe',

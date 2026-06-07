@@ -1,8 +1,65 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useMorseApp } from '../context/MorseAppContext';
-import { useMorsePlayback } from '../hooks/useMorsePlayback';
+import { useMorsePlaybackControls } from '../context/MorsePlaybackContext';
 import { useTheme } from '../utils/theme';
+import type { Theme } from '../utils/theme';
+
+type IoniconName = React.ComponentProps<typeof Ionicons>['name'];
+
+function TransportButton({
+  icon, label, color, onPress, busy, busyLabel,
+}: {
+  icon: IoniconName;
+  label: string;
+  color: string;
+  onPress: () => void;
+  busy?: boolean;
+  busyLabel?: string;
+}) {
+  return (
+    <TouchableOpacity
+      style={[s.btn, s.btnLg, { backgroundColor: color }]}
+      onPress={onPress}
+      accessibilityLabel={busy && busyLabel ? busyLabel : label}
+    >
+      {busy ? (
+        <View style={s.busyRow}>
+          <ActivityIndicator size="small" color="#fff" />
+          {busyLabel ? <Text style={s.btnText}>{busyLabel}</Text> : null}
+        </View>
+      ) : (
+        <Ionicons name={icon} size={22} color="#fff" />
+      )}
+    </TouchableOpacity>
+  );
+}
+
+function IconToggle({
+  icon, label, active, t, onPress,
+}: {
+  icon: IoniconName;
+  label: string;
+  active: boolean;
+  t: Theme;
+  onPress: () => void;
+}) {
+  return (
+    <TouchableOpacity
+      style={[
+        s.btn, s.btnSm,
+        active
+          ? { backgroundColor: t.accent }
+          : { backgroundColor: 'transparent', borderWidth: 1, borderColor: t.chipBorder },
+      ]}
+      onPress={onPress}
+      accessibilityLabel={label}
+    >
+      <Ionicons name={icon} size={18} color={active ? '#fff' : t.chipText} />
+    </TouchableOpacity>
+  );
+}
 
 export function PlaybackControls() {
   const app = useMorseApp();
@@ -11,119 +68,83 @@ export function PlaybackControls() {
     handlePlay, handlePause, handleStop,
     incrementIndex, decrementIndex, fullRewind,
     toggleLoop, speakVoiceBuffer,
-  } = useMorsePlayback();
+  } = useMorsePlaybackControls();
 
   const showVoiceRecap = app.manualVoice && app.voiceEnabled;
-  const loopLabel = !app.loop ? 'Loop Off' : !app.loopNoShuffle ? 'Loop ↺' : 'Loop On';
 
   return (
     <View style={[s.container, { backgroundColor: t.bg, borderTopColor: t.border }]}>
       <View style={s.row}>
         <TouchableOpacity
-          style={[s.btn, s.btnSuccess, { backgroundColor: t.success }]}
+          style={[s.btn, s.btnLg, s.btnSuccess, { backgroundColor: t.success }]}
           onPress={app.isPlaying ? handlePause : handlePlay}
           accessibilityLabel={app.isPlaying ? 'Pause' : 'Play'}
         >
           {app.isPlaying ? (
-            <View style={s.playingRow}>
-              <ActivityIndicator size="small" color="#fff" style={s.spinner} />
+            <View style={s.busyRow}>
+              <ActivityIndicator size="small" color="#fff" />
               <Text style={s.btnText}>
                 {app.playingTime.minutes}:{app.playingTime.normedSeconds}
               </Text>
             </View>
           ) : (
-            <Text style={s.btnText}>▶ Play</Text>
-          )}
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[s.btn, { backgroundColor: t.info }]}
-          onPress={handlePause}
-          accessibilityLabel={app.isPaused ? 'Resume' : 'Pause'}
-        >
-          {app.isPaused ? (
-            <View style={s.playingRow}>
-              <ActivityIndicator size="small" color="#fff" style={s.spinner} />
-              <Text style={s.btnText}>Paused</Text>
+            <View style={s.busyRow}>
+              <Ionicons name="play" size={22} color="#fff" />
+              <Text style={s.btnText}>Play</Text>
             </View>
-          ) : (
-            <Text style={s.btnText}>⏸</Text>
           )}
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[s.btn, { backgroundColor: t.danger }]}
+        <TransportButton
+          icon="pause"
+          label="Pause"
+          busyLabel={app.isPaused ? 'Paused' : undefined}
+          busy={app.isPaused}
+          color={t.info}
+          onPress={handlePause}
+        />
+
+        <TransportButton
+          icon="stop"
+          label="Stop"
+          color={t.danger}
           onPress={handleStop}
-          accessibilityLabel="Stop"
-        >
-          <Text style={s.btnText}>⏹</Text>
-        </TouchableOpacity>
+        />
       </View>
 
       <View style={s.row}>
-        <TouchableOpacity
-          style={[s.btn, s.btnSm, { backgroundColor: t.secondary }]}
-          onPress={fullRewind}
-          accessibilityLabel="Full rewind"
-        >
-          <Text style={s.btnTextSm}>⏮</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[s.btn, s.btnSm, { backgroundColor: t.secondary }]}
-          onPress={decrementIndex}
-          accessibilityLabel="Back 1"
-        >
-          <Text style={s.btnTextSm}>◀</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[s.btn, s.btnSm, { backgroundColor: t.secondary }]}
-          onPress={incrementIndex}
-          accessibilityLabel="Forward 1"
-        >
-          <Text style={s.btnTextSm}>▶</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[s.btn, s.btnSm, { backgroundColor: app.loop ? t.accent : t.secondary }]}
+        <IconToggle icon="play-skip-back" label="Full rewind" active={false} t={t} onPress={fullRewind} />
+        <IconToggle icon="play-back" label="Back 1" active={false} t={t} onPress={decrementIndex} />
+        <IconToggle icon="play-forward" label="Forward 1" active={false} t={t} onPress={incrementIndex} />
+        <IconToggle
+          icon="repeat"
+          label={app.loop ? (app.loopNoShuffle ? 'Loop on (no shuffle)' : 'Loop on') : 'Loop off'}
+          active={app.loop}
+          t={t}
           onPress={toggleLoop}
-          accessibilityLabel="Toggle loop"
-        >
-          <Text style={s.btnTextSm}>{loopLabel}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[s.btn, s.btnSm, { backgroundColor: app.isShuffled ? t.accent : t.secondary }]}
+        />
+        <IconToggle
+          icon="shuffle"
+          label={app.isShuffled ? 'Unshuffle' : 'Shuffle'}
+          active={app.isShuffled}
+          t={t}
           onPress={() => app.shuffleWords(false)}
-          accessibilityLabel={app.isShuffled ? 'Unshuffle' : 'Shuffle'}
-        >
-          <Text style={s.btnTextSm}>{app.isShuffled ? 'UnShuffle' : 'Shuffle'}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[
-            s.btn, s.btnSm,
-            !app.hideList
-              ? { backgroundColor: t.accent }
-              : { backgroundColor: 'transparent', borderWidth: 1, borderColor: t.accent },
-          ]}
+        />
+        <IconToggle
+          icon={app.hideList ? 'eye-off' : 'eye'}
+          label={app.hideList ? 'Reveal card text' : 'Hide card text'}
+          active={app.hideList}
+          t={t}
           onPress={() => app.setHideList(!app.hideList)}
-          accessibilityLabel={app.hideList ? 'Reveal card text' : 'Hide card text'}
-        >
-          <Text style={[s.btnTextSm, app.hideList && { color: t.accent }]}>
-            {app.hideList ? '🙈 Hidden' : '👁 Reveal'}
-          </Text>
-        </TouchableOpacity>
-
+        />
         {showVoiceRecap && (
-          <TouchableOpacity
-            style={[s.btn, s.btnSm, { backgroundColor: t.info }]}
+          <IconToggle
+            icon="megaphone"
+            label="Voice recap"
+            active={false}
+            t={t}
             onPress={speakVoiceBuffer}
-            accessibilityLabel="Voice recap"
-          >
-            <Text style={s.btnTextSm}>Voice Recap</Text>
-          </TouchableOpacity>
+          />
         )}
       </View>
     </View>
@@ -138,22 +159,23 @@ const s = StyleSheet.create({
     gap:               8,
   },
   row: {
-    flexDirection: 'row',
-    gap:           6,
-    flexWrap:      'wrap',
+    flexDirection:  'row',
+    alignItems:     'center',
+    gap:            6,
   },
   btn: {
-    borderRadius:      6,
-    paddingVertical:   10,
-    paddingHorizontal: 16,
+    borderRadius:      8,
     alignItems:        'center',
     justifyContent:    'center',
-    minWidth:          48,
+  },
+  btnLg: {
+    paddingVertical: 12,
+    minWidth:        48,
+    minHeight:       44,
   },
   btnSm: {
-    paddingVertical:   6,
-    paddingHorizontal: 10,
-    minWidth:          36,
+    width:  40,
+    height: 40,
   },
   btnSuccess: { flex: 2 },
   btnText: {
@@ -161,15 +183,9 @@ const s = StyleSheet.create({
     fontWeight: '600',
     fontSize:   15,
   },
-  btnTextSm: {
-    color:      '#fff',
-    fontWeight: '600',
-    fontSize:   13,
-  },
-  playingRow: {
+  busyRow: {
     flexDirection: 'row',
     alignItems:    'center',
     gap:           6,
   },
-  spinner: { marginRight: 2 },
 });

@@ -131,7 +131,7 @@ const s = StyleSheet.create({
   },
   input: {
     borderWidth:       1,
-    borderRadius:      4,
+    borderRadius:      6,
     paddingVertical:   4,
     paddingHorizontal: 6,
     fontSize:          16,
@@ -141,8 +141,10 @@ const s = StyleSheet.create({
   lockBtn: {
     paddingHorizontal: 6,
     paddingVertical:   8,
-    borderRadius:      4,
+    borderRadius:      6,
     borderWidth:       1,
+    minWidth:          36,
+    alignItems:        'center',
   },
   lockIcon: { fontSize: 16 },
 });

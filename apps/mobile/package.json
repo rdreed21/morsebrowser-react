@@ -7,12 +7,15 @@
     "ios": "expo run:ios",
     "build:ios": "eas build --platform ios --profile preview",
     "sync-wordfiles": "node scripts/sync-wordfiles.mjs",
-    "prestart": "node scripts/sync-wordfiles.mjs",
-    "preios": "node scripts/sync-wordfiles.mjs"
+    "sync-presets": "node scripts/sync-presets.mjs",
+    "prestart": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs",
+    "preios": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs"
   },
   "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
     "@morsebrowser/core": "file:../../packages/core",
     "@morsebrowser/types": "file:../../packages/types",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/netinfo": "^12.0.1",
     "expo": "~56.0.0",
     "expo-asset": "^56.0.16",

@@ -1,7 +1,47 @@
-node_modules
-.turbo
-dist
-.expo
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.turbo/
 *.tsbuildinfo
+
+# Expo / React Native / native build artifacts
+# (apps/mobile/ios/.gitignore covers most Xcode-specific patterns;
+# these cover the rest, and any future apps/*/android the same way)
+.expo/
+*.jsbundle
+**/ios/Pods/
+**/ios/build/
+**/android/build/
+**/android/.gradle/
+**/android/app/build/
+
+# Test / lint / tooling output
+coverage/
+.eslintcache
+visual-diff-output/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env & signing/credentials — never commit these
 .env
-visual-diff-output
+.env.local
+*.keystore
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+*.pem
+
+# Editors / OS cruft
+.vscode/
+.idea/
+.DS_Store
+
+# Claude Code — machine-local settings & lockfiles, not shared config
+**/.claude/settings.local.json
+**/.claude/scheduled_tasks.lock

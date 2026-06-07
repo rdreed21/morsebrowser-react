@@ -6,96 +6,14 @@ import {
   fetchSettingsPresetsForLesson,
   resolvePresetSettings,
   snapshotToSerialized,
-  type MorseSettingsSnapshot,
-  type PresetSettingsMutator,
   type SerializedSetting,
   type SettingsOption,
 } from '@morsebrowser/core';
 import { useMorseApp } from '../context/MorseAppContext';
 import { pickAndParseSettingsFile, shareSettingsFile } from '../utils/mobileSettingsExport';
+import { buildMutatorFromApp, buildSnapshotFromApp } from '../utils/settingsSnapshot';
 
 const COOKIE_LOCKOUT_MS = 700;
-
-function buildSnapshotFromApp(app: ReturnType<typeof useMorseApp>): MorseSettingsSnapshot {
-  return {
-    charWPM: app.charWPM,
-    effectiveWPM: app.effectiveWPM,
-    syncWpm: app.syncWpm,
-    koVolume: app.koVolume,
-    xtraWordSpaceDits: app.xtraWordSpaceDits,
-    stickySets: app.stickySets,
-    ifStickySets: app.ifStickySets,
-    hideList: app.hideList,
-    showRaw: app.showRaw,
-    darkMode: app.darkMode,
-    autoCloseLessonAccordion: app.autoCloseLessonAccordion,
-    ifCustomGroup: app.ifCustomGroup,
-    customGroup: app.customGroup,
-    voiceEnabled: app.voiceEnabled,
-    voiceSpelling: app.voiceSpelling,
-    voiceThinkingTime: app.voiceThinkingTime,
-    voiceAfterThinkingTime: app.voiceAfterThinkingTime,
-    voiceLastOnly: app.voiceLastOnly,
-    manualVoice: app.manualVoice,
-    speakFirst: app.speakFirst,
-    numberOfRepeats: app.numberOfRepeats,
-    speakFirstAdditionalWordspaces: app.speakFirstAdditionalWordspaces,
-    newlineChunking: app.newlineChunking,
-    syncSize: app.syncSize,
-    ifOverrideMinMax: app.ifOverrideMinMax,
-    overrideMin: app.overrideMin,
-    overrideMax: app.overrideMax,
-    cardSpace: app.cardSpace,
-    speedInterval: app.speedInterval,
-    intervalTimingsText: app.intervalTimingsText,
-    intervalWpmText: app.intervalWpmText,
-    intervalFwpmText: app.intervalFwpmText,
-    voiceBufferMaxLength: app.voiceBufferMaxLength,
-    voiceVolume: app.voiceVolume,
-    isShuffled: app.isShuffled,
-    shuffleIntraGroup: app.shuffleIntraGroup,
-  };
-}
-
-function buildMutatorFromApp(app: ReturnType<typeof useMorseApp>): PresetSettingsMutator {
-  return {
-    setCharWPM: app.setCharWPM,
-    setEffectiveWPM: app.setEffectiveWPM,
-    setSyncWpm: app.setSyncWpm,
-    setKoVolume: app.setKoVolume,
-    setXtraWordSpaceDits: app.setXtraWordSpaceDits,
-    setStickySets: app.setStickySets,
-    setIfStickySets: app.setIfStickySets,
-    setHideList: app.setHideList,
-    setShowRaw: app.setShowRaw,
-    setDarkMode: app.setDarkMode,
-    setAutoCloseLessonAccordion: app.setAutoCloseLessonAccordion,
-    setIfCustomGroup: app.setIfCustomGroup,
-    setCustomGroup: app.setCustomGroup,
-    setVoiceEnabled: app.setVoiceEnabled,
-    setVoiceSpelling: app.setVoiceSpelling,
-    setVoiceThinkingTime: app.setVoiceThinkingTime,
-    setVoiceAfterThinkingTime: app.setVoiceAfterThinkingTime,
-    setVoiceLastOnly: app.setVoiceLastOnly,
-    setManualVoice: app.setManualVoice,
-    setSpeakFirst: app.setSpeakFirst,
-    setNumberOfRepeats: app.setNumberOfRepeats,
-    setSpeakFirstAdditionalWordspaces: app.setSpeakFirstAdditionalWordspaces,
-    setNewlineChunking: app.setNewlineChunking,
-    setSyncSize: app.setSyncSize,
-    setIfOverrideMinMax: app.setIfOverrideMinMax,
-    setOverrideMin: app.setOverrideMin,
-    setOverrideMax: app.setOverrideMax,
-    setCardSpace: app.setCardSpace,
-    setSpeedInterval: app.setSpeedInterval,
-    setIntervalTimingsText: app.setIntervalTimingsText,
-    setIntervalWpmText: app.setIntervalWpmText,
-    setIntervalFwpmText: app.setIntervalFwpmText,
-    setVoiceBufferMaxLength: app.setVoiceBufferMaxLength,
-    setIsShuffled: app.setIsShuffled,
-    setShuffleIntraGroup: app.setShuffleIntraGroup,
-  };
-}
 
 export function usePresets(onPresetApplied?: () => void) {
   const app = useMorseApp();

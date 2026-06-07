@@ -1,7 +1,7 @@
 import React, {
   createContext, useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
-import { DEFAULT_SETTINGS } from '@morsebrowser/core';
+import { applySerializedSettings, DEFAULT_SETTINGS, snapshotToSerialized } from '@morsebrowser/core';
 import type { MorseSettings, MorseTimingConfig } from '@morsebrowser/types';
 import { getWords, rawTextCharCount } from '../utils/words';
 import { formatPlayTime } from '../utils/formatTime';
@@ -15,12 +15,16 @@ import {
   checkVoiceCapable, loadAvailableVoices, type VoiceOption,
 } from '../utils/voiceSpeech';
 import type { WordListOption } from '@morsebrowser/core';
+import { buildMutatorFromApp, buildSnapshotFromApp } from '../utils/settingsSnapshot';
+import {
+  loadPersistedSettings, savePersistedSettings, type PersistedExtras,
+} from '../utils/settingsPersistence';
 
 export type { VoiceOption };
 
 export const DEFAULT_SHOWING_TEXT = '{CQ|c q} {LICW|l i c w}';
 
-interface MorseAppContextValue {
+export interface MorseAppContextValue {
   settings: MorseSettings;
   charWPM: number;
   effectiveWPM: number;
@@ -124,6 +128,7 @@ interface MorseAppContextValue {
   flaggedWordsCount: number;
   setFlaggedWords: (v: string) => void;
   clearFlaggedWords: () => void;
+  loadFlaggedAsText: () => void;
   addFlaggedWord: (rawWord: string) => void;
   newlineChunking: boolean;
   setNewlineChunking: (v: boolean) => void;
@@ -513,6 +518,13 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     if (flaggedWords.trim()) setFlaggedWordsState('');
   }, [flaggedWords]);
 
+  const loadFlaggedAsText = useCallback(() => {
+    if (!flaggedWords.trim()) return;
+    setShowingText(flaggedWords.trim());
+    setShowRaw(true);
+    setCurrentIndex(0);
+  }, [flaggedWords]);
+
   const addFlaggedWord = useCallback((rawWord: string) => {
     const now = Date.now();
     const msSince = now - lastFlaggedMsRef.current;
@@ -653,6 +665,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     flaggedWordsCount,
     setFlaggedWords,
     clearFlaggedWords,
+    loadFlaggedAsText,
     addFlaggedWord,
     morseDisabled: false,
     speakFirstAdditionalWordspaces,
@@ -715,7 +728,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     ifOverrideMinMax, overrideMin, overrideMax, syncSize,
     ifStickySets, stickySets,
     applyEnabled, applyLesson, randomizeLessons,
-    flaggedWords, flaggedWordsCount, clearFlaggedWords, addFlaggedWord,
+    flaggedWords, flaggedWordsCount, clearFlaggedWords, loadFlaggedAsText, addFlaggedWord,
     speakFirstAdditionalWordspaces,
     selectedPreset, autoCloseLessonAccordion, shuffleIntraGroup,
     speedInterval, intervalTimingsText, intervalWpmText, intervalFwpmText,
@@ -724,6 +737,71 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     voiceVoices, voiceVoiceIdx, voiceVolume, voiceLastOnly, voicePitch,
     voiceRate, voiceBufferMaxLength, initVoices,
   ]);
+
+  // Restore persisted settings once on startup (AsyncStorage), mirroring how the web
+  // app restores cookie-backed settings on load.
+  const persistLoadedRef = React.useRef(false);
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      const persisted = await loadPersistedSettings();
+      if (cancelled || !persisted) {
+        persistLoadedRef.current = true;
+        return;
+      }
+      applySerializedSettings(persisted.snapshot, buildMutatorFromApp(value));
+      const e = persisted.extras;
+      if (e.ditFrequency !== undefined) setDitFrequency(e.ditFrequency);
+      if (e.dahFrequency !== undefined) setDahFrequency(e.dahFrequency);
+      if (e.syncFreq !== undefined) setSyncFreq(e.syncFreq);
+      if (e.preSpace !== undefined) setPreSpace(e.preSpace);
+      if (e.cardFontPx !== undefined) setCardFontPx(e.cardFontPx);
+      if (e.cardsVisible !== undefined) setCardsVisible(e.cardsVisible);
+      if (e.trailReveal !== undefined) setTrailReveal(e.trailReveal);
+      if (e.trailPreDelay !== undefined) setTrailPreDelay(e.trailPreDelay);
+      if (e.trailPostDelay !== undefined) setTrailPostDelay(e.trailPostDelay);
+      if (e.trailFinal !== undefined) setTrailFinal(e.trailFinal);
+      if (e.maxRevealedTrail !== undefined) setMaxRevealedTrail(e.maxRevealedTrail);
+      if (e.flaggedWords !== undefined) setFlaggedWords(e.flaggedWords);
+      persistLoadedRef.current = true;
+    })();
+    return () => { cancelled = true; };
+    // Runs once on mount — intentionally not re-running when callbacks change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Persist settings on change, debounced so rapid edits (typing, dragging) collapse
+  // into a single AsyncStorage write.
+  const lastPersistedRef = React.useRef<string | null>(null);
+  const persistTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (!persistLoadedRef.current) return;
+    if (persistTimerRef.current) clearTimeout(persistTimerRef.current);
+    persistTimerRef.current = setTimeout(() => {
+      const snapshot = snapshotToSerialized(buildSnapshotFromApp(value));
+      const extras: PersistedExtras = {
+        ditFrequency: value.ditFrequency,
+        dahFrequency: value.dahFrequency,
+        syncFreq: value.syncFreq,
+        preSpace: value.preSpace,
+        cardFontPx: value.cardFontPx,
+        cardsVisible: value.cardsVisible,
+        trailReveal: value.trailReveal,
+        trailPreDelay: value.trailPreDelay,
+        trailPostDelay: value.trailPostDelay,
+        trailFinal: value.trailFinal,
+        maxRevealedTrail: value.maxRevealedTrail,
+        flaggedWords: value.flaggedWords,
+      };
+      const serialized = JSON.stringify({ snapshot, extras });
+      if (serialized === lastPersistedRef.current) return;
+      lastPersistedRef.current = serialized;
+      void savePersistedSettings(snapshot, extras);
+    }, 500);
+    return () => {
+      if (persistTimerRef.current) clearTimeout(persistTimerRef.current);
+    };
+  }, [value]);
 
   return (
     <MorseAppContext.Provider value={value}>

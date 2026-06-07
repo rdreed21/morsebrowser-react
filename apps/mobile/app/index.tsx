@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  ScrollView, View, Text, StyleSheet,
+  ScrollView, View, Text, Image, StyleSheet,
   TouchableOpacity, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 import { useMorseApp } from '../src/context/MorseAppContext';
 import { SpeedSettingsBar } from '../src/components/SpeedSettingsBar';
 import { PlaybackControls } from '../src/components/PlaybackControls';
@@ -12,15 +13,12 @@ import { LessonsPicker } from '../src/components/LessonsPicker';
 import { LessonOptionsSection } from '../src/components/LessonOptionsSection';
 import { WorkingTextStats } from '../src/components/WorkingTextStats';
 import { SettingsSection } from '../src/components/SettingsSection';
-import { ToneSettingsSection } from '../src/components/ToneSettingsSection';
-import { InputOptionsSection } from '../src/components/InputOptionsSection';
-import { OutputOptionsSection } from '../src/components/OutputOptionsSection';
-import { VoiceOptionsSection } from '../src/components/VoiceOptionsSection';
 import { useTheme } from '../src/utils/theme';
 
 export default function HomeScreen() {
   const app = useMorseApp();
   const t = useTheme();
+  const router = useRouter();
 
   return (
     <SafeAreaView style={[s.flex, { backgroundColor: t.bg }]}>
@@ -29,20 +27,36 @@ export default function HomeScreen() {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <View style={[s.header, { backgroundColor: t.headerBg }]}>
-          <Text style={s.title}>LICW Morsebrowser</Text>
-          <TouchableOpacity
-            style={s.themeBtn}
-            onPress={app.toggleDarkMode}
-            accessibilityLabel={app.darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            <Text style={s.themeBtnText}>{app.darkMode ? '☀️' : '🌙'}</Text>
-          </TouchableOpacity>
+          <View style={s.titleGroup}>
+            <Image
+              source={require('../assets/images/licw-logo.png')}
+              style={s.logo}
+              accessibilityLabel="LICW club logo"
+            />
+            <Text style={s.title}>LICW Morsebrowser</Text>
+          </View>
+          <View style={s.headerActions}>
+            <TouchableOpacity
+              style={s.headerBtn}
+              onPress={app.toggleDarkMode}
+              accessibilityLabel={app.darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              <Text style={s.headerBtnText}>{app.darkMode ? '☀️' : '🌙'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={s.headerBtn}
+              onPress={() => router.push('/settings')}
+              accessibilityLabel="Open settings"
+            >
+              <Text style={s.headerBtnText}>⚙️</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Speed settings always visible */}
         <SpeedSettingsBar />
 
-        {/* Settings + stats scroll area */}
+        {/* Lessons + lesson options + stats scroll area */}
         <ScrollView
           style={[s.scrollArea, { backgroundColor: t.bg }]}
           contentContainerStyle={s.scrollContent}
@@ -52,28 +66,13 @@ export default function HomeScreen() {
             title="LICW Lessons"
             badge={app.selectedDisplay?.display}
             defaultOpen
+            collapseWhen={app.isPlaying}
           >
             <LessonsPicker />
           </SettingsSection>
 
-          <SettingsSection title="Lesson Options">
+          <SettingsSection title="Lesson Options" collapseWhen={app.isPlaying}>
             <LessonOptionsSection />
-          </SettingsSection>
-
-          <SettingsSection title="Voice Options">
-            <VoiceOptionsSection />
-          </SettingsSection>
-
-          <SettingsSection title="Tone Options">
-            <ToneSettingsSection />
-          </SettingsSection>
-
-          <SettingsSection title="Input / Practice Text">
-            <InputOptionsSection />
-          </SettingsSection>
-
-          <SettingsSection title="Output Options">
-            <OutputOptionsSection />
           </SettingsSection>
 
           <WorkingTextStats />
@@ -102,14 +101,38 @@ const s = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical:   10,
   },
+  titleGroup: {
+    flexDirection: 'row',
+    alignItems:    'center',
+    gap:           8,
+    flexShrink:    1,
+  },
+  logo: {
+    width:        30,
+    height:       30,
+    borderRadius: 15,
+    backgroundColor: '#fff',
+  },
   title: {
     color:      '#fff',
     fontSize:   18,
     fontWeight: '700',
     letterSpacing: 0.3,
+    flexShrink: 1,
   },
-  themeBtn: { padding: 6 },
-  themeBtnText: { fontSize: 20 },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems:    'center',
+    gap:           4,
+  },
+  headerBtn: {
+    padding:        8,
+    minWidth:       44,
+    minHeight:      44,
+    alignItems:     'center',
+    justifyContent: 'center',
+  },
+  headerBtnText: { fontSize: 20 },
   scrollArea: { flex: 1 },
   scrollContent: {
     padding:       12,
