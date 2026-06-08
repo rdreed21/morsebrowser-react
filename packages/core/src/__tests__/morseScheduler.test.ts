@@ -4,6 +4,7 @@ import { DEFAULT_TIMING } from '../audio/timingEngine';
 function mockContext(captureFrequency?: (hz: number) => void) {
   return {
     currentTime: 0,
+    sampleRate: 44100,
     destination: { connect: () => {} },
     createOscillator: () => {
       const store = { hz: 500 };
@@ -17,10 +18,17 @@ function mockContext(captureFrequency?: (hz: number) => void) {
             store.hz = hz;
             captureFrequency?.(hz);
           },
+          setValueAtTime: (hz: number) => {
+            store.hz = hz;
+            captureFrequency?.(hz);
+          },
+          linearRampToValueAtTime: () => {},
         },
         connect: () => {},
+        disconnect: () => {},
         start: () => {},
         stop: () => {},
+        onEnded: undefined as ((event: unknown) => void) | undefined,
       };
     },
     createGain: () => ({
@@ -28,8 +36,10 @@ function mockContext(captureFrequency?: (hz: number) => void) {
         value: 1,
         setValueAtTime: () => {},
         linearRampToValueAtTime: () => {},
+        setValueCurveAtTime: () => {},
       },
       connect: () => {},
+      disconnect: () => {},
     }),
   };
 }

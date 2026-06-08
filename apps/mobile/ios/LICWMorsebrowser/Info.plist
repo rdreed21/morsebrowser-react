@@ -28,7 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>morsebrowser</string>
-				<string>net.reedgames.morsebrowser</string>
+				<string>com.kq4nkf.morsebrowser</string>
 			</array>
 		</dict>
 	</array>

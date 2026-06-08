@@ -22,7 +22,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LICWMorsebrowser/Info.plist; sourceTree = "<group>"; };
 		19E255FCD79012B49C92910E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-LICWMorsebrowser/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		60E9C3A6A9D162E6DC2721A1 /* Pods-LICWMorsebrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LICWMorsebrowser.debug.xcconfig"; path = "Target Support Files/Pods-LICWMorsebrowser/Pods-LICWMorsebrowser.debug.xcconfig"; sourceTree = "<group>"; };
-		6FCBCF2E2B742F2F884D86DE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = LICWMorsebrowser/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6FCBCF2E2B742F2F884D86DE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = LICWMorsebrowser/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9A0048CB951247C40C9DD6F5 /* Pods-LICWMorsebrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LICWMorsebrowser.release.xcconfig"; path = "Target Support Files/Pods-LICWMorsebrowser/Pods-LICWMorsebrowser.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = LICWMorsebrowser/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
@@ -128,7 +128,6 @@
 				60E9C3A6A9D162E6DC2721A1 /* Pods-LICWMorsebrowser.debug.xcconfig */,
 				9A0048CB951247C40C9DD6F5 /* Pods-LICWMorsebrowser.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -357,6 +356,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LICWMorsebrowser/LICWMorsebrowser.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q4WM4SM45A;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -376,7 +376,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = net.reedgames.morsebrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kq4nkf.morsebrowser;
 				PRODUCT_NAME = LICWMorsebrowser;
 				SWIFT_OBJC_BRIDGING_HEADER = "LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -394,6 +394,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LICWMorsebrowser/LICWMorsebrowser.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q4WM4SM45A;
 				INFOPLIST_FILE = LICWMorsebrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -408,7 +409,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = net.reedgames.morsebrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kq4nkf.morsebrowser;
 				PRODUCT_NAME = LICWMorsebrowser;
 				SWIFT_OBJC_BRIDGING_HEADER = "LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

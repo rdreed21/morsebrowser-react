@@ -699,7 +699,7 @@ cat > apps/mobile/app.json << 'EOF'
     "platforms": ["ios"],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "net.reedgames.morsebrowser",
+      "bundleIdentifier": "com.kq4nkf.morsebrowser",
       "infoPlist": {
         "UIBackgroundModes": ["audio"],
         "NSMicrophoneUsageDescription": "Required by audio framework."

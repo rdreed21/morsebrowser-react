@@ -9,6 +9,13 @@ const presetsDir = path.resolve(workspaceRoot, 'packages/core/src/presets/data')
 
 const config = getDefaultConfig(projectRoot);
 
+// getDefaultConfig points server.unstable_serverRoot at the monorepo root for
+// web monorepo support, but Metro's asset request handler still resolves
+// /assets/* relative to projectRoot — the mismatch doubles the path
+// (apps/mobile/apps/mobile/assets/...) and 404s every local image. Pin it
+// back to projectRoot since this app is iOS-only.
+config.server.unstable_serverRoot = projectRoot;
+
 // Watch workspace packages
 config.watchFolders = [workspaceRoot];
 

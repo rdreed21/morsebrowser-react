@@ -87,7 +87,7 @@ don't reliably model background/Doze behavior):
   "expo": {
     "platforms": ["ios", "android"],
     "android": {
-      "package": "net.reedgames.morsebrowser",        // Android's bundleIdentifier equivalent
+      "package": "com.kq4nkf.morsebrowser",        // Android's bundleIdentifier equivalent
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon-foreground.png",
         "backgroundColor": "#ffffff"
