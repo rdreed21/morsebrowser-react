@@ -1,7 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { SettingsAccordion } from './SettingsAccordion';
 import { MorseAppProvider, useMorseApp } from '../../context/MorseAppContext';
+
+// RssAccordion (always rendered) is the only consumer of playback controls; stub it.
+vi.mock('../../context/MorsePlaybackContext', () => ({
+  useMorsePlaybackControls: () => ({ lastFullPlayTimeMs: 0, playPracticeFromText: vi.fn() }),
+}));
 
 describe('SettingsAccordion', () => {
   it('renders accordionArea with KO section order', () => {

@@ -204,6 +204,15 @@
     color: #fff;
 }
 
+/* Bootstrap's `.accordion` rule sets --bs-accordion-btn-bg to var(--bs-accordion-bg)
+   on the element itself, which shadows the [data-theme="dark"] value above and makes
+   collapsed headers blend into the page background. Re-assert it at .accordion level
+   (higher specificity, same element) so headers sit slightly above the background,
+   matching morsebrowser_dev. */
+[data-theme="dark"] .accordion {
+    --bs-accordion-btn-bg: #1e2229;
+}
+
 [data-theme="dark"] .accordion-item {
     background-color: var(--bs-accordion-bg);
     border-color: var(--bs-accordion-border-color);
