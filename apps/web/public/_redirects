@@ -1,0 +1,3 @@
+# SPA fallback. Real assets (hashed JS/CSS, /wordfiles/*, /presets/*) are served
+# directly by Cloudflare Pages before this catch-all rewrite is applied.
+/*  /index.html  200

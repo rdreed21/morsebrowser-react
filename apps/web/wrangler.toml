@@ -1,0 +1,7 @@
+# Cloudflare Pages project config for the morsebrowser web SPA.
+# The static bundle is produced by `npm run build` (Vite -> apps/web/dist).
+# Build env/commands are driven by CI (.github/workflows/deploy.yml), so no
+# build settings need to be configured in the Cloudflare dashboard.
+name = "morsebrowser"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
