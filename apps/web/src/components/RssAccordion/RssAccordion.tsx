@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useRssPlugin } from '../../hooks/useRssPlugin';
 import { getMorseImageSrc } from '../../utils/morseImages';
 import { SETTINGS_ACCORDION_IDS } from '../../utils/settingsAccordion';
@@ -13,7 +14,12 @@ const CUSTOM_VALUE = '__custom__';
 export function RssAccordion() {
   const rss = useRssPlugin();
 
-  const isCustom = !PRESET_FEEDS.some(f => f.url === rss.rssFeedUrl);
+  // Track whether the user has selected "Custom URL…" explicitly. Initialise
+  // to true when the stored URL isn't one of the presets (e.g. carried over
+  // from a previous session).
+  const [customMode, setCustomMode] = useState(
+    () => !PRESET_FEEDS.some(f => f.url === rss.rssFeedUrl),
+  );
 
   return (
     <SettingsAccordionItem
@@ -47,12 +53,14 @@ export function RssAccordion() {
                   className="form-select"
                   style={{ width: 300 }}
                   aria-label="RSS feed"
-                  value={isCustom ? CUSTOM_VALUE : rss.rssFeedUrl}
+                  value={customMode ? CUSTOM_VALUE : rss.rssFeedUrl}
                   onChange={e => {
-                    if (e.target.value !== CUSTOM_VALUE) {
+                    if (e.target.value === CUSTOM_VALUE) {
+                      setCustomMode(true);
+                    } else {
+                      setCustomMode(false);
                       rss.setRssFeedUrl(e.target.value);
                     }
-                    // Selecting "Custom URL…" keeps current URL visible in the text field below
                   }}
                 >
                   {PRESET_FEEDS.map(f => (
@@ -60,7 +68,7 @@ export function RssAccordion() {
                   ))}
                   <option value={CUSTOM_VALUE}>Custom URL…</option>
                 </select>
-                {isCustom && (
+                {customMode && (
                   <input
                     type="text"
                     className="form-control"

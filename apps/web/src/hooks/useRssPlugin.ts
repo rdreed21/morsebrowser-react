@@ -83,11 +83,15 @@ export function useRssPlugin() {
   lastFullPlayTimeMsRef.current = lastFullPlayTimeMs;
   isPlayingRef.current = isPlaying;
 
-  // Count distinct articles (by articleId) that still have unplayed cards
+  // In headlines mode count unplayed headlines; in full-article mode count
+  // distinct articles (articleId) that have any unplayed card.
   const unreadCount = useMemo(() => {
-    const unread = new Set(titlesQueue.filter(t => !t.played).map(t => t.articleId));
-    return unread.size;
-  }, [titlesQueue]);
+    if (rssFullArticle) {
+      const unread = new Set(titlesQueue.filter(t => !t.played).map(t => t.articleId));
+      return unread.size;
+    }
+    return titlesQueue.filter(t => !t.played && t.isHeadline).length;
+  }, [titlesQueue, rssFullArticle]);
 
   const pollRssButtonText = useMemo(() => {
     let waitingText = '';
@@ -131,7 +135,11 @@ export function useRssPlugin() {
     if (!isPlayingRef.current) {
       if (enoughWait || ignoreWait) {
         setRssMinsToWait(-1);
-        const target = titlesQueueRef.current.find(t => !t.played);
+        // In headlines mode skip sentence cards so they stay unplayed and
+        // will play if the user later switches to full-article mode.
+        const target = titlesQueueRef.current.find(
+          t => !t.played && (rssFullArticle || t.isHeadline),
+        );
         if (target) {
           setTitlesQueue(prev => prev.map(t => (
             t.id === target.id ? { ...t, played: true } : t
