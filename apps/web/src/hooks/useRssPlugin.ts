@@ -183,7 +183,13 @@ export function useRssPlugin() {
         const rawItems = nodes
           .map(n => ({
             title: n.querySelector('title')?.textContent?.trim() ?? '',
-            description: n.querySelector('description')?.textContent?.trim() ?? '',
+            // RSS 2.0 uses <description>; Atom uses <content> or <summary>
+            description: (
+              n.querySelector('description')?.textContent
+              ?? n.querySelector('content')?.textContent
+              ?? n.querySelector('summary')?.textContent
+              ?? ''
+            ).trim(),
           }))
           .filter(i => i.title)
           .reverse(); // oldest first so newest arrives at the end of the queue
