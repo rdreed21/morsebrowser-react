@@ -170,8 +170,10 @@ export function useRssPlugin() {
       setRssPolling(true);
       setRssPollMinsToWait(-1);
       const fetchUrl = `${proxyUrl}${rssFeedUrl}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15_000);
       try {
-        const resp = await fetch(fetchUrl);
+        const resp = await fetch(fetchUrl, { signal: controller.signal });
         if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
         const xml = await resp.text();
         const doc = new DOMParser().parseFromString(xml, 'text/xml');
@@ -181,27 +183,37 @@ export function useRssPlugin() {
         // RSS 2.0 uses <item>, Atom uses <entry>
         const nodes = Array.from(doc.querySelectorAll('item, entry'));
         const rawItems = nodes
-          .map(n => ({
-            title: n.querySelector('title')?.textContent?.trim() ?? '',
+          .map(n => {
+            const title = n.querySelector('title')?.textContent?.trim() ?? '';
             // RSS 2.0 uses <description>; Atom uses <content> or <summary>
-            description: (
+            const description = (
               n.querySelector('description')?.textContent
               ?? n.querySelector('content')?.textContent
               ?? n.querySelector('summary')?.textContent
               ?? ''
-            ).trim(),
-          }))
+            ).trim();
+            // Prefer stable feed-provided identifiers over title for dedup so
+            // two articles with identical titles aren't silently collapsed.
+            const entryId = (
+              n.querySelector('guid')?.textContent?.trim()
+              ?? n.querySelector('id')?.textContent?.trim()
+              ?? n.querySelector('link')?.getAttribute('href')?.trim()
+              ?? n.querySelector('link')?.textContent?.trim()
+              ?? title
+            );
+            return { entryId, title, description };
+          })
           .filter(i => i.title)
           .reverse(); // oldest first so newest arrives at the end of the queue
 
         setTitlesQueue(prev => {
           const next = [...prev];
-          rawItems.forEach(({ title, description }) => {
-            const headlineId = `headline|${title}`;
+          rawItems.forEach(({ entryId, title, description }) => {
+            const headlineId = `headline|${entryId}`;
             if (next.some(t => t.id === headlineId)) return; // already queued
-            next.push({ id: headlineId, text: title, articleId: title, isHeadline: true, played: false });
+            next.push({ id: headlineId, text: title, articleId: entryId, isHeadline: true, played: false });
             if (rssFullArticle && description) {
-              next.push(...parseDescriptionToSentences(description, title));
+              next.push(...parseDescriptionToSentences(description, entryId));
             }
           });
           return next;
@@ -214,6 +226,7 @@ export function useRssPlugin() {
         console.error('[RSS] fetch failed:', fetchUrl, err);
         window.alert(`RSS error — tried:\n${fetchUrl}\n\n${err instanceof Error ? err.message : String(err)}`);
       } finally {
+        clearTimeout(timeoutId);
         setRssPolling(false);
       }
     } else {
