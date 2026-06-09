@@ -336,7 +336,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     () => readStrCookie('rssFeedUrl', 'https://moxie.foxnews.com/feedburner/latest.xml'),
   );
   const [proxyUrl, setProxyUrlState] = useState(
-    () => readStrCookie('proxydUrl', 'http://127.0.0.1:8085/'),
+    () => readStrCookie('proxydUrl', import.meta.env.VITE_RSS_PROXY || 'http://127.0.0.1:8085/'),
   );
   const [rssPollMins, setRssPollMinsState] = useState(() => readNumCookie('rssPollMins', 5));
   const [rssPlayMins, setRssPlayMinsState] = useState(() => readNumCookie('rssPlayMins', 5));
