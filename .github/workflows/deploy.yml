@@ -41,6 +41,8 @@ jobs:
       - name: Deploy RSS proxy Worker
         uses: cloudflare/wrangler-action@v3
         with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: workers/rss-proxy
 
       # `wrangler pages deploy` prompts to create the project if it's missing,
@@ -52,4 +54,6 @@ jobs:
       - name: Deploy Pages site
         uses: cloudflare/wrangler-action@v3
         with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy apps/web/dist --project-name=morsebrowser --branch=master
