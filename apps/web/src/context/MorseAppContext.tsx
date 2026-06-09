@@ -335,9 +335,15 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const [rssFeedUrl, setRssFeedUrlState] = useState(
     () => readStrCookie('rssFeedUrl', 'https://moxie.foxnews.com/feedburner/latest.xml'),
   );
-  const [proxyUrl, setProxyUrlState] = useState(
-    () => readStrCookie('proxydUrl', import.meta.env.VITE_RSS_PROXY || 'http://127.0.0.1:8085/'),
-  );
+  const [proxyUrl, setProxyUrlState] = useState(() => {
+    // The proxy is concatenated with the feed URL (`${proxyUrl}${feedUrl}`),
+    // so the default must end in '/' even if VITE_RSS_PROXY was set without one.
+    const envProxy = (import.meta.env.VITE_RSS_PROXY || '').trim();
+    const defaultProxy = envProxy
+      ? (envProxy.endsWith('/') ? envProxy : `${envProxy}/`)
+      : 'http://127.0.0.1:8085/';
+    return readStrCookie('proxydUrl', defaultProxy);
+  });
   const [rssPollMins, setRssPollMinsState] = useState(() => readNumCookie('rssPollMins', 5));
   const [rssPlayMins, setRssPlayMinsState] = useState(() => readNumCookie('rssPlayMins', 5));
   const [trailReveal, setTrailRevealState] = useState(() => readBoolCookie('trailReveal', false));
