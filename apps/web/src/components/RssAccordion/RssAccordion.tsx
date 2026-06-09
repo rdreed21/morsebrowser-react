@@ -1,10 +1,25 @@
+import { useState } from 'react';
 import { useRssPlugin } from '../../hooks/useRssPlugin';
 import { getMorseImageSrc } from '../../utils/morseImages';
 import { SETTINGS_ACCORDION_IDS } from '../../utils/settingsAccordion';
 import { SettingsAccordionItem } from '../shared/SettingsAccordionItem';
 
+const PRESET_FEEDS = [
+  { label: 'ARRL News', url: 'https://www.arrl.org/news/rss/' },
+  { label: 'Fox News', url: 'https://moxie.foxnews.com/feedburner/latest.xml' },
+  { label: 'BBC News', url: 'https://feeds.bbci.co.uk/news/rss.xml' },
+];
+const CUSTOM_VALUE = '__custom__';
+
 export function RssAccordion() {
   const rss = useRssPlugin();
+
+  // Track whether the user has selected "Custom URL…" explicitly. Initialise
+  // to true when the stored URL isn't one of the presets (e.g. carried over
+  // from a previous session).
+  const [customMode, setCustomMode] = useState(
+    () => !PRESET_FEEDS.some(f => f.url === rss.rssFeedUrl),
+  );
 
   return (
     <SettingsAccordionItem
@@ -33,15 +48,37 @@ export function RssAccordion() {
       <div className="row row-cols-3 gy-2 gx-2">
             <div className="col-auto">
               <div className="input-group-vertical">
-                <span className="input-group-text">RSS Url</span>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="RSS"
+                <span className="input-group-text">RSS Feed</span>
+                <select
+                  className="form-select"
                   style={{ width: 300 }}
-                  value={rss.rssFeedUrl}
-                  onChange={e => rss.setRssFeedUrl(e.target.value)}
-                />
+                  aria-label="RSS feed"
+                  value={customMode ? CUSTOM_VALUE : rss.rssFeedUrl}
+                  onChange={e => {
+                    if (e.target.value === CUSTOM_VALUE) {
+                      setCustomMode(true);
+                    } else {
+                      setCustomMode(false);
+                      rss.setRssFeedUrl(e.target.value);
+                    }
+                  }}
+                >
+                  {PRESET_FEEDS.map(f => (
+                    <option key={f.url} value={f.url}>{f.label}</option>
+                  ))}
+                  <option value={CUSTOM_VALUE}>Custom URL…</option>
+                </select>
+                {customMode && (
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Custom RSS URL"
+                    style={{ width: 300 }}
+                    value={rss.rssFeedUrl}
+                    onChange={e => rss.setRssFeedUrl(e.target.value)}
+                    placeholder="https://example.com/feed.xml"
+                  />
+                )}
                 <span className="input-group-text">Proxy Url</span>
                 <input
                   type="text"
@@ -89,6 +126,30 @@ export function RssAccordion() {
                 <button type="button" className="btn btn-danger" onClick={rss.doRSSReset}>
                   Mark All Read
                 </button>
+              </div>
+              <div className="btn-group mt-2" role="group" aria-label="Article mode">
+                <input
+                  type="radio"
+                  className="btn-check"
+                  name="rssMode"
+                  id="rssHeadlines"
+                  checked={!rss.rssFullArticle}
+                  onChange={() => rss.setRssFullArticle(false)}
+                />
+                <label className="btn btn-outline-primary btn-sm" htmlFor="rssHeadlines">
+                  Headlines
+                </label>
+                <input
+                  type="radio"
+                  className="btn-check"
+                  name="rssMode"
+                  id="rssFullArticle"
+                  checked={rss.rssFullArticle}
+                  onChange={() => rss.setRssFullArticle(true)}
+                />
+                <label className="btn btn-outline-primary btn-sm" htmlFor="rssFullArticle">
+                  Headlines + Article
+                </label>
               </div>
             </div>
           </div>

@@ -163,10 +163,12 @@ interface MorseAppContextValue {
   proxyUrl: string;
   rssPollMins: number;
   rssPlayMins: number;
+  rssFullArticle: boolean;
   setRssFeedUrl: (v: string) => void;
   setProxyUrl: (v: string) => void;
   setRssPollMins: (v: number) => void;
   setRssPlayMins: (v: number) => void;
+  setRssFullArticle: (v: boolean) => void;
   setTrailReveal: (v: boolean) => void;
   setTrailPreDelay: (v: number) => void;
   setTrailPostDelay: (v: number) => void;
@@ -333,7 +335,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const [noiseVolume, setNoiseVolumeState] = useState(() => readNumCookie('noiseVolume', 2));
   const [rssEnabled] = useState(readRssEnabled);
   const [rssFeedUrl, setRssFeedUrlState] = useState(
-    () => readStrCookie('rssFeedUrl', 'https://moxie.foxnews.com/feedburner/latest.xml'),
+    () => readStrCookie('rssFeedUrl', 'https://www.arrl.org/news/rss/'),
   );
   const [proxyUrl, setProxyUrlState] = useState(() => {
     // The proxy is concatenated with the feed URL (`${proxyUrl}${feedUrl}`),
@@ -346,6 +348,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   });
   const [rssPollMins, setRssPollMinsState] = useState(() => readNumCookie('rssPollMins', 5));
   const [rssPlayMins, setRssPlayMinsState] = useState(() => readNumCookie('rssPlayMins', 5));
+  const [rssFullArticle, setRssFullArticleState] = useState(() => readBoolCookie('rssFullArticle', false));
   const [trailReveal, setTrailRevealState] = useState(() => readBoolCookie('trailReveal', false));
   const [trailPreDelay, setTrailPreDelayState] = useState(() => readNumCookie('trailPreDelay', 0));
   const [trailPostDelay, setTrailPostDelayState] = useState(() => readNumCookie('trailPostDelay', 0));
@@ -635,6 +638,11 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     const n = Math.max(0, v);
     setRssPlayMinsState(n);
     setCookie('rssPlayMins', String(n));
+  }, []);
+
+  const setRssFullArticle = useCallback((v: boolean) => {
+    setRssFullArticleState(v);
+    setCookie('rssFullArticle', String(v));
   }, []);
 
   const setTrailReveal = useCallback((v: boolean) => {
@@ -1209,8 +1217,8 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     randomizeLessons, autoCloseLessonAccordion, ifStickySets, stickySets,
     shuffleIntraGroup, speedInterval, intervalTimingsText, intervalWpmText,
     intervalFwpmText, numberOfRepeats, speakFirstAdditionalWordspaces,
-    noiseType, noiseVolume, rssEnabled, rssFeedUrl, proxyUrl, rssPollMins, rssPlayMins,
-    setNoiseType, setNoiseVolume, setRssFeedUrl, setProxyUrl, setRssPollMins, setRssPlayMins,
+    noiseType, noiseVolume, rssEnabled, rssFeedUrl, proxyUrl, rssPollMins, rssPlayMins, rssFullArticle,
+    setNoiseType, setNoiseVolume, setRssFeedUrl, setProxyUrl, setRssPollMins, setRssPlayMins, setRssFullArticle,
     trailReveal, trailPreDelay, trailPostDelay, trailFinal, maxRevealedTrail,
     setIfCustomGroup, setCustomGroup, setIfOverrideTime, setOverrideMins,
     setIfOverrideMinMax, setOverrideMin, setOverrideMax, setSyncSize,

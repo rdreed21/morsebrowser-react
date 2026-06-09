@@ -2,15 +2,49 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useMorseApp } from '../context/MorseAppContext';
 import { useMorsePlaybackControls } from '../context/MorsePlaybackContext';
 
-export interface RssTitle {
-  title: string;
+export interface RssItem {
+  id: string;          // unique key for dedup and mark-played
+  text: string;        // what to pass to playPracticeFromText
+  articleId: string;   // article headline — groups headline + its sentences
+  isHeadline: boolean;
   played: boolean;
 }
 
-const DEFAULT_FEED = 'https://moxie.foxnews.com/feedburner/latest.xml';
+const DEFAULT_FEED = 'https://www.arrl.org/news/rss/';
 // Production builds set VITE_RSS_PROXY to the deployed CORS proxy (e.g. the
 // Cloudflare Worker). Falls back to a local proxy for `vite dev`.
 const DEFAULT_PROXY = import.meta.env.VITE_RSS_PROXY ?? 'http://127.0.0.1:8085/';
+
+function parseDescriptionToSentences(rawHtml: string, articleId: string): RssItem[] {
+  const htmlDoc = new DOMParser().parseFromString(rawHtml, 'text/html');
+  const paragraphEls = Array.from(htmlDoc.querySelectorAll('p'))
+    .map(p => p.textContent?.trim() ?? '')
+    .filter(Boolean);
+
+  // Fall back to the full body text as one paragraph if no <p> tags
+  const paragraphs = paragraphEls.length > 0
+    ? paragraphEls
+    : [(htmlDoc.body.textContent ?? '').trim()].filter(Boolean);
+
+  const items: RssItem[] = [];
+  paragraphs.forEach((para, pIdx) => {
+    // Split on sentence-ending punctuation followed by whitespace
+    const sentences = para
+      .split(/(?<=[.!?])\s+/)
+      .map(s => s.trim())
+      .filter(s => s.length > 3);
+    sentences.forEach((sentence, sIdx) => {
+      items.push({
+        id: `${articleId}|p${pIdx}s${sIdx}`,
+        text: sentence,
+        articleId,
+        isHeadline: false,
+        played: false,
+      });
+    });
+  });
+  return items;
+}
 
 export function useRssPlugin() {
   const {
@@ -18,11 +52,12 @@ export function useRssPlugin() {
     proxyUrl, setProxyUrl,
     rssPollMins, setRssPollMins,
     rssPlayMins, setRssPlayMins,
+    rssFullArticle, setRssFullArticle,
     isPlaying,
   } = useMorseApp();
   const { lastFullPlayTimeMs, playPracticeFromText } = useMorsePlaybackControls();
 
-  const [titlesQueue, setTitlesQueue] = useState<RssTitle[]>([]);
+  const [titlesQueue, setTitlesQueue] = useState<RssItem[]>([]);
   const [rssPlayOn, setRssPlayOn] = useState(false);
   const [rssPollingOn, setRssPollingOn] = useState(false);
   const [rssPolling, setRssPolling] = useState(false);
@@ -48,10 +83,15 @@ export function useRssPlugin() {
   lastFullPlayTimeMsRef.current = lastFullPlayTimeMs;
   isPlayingRef.current = isPlaying;
 
-  const unreadCount = useMemo(
-    () => titlesQueue.filter(t => !t.played).length,
-    [titlesQueue],
-  );
+  // In headlines mode count unplayed headlines; in full-article mode count
+  // distinct articles (articleId) that have any unplayed card.
+  const unreadCount = useMemo(() => {
+    if (rssFullArticle) {
+      const unread = new Set(titlesQueue.filter(t => !t.played).map(t => t.articleId));
+      return unread.size;
+    }
+    return titlesQueue.filter(t => !t.played && t.isHeadline).length;
+  }, [titlesQueue, rssFullArticle]);
 
   const pollRssButtonText = useMemo(() => {
     let waitingText = '';
@@ -82,7 +122,7 @@ export function useRssPlugin() {
 
   const schedulePlayTick = useCallback(() => {
     if (playTimerRef.current) clearTimeout(playTimerRef.current);
-    playTimerRef.current = setTimeout(() => rssPlayTickRef.current(false), 20_000);
+    playTimerRef.current = setTimeout(() => rssPlayTickRef.current(false), 5_000);
   }, []);
 
   const rssPlayTickRef = useRef<(ignoreWait: boolean) => void>(() => {});
@@ -95,12 +135,16 @@ export function useRssPlugin() {
     if (!isPlayingRef.current) {
       if (enoughWait || ignoreWait) {
         setRssMinsToWait(-1);
-        const target = titlesQueueRef.current.find(t => !t.played);
+        // In headlines mode skip sentence cards so they stay unplayed and
+        // will play if the user later switches to full-article mode.
+        const target = titlesQueueRef.current.find(
+          t => !t.played && (rssFullArticle || t.isHeadline),
+        );
         if (target) {
           setTitlesQueue(prev => prev.map(t => (
-            t.title === target.title ? { ...t, played: true } : t
+            t.id === target.id ? { ...t, played: true } : t
           )));
-          playPracticeFromText(target.title);
+          playPracticeFromText(target.text);
         }
       } else {
         setRssMinsToWait(rssPlayMins - minSince);
@@ -126,24 +170,50 @@ export function useRssPlugin() {
       setRssPolling(true);
       setRssPollMinsToWait(-1);
       const fetchUrl = `${proxyUrl}${rssFeedUrl}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15_000);
       try {
-        const resp = await fetch(fetchUrl);
+        const resp = await fetch(fetchUrl, { signal: controller.signal });
         if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
         const xml = await resp.text();
         const doc = new DOMParser().parseFromString(xml, 'text/xml');
         const parseErr = doc.querySelector('parsererror');
         if (parseErr) throw new Error(`XML parse error: ${parseErr.textContent ?? ''}`);
+
         // RSS 2.0 uses <item>, Atom uses <entry>
         const nodes = Array.from(doc.querySelectorAll('item, entry'));
-        const titles = nodes
-          .map(n => n.querySelector('title')?.textContent?.trim() ?? '')
-          .filter(Boolean)
-          .reverse();
+        const rawItems = nodes
+          .map(n => {
+            const title = n.querySelector('title')?.textContent?.trim() ?? '';
+            // RSS 2.0 uses <description>; Atom uses <content> or <summary>
+            const description = (
+              n.querySelector('description')?.textContent
+              ?? n.querySelector('content')?.textContent
+              ?? n.querySelector('summary')?.textContent
+              ?? ''
+            ).trim();
+            // Prefer stable feed-provided identifiers over title for dedup so
+            // two articles with identical titles aren't silently collapsed.
+            const entryId = (
+              n.querySelector('guid')?.textContent?.trim()
+              || n.querySelector('id')?.textContent?.trim()
+              || n.querySelector('link')?.getAttribute('href')?.trim()
+              || n.querySelector('link')?.textContent?.trim()
+              || title
+            );
+            return { entryId, title, description };
+          })
+          .filter(i => i.title)
+          .reverse(); // oldest first so newest arrives at the end of the queue
+
         setTitlesQueue(prev => {
           const next = [...prev];
-          titles.forEach(title => {
-            if (!next.some(t => t.title === title)) {
-              next.push({ title, played: false });
+          rawItems.forEach(({ entryId, title, description }) => {
+            const headlineId = `headline|${entryId}`;
+            if (next.some(t => t.id === headlineId)) return; // already queued
+            next.push({ id: headlineId, text: title, articleId: entryId, isHeadline: true, played: false });
+            if (rssFullArticle && description) {
+              next.push(...parseDescriptionToSentences(description, entryId));
             }
           });
           return next;
@@ -156,6 +226,7 @@ export function useRssPlugin() {
         console.error('[RSS] fetch failed:', fetchUrl, err);
         window.alert(`RSS error — tried:\n${fetchUrl}\n\n${err instanceof Error ? err.message : String(err)}`);
       } finally {
+        clearTimeout(timeoutId);
         setRssPolling(false);
       }
     } else {
@@ -168,10 +239,9 @@ export function useRssPlugin() {
   };
 
   const doRSS = useCallback(() => {
-    // Read the live value from the ref (committed state) and flip it. We must
-    // update the ref *before* kicking off pollTick, because pollTick guards on
-    // rssPollingOnRef.current — if we relied on the state update, the ref would
-    // still hold the old `false` and the guard would bail before fetching.
+    // Flip the ref synchronously before kicking off the tick — the tick guards on
+    // rssPollingOnRef.current, and the state update alone wouldn't commit until after
+    // the next render, causing the guard to bail on the first click.
     const next = !rssPollingOnRef.current;
     rssPollingOnRef.current = next;
     setRssPollingOn(next);
@@ -207,6 +277,8 @@ export function useRssPlugin() {
     setRssPollMins,
     rssPlayMins,
     setRssPlayMins,
+    rssFullArticle,
+    setRssFullArticle,
     unreadCount,
     rssPollingOn,
     rssPlayOn,
