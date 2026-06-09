@@ -196,10 +196,10 @@ export function useRssPlugin() {
             // two articles with identical titles aren't silently collapsed.
             const entryId = (
               n.querySelector('guid')?.textContent?.trim()
-              ?? n.querySelector('id')?.textContent?.trim()
-              ?? n.querySelector('link')?.getAttribute('href')?.trim()
-              ?? n.querySelector('link')?.textContent?.trim()
-              ?? title
+              || n.querySelector('id')?.textContent?.trim()
+              || n.querySelector('link')?.getAttribute('href')?.trim()
+              || n.querySelector('link')?.textContent?.trim()
+              || title
             );
             return { entryId, title, description };
           })
