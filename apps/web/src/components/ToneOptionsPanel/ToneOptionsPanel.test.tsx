@@ -3,6 +3,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { SettingsAccordion } from '../SettingsAccordion/SettingsAccordion';
 import { MorseAppProvider } from '../../context/MorseAppContext';
 
+// RssAccordion (always rendered) is the only consumer of playback controls; stub it.
+vi.mock('../../context/MorsePlaybackContext', () => ({
+  useMorsePlaybackControls: () => ({ lastFullPlayTimeMs: 0, playPracticeFromText: vi.fn() }),
+}));
+
 const playTestTone = vi.fn();
 const stopMorse = vi.fn();
 

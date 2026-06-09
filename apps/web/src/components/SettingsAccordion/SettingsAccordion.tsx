@@ -5,11 +5,8 @@ import { InputOptionsPanel } from '../InputOptionsPanel/InputOptionsPanel';
 import { ToneOptionsPanel } from '../ToneOptionsPanel/ToneOptionsPanel';
 import { OutputOptionsPanel } from '../OutputOptionsPanel/OutputOptionsPanel';
 import { RssAccordion } from '../RssAccordion/RssAccordion';
-import { useMorseApp } from '../../context/MorseAppContext';
 
 export function SettingsAccordion() {
-  const { rssEnabled } = useMorseApp();
-
   return (
     <section title="Settings" aria-label="Settings" className="col">
       <div className="accordion" id="accordionArea">
@@ -17,9 +14,9 @@ export function SettingsAccordion() {
         <LessonOptionsPanel />
         <VoiceOptionsPanel />
         <ToneOptionsPanel />
+        <RssAccordion />
         <InputOptionsPanel />
         <OutputOptionsPanel />
-        {rssEnabled && <RssAccordion />}
       </div>
     </section>
   );

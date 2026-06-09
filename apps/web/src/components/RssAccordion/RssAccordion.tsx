@@ -14,7 +14,7 @@ export function RssAccordion() {
       title={(
         <span>
           <img height={20} width={20} alt="" src={getMorseImageSrc('rssImage')} />
-          &nbsp;RSS (Experimental, and you will need a proxy)
+          &nbsp;RSS (Experimental)
           <span>&nbsp;</span>
           <span className={`badge ${rss.rssPollingOn ? 'bg-success' : 'bg-danger'}`}>
             {rss.rssPollingOn ? rss.pollRssButtonText.replace(/ Waiting.*/, '') : 'No Polling'}
