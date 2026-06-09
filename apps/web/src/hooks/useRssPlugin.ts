@@ -161,27 +161,29 @@ export function useRssPlugin() {
   };
 
   const doRSS = useCallback(() => {
-    setRssPollingOn(prev => {
-      const next = !prev;
-      if (next) {
-        void pollTickRef.current();
-      } else if (pollTimerRef.current) {
-        clearTimeout(pollTimerRef.current);
-      }
-      return next;
-    });
+    // Read the live value from the ref (committed state) and flip it. We must
+    // update the ref *before* kicking off pollTick, because pollTick guards on
+    // rssPollingOnRef.current — if we relied on the state update, the ref would
+    // still hold the old `false` and the guard would bail before fetching.
+    const next = !rssPollingOnRef.current;
+    rssPollingOnRef.current = next;
+    setRssPollingOn(next);
+    if (next) {
+      void pollTickRef.current();
+    } else if (pollTimerRef.current) {
+      clearTimeout(pollTimerRef.current);
+    }
   }, []);
 
   const doRssPlay = useCallback(() => {
-    setRssPlayOn(prev => {
-      const next = !prev;
-      if (next) {
-        rssPlayTickRef.current(true);
-      } else if (playTimerRef.current) {
-        clearTimeout(playTimerRef.current);
-      }
-      return next;
-    });
+    const next = !rssPlayOnRef.current;
+    rssPlayOnRef.current = next;
+    setRssPlayOn(next);
+    if (next) {
+      rssPlayTickRef.current(true);
+    } else if (playTimerRef.current) {
+      clearTimeout(playTimerRef.current);
+    }
   }, []);
 
   useEffect(() => () => {
