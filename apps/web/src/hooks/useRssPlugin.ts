@@ -8,7 +8,9 @@ export interface RssTitle {
 }
 
 const DEFAULT_FEED = 'https://moxie.foxnews.com/feedburner/latest.xml';
-const DEFAULT_PROXY = 'http://127.0.0.1:8085/';
+// Production builds set VITE_RSS_PROXY to the deployed CORS proxy (e.g. the
+// Cloudflare Worker). Falls back to a local proxy for `vite dev`.
+const DEFAULT_PROXY = import.meta.env.VITE_RSS_PROXY ?? 'http://127.0.0.1:8085/';
 
 export function useRssPlugin() {
   const {

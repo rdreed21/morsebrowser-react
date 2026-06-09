@@ -1,0 +1,8 @@
+name = "morse-rss-proxy"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+# Deploys to https://morse-rss-proxy.<your-subdomain>.workers.dev
+# To serve it from a custom hostname on a Cloudflare-managed zone instead,
+# add a route, e.g.:
+#   routes = [{ pattern = "rss-proxy.example.com", custom_domain = true }]
