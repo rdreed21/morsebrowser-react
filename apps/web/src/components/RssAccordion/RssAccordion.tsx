@@ -90,6 +90,30 @@ export function RssAccordion() {
                   Mark All Read
                 </button>
               </div>
+              <div className="btn-group mt-2" role="group" aria-label="Article mode">
+                <input
+                  type="radio"
+                  className="btn-check"
+                  name="rssMode"
+                  id="rssHeadlines"
+                  checked={!rss.rssFullArticle}
+                  onChange={() => rss.setRssFullArticle(false)}
+                />
+                <label className="btn btn-outline-primary btn-sm" htmlFor="rssHeadlines">
+                  Headlines
+                </label>
+                <input
+                  type="radio"
+                  className="btn-check"
+                  name="rssMode"
+                  id="rssFullArticle"
+                  checked={rss.rssFullArticle}
+                  onChange={() => rss.setRssFullArticle(true)}
+                />
+                <label className="btn btn-outline-primary btn-sm" htmlFor="rssFullArticle">
+                  Headlines + Article
+                </label>
+              </div>
             </div>
           </div>
     </SettingsAccordionItem>
