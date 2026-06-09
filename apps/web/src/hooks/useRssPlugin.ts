@@ -118,7 +118,7 @@ export function useRssPlugin() {
 
   const schedulePlayTick = useCallback(() => {
     if (playTimerRef.current) clearTimeout(playTimerRef.current);
-    playTimerRef.current = setTimeout(() => rssPlayTickRef.current(false), 20_000);
+    playTimerRef.current = setTimeout(() => rssPlayTickRef.current(false), 5_000);
   }, []);
 
   const rssPlayTickRef = useRef<(ignoreWait: boolean) => void>(() => {});
