@@ -125,10 +125,11 @@ export function useRssPlugin() {
     if (enoughWait) {
       setRssPolling(true);
       setRssPollMinsToWait(-1);
+      const fetchUrl = `${proxyUrl}${rssFeedUrl}`;
       try {
         const { default: RSSParser } = await import('rss-parser');
         const parser = new RSSParser();
-        const feed = await parser.parseURL(`${proxyUrl}${rssFeedUrl}`);
+        const feed = await parser.parseURL(fetchUrl);
         const items = [...(feed.items ?? [])].reverse();
         setTitlesQueue(prev => {
           const next = [...prev];
@@ -142,9 +143,11 @@ export function useRssPlugin() {
         });
         setLastPollMs(Date.now());
         setRssPollMinsToWait(rssPollMins);
-      } catch {
+      } catch (err) {
         setLastPollMs(Date.now());
-        window.alert('rss error');
+        // eslint-disable-next-line no-console
+        console.error('[RSS] fetch failed:', fetchUrl, err);
+        window.alert(`RSS error — tried:\n${fetchUrl}\n\n${err instanceof Error ? err.message : String(err)}`);
       } finally {
         setRssPolling(false);
       }
