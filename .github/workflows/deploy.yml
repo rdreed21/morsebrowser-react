@@ -43,6 +43,12 @@ jobs:
         with:
           workingDirectory: workers/rss-proxy
 
+      # `wrangler pages deploy` prompts to create the project if it's missing,
+      # which hangs in CI. Create it up front; the `|| true` makes the step a
+      # no-op once the project already exists.
+      - name: Ensure Pages project exists
+        run: npx wrangler@3 pages project create morsebrowser --production-branch=master || true
+
       - name: Deploy Pages site
         uses: cloudflare/wrangler-action@v3
         with:
