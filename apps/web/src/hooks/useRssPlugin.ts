@@ -127,15 +127,22 @@ export function useRssPlugin() {
       setRssPollMinsToWait(-1);
       const fetchUrl = `${proxyUrl}${rssFeedUrl}`;
       try {
-        const { default: RSSParser } = await import('rss-parser');
-        const parser = new RSSParser();
-        const feed = await parser.parseURL(fetchUrl);
-        const items = [...(feed.items ?? [])].reverse();
+        const resp = await fetch(fetchUrl);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
+        const xml = await resp.text();
+        const doc = new DOMParser().parseFromString(xml, 'text/xml');
+        const parseErr = doc.querySelector('parsererror');
+        if (parseErr) throw new Error(`XML parse error: ${parseErr.textContent ?? ''}`);
+        // RSS 2.0 uses <item>, Atom uses <entry>
+        const nodes = Array.from(doc.querySelectorAll('item, entry'));
+        const titles = nodes
+          .map(n => n.querySelector('title')?.textContent?.trim() ?? '')
+          .filter(Boolean)
+          .reverse();
         setTitlesQueue(prev => {
           const next = [...prev];
-          items.forEach(entry => {
-            const title = entry.title?.trim();
-            if (title && !next.some(t => t.title === title)) {
+          titles.forEach(title => {
+            if (!next.some(t => t.title === title)) {
               next.push({ title, played: false });
             }
           });
