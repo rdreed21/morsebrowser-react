@@ -12,6 +12,20 @@ describe('getWords', () => {
       '{LICW|l i c w}',
     ]);
   });
+
+  it('never leaks \\r from CRLF word file content', () => {
+    const words = getWords('FOO \r\nBAR \r\n{BAZ QUX|} {VV|} \r\n', false);
+    expect(words.join('')).not.toContain('\r');
+    // \n legitimately stays attached in space-split mode (KO parity);
+    // only \r must be gone.
+    expect(words.map(w => w.trim())).toEqual(['FOO', 'BAR', '{BAZ QUX|}', '{VV|}']);
+  });
+
+  it('treats bare-CR (old Mac) line endings as newlines', () => {
+    const chunks = getWords('A BIT MUCH \r{A BIT MUCH|} {VV|} \rA PRETTY PENNY ', true);
+    expect(chunks.join('')).not.toContain('\r');
+    expect(chunks[0].trim()).toBe('A BIT MUCH');
+  });
 });
 
 describe('getDisplayWord', () => {

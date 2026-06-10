@@ -139,7 +139,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
   const getPhraseToSpeakFromBuffer = useCallback((): string => {
     const phrase = voiceBufferRef.current.map(m => m.txt).join(' ')
-      .replace(/\n/g, ' ')
+      .replace(/[\r\n]/g, ' ')
       .trim();
     voiceBufferRef.current = [];
     return phrase;

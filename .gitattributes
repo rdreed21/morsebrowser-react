@@ -1,0 +1,3 @@
+# Word list files are parsed by splitting on \n; keep them LF everywhere.
+apps/mobile/assets/wordfiles/** text eol=lf
+apps/web/dummy-non-existing-folder/wordfiles/** text eol=lf
