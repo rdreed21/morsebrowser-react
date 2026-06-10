@@ -14,7 +14,7 @@ const mockEnsureNoise = vi.fn();
 const speakPhraseMock = vi.fn((_cfg: unknown, cb?: () => void) => { cb?.(); });
 
 vi.mock('../utils/voiceSpeech', () => ({
-  speakPhrase: (...args: unknown[]) => speakPhraseMock(...args),
+  speakPhrase: (cfg: unknown, cb?: () => void) => speakPhraseMock(cfg, cb),
   cancelSpeech: vi.fn(),
   primeSpeechPump: vi.fn(),
   resolveSpeechVoice: vi.fn(() => undefined),

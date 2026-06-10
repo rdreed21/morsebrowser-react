@@ -10,7 +10,12 @@ function resolvePresetsDir(): string {
 }
 
 function servePresetFile(presetsDir: string, urlPath: string, res: import('http').ServerResponse): boolean {
-  const relative = urlPath.replace(/^\/presets\//, '');
+  let relative: string;
+  try {
+    relative = decodeURIComponent(urlPath.split('?')[0].replace(/^\/presets\//, ''));
+  } catch {
+    return false;
+  }
   if (!relative || relative.includes('..')) return false;
 
   const filePath = path.join(presetsDir, relative);

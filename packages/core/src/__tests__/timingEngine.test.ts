@@ -52,6 +52,64 @@ describe('buildSchedule', () => {
   });
 });
 
+describe('calculateFarnsworthTiming — more ratios', () => {
+  const koFwUnit = (charWPM: number, fwpm: number) =>
+    ((60 / fwpm) - 31 * (1.2 / charWPM)) / 19;
+
+  it.each([
+    [20, 10],
+    [25, 18],
+    [18, 12],
+  ])('matches KO formula at %i/%i WPM', (charWPM, effectiveWPM) => {
+    const t = calculateFarnsworthTiming({ ...DEFAULT_TIMING, charWPM, effectiveWPM });
+    const fw = koFwUnit(charWPM, effectiveWPM);
+    expect(t.dit).toBeCloseTo(1.2 / charWPM, 6);
+    expect(t.dah).toBeCloseTo(3 * t.dit, 6);
+    expect(t.interElement).toBeCloseTo(t.dit, 6);
+    expect(t.interChar).toBeCloseTo(3 * fw, 6);
+    expect(t.interWord).toBeCloseTo(7 * fw, 6);
+  });
+
+  it('degenerate: equal speeds collapse to standard spacing (fwUnit == dit)', () => {
+    const t = calculateFarnsworthTiming({ ...DEFAULT_TIMING, charWPM: 15, effectiveWPM: 15 });
+    expect(t.interChar).toBeCloseTo(3 * t.dit, 6);
+    expect(t.interWord).toBeCloseTo(7 * t.dit, 6);
+  });
+
+  it('clamps effectiveWPM above charWPM down to charWPM', () => {
+    const clamped = calculateFarnsworthTiming({ ...DEFAULT_TIMING, charWPM: 20, effectiveWPM: 30 });
+    const std = calculateFarnsworthTiming({ ...DEFAULT_TIMING, charWPM: 20, effectiveWPM: 20 });
+    expect(clamped).toEqual(std);
+  });
+});
+
+describe('buildSchedule — long sequences and prosigns in context', () => {
+  it('100+ char text stays sane: finite positive durations, no zero-length tones', () => {
+    const text = 'CQ CQ CQ DE KQ4NKF KQ4NKF K <AR> '.repeat(5).trim();
+    const els = buildSchedule(text, { ...DEFAULT_TIMING, charWPM: 20, effectiveWPM: 12 });
+    expect(els.length).toBeGreaterThan(500);
+    els.forEach(e => {
+      expect(Number.isFinite(e.duration)).toBe(true);
+      expect(e.duration).toBeGreaterThan(0);
+    });
+    expect(Number.isFinite(sequenceDuration(els))).toBe(true);
+  });
+
+  it('prosign between words uses interWord, no interChar inside the prosign', () => {
+    const els = buildSchedule('CQ <SK>', DEFAULT_TIMING);
+    expect(els.filter(e => e.type === 'interWord')).toHaveLength(1);
+    // C-Q boundary only; <SK> is one token with no internal interChar
+    expect(els.filter(e => e.type === 'interChar')).toHaveLength(1);
+  });
+
+  it('gap pattern alternates tone/silence — never two silences in a row', () => {
+    const els = buildSchedule('PARIS PARIS', { ...DEFAULT_TIMING, charWPM: 20, effectiveWPM: 10 });
+    for (let i = 1; i < els.length; i++) {
+      if (!els[i].isTone) expect(els[i - 1].isTone).toBe(true);
+    }
+  });
+});
+
 describe('Koch', () => {
   it('starts K M',   () => { expect(KOCH_ORDER[0]).toBe('K'); expect(KOCH_ORDER[1]).toBe('M'); });
   it('39 chars',     () => expect(KOCH_ORDER).toHaveLength(39));

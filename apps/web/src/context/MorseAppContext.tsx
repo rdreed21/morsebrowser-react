@@ -52,7 +52,7 @@ interface MorseAppContextValue {
   isPlaying: boolean;
   setIsPlaying: (v: boolean) => void;
   isPaused: boolean;
-  setIsPaused: (v: boolean) => void;
+  setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
   runningPlayMs: number;
   setRunningPlayMs: React.Dispatch<React.SetStateAction<number>>;
   charsPlayed: number;
@@ -173,7 +173,7 @@ interface MorseAppContextValue {
   setTrailPreDelay: (v: number) => void;
   setTrailPostDelay: (v: number) => void;
   setTrailFinal: (v: number) => void;
-  setMaxRevealedTrail: (v: number) => void;
+  setMaxRevealedTrail: React.Dispatch<React.SetStateAction<number>>;
   voiceCapable: boolean;
   voiceEnabled: boolean;
   voiceSpelling: boolean;
@@ -344,6 +344,8 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     const defaultProxy = envProxy
       ? (envProxy.endsWith('/') ? envProxy : `${envProxy}/`)
       : 'http://127.0.0.1:8085/';
+    // 'proxydUrl' (sic) is the cookie key the KO app uses (morseRssPlugin.ts) —
+    // keep the misspelling so existing users' cookies still load.
     return readStrCookie('proxydUrl', defaultProxy);
   });
   const [rssPollMins, setRssPollMinsState] = useState(() => readNumCookie('rssPollMins', 5));
@@ -669,7 +671,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setCookie('trailFinal', String(n));
   }, []);
 
-  const setMaxRevealedTrail = useCallback((v: number) => {
+  const setMaxRevealedTrail = useCallback((v: React.SetStateAction<number>) => {
     setMaxRevealedTrailState(v);
   }, []);
 

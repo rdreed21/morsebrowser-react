@@ -11,10 +11,20 @@ function resolveWordfilesDir(): string {
 }
 
 function serveWordfile(wordfilesDir: string, urlPath: string, res: import('http').ServerResponse): boolean {
-  const fileName = path.basename(urlPath);
+  // Browsers request "Fam_Words - 4.txt" as "Fam_Words%20-%204.txt" — decode
+  // like the Metro middleware does, or every filename with a space 404s.
+  // Decode BEFORE basename so encoded separators can't smuggle in "..".
+  let decoded: string;
+  try {
+    decoded = decodeURIComponent(urlPath.split('?')[0]);
+  } catch {
+    return false;
+  }
+  const fileName = path.basename(decoded);
   if (!fileName || fileName === '.' || fileName === '..') return false;
 
-  const filePath = path.join(wordfilesDir, fileName);
+  const filePath = path.resolve(wordfilesDir, fileName);
+  if (!filePath.startsWith(wordfilesDir + path.sep)) return false;
   if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) return false;
 
   const type = fileName.endsWith('.json') ? 'application/json' : 'text/plain; charset=utf-8';

@@ -65,17 +65,23 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     timersRef.current = {};
   }, []);
 
+  // Read words lazily through a ref so the CardBufferManager is created once
+  // (like KO's single instance) — recreating it on every words change dropped
+  // repeat/position state when text or settings changed mid-playback.
+  const wordsRef = useRef(app.words);
+  wordsRef.current = app.words;
+
   const getDisplayWords = useCallback(
-    () => app.words.map(w => getDisplayWord(w)),
-    [app.words],
+    () => wordsRef.current.map(w => getDisplayWord(w)),
+    [],
   );
 
-  useEffect(() => {
+  if (!bufferRef.current) {
     bufferRef.current = new CardBufferManager(
       () => indexRef.current,
       getDisplayWords,
     );
-  }, [getDisplayWords]);
+  }
 
   const scheduleOpts = useCallback((
     playJustEnded: boolean,
@@ -153,7 +159,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
     if (fromPauseButton) {
       app.setRunningPlayMs(ms => ms + (Date.now() - lastPartialStartRef.current));
-      app.setIsPaused(!app.isPaused);
+      app.setIsPaused(p => !p);
     } else {
       app.setIsPaused(false);
     }
@@ -215,8 +221,6 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
   playEndedRef.current = (fromVoiceOrTrail: boolean) => {
     if (!playingRef.current) return;
-    if (fromVoiceOrTrail && !playingRef.current) return;
-    if (app.speakFirst && !playingRef.current) return;
 
     const idx = indexRef.current;
     const isNotLastWord = idx < app.words.length - 1;
@@ -238,7 +242,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     const advanceTrail = () => {
       if (!app.trailReveal) return;
       timersRef.current.trailPre = setTimeout(() => {
-        app.setMaxRevealedTrail(app.maxRevealedTrail + 1);
+        app.setMaxRevealedTrail(v => v + 1);
         timersRef.current.trailPost = setTimeout(() => {
           if (!speakAndTrail) {
             playEndedRef.current(true);
@@ -394,11 +398,14 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
   const handlePause = useCallback(() => {
     if (app.isPaused) {
-      handlePlay();
+      // KO resumes with doPlay(true, false): NOT a fresh start, so the
+      // accumulated runningPlayMs, card/voice buffers and prespace survive.
+      ensureNoise();
+      doPlayRef.current(true, false);
       return;
     }
     endSession(false, true, false);
-  }, [app.isPaused, endSession, handlePlay]);
+  }, [app.isPaused, endSession, ensureNoise]);
 
   const handleStop = useCallback(() => {
     endSession(true, false, true);
@@ -408,9 +415,11 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     if (playingRef.current) {
       endSession(false, true, false);
     } else {
-      doPlayRef.current(false, true);
+      // KO togglePlayback resumes with doPlay(true, false) — see handlePause.
+      ensureNoise();
+      doPlayRef.current(true, false);
     }
-  }, [endSession]);
+  }, [endSession, ensureNoise]);
 
   const toggleLoop = useCallback(() => {
     app.toggleLoop();

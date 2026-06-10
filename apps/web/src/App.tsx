@@ -9,6 +9,7 @@ import { PlaybackControls } from './components/PlaybackControls/PlaybackControls
 import { WordCards } from './components/WordCards/WordCards';
 import { HelpFooter } from './components/HelpFooter/HelpFooter';
 import { StartupHooks } from './components/StartupHooks';
+import { ErrorBoundary } from './components/shared/ErrorBoundary';
 
 export default function App() {
   return (
@@ -20,10 +21,10 @@ export default function App() {
           <div className="row gy-3 row-cols-1">
             <PageHeader />
             <SpeedSettingsBar />
-            <SettingsAccordion />
+            <ErrorBoundary label="Settings"><SettingsAccordion /></ErrorBoundary>
             <WorkingTextStats />
             <PlaybackControls />
-            <WordCards />
+            <ErrorBoundary label="Word cards"><WordCards /></ErrorBoundary>
             <HelpFooter />
           </div>
         </div>
