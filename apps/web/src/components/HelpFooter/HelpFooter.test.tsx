@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { afterEach, describe, it, expect, vi } from 'vitest';
-import { MorseAppProvider } from '../../context/MorseAppContext';
 import { HelpFooter } from './HelpFooter';
 
 function renderFooter() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <HelpFooter />
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

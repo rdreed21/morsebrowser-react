@@ -1,7 +1,9 @@
 import { act, render, screen } from '@testing-library/react';
+import { StateProviders } from '../test-utils';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useEffect, useRef } from 'react';
-import { MorseAppProvider, useMorseApp } from '../context/MorseAppContext';
+import { useMorseApp } from '../context/MorseAppContext';
+import { usePlaybackState } from '../context/PlaybackStateContext';
 import {
   MorsePlaybackProvider,
   useMorsePlaybackControls,
@@ -33,6 +35,7 @@ vi.mock('../context/MorseAudioContext', () => ({
 
 function Harness() {
   const app = useMorseApp();
+  const pb = usePlaybackState();
   const { handlePlay, handlePause, handleStop } = useMorsePlaybackControls();
   const seeded = useRef(false);
 
@@ -47,21 +50,21 @@ function Harness() {
       <button type="button" onClick={handlePlay}>play</button>
       <button type="button" onClick={handlePause}>pause</button>
       <button type="button" onClick={handleStop}>stop</button>
-      <span data-testid="isPlaying">{String(app.isPlaying)}</span>
-      <span data-testid="isPaused">{String(app.isPaused)}</span>
-      <span data-testid="runningPlayMs">{app.runningPlayMs}</span>
-      <span data-testid="charsPlayed">{app.charsPlayed}</span>
+      <span data-testid="isPlaying">{String(pb.isPlaying)}</span>
+      <span data-testid="isPaused">{String(pb.isPaused)}</span>
+      <span data-testid="runningPlayMs">{pb.runningPlayMs}</span>
+      <span data-testid="charsPlayed">{pb.charsPlayed}</span>
     </>
   );
 }
 
 function renderHarness() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <MorsePlaybackProvider>
         <Harness />
       </MorsePlaybackProvider>
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

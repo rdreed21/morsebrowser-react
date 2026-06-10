@@ -1,6 +1,7 @@
 import { act, render } from '@testing-library/react';
+import { StateProviders } from '../test-utils';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { MorseAppProvider, useMorseApp } from '../context/MorseAppContext';
+import { useMorseApp } from '../context/MorseAppContext';
 import { useMorseShortcutKeys } from './useMorseShortcutKeys';
 import type { MorsePlaybackHandlers } from './useMorsePlayback';
 
@@ -35,9 +36,9 @@ function mountShortcutHarness(playback: MorsePlaybackHandlers, onAnnounce: (msg:
   }
 
   render(
-    <MorseAppProvider>
+    <StateProviders>
       <Harness />
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { describe, it, expect } from 'vitest';
 import { WorkingTextStats } from './WorkingTextStats';
-import { MorseAppProvider } from '../../context/MorseAppContext';
 
 describe('WorkingTextStats', () => {
   it('shows play time and char count', () => {
     const { container } = render(
-      <MorseAppProvider>
+      <StateProviders>
         <WorkingTextStats />
-      </MorseAppProvider>,
+      </StateProviders>,
     );
     expect(screen.getByText('Play')).toBeInTheDocument();
     expect(screen.getByText('Chars')).toBeInTheDocument();
@@ -20,9 +20,9 @@ describe('WorkingTextStats', () => {
 
   it('uses working-text-section class', () => {
     const { container } = render(
-      <MorseAppProvider>
+      <StateProviders>
         <WorkingTextStats />
-      </MorseAppProvider>,
+      </StateProviders>,
     );
     expect(container.querySelector('.working-text-section')).toBeTruthy();
   });

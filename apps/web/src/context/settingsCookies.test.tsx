@@ -1,6 +1,7 @@
 import { act, render, screen } from '@testing-library/react';
+import { StateProviders } from '../test-utils';
 import { afterEach, describe, expect, it } from 'vitest';
-import { useMorseApp, MorseAppProvider } from './MorseAppContext';
+import { useMorseApp } from './MorseAppContext';
 
 /**
  * Settings persist as one cookie per key, matching the KO app's saveCookie
@@ -24,9 +25,9 @@ function SettingsHarness() {
 
 function renderApp() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <SettingsHarness />
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

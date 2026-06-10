@@ -1,7 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { StateProviders } from '../test-utils';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { WordListOption } from '@morsebrowser/core';
-import { MorseAppProvider, useMorseApp } from '../context/MorseAppContext';
+import { useMorseApp } from '../context/MorseAppContext';
 import { useLessonDeepLinks } from './useLessonDeepLinks';
 
 function TestApp({ loadLesson }: { loadLesson: (option: WordListOption) => Promise<void> }) {
@@ -25,9 +26,9 @@ describe('useLessonDeepLinks', () => {
     const loadLesson = vi.fn(async () => {});
 
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <TestApp loadLesson={loadLesson} />
-      </MorseAppProvider>,
+      </StateProviders>,
     );
 
     await waitFor(() => {

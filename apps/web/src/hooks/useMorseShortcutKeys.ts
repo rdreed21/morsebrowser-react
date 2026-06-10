@@ -1,11 +1,16 @@
 import { useEffect, useRef } from 'react';
 import { useMorseApp } from '../context/MorseAppContext';
+import { usePlaybackState } from '../context/PlaybackStateContext';
 import type { MorsePlaybackHandlers } from './useMorsePlayback';
 
 export function useMorseShortcutKeys(playback: MorsePlaybackHandlers): void {
   const app = useMorseApp();
   const appRef = useRef(app);
   appRef.current = app;
+
+  const pb = usePlaybackState();
+  const pbRef = useRef(pb);
+  pbRef.current = pb;
 
   const playbackRef = useRef(playback);
   playbackRef.current = playback;
@@ -32,7 +37,7 @@ export function useMorseShortcutKeys(playback: MorsePlaybackHandlers): void {
         '<': () => fullRewind(),
         '.': () => incrementIndex(),
         f: () => {
-          const word = current.words[current.currentIndex];
+          const word = current.words[pbRef.current.currentIndex];
           if (word) {
             current.addFlaggedWord(word);
             current.announceAccessibility('Flagged');

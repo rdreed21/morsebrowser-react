@@ -1,7 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { describe, it, expect, vi } from 'vitest';
 import { SettingsAccordion } from './SettingsAccordion';
-import { MorseAppProvider, useMorseApp } from '../../context/MorseAppContext';
+import { useMorseApp } from '../../context/MorseAppContext';
 
 // RssAccordion (always rendered) is the only consumer of playback controls; stub it.
 vi.mock('../../context/MorsePlaybackContext', () => ({
@@ -11,9 +12,9 @@ vi.mock('../../context/MorsePlaybackContext', () => ({
 describe('SettingsAccordion', () => {
   it('renders accordionArea with KO section order', () => {
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <SettingsAccordion />
-      </MorseAppProvider>,
+      </StateProviders>,
     );
     const area = document.getElementById('accordionArea');
     expect(area).toBeTruthy();
@@ -30,9 +31,9 @@ describe('SettingsAccordion', () => {
 
   it('has settings-group-accordion class on items', () => {
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <SettingsAccordion />
-      </MorseAppProvider>,
+      </StateProviders>,
     );
     expect(document.querySelectorAll('.settings-group-accordion').length).toBeGreaterThan(4);
   });
@@ -48,10 +49,10 @@ describe('SettingsAccordion', () => {
     }
 
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <SettingsAccordion />
         <CollapseOnPlay />
-      </MorseAppProvider>,
+      </StateProviders>,
     );
 
     fireEvent.click(screen.getByRole('button', { name: /Lesson Options/i }));
@@ -79,10 +80,10 @@ describe('SettingsAccordion', () => {
     }
 
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <SettingsAccordion />
         <AutoCloseHarness />
-      </MorseAppProvider>,
+      </StateProviders>,
     );
 
     expect(document.getElementById('accordianItemLessonControls')).toHaveClass('show');

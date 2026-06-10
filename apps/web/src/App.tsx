@@ -1,4 +1,5 @@
 import { MorseAppProvider } from './context/MorseAppContext';
+import { PlaybackStateProvider } from './context/PlaybackStateContext';
 import { MorseAudioProvider } from './context/MorseAudioContext';
 import { MorsePlaybackProvider } from './context/MorsePlaybackContext';
 import { PageHeader } from './components/PageHeader/PageHeader';
@@ -13,6 +14,7 @@ import { ErrorBoundary } from './components/shared/ErrorBoundary';
 
 export default function App() {
   return (
+    <PlaybackStateProvider>
     <MorseAppProvider>
       <StartupHooks />
       <MorseAudioProvider>
@@ -31,5 +33,6 @@ export default function App() {
       </MorsePlaybackProvider>
       </MorseAudioProvider>
     </MorseAppProvider>
+    </PlaybackStateProvider>
   );
 }

@@ -4,6 +4,7 @@ import {
   loadLessonFile, type WordListOption,
 } from '@morsebrowser/core';
 import { useMorseApp } from '../../context/MorseAppContext';
+import { usePlaybackActions } from '../../context/PlaybackStateContext';
 import { usePresets } from '../../hooks/usePresets';
 import { useLessonDeepLinks } from '../../hooks/useLessonDeepLinks';
 import { getMorseImageSrc } from '../../utils/morseImages';
@@ -18,10 +19,12 @@ export function LessonsPicker() {
     userTarget, selectedClass, letterGroup, selectedDisplay,
     selectedPreset, setUserTarget, setSelectedClass, setLetterGroup,
     setSelectedDisplay,     setShowingText, setNewlineChunking,
-    setCurrentIndex, isQueryStringSettingsOn,
+    isQueryStringSettingsOn,
     ifOverrideTime, overrideMins, ifCustomGroup,
     closeLessonAccordionIfAutoClosing,
   } = useMorseApp();
+  // Actions-only: this picker never re-renders on playback ticks.
+  const { setCurrentIndex } = usePlaybackActions();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

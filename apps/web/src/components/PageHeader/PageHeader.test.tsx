@@ -1,13 +1,13 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { describe, it, expect, vi } from 'vitest';
 import { PageHeader } from './PageHeader';
-import { MorseAppProvider } from '../../context/MorseAppContext';
 
 function renderHeader() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <PageHeader />
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 
