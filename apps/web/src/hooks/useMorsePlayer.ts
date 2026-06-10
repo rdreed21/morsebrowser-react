@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback, useEffect, useMemo } from 'react';
 import { scheduleText, scheduleTestTone } from '@morsebrowser/core';
 import type { ScheduleOptions } from '@morsebrowser/core';
 import type { MorseTimingConfig } from '@morsebrowser/types';
@@ -71,5 +71,11 @@ export function useMorsePlayer(config: MorseTimingConfig, noise: NoiseSettings) 
     void ctxRef.current?.close();
   }, [stopAll]);
 
-  return { play, stopMorse, stopAll, playTestTone, ensureNoise, getCtx };
+  // Stable session object: MorseAudioContext re-renders per playback tick
+  // (interval timing config), and a fresh literal here would cascade that
+  // to every useMorseAudio consumer.
+  return useMemo(
+    () => ({ play, stopMorse, stopAll, playTestTone, ensureNoise, getCtx }),
+    [play, stopMorse, stopAll, playTestTone, ensureNoise, getCtx],
+  );
 }

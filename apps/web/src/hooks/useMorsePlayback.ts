@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ScheduleOptions } from '@morsebrowser/core';
 import { useMorseApp } from '../context/MorseAppContext';
+import { usePlaybackState } from '../context/PlaybackStateContext';
 import { CardBufferManager } from '../utils/cardBufferManager';
 import { getDisplayWord } from '../utils/words';
 import { getSpeakText, prepPhraseToSpeakForFinal } from '../utils/speakText';
@@ -45,12 +46,20 @@ export interface MorsePlaybackHandlers {
 
 export function useMorsePlayback(): MorsePlaybackHandlers {
   const app = useMorseApp();
+  // Playback runtime state — setters are referentially stable; the two read
+  // values keep this hook re-rendering per tick, which the indexRef mirror
+  // below relies on.
+  const {
+    currentIndex, isPaused,
+    setCurrentIndex, setIsPlaying, setIsPaused,
+    setRunningPlayMs, setCharsPlayed, setMaxRevealedTrail,
+  } = usePlaybackState();
   const { play, stopMorse, stopAll, ensureNoise } = useMorseAudio();
 
   const playingRef = useRef(false);
   const preSpaceUsedRef = useRef(false);
   const lastPartialStartRef = useRef(0);
-  const indexRef = useRef(app.currentIndex);
+  const indexRef = useRef(currentIndex);
   const timersRef = useRef<Partial<Record<TimerKey, ReturnType<typeof setTimeout>>>>({});
   const bufferRef = useRef<CardBufferManager | null>(null);
   const voiceBufferRef = useRef<VoiceBufferEntry[]>([]);
@@ -58,24 +67,30 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
   const lastFullPlayTimeMsRef = useRef(0);
   const [lastFullPlayTimeMs, setLastFullPlayTimeMs] = useState(0);
 
-  indexRef.current = app.currentIndex;
+  indexRef.current = currentIndex;
 
   const clearTimers = useCallback(() => {
     Object.values(timersRef.current).forEach(t => { if (t) clearTimeout(t); });
     timersRef.current = {};
   }, []);
 
+  // Read words lazily through a ref so the CardBufferManager is created once
+  // (like KO's single instance) — recreating it on every words change dropped
+  // repeat/position state when text or settings changed mid-playback.
+  const wordsRef = useRef(app.words);
+  wordsRef.current = app.words;
+
   const getDisplayWords = useCallback(
-    () => app.words.map(w => getDisplayWord(w)),
-    [app.words],
+    () => wordsRef.current.map(w => getDisplayWord(w)),
+    [],
   );
 
-  useEffect(() => {
+  if (!bufferRef.current) {
     bufferRef.current = new CardBufferManager(
       () => indexRef.current,
       getDisplayWords,
     );
-  }, [getDisplayWords]);
+  }
 
   const scheduleOpts = useCallback((
     playJustEnded: boolean,
@@ -133,7 +148,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
   const getPhraseToSpeakFromBuffer = useCallback((): string => {
     const phrase = voiceBufferRef.current.map(m => m.txt).join(' ')
-      .replace(/\n/g, ' ')
+      .replace(/[\r\n]/g, ' ')
       .trim();
     voiceBufferRef.current = [];
     return phrase;
@@ -149,20 +164,20 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     clearTimers();
     cancelSpeech();
     stopAll();
-    app.setIsPlaying(false);
+    setIsPlaying(false);
 
     if (fromPauseButton) {
-      app.setRunningPlayMs(ms => ms + (Date.now() - lastPartialStartRef.current));
-      app.setIsPaused(!app.isPaused);
+      setRunningPlayMs(ms => ms + (Date.now() - lastPartialStartRef.current));
+      setIsPaused(p => !p);
     } else {
-      app.setIsPaused(false);
+      setIsPaused(false);
     }
 
     if (fullRewind) {
-      app.setCurrentIndex(0);
+      setCurrentIndex(0);
     }
     if (fromStopButton) {
-      app.setMaxRevealedTrail(-1);
+      setMaxRevealedTrail(-1);
       voiceBufferRef.current = [];
       speakFirstLastCardIndexRef.current = -1;
     }
@@ -171,14 +186,17 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       if (!app.loopNoShuffle) {
         app.shuffleWords(true);
       }
-      app.setCurrentIndex(0);
+      setCurrentIndex(0);
       bufferRef.current?.clear();
       voiceBufferRef.current = [];
       preSpaceUsedRef.current = false;
       speakFirstLastCardIndexRef.current = -1;
       doPlayRef.current(false, false);
     }
-  }, [app, clearTimers, stopAll]);
+  }, [
+    app, clearTimers, stopAll, setIsPlaying, setIsPaused,
+    setRunningPlayMs, setCurrentIndex, setMaxRevealedTrail,
+  ]);
 
   const playMorseChunk = useCallback((playJustEnded: boolean) => {
     if (app.morseDisabled) {
@@ -208,15 +226,13 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       onComplete: () => playEndedRef.current(false),
     });
     preSpaceUsedRef.current = true;
-    app.setCharsPlayed(c => c + morseText.replace(/\s/g, '').length);
-  }, [app, play, scheduleOpts, ifMaxVoiceBufferReached]);
+    setCharsPlayed(c => c + morseText.replace(/\s/g, '').length);
+  }, [app, play, scheduleOpts, ifMaxVoiceBufferReached, setCharsPlayed]);
 
   const playEndedRef = useRef<(fromVoiceOrTrail: boolean) => void>(() => {});
 
   playEndedRef.current = (fromVoiceOrTrail: boolean) => {
     if (!playingRef.current) return;
-    if (fromVoiceOrTrail && !playingRef.current) return;
-    if (app.speakFirst && !playingRef.current) return;
 
     const idx = indexRef.current;
     const isNotLastWord = idx < app.words.length - 1;
@@ -238,7 +254,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     const advanceTrail = () => {
       if (!app.trailReveal) return;
       timersRef.current.trailPre = setTimeout(() => {
-        app.setMaxRevealedTrail(app.maxRevealedTrail + 1);
+        setMaxRevealedTrail(v => v + 1);
         timersRef.current.trailPost = setTimeout(() => {
           if (!speakAndTrail) {
             playEndedRef.current(true);
@@ -250,7 +266,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     const finalizeTrail = (finalCallback: () => void) => {
       if (app.trailReveal) {
         timersRef.current.trailFinal = setTimeout(() => {
-          app.setMaxRevealedTrail(-1);
+          setMaxRevealedTrail(-1);
           finalCallback();
         }, app.trailFinal * 1000);
       } else {
@@ -259,14 +275,14 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     };
 
     if (noDelays) {
-      app.setRunningPlayMs(ms => ms + (Date.now() - lastPartialStartRef.current));
+      setRunningPlayMs(ms => ms + (Date.now() - lastPartialStartRef.current));
       if (isNotLastWord || hasMoreMorse) {
         let cardChanged = false;
         if (!hasMoreMorse) {
           if (app.speakFirst) {
             voiceBufferRef.current = [];
           }
-          app.setCurrentIndex(idx + 1);
+          setCurrentIndex(idx + 1);
           cardChanged = true;
         }
         const cardDelayMs = (!cardChanged && hasMoreMorse) ? 0 : app.cardSpace * 1000;
@@ -329,10 +345,10 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
       if (freshStart) {
       app.collapseSettingsAccordions();
-      app.setRunningPlayMs(0);
+      setRunningPlayMs(0);
       bufferRef.current?.clear();
       voiceBufferRef.current = [];
-      app.setCharsPlayed(0);
+      setCharsPlayed(0);
       preSpaceUsedRef.current = false;
       speakFirstLastCardIndexRef.current = -1;
       ensureNoise();
@@ -345,8 +361,8 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       preSpaceUsedRef.current = false;
     }
 
-    app.setIsPaused(false);
-    app.setIsPlaying(true);
+    setIsPaused(false);
+    setIsPlaying(true);
     playingRef.current = true;
 
     const delayMs = (playJustEnded || fromPlayButton) ? 0 : 1000;
@@ -357,7 +373,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
       stopMorse();
       ensureNoise();
-      app.setMaxRevealedTrail(indexRef.current - 1);
+      setMaxRevealedTrail(indexRef.current - 1);
       addToVoiceBuffer();
 
       const runMorse = () => playMorseChunk(playJustEnded);
@@ -393,12 +409,15 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
   }, [app.showingText, ensureNoise]);
 
   const handlePause = useCallback(() => {
-    if (app.isPaused) {
-      handlePlay();
+    if (isPaused) {
+      // KO resumes with doPlay(true, false): NOT a fresh start, so the
+      // accumulated runningPlayMs, card/voice buffers and prespace survive.
+      ensureNoise();
+      doPlayRef.current(true, false);
       return;
     }
     endSession(false, true, false);
-  }, [app.isPaused, endSession, handlePlay]);
+  }, [isPaused, endSession, ensureNoise]);
 
   const handleStop = useCallback(() => {
     endSession(true, false, true);
@@ -408,50 +427,52 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     if (playingRef.current) {
       endSession(false, true, false);
     } else {
-      doPlayRef.current(false, true);
+      // KO togglePlayback resumes with doPlay(true, false) — see handlePause.
+      ensureNoise();
+      doPlayRef.current(true, false);
     }
-  }, [endSession]);
+  }, [endSession, ensureNoise]);
 
   const toggleLoop = useCallback(() => {
     app.toggleLoop();
   }, [app]);
 
   const incrementIndex = useCallback(() => {
-    if (app.currentIndex < app.words.length - 1) {
-      app.setCurrentIndex(app.currentIndex + 1);
+    if (currentIndex < app.words.length - 1) {
+      setCurrentIndex(currentIndex + 1);
     }
-  }, [app]);
+  }, [app, currentIndex, setCurrentIndex]);
 
   const decrementIndex = useCallback(() => {
-    if (app.currentIndex > 0 && app.words.length > 1) {
+    if (currentIndex > 0 && app.words.length > 1) {
       stopMorse();
       ensureNoise();
-      app.setCurrentIndex(app.currentIndex - 1);
+      setCurrentIndex(currentIndex - 1);
       timersRef.current.doPlay = setTimeout(() => {
         doPlayRef.current(false, false);
       }, 1000);
     }
-  }, [app, stopMorse, ensureNoise]);
+  }, [app, currentIndex, setCurrentIndex, stopMorse, ensureNoise]);
 
   const fullRewind = useCallback(() => {
-    app.setCurrentIndex(0);
-  }, [app]);
+    setCurrentIndex(0);
+  }, [setCurrentIndex]);
 
   const setWordIndex = useCallback((index: number) => {
     if (!playingRef.current) {
-      app.setCurrentIndex(index);
+      setCurrentIndex(index);
       return;
     }
     endSession(false, false, false, { skipLoopRestart: true });
-    app.setCurrentIndex(index);
+    setCurrentIndex(index);
     doPlayRef.current(false, false);
-  }, [app, endSession]);
+  }, [setCurrentIndex, endSession]);
 
   const playPracticeFromText = useCallback((text: string) => {
     app.setShowingText(text);
-    app.setCurrentIndex(0);
+    setCurrentIndex(0);
     doPlayRef.current(false, true);
-  }, [app]);
+  }, [app, setCurrentIndex]);
 
   const speakVoiceBufferRef = useRef<() => void>(() => {});
 

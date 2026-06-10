@@ -69,6 +69,7 @@ function buildMutatorFromApp(app: ReturnType<typeof useMorseApp>): PresetSetting
     setEffectiveWPM: app.setEffectiveWPM,
     setSyncWpm: app.setSyncWpm,
     setKoVolume: app.setKoVolume,
+    setVoiceVolume: app.setVoiceVolume,
     setXtraWordSpaceDits: app.setXtraWordSpaceDits,
     setStickySets: app.setStickySets,
     setIfStickySets: app.setIfStickySets,

@@ -1,4 +1,5 @@
 import { MorseAppProvider } from './context/MorseAppContext';
+import { PlaybackStateProvider } from './context/PlaybackStateContext';
 import { MorseAudioProvider } from './context/MorseAudioContext';
 import { MorsePlaybackProvider } from './context/MorsePlaybackContext';
 import { PageHeader } from './components/PageHeader/PageHeader';
@@ -9,9 +10,11 @@ import { PlaybackControls } from './components/PlaybackControls/PlaybackControls
 import { WordCards } from './components/WordCards/WordCards';
 import { HelpFooter } from './components/HelpFooter/HelpFooter';
 import { StartupHooks } from './components/StartupHooks';
+import { ErrorBoundary } from './components/shared/ErrorBoundary';
 
 export default function App() {
   return (
+    <PlaybackStateProvider>
     <MorseAppProvider>
       <StartupHooks />
       <MorseAudioProvider>
@@ -20,15 +23,16 @@ export default function App() {
           <div className="row gy-3 row-cols-1">
             <PageHeader />
             <SpeedSettingsBar />
-            <SettingsAccordion />
+            <ErrorBoundary label="Settings"><SettingsAccordion /></ErrorBoundary>
             <WorkingTextStats />
             <PlaybackControls />
-            <WordCards />
+            <ErrorBoundary label="Word cards"><WordCards /></ErrorBoundary>
             <HelpFooter />
           </div>
         </div>
       </MorsePlaybackProvider>
       </MorseAudioProvider>
     </MorseAppProvider>
+    </PlaybackStateProvider>
   );
 }

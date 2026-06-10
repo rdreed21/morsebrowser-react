@@ -12,7 +12,9 @@ function doReplacements(s: string): string {
 /** Split practice text into raw words — mirrors KO MorseStringUtils.getWords split logic. */
 export function getWords(text: string, newlineChunking = false): string[] {
   if (!text.trim()) return [];
-  const replaced = doReplacements(text);
+  // Word files may carry CRLF or bare-CR endings; fold them to LF so
+  // \r can never survive into a word.
+  const replaced = doReplacements(text.replace(/\r\n?/g, '\n'));
   const splitPattern = newlineChunking
     ? /\n(?![^{]*})/
     : / (?![^{]*})/;

@@ -10,7 +10,12 @@ function resolvePresetsDir(): string {
 }
 
 function servePresetFile(presetsDir: string, urlPath: string, res: import('http').ServerResponse): boolean {
-  const relative = urlPath.replace(/^\/presets\//, '');
+  let relative: string;
+  try {
+    relative = decodeURIComponent(urlPath.split('?')[0].replace(/^\/presets\//, ''));
+  } catch {
+    return false;
+  }
   if (!relative || relative.includes('..')) return false;
 
   const filePath = path.join(presetsDir, relative);
@@ -49,7 +54,12 @@ export function presetsDevPlugin(): Plugin {
   return {
     name: 'morsebrowser-presets',
     configResolved(config) {
-      outDir = path.resolve(config.root, config.build.outDir);
+      // Only copy on real builds. Vitest also drives this plugin and points
+      // build.outDir at a placeholder ("dummy-non-existing-folder"); copying
+      // there on closeBundle litters the repo after every test run.
+      if (config.command === 'build') {
+        outDir = path.resolve(config.root, config.build.outDir);
+      }
     },
     closeBundle() {
       if (outDir) copyPresetsToDist(presetsDir, outDir, msg => console.warn(msg));

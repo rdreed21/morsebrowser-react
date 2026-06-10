@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useMorseApp } from '../context/MorseAppContext';
+import { usePlaybackState } from '../context/PlaybackStateContext';
 import { useMorsePlaybackControls } from '../context/MorsePlaybackContext';
 
 export interface RssItem {
@@ -53,8 +54,8 @@ export function useRssPlugin() {
     rssPollMins, setRssPollMins,
     rssPlayMins, setRssPlayMins,
     rssFullArticle, setRssFullArticle,
-    isPlaying,
   } = useMorseApp();
+  const { isPlaying } = usePlaybackState();
   const { lastFullPlayTimeMs, playPracticeFromText } = useMorsePlaybackControls();
 
   const [titlesQueue, setTitlesQueue] = useState<RssItem[]>([]);

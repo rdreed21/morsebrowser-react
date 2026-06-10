@@ -1,12 +1,14 @@
 import { useMorseApp } from '../../context/MorseAppContext';
+import { usePlaybackState } from '../../context/PlaybackStateContext';
 import { useMorsePlaybackControls } from '../../context/MorsePlaybackContext';
 import { getDisplayWord } from '../../utils/words';
 
 export function WordCards() {
   const {
-    words, currentIndex, hideList, cardsVisible, cardFontPx,
-    trailReveal, maxRevealedTrail, addFlaggedWord,
+    words, hideList, cardsVisible, cardFontPx,
+    trailReveal, addFlaggedWord,
   } = useMorseApp();
+  const { currentIndex, maxRevealedTrail } = usePlaybackState();
   const { setWordIndex } = useMorsePlaybackControls();
 
   if (!cardsVisible || words.length === 0) return null;

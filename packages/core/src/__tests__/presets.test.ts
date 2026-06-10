@@ -1,4 +1,4 @@
-import { YOUR_SETTINGS_PRESET } from '../presets/types';
+import { YOUR_SETTINGS_PRESET, DEFAULT_PRESET_KEY_BLACKLIST } from '../presets/types';
 import {
   buildPresetOptions,
   mergeLegacyMixin,
@@ -101,6 +101,75 @@ describe('presets', () => {
     });
     expect(serialized.find(s => s.key === 'wpm')?.value).toBe(20);
     expect(serialized.find(s => s.key === 'fwpm')?.value).toBe(18);
+  });
+
+  it('applies volume and voiceVolume like KO (not blacklisted)', () => {
+    const calls: Array<[string, unknown]> = [];
+    applySerializedSettings(
+      [{ key: 'volume', value: 7 }, { key: 'voiceVolume', value: 4 }],
+      {
+        setKoVolume: (v: number) => calls.push(['koVolume', v]),
+        setVoiceVolume: (v: number) => calls.push(['voiceVolume', v]),
+      } as never,
+      DEFAULT_PRESET_KEY_BLACKLIST,
+    );
+    expect(calls).toContainEqual(['koVolume', 7]);
+    expect(calls).toContainEqual(['voiceVolume', 4]);
+  });
+
+  it('volume keys survive a snapshot -> serialize -> apply round-trip', () => {
+    const serialized = snapshotToSerialized({
+      charWPM: 20,
+      effectiveWPM: 18,
+      syncWpm: true,
+      koVolume: 6,
+      xtraWordSpaceDits: 1,
+      stickySets: '',
+      ifStickySets: false,
+      hideList: false,
+      showRaw: false,
+      darkMode: false,
+      autoCloseLessonAccordion: false,
+      ifCustomGroup: false,
+      customGroup: '',
+      voiceEnabled: false,
+      voiceSpelling: false,
+      voiceThinkingTime: 0,
+      voiceAfterThinkingTime: 0,
+      voiceLastOnly: false,
+      manualVoice: false,
+      speakFirst: false,
+      numberOfRepeats: 0,
+      speakFirstAdditionalWordspaces: 0,
+      newlineChunking: false,
+      syncSize: false,
+      ifOverrideMinMax: false,
+      overrideMin: 3,
+      overrideMax: 3,
+      cardSpace: 0,
+      speedInterval: false,
+      intervalTimingsText: '',
+      intervalWpmText: '',
+      intervalFwpmText: '',
+      voiceBufferMaxLength: 1,
+      voiceVolume: 3,
+      isShuffled: false,
+      shuffleIntraGroup: false,
+    });
+    let koVolume = -1;
+    let voiceVolume = -1;
+    // Proxy: real setters for the volume keys, no-ops for everything else.
+    const mutator = new Proxy({
+      setKoVolume: (v: number) => { koVolume = v; },
+      setVoiceVolume: (v: number) => { voiceVolume = v; },
+    }, {
+      get: (target, prop) => (prop in target
+        ? target[prop as keyof typeof target]
+        : () => {}),
+    });
+    applySerializedSettings(serialized, mutator as never, DEFAULT_PRESET_KEY_BLACKLIST);
+    expect(koVolume).toBe(6);
+    expect(voiceVolume).toBe(3);
   });
 
   it('loads preset set for BC1 via fetch', async () => {

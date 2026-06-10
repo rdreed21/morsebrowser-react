@@ -5,7 +5,6 @@ import React, {
 export interface VoiceOption { idx: number; name: string; }
 import {
   loadSettings, saveSettings, DEFAULT_SETTINGS, getCookie, setCookie, loadLessonFile,
-  getApplicableSpeed,
 } from '@morsebrowser/core';
 import {
   generateCustomGroupPractice, generateRandomPractice, resolvePracticeSeconds,
@@ -13,8 +12,9 @@ import {
 import type { WordListOption } from '@morsebrowser/core';
 import type { MorseSettings } from '@morsebrowser/types';
 import { getWords, rawTextCharCount } from '../utils/words';
-import { formatPlayTime } from '../utils/formatTime';
 import { getUrlParam, isDevBuild } from '../utils/urlParams';
+import { ALLOWED_VOICE_LANGS } from '../utils/voiceSpeech';
+import { usePlaybackActions } from './PlaybackStateContext';
 import { hasLessonDeepLinkParams } from '../utils/lessonDeepLink';
 import {
   createDefaultAccordionOpen,
@@ -47,16 +47,6 @@ interface MorseAppContextValue {
   setNewlineChunking: (v: boolean) => void;
   hideList: boolean;
   setHideList: (v: boolean) => void;
-  currentIndex: number;
-  setCurrentIndex: (i: number) => void;
-  isPlaying: boolean;
-  setIsPlaying: (v: boolean) => void;
-  isPaused: boolean;
-  setIsPaused: (v: boolean) => void;
-  runningPlayMs: number;
-  setRunningPlayMs: React.Dispatch<React.SetStateAction<number>>;
-  charsPlayed: number;
-  setCharsPlayed: React.Dispatch<React.SetStateAction<number>>;
   isShuffled: boolean;
   setIsShuffled: (v: boolean) => void;
   shuffleWords: (fromLoopRestart?: boolean) => void;
@@ -66,7 +56,6 @@ interface MorseAppContextValue {
   announceAccessibility: (msg: string) => void;
   words: string[];
   charCount: number;
-  playingTime: ReturnType<typeof formatPlayTime>;
   timingConfig: MorseSettings['timing'];
   logoClick: () => void;
   isQueryStringSettingsOn: () => boolean;
@@ -142,7 +131,6 @@ interface MorseAppContextValue {
   trailPreDelay: number;
   trailPostDelay: number;
   trailFinal: number;
-  maxRevealedTrail: number;
   setRandomizeLessons: (v: boolean) => void;
   setAutoCloseLessonAccordion: (v: boolean) => void;
   setIfStickySets: (v: boolean) => void;
@@ -173,7 +161,6 @@ interface MorseAppContextValue {
   setTrailPreDelay: (v: number) => void;
   setTrailPostDelay: (v: number) => void;
   setTrailFinal: (v: number) => void;
-  setMaxRevealedTrail: (v: number) => void;
   voiceCapable: boolean;
   voiceEnabled: boolean;
   voiceSpelling: boolean;
@@ -263,11 +250,9 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     () => readBoolCookie('newlineChunking', false),
   );
   const [hideList, setHideList] = useState(() => getCookie('hideList') === 'true');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const [runningPlayMs, setRunningPlayMs] = useState(0);
-  const [charsPlayed, setCharsPlayed] = useState(0);
+  // Playback runtime state lives in PlaybackStateContext; this provider only
+  // needs the (stable) setters, so playback ticks never re-render it.
+  const { setCurrentIndex, setMaxRevealedTrail } = usePlaybackActions();
   const [isShuffled, setIsShuffled] = useState(false);
   const [preShuffled, setPreShuffled] = useState('');
   const [loop, setLoop] = useState(() => readBoolCookie('loop', false));
@@ -344,6 +329,8 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     const defaultProxy = envProxy
       ? (envProxy.endsWith('/') ? envProxy : `${envProxy}/`)
       : 'http://127.0.0.1:8085/';
+    // 'proxydUrl' (sic) is the cookie key the KO app uses (morseRssPlugin.ts) —
+    // keep the misspelling so existing users' cookies still load.
     return readStrCookie('proxydUrl', defaultProxy);
   });
   const [rssPollMins, setRssPollMinsState] = useState(() => readNumCookie('rssPollMins', 5));
@@ -353,7 +340,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const [trailPreDelay, setTrailPreDelayState] = useState(() => readNumCookie('trailPreDelay', 0));
   const [trailPostDelay, setTrailPostDelayState] = useState(() => readNumCookie('trailPostDelay', 0));
   const [trailFinal, setTrailFinalState] = useState(() => readNumCookie('trailFinal', 1));
-  const [maxRevealedTrail, setMaxRevealedTrailState] = useState(-1);
 
   const voiceCapable = useMemo(
     () => typeof window !== 'undefined'
@@ -648,8 +634,8 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const setTrailReveal = useCallback((v: boolean) => {
     setTrailRevealState(v);
     setCookie('trailReveal', String(v));
-    if (!v) setMaxRevealedTrailState(-1);
-  }, []);
+    if (!v) setMaxRevealedTrail(-1);
+  }, [setMaxRevealedTrail]);
 
   const setTrailPreDelay = useCallback((v: number) => {
     const n = Math.max(0, v);
@@ -669,10 +655,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setCookie('trailFinal', String(n));
   }, []);
 
-  const setMaxRevealedTrail = useCallback((v: number) => {
-    setMaxRevealedTrailState(v);
-  }, []);
-
   const voiceThinkingTimeWpm = useMemo(() => {
     if (!voiceThinkingTime) return '--';
     const wpm = 3.6 / voiceThinkingTime;
@@ -681,7 +663,10 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const initVoices = useCallback(() => {
     if (!voiceCapable) return;
-    const list = window.speechSynthesis.getVoices().map((v, idx) => ({ idx, name: v.name }));
+    // KO MorseVoice filters the selectable voices to en/es/pt locales.
+    const list = window.speechSynthesis.getVoices()
+      .filter(v => ALLOWED_VOICE_LANGS.includes(v.lang))
+      .map((v, idx) => ({ idx, name: v.name }));
     setVoiceVoices(list);
     const savedName = readStrCookie('voiceVoiceName', '');
     if (savedName) {
@@ -819,7 +804,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const applyLesson = useCallback(async () => {
     setCurrentIndex(0);
-    setMaxRevealedTrailState(-1);
+    setMaxRevealedTrail(-1);
     if (ifCustomGroup && customGroup.trim()) {
       setShowingText(generateCustomGroupPractice({
         letters: customGroup.trim(),
@@ -989,34 +974,20 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     [showingText, newlineChunking],
   );
   const charCount = useMemo(() => rawTextCharCount(showingText), [showingText]);
-  const playingTime = useMemo(() => formatPlayTime(runningPlayMs), [runningPlayMs]);
 
+  // Base timing only. The speed-interval adjustment reads runningPlayMs every
+  // playback tick, so it lives in useIntervalTimingConfig() — keeping it here
+  // would recreate the whole context value per character.
   const timingConfig = useMemo(() => {
     const resolvedDah = syncFreq ? ditFrequency : dahFrequency;
-    const base = {
+    return {
       ...settings.timing,
       frequency: ditFrequency,
       ditFrequency,
       dahFrequency: resolvedDah,
       volume: koVolume / 10,
     };
-    if (isPlaying && speedInterval && intervalTimingsText.trim()) {
-      const speeds = getApplicableSpeed(runningPlayMs, {
-        charWPM: settings.timing.charWPM,
-        effectiveWPM: settings.timing.effectiveWPM,
-        speedInterval,
-        intervalTimingsText,
-        intervalWpmText,
-        intervalFwpmText,
-      });
-      return { ...base, charWPM: speeds.charWPM, effectiveWPM: speeds.effectiveWPM };
-    }
-    return base;
-  }, [
-    settings.timing, ditFrequency, dahFrequency, syncFreq, koVolume, isPlaying,
-    speedInterval, intervalTimingsText, intervalWpmText, intervalFwpmText,
-    runningPlayMs,
-  ]);
+  }, [settings.timing, ditFrequency, dahFrequency, syncFreq, koVolume]);
 
   const value = useMemo((): MorseAppContextValue => ({
     settings,
@@ -1040,16 +1011,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setNewlineChunking,
     hideList,
     setHideList,
-    currentIndex,
-    setCurrentIndex,
-    isPlaying,
-    setIsPlaying,
-    isPaused,
-    setIsPaused,
-    runningPlayMs,
-    setRunningPlayMs,
-    charsPlayed,
-    setCharsPlayed,
     isShuffled,
     setIsShuffled,
     shuffleWords,
@@ -1059,7 +1020,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     announceAccessibility,
     words,
     charCount,
-    playingTime,
     timingConfig,
     logoClick,
     isQueryStringSettingsOn,
@@ -1139,7 +1099,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     trailPreDelay,
     trailPostDelay,
     trailFinal,
-    maxRevealedTrail,
     setRandomizeLessons,
     setAutoCloseLessonAccordion,
     setIfStickySets,
@@ -1162,7 +1121,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setTrailPreDelay,
     setTrailPostDelay,
     setTrailFinal,
-    setMaxRevealedTrail,
     voiceCapable,
     voiceEnabled,
     voiceSpelling,
@@ -1201,10 +1159,9 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     settings, syncWpm, setCharWPM, setEffectiveWPM, setSyncWpm,
     koVolume, setKoVolume, darkMode, toggleDarkMode, setDarkModeDirect, showingText,
     showRaw, setShowRaw, clearText, newlineChunking,
-    hideList, currentIndex, isPlaying, isPaused, runningPlayMs,
-    charsPlayed, isShuffled, setIsShuffled, shuffleWords, loop, loopNoShuffle, toggleLoop,
+    hideList, isShuffled, setIsShuffled, shuffleWords, loop, loopNoShuffle, toggleLoop,
     announceAccessibility, words, charCount,
-    playingTime, timingConfig, logoClick, isQueryStringSettingsOn,
+    timingConfig, logoClick, isQueryStringSettingsOn,
     lessonDeepLinkPending, completeLessonDeepLink, applyLessonDeepLinkSelection,
     isDev, morseDisabled,
     isSettingsAccordionOpen, toggleSettingsAccordion, collapseSettingsAccordions,
@@ -1221,14 +1178,14 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     intervalFwpmText, numberOfRepeats, speakFirstAdditionalWordspaces,
     noiseType, noiseVolume, rssEnabled, rssFeedUrl, proxyUrl, rssPollMins, rssPlayMins, rssFullArticle,
     setNoiseType, setNoiseVolume, setRssFeedUrl, setProxyUrl, setRssPollMins, setRssPlayMins, setRssFullArticle,
-    trailReveal, trailPreDelay, trailPostDelay, trailFinal, maxRevealedTrail,
+    trailReveal, trailPreDelay, trailPostDelay, trailFinal,
     setIfCustomGroup, setCustomGroup, setIfOverrideTime, setOverrideMins,
     setIfOverrideMinMax, setOverrideMin, setOverrideMax, setSyncSize,
     setRandomizeLessons, setAutoCloseLessonAccordion, setIfStickySets, setStickySets,
     setShuffleIntraGroup, setSpeedInterval, setIntervalTimingsText, setIntervalWpmText,
     setIntervalFwpmText, setNumberOfRepeats, setSpeakFirstAdditionalWordspaces,
     setTrailReveal, setTrailPreDelay, setTrailPostDelay,
-    setTrailFinal, setMaxRevealedTrail, setNewlineChunking,
+    setTrailFinal, setNewlineChunking,
     voiceCapable, voiceEnabled, voiceSpelling, manualVoice, speakFirst,
     voiceThinkingTime, voiceThinkingTimeWpm, voiceAfterThinkingTime,
     voiceVoices, voiceVoiceIdx, voiceVolume, voiceLastOnly, voicePitch,

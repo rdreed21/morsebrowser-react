@@ -1,13 +1,15 @@
 import { useMorseApp } from '../../context/MorseAppContext';
+import { usePlaybackState } from '../../context/PlaybackStateContext';
 import { useMorsePlaybackControls } from '../../context/MorsePlaybackContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
 
 export function PlaybackControls() {
   const {
-    isPlaying, isPaused, playingTime, hideList, setHideList,
+    hideList, setHideList,
     isShuffled, shuffleWords, loop, loopNoShuffle,
     manualVoice, voiceEnabled,
   } = useMorseApp();
+  const { isPlaying, isPaused, playingTime } = usePlaybackState();
 
   const {
     handlePlay, handlePause, handleStop, toggleLoop, speakVoiceBuffer,

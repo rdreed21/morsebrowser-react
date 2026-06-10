@@ -1,8 +1,10 @@
 import { useMorseApp } from '../../context/MorseAppContext';
+import { usePlaybackState } from '../../context/PlaybackStateContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
 
 export function WorkingTextStats() {
-  const { playingTime, charsPlayed, charCount } = useMorseApp();
+  const { charCount } = useMorseApp();
+  const { playingTime, charsPlayed } = usePlaybackState();
 
   return (
     <section className="col working-text-section" title="Working text" aria-label="Working text">

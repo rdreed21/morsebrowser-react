@@ -1,7 +1,9 @@
 import { act, render, screen } from '@testing-library/react';
+import { StateProviders } from '../test-utils';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useEffect, useRef } from 'react';
-import { MorseAppProvider, useMorseApp } from '../context/MorseAppContext';
+import { useMorseApp } from '../context/MorseAppContext';
+import { usePlaybackState } from '../context/PlaybackStateContext';
 import {
   MorsePlaybackProvider,
   useMorsePlaybackControls,
@@ -14,7 +16,7 @@ const mockEnsureNoise = vi.fn();
 const speakPhraseMock = vi.fn((_cfg: unknown, cb?: () => void) => { cb?.(); });
 
 vi.mock('../utils/voiceSpeech', () => ({
-  speakPhrase: (...args: unknown[]) => speakPhraseMock(...args),
+  speakPhrase: (cfg: unknown, cb?: () => void) => speakPhraseMock(cfg, cb),
   cancelSpeech: vi.fn(),
   primeSpeechPump: vi.fn(),
   resolveSpeechVoice: vi.fn(() => undefined),
@@ -49,11 +51,11 @@ function SeedAndPlay({ text = 'A' }: { text?: string }) {
 
 function renderPlayback(text = 'A') {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <MorsePlaybackProvider>
         <SeedAndPlay text={text} />
       </MorsePlaybackProvider>
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 
@@ -92,6 +94,7 @@ describe('useMorsePlayback', () => {
 
     function SeekHarness() {
       const app = useMorseApp();
+      const { currentIndex } = usePlaybackState();
       const { handlePlay, setWordIndex } = useMorsePlaybackControls();
 
       useEffect(() => {
@@ -102,17 +105,17 @@ describe('useMorsePlayback', () => {
         <>
           <button type="button" onClick={handlePlay}>play</button>
           <button type="button" onClick={() => setWordIndex(2)}>seek</button>
-          <span data-testid="index">{app.currentIndex}</span>
+          <span data-testid="index">{currentIndex}</span>
         </>
       );
     }
 
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <MorsePlaybackProvider>
           <SeekHarness />
         </MorsePlaybackProvider>
-      </MorseAppProvider>,
+      </StateProviders>,
     );
 
     await act(async () => {
@@ -158,11 +161,11 @@ describe('useMorsePlayback', () => {
     }
 
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <MorsePlaybackProvider>
           <VoiceHarness />
         </MorsePlaybackProvider>
-      </MorseAppProvider>,
+      </StateProviders>,
     );
 
     await act(async () => {
@@ -179,6 +182,7 @@ describe('useMorsePlayback', () => {
     });
     function TrailHarness() {
       const app = useMorseApp();
+      const { maxRevealedTrail } = usePlaybackState();
       const { handlePlay } = useMorsePlaybackControls();
       const seeded = useRef(false);
 
@@ -195,17 +199,17 @@ describe('useMorsePlayback', () => {
       return (
         <>
           <button type="button" onClick={handlePlay}>play</button>
-          <span data-testid="trail">{app.maxRevealedTrail}</span>
+          <span data-testid="trail">{maxRevealedTrail}</span>
         </>
       );
     }
 
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <MorsePlaybackProvider>
           <TrailHarness />
         </MorsePlaybackProvider>
-      </MorseAppProvider>,
+      </StateProviders>,
     );
 
     await act(async () => { await Promise.resolve(); });
@@ -254,11 +258,11 @@ describe('useMorsePlayback', () => {
     }
 
     render(
-      <MorseAppProvider>
+      <StateProviders>
         <MorsePlaybackProvider>
           <LoopHarness />
         </MorsePlaybackProvider>
-      </MorseAppProvider>,
+      </StateProviders>,
     );
 
     await act(async () => {

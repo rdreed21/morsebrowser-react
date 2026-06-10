@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, within } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { describe, it, expect, vi } from 'vitest';
 import { SettingsAccordion } from '../SettingsAccordion/SettingsAccordion';
-import { MorseAppProvider } from '../../context/MorseAppContext';
 
 // RssAccordion (always rendered) is the only consumer of playback controls; stub it.
 vi.mock('../../context/MorsePlaybackContext', () => ({
@@ -10,9 +10,9 @@ vi.mock('../../context/MorsePlaybackContext', () => ({
 
 function renderAccordion() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <SettingsAccordion />
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

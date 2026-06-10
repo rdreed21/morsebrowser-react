@@ -1,16 +1,16 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { PlaybackControls } from './PlaybackControls';
-import { MorseAppProvider } from '../../context/MorseAppContext';
 import { MorsePlaybackProvider } from '../../context/MorsePlaybackContext';
 
 function renderControls() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <MorsePlaybackProvider>
         <PlaybackControls />
       </MorsePlaybackProvider>
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { describe, it, expect, vi } from 'vitest';
 import { WordCards } from './WordCards';
-import { MorseAppProvider } from '../../context/MorseAppContext';
 import { MorsePlaybackProvider } from '../../context/MorsePlaybackContext';
 
 vi.mock('../../hooks/useMorsePlayer', () => ({
@@ -16,11 +16,11 @@ vi.mock('../../hooks/useMorsePlayer', () => ({
 
 function renderCards() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <MorsePlaybackProvider>
         <WordCards />
       </MorsePlaybackProvider>
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMorseApp } from '../../context/MorseAppContext';
 import { useMorseAudio } from '../../context/MorseAudioContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
@@ -12,15 +12,26 @@ export function ToneOptionsPanel() {
   } = useMorseApp();
   const { playTestTone, stopMorse } = useMorseAudio();
   const [testTonePlaying, setTestTonePlaying] = useState(false);
+  const tonePlayingRef = useRef(false);
+
+  const setTonePlaying = (v: boolean) => {
+    tonePlayingRef.current = v;
+    setTestTonePlaying(v);
+  };
+
+  // The audio session is global — stop the tone if the panel unmounts mid-play.
+  useEffect(() => () => {
+    if (tonePlayingRef.current) stopMorse();
+  }, [stopMorse]);
 
   const handleTestTone = () => {
     if (testTonePlaying) {
       stopMorse();
-      setTestTonePlaying(false);
+      setTonePlaying(false);
       return;
     }
-    setTestTonePlaying(true);
-    playTestTone(() => setTestTonePlaying(false));
+    setTonePlaying(true);
+    playTestTone(() => setTonePlaying(false));
   };
 
   return (

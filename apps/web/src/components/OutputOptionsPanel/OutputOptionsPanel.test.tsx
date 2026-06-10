@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { StateProviders } from '../../test-utils';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { SettingsAccordion } from '../SettingsAccordion/SettingsAccordion';
-import { MorseAppProvider } from '../../context/MorseAppContext';
 import { MorsePlaybackProvider } from '../../context/MorsePlaybackContext';
 
 vi.mock('../../hooks/useMorsePlayer', () => ({
@@ -24,11 +24,11 @@ vi.mock('@morsebrowser/core', async (importOriginal) => {
 
 function renderAccordion() {
   return render(
-    <MorseAppProvider>
+    <StateProviders>
       <MorsePlaybackProvider>
         <SettingsAccordion />
       </MorsePlaybackProvider>
-    </MorseAppProvider>,
+    </StateProviders>,
   );
 }
 

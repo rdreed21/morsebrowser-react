@@ -17,8 +17,6 @@ function resolveSource() {
   }
   const sibling = path.resolve(mobileRoot, '../../../morsebrowser_dev/src/wordfiles');
   if (fs.existsSync(sibling)) return sibling;
-  const webCopy = path.resolve(mobileRoot, '../web/dummy-non-existing-folder/wordfiles');
-  if (fs.existsSync(webCopy)) return webCopy;
   return null;
 }
 

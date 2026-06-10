@@ -1,4 +1,6 @@
 import { useMorseApp } from '../../context/MorseAppContext';
+import { usePlaybackState } from '../../context/PlaybackStateContext';
+import { useIntervalTimingConfig } from '../../hooks/useTimingConfig';
 import { getMorseImageSrc } from '../../utils/morseImages';
 
 export function SpeedSettingsBar() {
@@ -6,9 +8,10 @@ export function SpeedSettingsBar() {
     charWPM, effectiveWPM, syncWpm,
     setCharWPM, setEffectiveWPM, setSyncWpm,
     koVolume, setKoVolume,
-    isPlaying, speedInterval, intervalTimingsText,
-    timingConfig,
+    speedInterval, intervalTimingsText,
   } = useMorseApp();
+  const { isPlaying } = usePlaybackState();
+  const timingConfig = useIntervalTimingConfig();
 
   const variableSpeedDisplay = isPlaying
     && speedInterval
