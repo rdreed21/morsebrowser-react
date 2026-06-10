@@ -44,6 +44,7 @@ export interface PresetSettingsMutator {
   setEffectiveWPM: (v: number) => void;
   setSyncWpm: (v: boolean) => void;
   setKoVolume: (v: number) => void;
+  setVoiceVolume: (v: number) => void;
   setXtraWordSpaceDits: (v: number) => void;
   setStickySets: (v: string) => void;
   setIfStickySets: (v: boolean) => void;
@@ -98,6 +99,9 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   wpm: (v, m) => m.setCharWPM(asNumber(v, 20)),
   fwpm: (v, m) => m.setEffectiveWPM(asNumber(v, 20)),
   syncWpm: (v, m) => m.setSyncWpm(booleanize(v)),
+  // KO scale: both volumes are 0-10 in serialized settings files.
+  volume: (v, m) => m.setKoVolume(asNumber(v, 10)),
+  voiceVolume: (v, m) => m.setVoiceVolume(asNumber(v, 10)),
   xtraWordSpaceDits: (v, m) => {
     let n = asNumber(v, 1);
     if (n === 0) n = 1;

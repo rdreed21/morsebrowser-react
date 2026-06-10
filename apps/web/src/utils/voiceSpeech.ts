@@ -1,3 +1,12 @@
+/**
+ * Same language set as KO MorseVoice: English, Spanish, Portuguese,
+ * in both hyphenated and underscored locale forms.
+ */
+export const ALLOWED_VOICE_LANGS = [
+  'en-US', 'en-GB', 'es-ES', 'es-US', 'pt-BR', 'pt-PT',
+  'en_US', 'en_GB', 'es_ES', 'es_US', 'pt_BR', 'pt_PT',
+];
+
 export interface SpeakPhraseConfig {
   text: string;
   volume: number;
@@ -117,6 +126,5 @@ export function resolveSpeechVoice(
     const name = voiceVoices[voiceVoiceIdx].name;
     return all.find(v => v.name === name) ?? null;
   }
-  const allowed = ['en-US', 'en-GB', 'en_US', 'en_GB'];
-  return all.find(v => allowed.includes(v.lang)) ?? all[0] ?? null;
+  return all.find(v => ALLOWED_VOICE_LANGS.includes(v.lang)) ?? all[0] ?? null;
 }

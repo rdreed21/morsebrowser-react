@@ -15,6 +15,7 @@ import type { MorseSettings } from '@morsebrowser/types';
 import { getWords, rawTextCharCount } from '../utils/words';
 import { formatPlayTime } from '../utils/formatTime';
 import { getUrlParam, isDevBuild } from '../utils/urlParams';
+import { ALLOWED_VOICE_LANGS } from '../utils/voiceSpeech';
 import { hasLessonDeepLinkParams } from '../utils/lessonDeepLink';
 import {
   createDefaultAccordionOpen,
@@ -683,7 +684,10 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const initVoices = useCallback(() => {
     if (!voiceCapable) return;
-    const list = window.speechSynthesis.getVoices().map((v, idx) => ({ idx, name: v.name }));
+    // KO MorseVoice filters the selectable voices to en/es/pt locales.
+    const list = window.speechSynthesis.getVoices()
+      .filter(v => ALLOWED_VOICE_LANGS.includes(v.lang))
+      .map((v, idx) => ({ idx, name: v.name }));
     setVoiceVoices(list);
     const savedName = readStrCookie('voiceVoiceName', '');
     if (savedName) {

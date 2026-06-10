@@ -56,12 +56,13 @@ export const YOUR_SETTINGS_PRESET: SettingsOption = {
   isDummy: true,
 };
 
+// KO only blacklists cardFontPx and preSpace (morseSettingsHandler.ts) —
+// volume/voiceVolume ARE applied there, so they aren't blocked here either.
+// The frequency keys never appear in KO settings files; kept as a safeguard.
 export const DEFAULT_PRESET_KEY_BLACKLIST = [
   'ditFrequency',
   'dahFrequency',
   'syncFreq',
   'cardFontPx',
   'preSpace',
-  'volume',
-  'voiceVolume',
 ] as const;
