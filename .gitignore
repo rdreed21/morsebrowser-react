@@ -22,6 +22,9 @@ build/
 coverage/
 .eslintcache
 visual-diff-output/
+# Vitest drives the Vite plugins with a placeholder build.outDir; older
+# plugin versions copied lesson data there after every test run.
+apps/web/dummy-non-existing-folder/
 
 # Logs
 *.log

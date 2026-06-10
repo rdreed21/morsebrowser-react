@@ -61,7 +61,12 @@ export function wordfilesDevPlugin(): Plugin {
   return {
     name: 'morsebrowser-wordfiles',
     configResolved(config) {
-      outDir = path.resolve(config.root, config.build.outDir);
+      // Only copy on real builds. Vitest also drives this plugin and points
+      // build.outDir at a placeholder ("dummy-non-existing-folder"); copying
+      // there on closeBundle litters the repo after every test run.
+      if (config.command === 'build') {
+        outDir = path.resolve(config.root, config.build.outDir);
+      }
     },
     closeBundle() {
       if (outDir) copyWordfilesToDist(wordfilesDir, outDir, msg => console.warn(msg));
