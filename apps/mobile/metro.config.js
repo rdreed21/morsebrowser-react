@@ -13,7 +13,7 @@ const config = getDefaultConfig(projectRoot);
 // web monorepo support, but Metro's asset request handler still resolves
 // /assets/* relative to projectRoot — the mismatch doubles the path
 // (apps/mobile/apps/mobile/assets/...) and 404s every local image. Pin it
-// back to projectRoot since this app is iOS-only.
+// back to projectRoot.
 config.server.unstable_serverRoot = projectRoot;
 
 // Watch workspace packages

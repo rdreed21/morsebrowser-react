@@ -4,7 +4,8 @@
     "slug": "morsebrowser",
     "version": "1.0.0",
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ],
     "icon": "./assets/images/icon.png",
     "ios": {
@@ -16,6 +17,13 @@
           "audio"
         ],
         "NSMicrophoneUsageDescription": "Required by audio framework."
+      }
+    },
+    "android": {
+      "package": "com.kq4nkf.morsebrowser",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#0d6efd"
       }
     },
     "plugins": [
