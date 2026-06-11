@@ -506,8 +506,15 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setCookie('ifOverrideMinMax', String(v));
   }, []);
 
+  // Tracks the latest overrideMin synchronously so a setOverrideMax call
+  // immediately following setOverrideMin (e.g. applying a preset) sees the
+  // new min instead of the stale value from this render's closure.
+  const overrideMinRef = useRef(overrideMin);
+  useEffect(() => { overrideMinRef.current = overrideMin; }, [overrideMin]);
+
   const setOverrideMin = useCallback((v: number) => {
     const n = Math.max(1, Math.round(v));
+    overrideMinRef.current = n;
     setOverrideMinState(n);
     setCookie('overrideMin', String(n));
     if (syncSize) {
@@ -517,19 +524,19 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   }, [syncSize]);
 
   const setOverrideMax = useCallback((v: number) => {
-    const n = Math.max(overrideMin, Math.round(v));
+    const n = Math.max(overrideMinRef.current, Math.round(v));
     setOverrideMaxState(n);
     setCookie('overrideMax', String(n));
-  }, [overrideMin]);
+  }, []);
 
   const setSyncSize = useCallback((v: boolean) => {
     setSyncSizeState(v);
     setCookie('syncSize', String(v));
     if (v) {
-      setOverrideMaxState(overrideMin);
-      setCookie('overrideMax', String(overrideMin));
+      setOverrideMaxState(overrideMinRef.current);
+      setCookie('overrideMax', String(overrideMinRef.current));
     }
-  }, [overrideMin]);
+  }, []);
 
   const setNewlineChunking = useCallback((v: boolean) => {
     setNewlineChunkingState(v);
@@ -828,14 +835,18 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
           overrideMins,
           ifCustomGroup,
         );
-        setShowingText(generateRandomPractice({ ...result.config, practiceSeconds }));
+        const minWordSize = ifOverrideMinMax ? overrideMin : result.config.minWordSize;
+        const maxWordSize = ifOverrideMinMax ? overrideMax : result.config.maxWordSize;
+        setShowingText(generateRandomPractice({
+          ...result.config, practiceSeconds, minWordSize, maxWordSize,
+        }));
       }
       setNewlineChunking(selectedDisplay.newlineChunking);
     } catch {
       /* lesson files optional — custom group path always works */
     }
   }, [
-    ifCustomGroup, customGroup, ifOverrideTime, overrideMins, overrideMin, overrideMax,
+    ifCustomGroup, customGroup, ifOverrideTime, overrideMins, ifOverrideMinMax, overrideMin, overrideMax,
     ifStickySets, stickySets, selectedDisplay, setNewlineChunking,
     closeLessonAccordionIfAutoClosing,
   ]);
