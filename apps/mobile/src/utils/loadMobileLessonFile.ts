@@ -18,6 +18,7 @@ import {
 // android/app/build.gradle's `assets.srcDirs`).
 import wordfilesManifest from '../../assets/wordfiles-manifest.json';
 import presetsManifest from '../../assets/presets-manifest.json';
+import lessonDataVersion from '../../assets/lesson-data-version.json';
 
 const WORDFILES_DIR = `${FileSystem.documentDirectory ?? ''}wordfiles/`;
 const PRESETS_DIR = `${FileSystem.documentDirectory ?? ''}presets/`;
@@ -73,12 +74,15 @@ async function fetchOrRead(filename: string): Promise<Response> {
 
 /**
  * Marker value once a bundle copy has succeeded. Stamped with the app version
- * so an app update that ships refreshed wordfiles/presets re-copies the cache.
- * Any other value ('metro-only', a stale version) retries on the next launch,
- * so installing a build that finally bundles the data heals an older cache.
+ * and a content hash of assets/wordfiles + assets/presets (computed by
+ * scripts/generate-asset-manifests.mjs), so a build that ships refreshed
+ * lesson data re-copies the cache even if the app version is unchanged (e.g.
+ * dev/preview builds pinned at "1.0.0"). Any other value ('metro-only', a
+ * stale stamp) retries on the next launch, so installing a build that finally
+ * bundles the data heals an older cache.
  */
 function cacheStamp(): string {
-  return `ok:${Constants.expoConfig?.version ?? 'dev'}`;
+  return `ok:${Constants.expoConfig?.version ?? 'dev'}-${lessonDataVersion.hash}`;
 }
 
 async function markerValue(marker: string): Promise<string | null> {
