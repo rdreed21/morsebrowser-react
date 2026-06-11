@@ -34,6 +34,9 @@ npm-debug.log*
 .env
 .env.local
 *.keystore
+# The RN/Expo debug keystore is a well-known, non-secret signing key
+# (password "android") required for local debug/release Gradle builds.
+!apps/mobile/android/app/debug.keystore
 *.jks
 *.p8
 *.p12

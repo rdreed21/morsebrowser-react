@@ -3,13 +3,18 @@
   "version": "0.0.1",
   "main": "expo-router/entry",
   "scripts": {
+    "postinstall": "patch-package",
     "start": "expo start",
     "ios": "expo run:ios",
+    "android": "expo run:android",
     "build:ios": "eas build --platform ios --profile preview",
+    "build:android": "eas build --platform android --profile preview",
     "sync-wordfiles": "node scripts/sync-wordfiles.mjs",
     "sync-presets": "node scripts/sync-presets.mjs",
-    "prestart": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs",
-    "preios": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs"
+    "generate-asset-manifests": "node scripts/generate-asset-manifests.mjs",
+    "prestart": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs && node scripts/generate-asset-manifests.mjs",
+    "preios": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs && node scripts/generate-asset-manifests.mjs",
+    "preandroid": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs && node scripts/generate-asset-manifests.mjs"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
@@ -42,6 +47,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
+    "patch-package": "^8.0.1",
     "typescript": "~6.0.3"
   }
 }
