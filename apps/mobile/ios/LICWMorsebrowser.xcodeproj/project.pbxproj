@@ -14,6 +14,8 @@
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		D356105686B6494F570159AC /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E255FCD79012B49C92910E /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
+		AA10000000000000000000B1 /* wordfiles in Resources */ = {isa = PBXBuildFile; fileRef = AA10000000000000000000F1 /* wordfiles */; };
+		AA10000000000000000000B2 /* presets in Resources */ = {isa = PBXBuildFile; fileRef = AA10000000000000000000F2 /* presets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LICWMorsebrowser/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* LICWMorsebrowser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LICWMorsebrowser-Bridging-Header.h"; path = "LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA10000000000000000000F1 /* wordfiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = wordfiles; path = "../assets/wordfiles"; sourceTree = "<group>"; };
+		AA10000000000000000000F2 /* presets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = presets; path = "../assets/presets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				13B07FAE1A68108700A75B9A /* LICWMorsebrowser */,
+				AA10000000000000000000F1 /* wordfiles */,
+				AA10000000000000000000F2 /* presets */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -196,6 +202,8 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				7EC564F29316D9114E689DEB /* PrivacyInfo.xcprivacy in Resources */,
+				AA10000000000000000000B1 /* wordfiles in Resources */,
+				AA10000000000000000000B2 /* presets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
