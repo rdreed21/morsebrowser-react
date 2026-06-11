@@ -59,24 +59,48 @@ async function fetchOrRead(filename: string): Promise<Response> {
   throw new Error(`Lesson file not found: ${filename}`);
 }
 
+/**
+ * Marker value once a bundle copy has succeeded. Stamped with the app version
+ * so an app update that ships refreshed wordfiles/presets re-copies the cache.
+ * Any other value ('metro-only', a stale version) retries on the next launch,
+ * so installing a build that finally bundles the data heals an older cache.
+ */
+function cacheStamp(): string {
+  return `ok:${Constants.expoConfig?.version ?? 'dev'}`;
+}
+
+async function markerValue(marker: string): Promise<string | null> {
+  const info = await FileSystem.getInfoAsync(marker);
+  if (!info.exists) return null;
+  try {
+    return await FileSystem.readAsStringAsync(marker);
+  } catch {
+    return null;
+  }
+}
+
 /** Copy assets/wordfiles into documentDirectory on first launch (release builds). */
 export async function ensureWordfilesCached(): Promise<void> {
   const marker = `${WORDFILES_DIR}.ready`;
-  const markerInfo = await FileSystem.getInfoAsync(marker);
-  if (markerInfo.exists) return;
+  if (await markerValue(marker) === cacheStamp()) return;
 
-  await FileSystem.makeDirectoryAsync(WORDFILES_DIR, { intermediates: true });
-
-  // Bundled assets are copied at build time into the app bundle under wordfiles/
+  // Bundled by the Xcode folder reference: <app bundle>/wordfiles/
   const bundleDir = FileSystem.bundleDirectory;
-  if (!bundleDir) return;
+  const bundleWordfiles = bundleDir ? `${bundleDir}wordfiles/` : null;
+  const bundleInfo = bundleWordfiles
+    ? await FileSystem.getInfoAsync(bundleWordfiles)
+    : null;
 
-  const bundleWordfiles = `${bundleDir}wordfiles/`;
-  const bundleInfo = await FileSystem.getInfoAsync(bundleWordfiles);
-  if (!bundleInfo.exists || !bundleInfo.isDirectory) {
+  if (!bundleWordfiles || !bundleInfo?.exists || !bundleInfo.isDirectory) {
+    await FileSystem.makeDirectoryAsync(WORDFILES_DIR, { intermediates: true });
     await FileSystem.writeAsStringAsync(marker, 'metro-only');
     return;
   }
+
+  // Start clean: copyAsync throws on existing destinations, and a partial
+  // cache from an interrupted earlier copy must not survive.
+  await FileSystem.deleteAsync(WORDFILES_DIR, { idempotent: true });
+  await FileSystem.makeDirectoryAsync(WORDFILES_DIR, { intermediates: true });
 
   const names = await FileSystem.readDirectoryAsync(bundleWordfiles);
   await Promise.all(
@@ -87,7 +111,7 @@ export async function ensureWordfilesCached(): Promise<void> {
       }),
     ),
   );
-  await FileSystem.writeAsStringAsync(marker, 'ok');
+  await FileSystem.writeAsStringAsync(marker, cacheStamp());
 }
 
 async function copyDirRecursive(from: string, to: string): Promise<void> {
@@ -107,23 +131,23 @@ async function copyDirRecursive(from: string, to: string): Promise<void> {
 /** Copy assets/presets into documentDirectory on first launch (release builds). */
 export async function ensurePresetsCached(): Promise<void> {
   const marker = `${PRESETS_DIR}.ready`;
-  const markerInfo = await FileSystem.getInfoAsync(marker);
-  if (markerInfo.exists) return;
-
-  await FileSystem.makeDirectoryAsync(PRESETS_DIR, { intermediates: true });
+  if (await markerValue(marker) === cacheStamp()) return;
 
   const bundleDir = FileSystem.bundleDirectory;
-  if (!bundleDir) return;
+  const bundlePresets = bundleDir ? `${bundleDir}presets/` : null;
+  const bundleInfo = bundlePresets
+    ? await FileSystem.getInfoAsync(bundlePresets)
+    : null;
 
-  const bundlePresets = `${bundleDir}presets/`;
-  const bundleInfo = await FileSystem.getInfoAsync(bundlePresets);
-  if (!bundleInfo.exists || !bundleInfo.isDirectory) {
+  if (!bundlePresets || !bundleInfo?.exists || !bundleInfo.isDirectory) {
+    await FileSystem.makeDirectoryAsync(PRESETS_DIR, { intermediates: true });
     await FileSystem.writeAsStringAsync(marker, 'metro-only');
     return;
   }
 
+  await FileSystem.deleteAsync(PRESETS_DIR, { idempotent: true });
   await copyDirRecursive(bundlePresets, PRESETS_DIR);
-  await FileSystem.writeAsStringAsync(marker, 'ok');
+  await FileSystem.writeAsStringAsync(marker, cacheStamp());
 }
 
 let presetFetchFallbackInstalled = false;

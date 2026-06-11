@@ -67,6 +67,7 @@ export default function HomeScreen() {
             badge={app.selectedDisplay?.display}
             defaultOpen
             collapseWhen={app.isPlaying}
+            collapseSignal={app.lessonAccordionCloseSignal}
           >
             <LessonsPicker />
           </SettingsSection>

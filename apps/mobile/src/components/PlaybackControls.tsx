@@ -137,6 +137,13 @@ export function PlaybackControls() {
           t={t}
           onPress={() => app.setHideList(!app.hideList)}
         />
+        <IconToggle
+          icon={app.cardsVisible ? 'albums' : 'albums-outline'}
+          label={app.cardsVisible ? 'Hide cards' : 'Show cards'}
+          active={app.cardsVisible}
+          t={t}
+          onPress={() => app.setCardsVisible(!app.cardsVisible)}
+        />
         {showVoiceRecap && (
           <IconToggle
             icon="megaphone"

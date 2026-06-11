@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useRef } from 'react';
 import {
-  View, Text, TouchableOpacity, ScrollView, StyleSheet, ActivityIndicator,
+  View, Text, TouchableOpacity, StyleSheet, ActivityIndicator,
 } from 'react-native';
 import {
   getUserTargets, getClasses, getLetterGroups, getDisplays,
@@ -13,60 +13,7 @@ import {
   generateRandomPractice, resolvePracticeSeconds,
 } from '../utils/lessonPractice';
 import { useTheme } from '../utils/theme';
-import type { Theme } from '../utils/theme';
-
-interface PickerProps {
-  label: string;
-  selected: string;
-  options: string[];
-  onSelect: (v: string) => void;
-  disabled?: boolean;
-}
-
-function chipStyles(t: Theme, active: boolean) {
-  return {
-    chip: {
-      borderWidth: 1,
-      borderColor: active ? t.accent : t.chipBorder,
-      borderRadius: 16,
-      paddingVertical: 5,
-      paddingHorizontal: 12,
-      backgroundColor: active ? t.accent : 'transparent',
-    } as const,
-    text: {
-      fontSize: 13,
-      color: active ? t.chipTextActive : t.chipText,
-      fontWeight: '500' as const,
-    },
-  };
-}
-
-function InlinePicker({ label, selected, options, onSelect, disabled }: PickerProps) {
-  const t = useTheme();
-  if (options.length === 0) return null;
-  return (
-    <View style={p.group}>
-      <Text style={[p.groupLabel, { color: t.textMuted }]}>{label}</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <View style={p.chips}>
-          {options.map(opt => {
-            const active = selected === opt;
-            const cs = chipStyles(t, active);
-            return (
-              <TouchableOpacity
-                key={opt}
-                style={[cs.chip, disabled && p.chipDisabled]}
-                onPress={() => !disabled && onSelect(opt)}
-              >
-                <Text style={cs.text}>{opt}</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
+import { DropdownPicker } from './shared/DropdownPicker';
 
 export function LessonsPicker() {
   const app = useMorseApp();
@@ -106,7 +53,11 @@ export function LessonsPicker() {
           app.overrideMins,
           app.ifCustomGroup,
         );
-        app.setShowingText(generateRandomPractice({ ...result.config, practiceSeconds }));
+        const minWordSize = app.ifOverrideMinMax ? app.overrideMin : result.config.minWordSize;
+        const maxWordSize = app.ifOverrideMinMax ? app.overrideMax : result.config.maxWordSize;
+        app.setShowingText(generateRandomPractice({
+          ...result.config, practiceSeconds, minWordSize, maxWordSize,
+        }));
       }
       app.setNewlineChunking(option.newlineChunking);
       app.setCurrentIndex(0);
@@ -114,6 +65,7 @@ export function LessonsPicker() {
       setError(e instanceof Error ? e.message : 'Failed to load lesson');
     } finally {
       setLoading(false);
+      app.closeLessonAccordionIfAutoClosing();
     }
   }, [app]);
 
@@ -158,54 +110,35 @@ export function LessonsPicker() {
         </View>
       )}
 
-      <InlinePicker label="TYPE" selected={app.userTarget} options={userTargets} onSelect={app.setUserTarget} />
-      <InlinePicker label="CLASS" selected={app.selectedClass} options={classes} onSelect={app.setSelectedClass} disabled={classes.length === 0} />
-      <InlinePicker label="CONTENT" selected={app.letterGroup} options={letterGroups} onSelect={app.setLetterGroup} disabled={letterGroups.length === 0} />
+      <View style={p.row}>
+        <DropdownPicker label="TYPE" value={app.userTarget} options={userTargets} onSelect={app.setUserTarget} />
+        <DropdownPicker label="CLASS" value={app.selectedClass} options={classes} onSelect={app.setSelectedClass} disabled={classes.length === 0} />
+      </View>
+      <DropdownPicker label="CONTENT" value={app.letterGroup} options={letterGroups} onSelect={app.setLetterGroup} disabled={letterGroups.length === 0} />
 
       {displays.length > 0 && (
-        <View style={p.group}>
-          <Text style={[p.groupLabel, { color: t.textMuted }]}>LESSON</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={p.chips}>
-              {displays.map(d => {
-                const active = app.selectedDisplay?.fileName === d.fileName;
-                const cs = chipStyles(t, active);
-                return (
-                  <TouchableOpacity
-                    key={d.fileName}
-                    style={cs.chip}
-                    onPress={() => handleDisplaySelect(d)}
-                  >
-                    <Text style={cs.text}>{d.display}</Text>
-                  </TouchableOpacity>
-                );
-              })}
-            </View>
-          </ScrollView>
-        </View>
+        <DropdownPicker
+          label="LESSON"
+          value={app.selectedDisplay?.display ?? ''}
+          placeholder="Select a lesson"
+          options={displays.map(d => d.display)}
+          onSelect={display => {
+            const option = displays.find(d => d.display === display);
+            if (option) handleDisplaySelect(option);
+          }}
+        />
       )}
 
       {settingsPresets.length > 0 && (
         <View style={p.group}>
-          <Text style={[p.groupLabel, { color: t.textMuted }]}>PRESETS</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={p.chips}>
-              {settingsPresets.map(preset => {
-                const active = selectedSettingsPreset.display === preset.display;
-                const cs = chipStyles(t, active);
-                return (
-                  <TouchableOpacity
-                    key={preset.filename + preset.display}
-                    style={[cs.chip, !presetsEnabled && p.chipDisabled]}
-                    disabled={!presetsEnabled}
-                    onPress={() => selectPresetByDisplay(preset.display)}
-                  >
-                    <Text style={cs.text}>{preset.display}</Text>
-                  </TouchableOpacity>
-                );
-              })}
-            </View>
-          </ScrollView>
+          <DropdownPicker
+            label="PRESETS"
+            value={selectedSettingsPreset.display}
+            placeholder="Select a preset"
+            options={settingsPresets.map(preset => preset.display)}
+            disabled={!presetsEnabled}
+            onSelect={display => selectPresetByDisplay(display)}
+          />
           <View style={p.presetActions}>
             <TouchableOpacity
               style={[p.actionBtn, { borderColor: t.accent }, !presetsEnabled && p.actionBtnDisabled]}
@@ -259,17 +192,10 @@ const p = StyleSheet.create({
     fontWeight: '600',
   },
   group: { gap: 4 },
-  groupLabel: {
-    fontSize:      11,
-    fontWeight:    '700',
-    letterSpacing: 0.5,
-  },
-  chips: {
+  row: {
     flexDirection: 'row',
-    gap:           6,
-    paddingVertical: 2,
+    gap:           8,
   },
-  chipDisabled: { opacity: 0.4 },
   presetActions: {
     flexDirection: 'row',
     gap:           8,

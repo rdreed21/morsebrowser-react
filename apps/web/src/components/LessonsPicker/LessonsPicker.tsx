@@ -21,6 +21,7 @@ export function LessonsPicker() {
     setSelectedDisplay,     setShowingText, setNewlineChunking,
     isQueryStringSettingsOn,
     ifOverrideTime, overrideMins, ifCustomGroup,
+    ifOverrideMinMax, overrideMin, overrideMax,
     closeLessonAccordionIfAutoClosing,
   } = useMorseApp();
   // Actions-only: this picker never re-renders on playback ticks.
@@ -62,7 +63,11 @@ export function LessonsPicker() {
           overrideMins,
           ifCustomGroup,
         );
-        setShowingText(generateRandomPractice({ ...result.config, practiceSeconds }));
+        const minWordSize = ifOverrideMinMax ? overrideMin : result.config.minWordSize;
+        const maxWordSize = ifOverrideMinMax ? overrideMax : result.config.maxWordSize;
+        setShowingText(generateRandomPractice({
+          ...result.config, practiceSeconds, minWordSize, maxWordSize,
+        }));
       }
       setNewlineChunking(option.newlineChunking);
       setCurrentIndex(0);
@@ -75,6 +80,7 @@ export function LessonsPicker() {
   }, [
     setShowingText, setNewlineChunking, setCurrentIndex,
     ifOverrideTime, overrideMins, ifCustomGroup,
+    ifOverrideMinMax, overrideMin, overrideMax,
     closeLessonAccordionIfAutoClosing,
   ]);
 
