@@ -11,9 +11,10 @@
     "build:android": "eas build --platform android --profile preview",
     "sync-wordfiles": "node scripts/sync-wordfiles.mjs",
     "sync-presets": "node scripts/sync-presets.mjs",
-    "prestart": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs",
-    "preios": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs",
-    "preandroid": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs"
+    "generate-asset-manifests": "node scripts/generate-asset-manifests.mjs",
+    "prestart": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs && node scripts/generate-asset-manifests.mjs",
+    "preios": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs && node scripts/generate-asset-manifests.mjs",
+    "preandroid": "node scripts/sync-wordfiles.mjs && node scripts/sync-presets.mjs && node scripts/generate-asset-manifests.mjs"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
