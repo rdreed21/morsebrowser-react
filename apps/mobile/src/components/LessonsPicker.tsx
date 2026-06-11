@@ -65,7 +65,6 @@ export function LessonsPicker() {
       setError(e instanceof Error ? e.message : 'Failed to load lesson');
     } finally {
       setLoading(false);
-      app.closeLessonAccordionIfAutoClosing();
     }
   }, [app]);
 

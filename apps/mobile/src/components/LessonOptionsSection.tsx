@@ -97,7 +97,6 @@ export function LessonOptionsSection() {
         <CheckToggle label="Randomize" checked={app.randomizeLessons} onChange={app.setRandomizeLessons} />
         <CheckToggle label="Keep Lines" checked={app.newlineChunking} onChange={app.setNewlineChunking} />
         <CheckToggle label="Shuffle Intra-group" checked={app.shuffleIntraGroup} onChange={app.setShuffleIntraGroup} />
-        <CheckToggle label="Auto Close" checked={app.autoCloseLessonAccordion} onChange={app.setAutoCloseLessonAccordion} />
       </View>
 
       <Text style={[s.legend, s.legendSpaced, { color: t.textMuted }]}>Timing</Text>

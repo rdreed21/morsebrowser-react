@@ -139,8 +139,6 @@ export interface MorseAppContextValue {
   setSelectedPreset: (v: string) => void;
   autoCloseLessonAccordion: boolean;
   setAutoCloseLessonAccordion: (v: boolean) => void;
-  lessonAccordionCloseSignal: number;
-  closeLessonAccordionIfAutoClosing: () => void;
   shuffleIntraGroup: boolean;
   setShuffleIntraGroup: (v: boolean) => void;
   speedInterval: boolean;
@@ -245,7 +243,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const [selectedPreset, setSelectedPresetState] = useState('Your Settings');
   const [autoCloseLessonAccordion, setAutoCloseLessonAccordionState] = useState(false);
-  const [lessonAccordionCloseSignal, setLessonAccordionCloseSignal] = useState(0);
   const [shuffleIntraGroup, setShuffleIntraGroupState] = useState(false);
   const [speedInterval, setSpeedIntervalState] = useState(false);
   const [intervalTimingsText, setIntervalTimingsTextState] = useState('');
@@ -357,11 +354,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const setSelectedPreset = useCallback((v: string) => setSelectedPresetState(v), []);
   const setAutoCloseLessonAccordion = useCallback((v: boolean) => setAutoCloseLessonAccordionState(v), []);
-
-  const closeLessonAccordionIfAutoClosing = useCallback(() => {
-    if (!autoCloseLessonAccordion) return;
-    setLessonAccordionCloseSignal(s => s + 1);
-  }, [autoCloseLessonAccordion]);
   const setShuffleIntraGroup = useCallback((v: boolean) => setShuffleIntraGroupState(v), []);
   const setSpeedInterval = useCallback((v: boolean) => setSpeedIntervalState(v), []);
   const setIntervalTimingsText = useCallback((v: string) => setIntervalTimingsTextState(v), []);
@@ -477,7 +469,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
         maxWordSize: overrideMax,
         stickySets: ifStickySets ? stickySets : undefined,
       }));
-      closeLessonAccordionIfAutoClosing();
       return;
     }
     if (!selectedDisplay) return;
@@ -504,7 +495,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     }
   }, [
     ifCustomGroup, customGroup, ifOverrideTime, overrideMins, ifOverrideMinMax, overrideMin, overrideMax,
-    ifStickySets, stickySets, selectedDisplay, closeLessonAccordionIfAutoClosing,
+    ifStickySets, stickySets, selectedDisplay,
   ]);
 
   const shuffleWords = useCallback((fromLoopRestart = false) => {
@@ -694,8 +685,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setSelectedPreset,
     autoCloseLessonAccordion,
     setAutoCloseLessonAccordion,
-    lessonAccordionCloseSignal,
-    closeLessonAccordionIfAutoClosing,
     shuffleIntraGroup,
     setShuffleIntraGroup,
     speedInterval,
@@ -752,7 +741,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     applyEnabled, applyLesson, randomizeLessons,
     flaggedWords, flaggedWordsCount, clearFlaggedWords, loadFlaggedAsText, addFlaggedWord,
     speakFirstAdditionalWordspaces,
-    selectedPreset, autoCloseLessonAccordion, lessonAccordionCloseSignal, closeLessonAccordionIfAutoClosing,
+    selectedPreset, autoCloseLessonAccordion,
     shuffleIntraGroup,
     speedInterval, intervalTimingsText, intervalWpmText, intervalFwpmText,
     speakFirst, voiceCapable, voiceEnabled, voiceSpelling, manualVoice,
