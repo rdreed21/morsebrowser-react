@@ -40,6 +40,12 @@ function resolveFetchUrl(filename: string): string {
 }
 
 async function readBundledFile(filename: string): Promise<string | null> {
+  // Wait for the first-launch copy out of the bundled assets before checking
+  // for the file — otherwise an early read (e.g. on app boot, before the
+  // copy finishes) sees an empty/partial cache and falls through to a fetch
+  // that has nothing to resolve against in a release build (no Metro).
+  await ensureWordfilesCached();
+
   const localPath = `${WORDFILES_DIR}${filename}`;
   const info = await FileSystem.getInfoAsync(localPath);
   if (info.exists) {
@@ -239,6 +245,10 @@ export function installPresetFetchFallback(): void {
     } catch {
       /* fall through to bundled copy */
     }
+
+    // Wait for the first-launch copy out of the bundled assets before
+    // checking for the file — see readBundledFile.
+    await ensurePresetsCached();
 
     const localPath = `${PRESETS_DIR}${url.slice(prefix.length)}`;
     const info = await FileSystem.getInfoAsync(localPath);
