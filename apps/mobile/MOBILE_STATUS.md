@@ -217,6 +217,9 @@ eas build --platform ios --profile preview
 
 ## Related docs
 
-- `COMPONENT_MAP.md` — full KO → React component bible (web-focused; mobile section outdated)
-- `CLAUDE.md` — repo-wide hard requirements and agent roles
-- `AGENT_PROMPTS.md` — Mobile Agent scope and build order
+- `../../docs/REPO_MAP.md` — full repo tour and architecture
+- `../../docs/ADDING_LESSONS_PRESETS_WORDFILES.md` — adding lessons/presets/word files
+- `../../docs/ANDROID_FRAMEWORK.md` — plan for an Android build of this same Expo app
+- `../../CLAUDE.md` — repo-wide hard requirements and current status
+- `../../docs/archived/COMPONENT_MAP.md` — KO → React component bible (web-focused; archived)
+- `../../docs/archived/AGENT_PROMPTS.md` — Mobile Agent scope and build order (archived)

@@ -12,13 +12,15 @@ real background audio (lock-screen practice — something the browser version ca
 
 | Package | What it is | Status |
 |---|---|---|
-| [`packages/core`](packages/core) | Shared Morse engine — timing, scheduler, lessons, presets, settings | ✅ Complete (40+ tests) |
-| [`apps/web`](apps/web) | React + Bootstrap web app, pixel-matched to the KO fork | ✅ ~95% (93+ tests) |
+| [`packages/core`](packages/core) | Shared Morse engine — timing, scheduler, lessons, presets, settings | ✅ Complete (71 tests) |
+| [`apps/web`](apps/web) | React + Bootstrap web app, pixel-matched to the KO fork | ✅ ~95% (108 tests) |
 | [`apps/mobile`](apps/mobile) | Expo/React Native iOS app, native background audio | ✅ Day-to-day practice ready |
 
-Full migration ledger: [`COMPONENT_MAP.md`](COMPONENT_MAP.md). Mobile-specific status:
-[`apps/mobile/MOBILE_STATUS.md`](apps/mobile/MOBILE_STATUS.md). Repo-wide hard
-requirements and agent roles: [`CLAUDE.md`](CLAUDE.md).
+New here? Start with the [repo map](docs/REPO_MAP.md). Adding lessons/presets/word files:
+the [content guide](docs/ADDING_LESSONS_PRESETS_WORDFILES.md). Mobile-specific status:
+[`apps/mobile/MOBILE_STATUS.md`](apps/mobile/MOBILE_STATUS.md). Repo-wide hard requirements:
+[`CLAUDE.md`](CLAUDE.md). The original KO→React migration bible is archived under
+[`docs/archived/COMPONENT_MAP.md`](docs/archived/COMPONENT_MAP.md).
 
 ---
 
@@ -139,16 +141,37 @@ prefers bug reports there over direct email so nothing gets lost.
 
 ---
 
-## 🤖 Planning docs
+## 🚀 Deployment
 
+The web app deploys to **Cloudflare Pages** (project `morsebrowser`) along with the RSS
+proxy Worker on every push to `master`, via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+In CI the word files come from the committed copy under `apps/mobile/assets/wordfiles`
+(`WORDFILES_DIR`), and the RSS proxy URL is baked in via the `VITE_RSS_PROXY` secret.
+
+---
+
+## 📚 Docs
+
+Living docs:
+
+- [`docs/REPO_MAP.md`](docs/REPO_MAP.md) — full repo tour: where everything lives and where
+  to make a given change
+- [`docs/ADDING_LESSONS_PRESETS_WORDFILES.md`](docs/ADDING_LESSONS_PRESETS_WORDFILES.md) —
+  how to add lessons, presets, and word files
 - [`CLAUDE.md`](CLAUDE.md) — hard requirements (background audio, timing accuracy, fork
-  parity), agent roles, KO → React quick reference
-- [`COMPONENT_MAP.md`](COMPONENT_MAP.md) — full KO → React component-by-component bible
-  and live migration status
-- [`AGENT_PROMPTS.md`](AGENT_PROMPTS.md) — scope/build-order notes for each migration agent
-- [`apps/mobile/MOBILE_STATUS.md`](apps/mobile/MOBILE_STATUS.md) — iOS app status,
-  what's left, known issues
-- [`ANDROID_FRAMEWORK.md`](ANDROID_FRAMEWORK.md) — plan for extending the mobile app to
-  Android
-- [`LESSON_DATA_PIPELINE.md`](LESSON_DATA_PIPELINE.md) — idea for consolidating lesson/
-  preset data sync into one spot instead of three
+  parity), current status, KO → React quick reference
+- [`apps/mobile/MOBILE_STATUS.md`](apps/mobile/MOBILE_STATUS.md) — iOS app status, what's
+  left, known issues
+- [`docs/ANDROID_FRAMEWORK.md`](docs/ANDROID_FRAMEWORK.md) — plan for extending the mobile
+  app to Android
+- [`docs/LESSON_DATA_PIPELINE.md`](docs/LESSON_DATA_PIPELINE.md) — proposal to consolidate
+  lesson/preset data sync into one spot instead of three
+
+Archived (completed migration artifacts — see [`docs/archived/`](docs/archived/)):
+
+- [`docs/archived/COMPONENT_MAP.md`](docs/archived/COMPONENT_MAP.md) — the KO → React
+  component-by-component migration bible
+- [`docs/archived/AGENT_PROMPTS.md`](docs/archived/AGENT_PROMPTS.md) — the parallel-agent
+  migration setup
+- [`docs/archived/COMPLETE_STEPS.md`](docs/archived/COMPLETE_STEPS.md) — the one-time
+  scaffold/bring-up walkthrough

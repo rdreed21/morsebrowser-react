@@ -8,15 +8,17 @@ Owner: Roger Reed (rdreed21) | KQ4NKF
 | 2 | Accurate Morse timing | Pre-schedule on AudioContext clock — zero setTimeout |
 | 3 | Match fork look/feel | rdreed21/morsebrowser_dev develop, Bootstrap 5, no redesign |
 
-## Migration Status (2026-06-06)
+## Migration Status (2026-06-14)
 
 | Package | Progress | Tests |
 |---|---|---|
-| `packages/core` | **Complete** — morse map, timing, scheduler, lessons, cookie settings | 40 passing |
-| `apps/web` | **~70% UI** — all main accordions; playback depth remains | 44 passing |
-| `apps/mobile` | Not started | — |
+| `packages/core` | **Complete** — morse map, timing, scheduler, lessons, presets, cookie settings | 71 passing |
+| `apps/web` | **~95% UI** — all accordions, playback, presets, voice, deep links | 108 passing |
+| `apps/mobile` | **Day-to-day practice ready** — iOS; background audio needs real-device verification; no automated tests yet | — |
 
-Full component-by-component breakdown: `COMPONENT_MAP.md` § Migration Status.
+Repo tour & architecture: `docs/REPO_MAP.md`. Content authoring (lessons/presets/word
+files): `docs/ADDING_LESSONS_PRESETS_WORDFILES.md`. iOS status: `apps/mobile/MOBILE_STATUS.md`.
+The original KO→React migration bible and agent setup are archived under `docs/archived/`.
 
 ## Agents
 | Agent | Directory | Job |
