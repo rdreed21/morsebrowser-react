@@ -24,7 +24,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#0d6efd"
-      }
+      },
+      "permissions": [
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ]
     },
     "plugins": [
       "expo-router",
@@ -40,6 +44,12 @@
     "assetBundlePatterns": [
       "assets/wordfiles/**/*",
       "assets/presets/**/*"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1ecf496c-3d3e-4770-9280-3e9fc7d8fa6f"
+      }
+    }
   }
 }

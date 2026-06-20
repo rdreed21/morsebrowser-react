@@ -193,13 +193,52 @@ npx expo run:ios
 
 # Native rebuild after adding native modules
 npx expo run:ios
-
-# Future: device build
-eas build --platform ios --profile preview
 ```
 
 **Wordfiles source:** `../../../morsebrowser_dev/src/wordfiles` (or `WORDFILES_DIR` env).  
 **Presets source:** `packages/core/src/presets/data` (served via Metro in dev).
+
+---
+
+## Getting the app onto a real iPhone
+
+Three escalating options depending on how long/untethered the test needs to be.
+
+### 1. Quick tethered run (USB/wireless debugging, Metro required)
+For a single test session at your desk. Requires Metro running on the laptop the whole time.
+```bash
+cd apps/mobile
+npx expo run:ios --device
+```
+Picks your plugged-in (or same-network, wireless-debugging-enabled) iPhone from a list, builds the existing `ios/` Xcode project, and installs it. App quits/misbehaves if Metro stops or the laptop disconnects.
+
+If signing fails (no Apple Developer Team configured yet):
+```bash
+open ios/*.xcworkspace
+```
+Target → **Signing & Capabilities** → pick your Apple ID team → enable automatic signing → re-run the command above.
+
+### 2. Standalone install, still tethered once (no Metro needed after install)
+Same install step, but bundles the JS so the app doesn't need Metro afterward — good for a quick check that doesn't require unplugging for days:
+```bash
+npx expo run:ios --device --configuration Release
+```
+With a **free** Apple ID signing team, this still expires after **7 days** and must be reinstalled from the laptop. With a **paid Apple Developer Program** account ($99/yr), it's valid for the normal 1-year provisioning profile.
+
+### 3. Untethered extended testing — EAS internal/ad-hoc build (recommended pre-TestFlight step)
+This is the one for "leave it on my phone for a week, no laptop." Builds in the cloud, installs over the air via a link/QR code, and runs independently of any computer. **Requires a paid Apple Developer Program account** to register the device UDID and sign an ad-hoc IPA.
+```bash
+cd apps/mobile
+eas device:create        # one-time per device: register the iPhone's UDID (opens a registration link, scan/open on the iPhone)
+eas build --platform ios --profile preview
+```
+`eas.json`'s `preview` profile (`"distribution": "internal"`) already does the right thing — no code changes needed. When the build finishes, EAS prints an install link / QR code; open it in Safari on the iPhone and tap **Install**. The app then runs fully standalone — same lifetime as the ad-hoc provisioning profile (typically up to a year), independent of the laptop.
+
+This is the natural last step before submitting to **TestFlight**: once #3 has been soak-tested (background audio across lock/unlock cycles, multi-day use), promote to:
+```bash
+eas build --platform ios --profile production
+eas submit --platform ios
+```
 
 ---
 
@@ -211,7 +250,7 @@ eas build --platform ios --profile preview
 4. Refactor **`MorsePlaybackProvider`** (single playback hook instance).
 5. Fill **Lesson Options** gaps (sticky sets, speed intervals UI + playback).
 6. **Flagged Words** panel (Load As Text).
-7. Add **smoke tests** and EAS/TestFlight path.
+7. Add **smoke tests** and EAS/TestFlight path (see "Getting the app onto a real iPhone" above — option 3 is the pre-TestFlight soak-test build).
 
 ---
 
