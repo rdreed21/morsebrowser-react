@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "expo-router/entry",
   "scripts": {
-    "postinstall": "patch-package",
+    "postinstall": "patch-package && npm install --prefix ../.. && npm --prefix ../../packages/types run build && npm --prefix ../../packages/core run build",
     "start": "expo start",
     "ios": "expo run:ios",
     "android": "expo run:android",
