@@ -1,0 +1,6675 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 31,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "FlaggedWordsAccordion",
+          "startLine": 4,
+          "endLine": 46,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FlaggedWordsAccordion",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "FlaggedWordsAccordion",
+          "callee": "useMorseApp",
+          "lineNumber": 8
+        },
+        {
+          "caller": "FlaggedWordsAccordion",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 25
+        },
+        {
+          "caller": "FlaggedWordsAccordion",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 34
+        },
+        {
+          "caller": "FlaggedWordsAccordion",
+          "callee": "setFlaggedWords",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "HelpFooter",
+          "startLine": 18,
+          "endLine": 96,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HelpFooter",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "HelpFooter",
+          "callee": "useMorseApp",
+          "lineNumber": 19
+        },
+        {
+          "caller": "HelpFooter",
+          "callee": "SHORTCUTS.map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "HelpFooter",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 115,
+      "nonEmptyLines": 112,
+      "functions": [
+        {
+          "name": "InputOptionsPanel",
+          "startLine": 8,
+          "endLine": 115,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "InputOptionsPanel",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "useMorseApp",
+          "lineNumber": 11
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "useRef",
+          "lineNumber": 12
+        },
+        {
+          "caller": "handleFileChange",
+          "callee": "setShowingText",
+          "lineNumber": 20
+        },
+        {
+          "caller": "handleFileChange",
+          "callee": "setShowRaw",
+          "lineNumber": 21
+        },
+        {
+          "caller": "handleFileChange",
+          "callee": "reader.readAsText",
+          "lineNumber": 25
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 36
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "setShowRaw",
+          "lineNumber": 51
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 64
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 71
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "fileRef.current?.click",
+          "lineNumber": 80
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 82
+        },
+        {
+          "caller": "InputOptionsPanel",
+          "callee": "setShowingText",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 367,
+      "nonEmptyLines": 361,
+      "functions": [
+        {
+          "name": "LessonOptionsPanel",
+          "startLine": 8,
+          "endLine": 367,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LessonOptionsPanel",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "useMorseApp",
+          "lineNumber": 30
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 39
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setCustomGroup",
+          "lineNumber": 67
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setOverrideMins",
+          "lineNumber": 87
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 87
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setOverrideMin",
+          "lineNumber": 109
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 109
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setSyncSize",
+          "lineNumber": 118
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setSyncSize",
+          "lineNumber": 119
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 126
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setOverrideMax",
+          "lineNumber": 136
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 136
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "applyLesson",
+          "lineNumber": 148
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setStickySets",
+          "lineNumber": 188
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 229
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setIntervalTimingsText",
+          "lineNumber": 237
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setIntervalWpmText",
+          "lineNumber": 246
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setIntervalFwpmText",
+          "lineNumber": 255
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 263
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setNumberOfRepeats",
+          "lineNumber": 273
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 273
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 277
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setSpeakFirstAdditionalWordspaces",
+          "lineNumber": 287
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 287
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setTrailReveal",
+          "lineNumber": 306
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 314
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 319
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setTrailPreDelay",
+          "lineNumber": 330
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 330
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 334
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setTrailPostDelay",
+          "lineNumber": 345
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 345
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 349
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "setTrailFinal",
+          "lineNumber": 360
+        },
+        {
+          "caller": "LessonOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 360
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 60,
+      "functions": [
+        {
+          "name": "NoiseSettingsGroup",
+          "startLine": 6,
+          "endLine": 63,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NoiseSettingsGroup",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "useMorseApp",
+          "lineNumber": 7
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 12
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "(['off', 'white', 'brown', 'pink'] as const).map",
+          "lineNumber": 18
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "type.charAt(0).toUpperCase",
+          "lineNumber": 27
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "type.charAt",
+          "lineNumber": 27
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "type.slice",
+          "lineNumber": 27
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "setNoiseType",
+          "lineNumber": 28
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "type.charAt(0).toUpperCase",
+          "lineNumber": 35
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "type.charAt",
+          "lineNumber": 35
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "type.slice",
+          "lineNumber": 35
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 45
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "setNoiseVolume",
+          "lineNumber": 56
+        },
+        {
+          "caller": "NoiseSettingsGroup",
+          "callee": "Number",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 297,
+      "nonEmptyLines": 281,
+      "functions": [
+        {
+          "name": "LessonsPicker",
+          "startLine": 17,
+          "endLine": 297,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LessonsPicker",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "LessonsPicker",
+          "callee": "useMorseApp",
+          "lineNumber": 26
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "usePlaybackActions",
+          "lineNumber": 28
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useState",
+          "lineNumber": 30
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useState",
+          "lineNumber": 31
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useState",
+          "lineNumber": 32
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useRef",
+          "lineNumber": 33
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useRef",
+          "lineNumber": 34
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useMemo",
+          "lineNumber": 36
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "getUserTargets",
+          "lineNumber": 36
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useMemo",
+          "lineNumber": 37
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "getClasses",
+          "lineNumber": 38
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useMemo",
+          "lineNumber": 41
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "getLetterGroups",
+          "lineNumber": 42
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useMemo",
+          "lineNumber": 45
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "getDisplays",
+          "lineNumber": 47
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useCallback",
+          "lineNumber": 52
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setLoading",
+          "lineNumber": 53
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setError",
+          "lineNumber": 54
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "loadLessonFile",
+          "lineNumber": 56
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setShowingText",
+          "lineNumber": 58
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "result.content.trim().replace",
+          "lineNumber": 58
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "result.content.trim",
+          "lineNumber": 58
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "resolvePracticeSeconds",
+          "lineNumber": 60
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setShowingText",
+          "lineNumber": 68
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "generateRandomPractice",
+          "lineNumber": 68
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setNewlineChunking",
+          "lineNumber": 72
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setCurrentIndex",
+          "lineNumber": 73
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setError",
+          "lineNumber": 75
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setLoading",
+          "lineNumber": 77
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "closeLessonAccordionIfAutoClosing",
+          "lineNumber": 78
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useRef",
+          "lineNumber": 87
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useRef",
+          "lineNumber": 90
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useLessonDeepLinks",
+          "lineNumber": 93
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "usePresets",
+          "lineNumber": 103
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "loadLessonRef.current",
+          "lineNumber": 105
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useCallback",
+          "lineNumber": 108
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "displays.find",
+          "lineNumber": 109
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setSelectedDisplay",
+          "lineNumber": 111
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "isQueryStringSettingsOn",
+          "lineNumber": 112
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "upsertLessonQueryParam",
+          "lineNumber": 113
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "loadLesson(option).then",
+          "lineNumber": 115
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "loadLesson",
+          "lineNumber": 115
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "reapplyCurrentPreset",
+          "lineNumber": 115
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useCallback",
+          "lineNumber": 118
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setSelectedClass",
+          "lineNumber": 119
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "isQueryStringSettingsOn",
+          "lineNumber": 120
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "upsertLessonQueryParam",
+          "lineNumber": 121
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useCallback",
+          "lineNumber": 125
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setLetterGroup",
+          "lineNumber": 126
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "isQueryStringSettingsOn",
+          "lineNumber": 127
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "upsertLessonQueryParam",
+          "lineNumber": 128
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useCallback",
+          "lineNumber": 132
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "fileInputRef.current?.click",
+          "lineNumber": 133
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useCallback",
+          "lineNumber": 136
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "loadSettingsFromFile",
+          "lineNumber": 138
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "useEffect",
+          "lineNumber": 142
+        },
+        {
+          "caller": "close",
+          "callee": "presetsRef.current.contains",
+          "lineNumber": 145
+        },
+        {
+          "caller": "close",
+          "callee": "setPresetsOpen",
+          "lineNumber": 146
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "document.addEventListener",
+          "lineNumber": 149
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "document.removeEventListener",
+          "lineNumber": 150
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 164
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setUserTarget",
+          "lineNumber": 189
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "displays.map",
+          "lineNumber": 214
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "e.stopPropagation",
+          "lineNumber": 233
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setPresetsOpen",
+          "lineNumber": 234
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "settingsPresets.map",
+          "lineNumber": 244
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "selectPresetByDisplay",
+          "lineNumber": 253
+        },
+        {
+          "caller": "LessonsPicker",
+          "callee": "setPresetsOpen",
+          "lineNumber": 254
+        }
+      ],
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 132,
+      "nonEmptyLines": 130,
+      "functions": [
+        {
+          "name": "OutputOptionsPanel",
+          "startLine": 7,
+          "endLine": 132,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OutputOptionsPanel",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "useMorseApp",
+          "lineNumber": 12
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "useWavDownload",
+          "lineNumber": 13
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 22
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 33
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "setPreSpace",
+          "lineNumber": 45
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 45
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 49
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "setXtraWordSpaceDits",
+          "lineNumber": 61
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 61
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 65
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "setCardSpace",
+          "lineNumber": 77
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 77
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 81
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "setCardFontPx",
+          "lineNumber": 93
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 93
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "setCardsVisible",
+          "lineNumber": 104
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 107
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 111
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "showingText.trim",
+          "lineNumber": 120
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "downloadWav",
+          "lineNumber": 122
+        },
+        {
+          "caller": "OutputOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 124
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/PageHeader/PageHeader.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "PageHeader",
+          "startLine": 4,
+          "endLine": 46,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PageHeader",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PageHeader",
+          "callee": "useMorseApp",
+          "lineNumber": 5
+        },
+        {
+          "caller": "PageHeader",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 14
+        },
+        {
+          "caller": "PageHeader",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 158,
+      "nonEmptyLines": 154,
+      "functions": [
+        {
+          "name": "RssAccordion",
+          "startLine": 14,
+          "endLine": 158,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RssAccordion",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RssAccordion",
+          "callee": "useRssPlugin",
+          "lineNumber": 15
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "useState",
+          "lineNumber": 20
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "PRESET_FEEDS.some",
+          "lineNumber": 21
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 31
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.pollRssButtonText.replace",
+          "lineNumber": 35
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "setCustomMode",
+          "lineNumber": 59
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "setCustomMode",
+          "lineNumber": 61
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.setRssFeedUrl",
+          "lineNumber": 62
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "PRESET_FEEDS.map",
+          "lineNumber": 66
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.setRssFeedUrl",
+          "lineNumber": 78
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.setProxyUrl",
+          "lineNumber": 88
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 96
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.setRssPollMins",
+          "lineNumber": 103
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "Number",
+          "lineNumber": 103
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 107
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.setRssPlayMins",
+          "lineNumber": 114
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "Number",
+          "lineNumber": 114
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.setRssFullArticle",
+          "lineNumber": 137
+        },
+        {
+          "caller": "RssAccordion",
+          "callee": "rss.setRssFullArticle",
+          "lineNumber": 148
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 102,
+      "functions": [
+        {
+          "name": "ToneOptionsPanel",
+          "startLine": 8,
+          "endLine": 107,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ToneOptionsPanel",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "useMorseApp",
+          "lineNumber": 12
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "useMorseAudio",
+          "lineNumber": 13
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "useState",
+          "lineNumber": 14
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "useRef",
+          "lineNumber": 15
+        },
+        {
+          "caller": "setTonePlaying",
+          "callee": "setTestTonePlaying",
+          "lineNumber": 19
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "useEffect",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "stopMorse",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handleTestTone",
+          "callee": "stopMorse",
+          "lineNumber": 29
+        },
+        {
+          "caller": "handleTestTone",
+          "callee": "setTonePlaying",
+          "lineNumber": 30
+        },
+        {
+          "caller": "handleTestTone",
+          "callee": "setTonePlaying",
+          "lineNumber": 33
+        },
+        {
+          "caller": "handleTestTone",
+          "callee": "playTestTone",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handleTestTone",
+          "callee": "setTonePlaying",
+          "lineNumber": 34
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "setDitFrequency",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 76
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "setSyncFreq",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "setDahFrequency",
+          "lineNumber": 92
+        },
+        {
+          "caller": "ToneOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 212,
+      "nonEmptyLines": 209,
+      "functions": [
+        {
+          "name": "VoiceOptionsPanel",
+          "startLine": 7,
+          "endLine": 212,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "VoiceOptionsPanel",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "useMorseApp",
+          "lineNumber": 17
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "initVoices",
+          "lineNumber": 26
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 29
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 72
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "setVoiceThinkingTime",
+          "lineNumber": 83
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 83
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 94
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "setVoiceAfterThinkingTime",
+          "lineNumber": 105
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 105
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "setVoiceVoiceIdx",
+          "lineNumber": 116
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 116
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "voiceVoices.map",
+          "lineNumber": 119
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 128
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "setVoiceVolume",
+          "lineNumber": 139
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 139
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 155
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "setVoicePitch",
+          "lineNumber": 166
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 166
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 174
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "setVoiceRate",
+          "lineNumber": 185
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 185
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 193
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "setVoiceBufferMaxLength",
+          "lineNumber": 204
+        },
+        {
+          "caller": "VoiceOptionsPanel",
+          "callee": "Number",
+          "lineNumber": 204
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "WorkingTextStats",
+          "startLine": 5,
+          "endLine": 30,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "WorkingTextStats",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "WorkingTextStats",
+          "callee": "useMorseApp",
+          "lineNumber": 6
+        },
+        {
+          "caller": "WorkingTextStats",
+          "callee": "usePlaybackState",
+          "lineNumber": 7
+        },
+        {
+          "caller": "WorkingTextStats",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/shared/DropdownPicker.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 39,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/shared/DropdownPicker.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "DropdownPicker",
+          "startLine": 13,
+          "endLine": 78,
+          "params": [
+            "{\n  id, label, value, placeholder, options, disabled = false, onSelect,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DropdownPicker",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DropdownPicker",
+          "callee": "useRef",
+          "lineNumber": 16
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "useState",
+          "lineNumber": 17
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "useEffect",
+          "lineNumber": 19
+        },
+        {
+          "caller": "close",
+          "callee": "ref.current.contains",
+          "lineNumber": 22
+        },
+        {
+          "caller": "close",
+          "callee": "setOpen",
+          "lineNumber": 23
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "document.addEventListener",
+          "lineNumber": 26
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "document.removeEventListener",
+          "lineNumber": 27
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "e.stopPropagation",
+          "lineNumber": 47
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "setOpen",
+          "lineNumber": 48
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "options.map",
+          "lineNumber": 58
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "onSelect",
+          "lineNumber": 66
+        },
+        {
+          "caller": "DropdownPicker",
+          "callee": "setOpen",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "SettingsAccordionItem",
+          "startLine": 17,
+          "endLine": 60,
+          "params": [
+            "{\r\n  panelId,\r\n  headingId,\r\n  buttonId,\r\n  buttonClassName = 'accordion-button',\r\n  bodyClassName,\r\n  title,\r\n  children,\r\n  onBeforeOpen,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SettingsAccordionItem",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SettingsAccordionItem",
+          "callee": "useMorseApp",
+          "lineNumber": 27
+        },
+        {
+          "caller": "SettingsAccordionItem",
+          "callee": "isSettingsAccordionOpen",
+          "lineNumber": 28
+        },
+        {
+          "caller": "handleToggle",
+          "callee": "onBeforeOpen",
+          "lineNumber": 31
+        },
+        {
+          "caller": "handleToggle",
+          "callee": "toggleSettingsAccordion",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "SettingsCheckToggle",
+          "startLine": 13,
+          "endLine": 36,
+          "params": [
+            "{\n  id, label, checked, onChange, disabled = false, icon, ariaLabel,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SettingsCheckToggle",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SettingsCheckToggle",
+          "callee": "onChange",
+          "lineNumber": 26
+        },
+        {
+          "caller": "SettingsCheckToggle",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 29
+        },
+        {
+          "caller": "SettingsCheckToggle",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/context/MorseAppContext.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 1229,
+      "nonEmptyLines": 1118,
+      "functions": [
+        {
+          "name": "readDarkMode",
+          "startLine": 202,
+          "endLine": 205,
+          "params": []
+        },
+        {
+          "name": "readShowRaw",
+          "startLine": 207,
+          "endLine": 211,
+          "params": []
+        },
+        {
+          "name": "readNumCookie",
+          "startLine": 213,
+          "endLine": 218,
+          "params": [
+            "key",
+            "fallback"
+          ]
+        },
+        {
+          "name": "readBoolCookie",
+          "startLine": 220,
+          "endLine": 224,
+          "params": [
+            "key",
+            "fallback"
+          ]
+        },
+        {
+          "name": "readStrCookie",
+          "startLine": 226,
+          "endLine": 229,
+          "params": [
+            "key",
+            "fallback"
+          ]
+        },
+        {
+          "name": "readRssEnabled",
+          "startLine": 231,
+          "endLine": 234,
+          "params": []
+        },
+        {
+          "name": "applyTheme",
+          "startLine": 236,
+          "endLine": 238,
+          "params": [
+            "dark"
+          ]
+        },
+        {
+          "name": "MorseAppProvider",
+          "startLine": 240,
+          "endLine": 1221,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "useMorseApp",
+          "startLine": 1223,
+          "endLine": 1227,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DEFAULT_SHOWING_TEXT",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "MorseAppProvider",
+          "line": 240,
+          "isDefault": false
+        },
+        {
+          "name": "useMorseApp",
+          "line": 1223,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_SETTINGS",
+          "line": 1229,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "readDarkMode",
+          "callee": "getCookie",
+          "lineNumber": 203
+        },
+        {
+          "caller": "readShowRaw",
+          "callee": "getCookie",
+          "lineNumber": 208
+        },
+        {
+          "caller": "readNumCookie",
+          "callee": "getCookie",
+          "lineNumber": 214
+        },
+        {
+          "caller": "readNumCookie",
+          "callee": "parseFloat",
+          "lineNumber": 216
+        },
+        {
+          "caller": "readNumCookie",
+          "callee": "Number.isFinite",
+          "lineNumber": 217
+        },
+        {
+          "caller": "readBoolCookie",
+          "callee": "getCookie",
+          "lineNumber": 221
+        },
+        {
+          "caller": "readStrCookie",
+          "callee": "getCookie",
+          "lineNumber": 227
+        },
+        {
+          "caller": "readRssEnabled",
+          "callee": "new URLSearchParams(window.location.search).has",
+          "lineNumber": 233
+        },
+        {
+          "caller": "applyTheme",
+          "callee": "document.documentElement.setAttribute",
+          "lineNumber": 237
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 241
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "loadSettings",
+          "lineNumber": 241
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 242
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "getCookie",
+          "lineNumber": 242
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 243
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 244
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 246
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 247
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 248
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 249
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 250
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 252
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "getCookie",
+          "lineNumber": 252
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "usePlaybackActions",
+          "lineNumber": 255
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 256
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 257
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 258
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 258
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 259
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useRef",
+          "lineNumber": 260
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useRef",
+          "lineNumber": 261
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useRef",
+          "lineNumber": 262
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 263
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 265
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 266
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 267
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 268
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 269
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 271
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 272
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 274
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 275
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 277
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 277
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 278
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 278
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 279
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 280
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 282
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 282
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 283
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 283
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 284
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 284
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 286
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 286
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 287
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 287
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 288
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 288
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 289
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 289
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 290
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 290
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 291
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 291
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 292
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 292
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 293
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 293
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 294
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 294
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 295
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 296
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 298
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 301
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 301
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 302
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 302
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 303
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 304
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 306
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 306
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 307
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 308
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 310
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 310
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 311
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 311
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 312
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 312
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 313
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 314
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 316
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 317
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 320
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 320
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 321
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 322
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 323
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 325
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "(import.meta.env.VITE_RSS_PROXY || '').trim",
+          "lineNumber": 328
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "envProxy.endsWith",
+          "lineNumber": 330
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 334
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 336
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 336
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 337
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 337
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 338
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 338
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 339
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 339
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 340
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 340
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 341
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 341
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 342
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 342
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 344
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 350
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 350
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 351
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 351
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 352
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 352
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 353
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 353
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 354
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 355
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 357
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 358
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 360
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 361
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 362
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 362
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 363
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readBoolCookie",
+          "lineNumber": 363
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 364
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 364
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 365
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 365
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 366
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readNumCookie",
+          "lineNumber": 367
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 369
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "getUrlParam",
+          "lineNumber": 369
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 370
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "isDevBuild",
+          "lineNumber": 370
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useState",
+          "lineNumber": 371
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "localStorage.getItem",
+          "lineNumber": 374
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useRef",
+          "lineNumber": 379
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useEffect",
+          "lineNumber": 381
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "applyTheme",
+          "lineNumber": 381
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useEffect",
+          "lineNumber": 383
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "flaggedWords.trim",
+          "lineNumber": 385
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "localStorage.setItem",
+          "lineNumber": 386
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "localStorage.removeItem",
+          "lineNumber": 388
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 395
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSettings",
+          "lineNumber": 396
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "saveSettings",
+          "lineNumber": 397
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 400
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 401
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 401
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 402
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "persistSettings",
+          "lineNumber": 403
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 409
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 410
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 410
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 410
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "persistSettings",
+          "lineNumber": 411
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 417
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSyncWpmState",
+          "lineNumber": 418
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 419
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 419
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCharWPM",
+          "lineNumber": 420
+        },
+        {
+          "caller": "clampFreq",
+          "callee": "Math.min",
+          "lineNumber": 423
+        },
+        {
+          "caller": "clampFreq",
+          "callee": "Math.max",
+          "lineNumber": 423
+        },
+        {
+          "caller": "clampFreq",
+          "callee": "Math.round",
+          "lineNumber": 423
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 425
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "clampFreq",
+          "lineNumber": 426
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setDitFrequencyState",
+          "lineNumber": 427
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 428
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 428
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "persistSettings",
+          "lineNumber": 429
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setDahFrequencyState",
+          "lineNumber": 434
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 435
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 435
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 439
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "clampFreq",
+          "lineNumber": 440
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setDahFrequencyState",
+          "lineNumber": 441
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 442
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 442
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 445
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSyncFreqState",
+          "lineNumber": 446
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 447
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 447
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setDahFrequencyState",
+          "lineNumber": 449
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 450
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 450
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 454
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 455
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 455
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setPreSpaceState",
+          "lineNumber": 456
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 457
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 457
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 460
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 461
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 461
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 461
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setXtraWordSpaceDitsState",
+          "lineNumber": 462
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 463
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 463
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 466
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 467
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 467
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 467
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCardSpaceState",
+          "lineNumber": 468
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 469
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 469
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 472
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 473
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 473
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 473
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCardFontPxState",
+          "lineNumber": 474
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 475
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 475
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 478
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCardsVisibleState",
+          "lineNumber": 479
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 480
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 480
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 483
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIfCustomGroupState",
+          "lineNumber": 484
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 485
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 485
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 488
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCustomGroupState",
+          "lineNumber": 489
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 490
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 493
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIfOverrideTimeState",
+          "lineNumber": 494
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 495
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 495
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 498
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 499
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setOverrideMinsState",
+          "lineNumber": 500
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 501
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 501
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 504
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIfOverrideMinMaxState",
+          "lineNumber": 505
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 506
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 506
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useRef",
+          "lineNumber": 512
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useEffect",
+          "lineNumber": 513
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 515
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 516
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 516
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setOverrideMinState",
+          "lineNumber": 518
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 519
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 519
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setOverrideMaxState",
+          "lineNumber": 521
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 522
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 522
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 526
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 527
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 527
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setOverrideMaxState",
+          "lineNumber": 528
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 529
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 529
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 532
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSyncSizeState",
+          "lineNumber": 533
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 534
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 534
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setOverrideMaxState",
+          "lineNumber": 536
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 537
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 537
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 541
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setNewlineChunkingState",
+          "lineNumber": 542
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 543
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 543
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 546
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setRandomizeLessonsState",
+          "lineNumber": 547
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 548
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 548
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 551
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setAutoCloseLessonAccordionState",
+          "lineNumber": 552
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 553
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 553
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 556
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIfStickySetsState",
+          "lineNumber": 557
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 558
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 558
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 561
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setStickySetsState",
+          "lineNumber": 562
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 563
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 566
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShuffleIntraGroupState",
+          "lineNumber": 567
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 568
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 568
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 571
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSpeedIntervalState",
+          "lineNumber": 572
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 573
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 573
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 576
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIntervalTimingsTextState",
+          "lineNumber": 577
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 578
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 581
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIntervalWpmTextState",
+          "lineNumber": 582
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 583
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 586
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIntervalFwpmTextState",
+          "lineNumber": 587
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 588
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 591
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 592
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 592
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 592
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setNumberOfRepeatsState",
+          "lineNumber": 593
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 594
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 594
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 597
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 598
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 598
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 598
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSpeakFirstAdditionalWordspacesState",
+          "lineNumber": 599
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 600
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 600
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 603
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setNoiseTypeState",
+          "lineNumber": 604
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 605
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 608
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 609
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 609
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 609
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setNoiseVolumeState",
+          "lineNumber": 610
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 611
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 611
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 614
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setRssFeedUrlState",
+          "lineNumber": 615
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 616
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 619
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setProxyUrlState",
+          "lineNumber": 620
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 621
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 624
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 625
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setRssPollMinsState",
+          "lineNumber": 626
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 627
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 627
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 630
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 631
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setRssPlayMinsState",
+          "lineNumber": 632
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 633
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 633
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 636
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setRssFullArticleState",
+          "lineNumber": 637
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 638
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 638
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 641
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setTrailRevealState",
+          "lineNumber": 642
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 643
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 643
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setMaxRevealedTrail",
+          "lineNumber": 644
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 647
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 648
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setTrailPreDelayState",
+          "lineNumber": 649
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 650
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 650
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 653
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 654
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setTrailPostDelayState",
+          "lineNumber": 655
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 656
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 656
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 659
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 660
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setTrailFinalState",
+          "lineNumber": 661
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 662
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 662
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 665
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 668
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 668
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 671
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "window.speechSynthesis.getVoices()\n      .filter(v => ALLOWED_VOICE_LANGS.includes(v.lang))\n      .map",
+          "lineNumber": 674
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "window.speechSynthesis.getVoices()\n      .filter",
+          "lineNumber": 674
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "window.speechSynthesis.getVoices",
+          "lineNumber": 674
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "ALLOWED_VOICE_LANGS.includes",
+          "lineNumber": 675
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceVoices",
+          "lineNumber": 677
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "readStrCookie",
+          "lineNumber": 678
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "list.find",
+          "lineNumber": 680
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceVoiceIdxState",
+          "lineNumber": 681
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useEffect",
+          "lineNumber": 685
+        },
+        {
+          "caller": "onVoices",
+          "callee": "initVoices",
+          "lineNumber": 687
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "window.speechSynthesis.addEventListener",
+          "lineNumber": 688
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "initVoices",
+          "lineNumber": 689
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "window.speechSynthesis.removeEventListener",
+          "lineNumber": 690
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 693
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceEnabledState",
+          "lineNumber": 694
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 695
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 695
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSpeakFirstState",
+          "lineNumber": 697
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 698
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 702
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceSpellingState",
+          "lineNumber": 703
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 704
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 704
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 707
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setManualVoiceState",
+          "lineNumber": 708
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 709
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 709
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 712
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSpeakFirstState",
+          "lineNumber": 713
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 714
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 714
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 717
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 718
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 718
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceThinkingTimeState",
+          "lineNumber": 719
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 720
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 720
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 723
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 724
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 724
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceAfterThinkingTimeState",
+          "lineNumber": 725
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 726
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 726
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 729
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceVoiceIdxState",
+          "lineNumber": 730
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "voiceVoices.find",
+          "lineNumber": 731
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 732
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 735
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 736
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 736
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 736
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceVolumeState",
+          "lineNumber": 737
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 738
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 738
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 741
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceLastOnlyState",
+          "lineNumber": 742
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 743
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 743
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 746
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 747
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 747
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoicePitchState",
+          "lineNumber": 748
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 749
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 749
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 752
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 753
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 753
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceRateState",
+          "lineNumber": 754
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 755
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 755
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 758
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 759
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 759
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 759
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setVoiceBufferMaxLengthState",
+          "lineNumber": 760
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 761
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 761
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 764
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "flaggedWords.trim",
+          "lineNumber": 765
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "getWords",
+          "lineNumber": 765
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 769
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setFlaggedWordsState",
+          "lineNumber": 770
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 773
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "flaggedWords.trim",
+          "lineNumber": 774
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setFlaggedWordsState",
+          "lineNumber": 774
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 777
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "flaggedWords.trim",
+          "lineNumber": 778
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowingText",
+          "lineNumber": 779
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "flaggedWords.trim",
+          "lineNumber": 779
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowRawState",
+          "lineNumber": 780
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 781
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCurrentIndex",
+          "lineNumber": 782
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 785
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Date.now",
+          "lineNumber": 786
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "flaggedWords.trim",
+          "lineNumber": 789
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "getWords",
+          "lineNumber": 789
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "words.pop",
+          "lineNumber": 792
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "words.push",
+          "lineNumber": 794
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setFlaggedWordsState",
+          "lineNumber": 796
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "words.join",
+          "lineNumber": 796
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 799
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "customGroup.trim",
+          "lineNumber": 800
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 804
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSettingsAccordionOpen",
+          "lineNumber": 806
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 812
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCurrentIndex",
+          "lineNumber": 813
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setMaxRevealedTrail",
+          "lineNumber": 814
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "customGroup.trim",
+          "lineNumber": 815
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowingText",
+          "lineNumber": 816
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "generateCustomGroupPractice",
+          "lineNumber": 816
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "customGroup.trim",
+          "lineNumber": 817
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "closeLessonAccordionIfAutoClosing",
+          "lineNumber": 823
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "loadLessonFile",
+          "lineNumber": 828
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowingText",
+          "lineNumber": 830
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "result.content.trim().replace",
+          "lineNumber": 830
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "result.content.trim",
+          "lineNumber": 830
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "resolvePracticeSeconds",
+          "lineNumber": 832
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowingText",
+          "lineNumber": 840
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "generateRandomPractice",
+          "lineNumber": 840
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setNewlineChunking",
+          "lineNumber": 844
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 854
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.min",
+          "lineNumber": 855
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.max",
+          "lineNumber": 855
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.round",
+          "lineNumber": 855
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setKoVolumeState",
+          "lineNumber": 856
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "persistSettings",
+          "lineNumber": 857
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 861
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 861
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 864
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setDarkMode",
+          "lineNumber": 865
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 866
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 866
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 869
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setDarkModeDirect",
+          "lineNumber": 870
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 873
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowRawState",
+          "lineNumber": 874
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 875
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 875
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 878
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowingText",
+          "lineNumber": 879
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCurrentIndex",
+          "lineNumber": 880
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 883
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setUserTargetState",
+          "lineNumber": 884
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSelectedClassState",
+          "lineNumber": 885
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLetterGroupState",
+          "lineNumber": 886
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSelectedDisplayState",
+          "lineNumber": 887
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 890
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSelectedClassState",
+          "lineNumber": 891
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLetterGroupState",
+          "lineNumber": 892
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSelectedDisplayState",
+          "lineNumber": 893
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 896
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLetterGroupState",
+          "lineNumber": 897
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSelectedDisplayState",
+          "lineNumber": 898
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 902
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSelectedClassState",
+          "lineNumber": 907
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLetterGroupState",
+          "lineNumber": 908
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSelectedDisplayState",
+          "lineNumber": 909
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 912
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLessonDeepLinkPending",
+          "lineNumber": 913
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 916
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setPreShuffled",
+          "lineNumber": 919
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "showingText.split",
+          "lineNumber": 921
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "[...parts].sort(() => Math.random() - 0.5).join",
+          "lineNumber": 922
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "[...parts].sort",
+          "lineNumber": 922
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "Math.random",
+          "lineNumber": 922
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowingText",
+          "lineNumber": 923
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIsShuffled",
+          "lineNumber": 924
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setShowingText",
+          "lineNumber": 926
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setIsShuffled",
+          "lineNumber": 927
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCurrentIndex",
+          "lineNumber": 929
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 932
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLoop",
+          "lineNumber": 934
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLoopNoShuffle",
+          "lineNumber": 935
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 936
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLoop",
+          "lineNumber": 938
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLoopNoShuffle",
+          "lineNumber": 939
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 940
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setLoopNoShuffle",
+          "lineNumber": 942
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 946
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "document.querySelector",
+          "lineNumber": 947
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 953
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 958
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 965
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 970
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSettingsAccordionOpen",
+          "lineNumber": 971
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useCallback",
+          "lineNumber": 974
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setSettingsAccordionOpen",
+          "lineNumber": 975
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "createDefaultAccordionOpen",
+          "lineNumber": 976
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useEffect",
+          "lineNumber": 981
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "setCookie",
+          "lineNumber": 981
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "String",
+          "lineNumber": 981
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 983
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "getWords",
+          "lineNumber": 984
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 987
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "rawTextCharCount",
+          "lineNumber": 987
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 992
+        },
+        {
+          "caller": "MorseAppProvider",
+          "callee": "useMemo",
+          "lineNumber": 1003
+        },
+        {
+          "caller": "useMorseApp",
+          "callee": "useContext",
+          "lineNumber": 1224
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 4,
+        "functionCount": 9,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "TestApp",
+          "startLine": 8,
+          "endLine": 12,
+          "params": [
+            "{ loadLesson }"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TestApp",
+          "callee": "useMorseApp",
+          "lineNumber": 9
+        },
+        {
+          "caller": "TestApp",
+          "callee": "useLessonDeepLinks",
+          "lineNumber": 10
+        },
+        {
+          "caller": "TestApp",
+          "callee": "String",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useLessonDeepLinks.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 68,
+      "functions": [
+        {
+          "name": "consumeIfNotPinned",
+          "startLine": 7,
+          "endLine": 12,
+          "params": [
+            "param",
+            "pinned"
+          ]
+        },
+        {
+          "name": "useLessonDeepLinks",
+          "startLine": 18,
+          "endLine": 77,
+          "params": [
+            "loadLesson"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "useLessonDeepLinks",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "consumeIfNotPinned",
+          "callee": "removeLessonQueryParam",
+          "lineNumber": 11
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "useMorseApp",
+          "lineNumber": 22
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "useRef",
+          "lineNumber": 23
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "useRef",
+          "lineNumber": 25
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "useRef",
+          "lineNumber": 26
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "useRef",
+          "lineNumber": 27
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "useEffect",
+          "lineNumber": 29
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "hasLessonDeepLinkParams",
+          "lineNumber": 30
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "isQueryStringSettingsOn",
+          "lineNumber": 34
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "(async () => {\n      try {\n        const resolved = resolveLessonDeepLink(\n          userTarget,\n          initialClassRef.current,\n          initialGroupRef.current,\n        );\n\n        if (resolved && !cancelled) {\n          applyLessonDeepLinkSelection(\n            resolved.className,\n            resolved.letterGroupName,\n            resolved.display,\n          );\n\n          if (resolved.display) {\n            try {\n              await loadLessonRef.current(resolved.display);\n            } catch {\n              // loadLesson sets error state in LessonsPicker.\n            }\n          }\n\n          if (!cancelled) {\n            for (const param of resolved.consumedParams) {\n              consumeIfNotPinned(param, pinQuery);\n            }\n          }\n        }\n      } finally {\n        completeLessonDeepLink();\n      }\n    })",
+          "lineNumber": 36
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "resolveLessonDeepLink",
+          "lineNumber": 38
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "applyLessonDeepLinkSelection",
+          "lineNumber": 45
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "loadLessonRef.current",
+          "lineNumber": 53
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "consumeIfNotPinned",
+          "lineNumber": 61
+        },
+        {
+          "caller": "useLessonDeepLinks",
+          "callee": "completeLessonDeepLink",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/usePresets.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 327,
+      "nonEmptyLines": 289,
+      "functions": [
+        {
+          "name": "buildSnapshotFromApp",
+          "startLine": 25,
+          "endLine": 64,
+          "params": [
+            "app"
+          ]
+        },
+        {
+          "name": "buildMutatorFromApp",
+          "startLine": 66,
+          "endLine": 105,
+          "params": [
+            "app"
+          ]
+        },
+        {
+          "name": "usePresets",
+          "startLine": 107,
+          "endLine": 327,
+          "params": [
+            "onPresetApplied"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "usePresets",
+          "line": 107,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "usePresets",
+          "callee": "useMorseApp",
+          "lineNumber": 108
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 109
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 112
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useState",
+          "lineNumber": 115
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useState",
+          "lineNumber": 116
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 117
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useState",
+          "lineNumber": 120
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useState",
+          "lineNumber": 121
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 123
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 124
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 125
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 126
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 127
+        },
+        {
+          "caller": "usePresets",
+          "callee": "hasUrlParam",
+          "lineNumber": 127
+        },
+        {
+          "caller": "usePresets",
+          "callee": "hasUrlParam",
+          "lineNumber": 128
+        },
+        {
+          "caller": "usePresets",
+          "callee": "hasUrlParam",
+          "lineNumber": 129
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 130
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 131
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 132
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useCallback",
+          "lineNumber": 134
+        },
+        {
+          "caller": "usePresets",
+          "callee": "setAllowSaveCookies",
+          "lineNumber": 135
+        },
+        {
+          "caller": "usePresets",
+          "callee": "clearTimeout",
+          "lineNumber": 136
+        },
+        {
+          "caller": "usePresets",
+          "callee": "setTimeout",
+          "lineNumber": 137
+        },
+        {
+          "caller": "usePresets",
+          "callee": "setAllowSaveCookies",
+          "lineNumber": 138
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useCallback",
+          "lineNumber": 143
+        },
+        {
+          "caller": "usePresets",
+          "callee": "removeLessonQueryParam",
+          "lineNumber": 155
+        },
+        {
+          "caller": "usePresets",
+          "callee": "snapshotToSerialized",
+          "lineNumber": 160
+        },
+        {
+          "caller": "usePresets",
+          "callee": "buildSnapshotFromApp",
+          "lineNumber": 160
+        },
+        {
+          "caller": "usePresets",
+          "callee": "beginCookieLockout",
+          "lineNumber": 163
+        },
+        {
+          "caller": "usePresets",
+          "callee": "setSelectedSettingsPreset",
+          "lineNumber": 165
+        },
+        {
+          "caller": "usePresets",
+          "callee": "currentApp.setSelectedPreset",
+          "lineNumber": 166
+        },
+        {
+          "caller": "usePresets",
+          "callee": "resolvePresetSettings",
+          "lineNumber": 172
+        },
+        {
+          "caller": "usePresets",
+          "callee": "applySerializedSettings",
+          "lineNumber": 184
+        },
+        {
+          "caller": "usePresets",
+          "callee": "buildMutatorFromApp",
+          "lineNumber": 186
+        },
+        {
+          "caller": "usePresets",
+          "callee": "snapshotToSerialized",
+          "lineNumber": 190
+        },
+        {
+          "caller": "usePresets",
+          "callee": "buildSnapshotFromApp",
+          "lineNumber": 190
+        },
+        {
+          "caller": "usePresets",
+          "callee": "window.setTimeout",
+          "lineNumber": 194
+        },
+        {
+          "caller": "usePresets",
+          "callee": "onPresetAppliedRef.current",
+          "lineNumber": 194
+        },
+        {
+          "caller": "usePresets",
+          "callee": "currentApp.isQueryStringSettingsOn",
+          "lineNumber": 198
+        },
+        {
+          "caller": "usePresets",
+          "callee": "upsertLessonQueryParam",
+          "lineNumber": 201
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 208
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useRef",
+          "lineNumber": 212
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useEffect",
+          "lineNumber": 215
+        },
+        {
+          "caller": "usePresets",
+          "callee": "(async () => {\n      const presets = await fetchSettingsPresetsForLesson(\n        app.selectedClass,\n        app.letterGroup,\n        customPresetsRef.current,\n      );\n      if (cancelled) return;\n\n      setSettingsPresets(presets);\n\n      if (\n        classChanged\n        && app.selectedClass\n        && presets.length > 1\n        && !hasUrlParam('selectedPreset')\n        && !app.lessonDeepLinkPending\n      ) {\n        const current = selectedPresetRef.current;\n        if (current.isDummy || current.filename !== presets[1].filename) {\n          await applyPresetRef.current(presets[1], true);\n        }\n      }\n    })",
+          "lineNumber": 222
+        },
+        {
+          "caller": "usePresets",
+          "callee": "fetchSettingsPresetsForLesson",
+          "lineNumber": 223
+        },
+        {
+          "caller": "usePresets",
+          "callee": "setSettingsPresets",
+          "lineNumber": 230
+        },
+        {
+          "caller": "usePresets",
+          "callee": "hasUrlParam",
+          "lineNumber": 236
+        },
+        {
+          "caller": "usePresets",
+          "callee": "applyPresetRef.current",
+          "lineNumber": 241
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useEffect",
+          "lineNumber": 250
+        },
+        {
+          "caller": "usePresets",
+          "callee": "hasUrlParam",
+          "lineNumber": 252
+        },
+        {
+          "caller": "usePresets",
+          "callee": "applyPresetRef.current",
+          "lineNumber": 261
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useEffect",
+          "lineNumber": 265
+        },
+        {
+          "caller": "usePresets",
+          "callee": "getUrlParam",
+          "lineNumber": 267
+        },
+        {
+          "caller": "usePresets",
+          "callee": "settingsPresets.find",
+          "lineNumber": 270
+        },
+        {
+          "caller": "usePresets",
+          "callee": "p.display.toUpperCase",
+          "lineNumber": 270
+        },
+        {
+          "caller": "usePresets",
+          "callee": "qs.toUpperCase",
+          "lineNumber": 270
+        },
+        {
+          "caller": "usePresets",
+          "callee": "applyPresetRef.current",
+          "lineNumber": 273
+        },
+        {
+          "caller": "usePresets",
+          "callee": "appRef.current.isQueryStringSettingsOn",
+          "lineNumber": 274
+        },
+        {
+          "caller": "usePresets",
+          "callee": "window.setTimeout",
+          "lineNumber": 275
+        },
+        {
+          "caller": "usePresets",
+          "callee": "removeLessonQueryParam",
+          "lineNumber": 275
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useCallback",
+          "lineNumber": 280
+        },
+        {
+          "caller": "usePresets",
+          "callee": "settingsPresets.find",
+          "lineNumber": 281
+        },
+        {
+          "caller": "usePresets",
+          "callee": "applyPresetRef.current",
+          "lineNumber": 282
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useCallback",
+          "lineNumber": 285
+        },
+        {
+          "caller": "usePresets",
+          "callee": "applyPresetRef.current",
+          "lineNumber": 287
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useCallback",
+          "lineNumber": 291
+        },
+        {
+          "caller": "usePresets",
+          "callee": "downloadSettingsFile",
+          "lineNumber": 292
+        },
+        {
+          "caller": "usePresets",
+          "callee": "buildSnapshotFromApp",
+          "lineNumber": 292
+        },
+        {
+          "caller": "usePresets",
+          "callee": "useCallback",
+          "lineNumber": 295
+        },
+        {
+          "caller": "usePresets",
+          "callee": "parseImportedSettingsFile",
+          "lineNumber": 299
+        },
+        {
+          "caller": "usePresets",
+          "callee": "String",
+          "lineNumber": 299
+        },
+        {
+          "caller": "usePresets",
+          "callee": "file.name.split",
+          "lineNumber": 301
+        },
+        {
+          "caller": "usePresets",
+          "callee": "setCustomPresets",
+          "lineNumber": 307
+        },
+        {
+          "caller": "usePresets",
+          "callee": "applyPresetRef.current",
+          "lineNumber": 308
+        },
+        {
+          "caller": "usePresets",
+          "callee": "reader.readAsText",
+          "lineNumber": 313
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useRssPlugin.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 293,
+      "nonEmptyLines": 265,
+      "functions": [
+        {
+          "name": "parseDescriptionToSentences",
+          "startLine": 19,
+          "endLine": 48,
+          "params": [
+            "rawHtml",
+            "articleId"
+          ]
+        },
+        {
+          "name": "useRssPlugin",
+          "startLine": 50,
+          "endLine": 293,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useRssPlugin",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "new DOMParser().parseFromString",
+          "lineNumber": 20
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "Array.from(htmlDoc.querySelectorAll('p'))\n    .map(p => p.textContent?.trim() ?? '')\n    .filter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "Array.from(htmlDoc.querySelectorAll('p'))\n    .map",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "Array.from",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "htmlDoc.querySelectorAll",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "p.textContent?.trim",
+          "lineNumber": 22
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "[(htmlDoc.body.textContent ?? '').trim()].filter",
+          "lineNumber": 28
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "(htmlDoc.body.textContent ?? '').trim",
+          "lineNumber": 28
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "paragraphs.forEach",
+          "lineNumber": 31
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "para\n      .split(/(?<=[.!?])\\s+/)\n      .map(s => s.trim())\n      .filter",
+          "lineNumber": 33
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "para\n      .split(/(?<=[.!?])\\s+/)\n      .map",
+          "lineNumber": 33
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "para\n      .split",
+          "lineNumber": 33
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "s.trim",
+          "lineNumber": 35
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "sentences.forEach",
+          "lineNumber": 37
+        },
+        {
+          "caller": "parseDescriptionToSentences",
+          "callee": "items.push",
+          "lineNumber": 38
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useMorseApp",
+          "lineNumber": 57
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "usePlaybackState",
+          "lineNumber": 58
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 59
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useState",
+          "lineNumber": 61
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useState",
+          "lineNumber": 62
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useState",
+          "lineNumber": 63
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useState",
+          "lineNumber": 64
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useState",
+          "lineNumber": 65
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useState",
+          "lineNumber": 66
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useState",
+          "lineNumber": 67
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 69
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 70
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 71
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 72
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 73
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 74
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 75
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 76
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 77
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useMemo",
+          "lineNumber": 89
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "titlesQueue.filter(t => !t.played).map",
+          "lineNumber": 91
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "titlesQueue.filter",
+          "lineNumber": 91
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "titlesQueue.filter",
+          "lineNumber": 94
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useMemo",
+          "lineNumber": 97
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Math.round",
+          "lineNumber": 101
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Math.round",
+          "lineNumber": 102
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useMemo",
+          "lineNumber": 107
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Math.round",
+          "lineNumber": 110
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Math.round",
+          "lineNumber": 111
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useMemo",
+          "lineNumber": 114
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Math.round",
+          "lineNumber": 118
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Math.round",
+          "lineNumber": 119
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useCallback",
+          "lineNumber": 124
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "clearTimeout",
+          "lineNumber": 125
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setTimeout",
+          "lineNumber": 126
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "rssPlayTickRef.current",
+          "lineNumber": 126
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 129
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Date.now",
+          "lineNumber": 133
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssMinsToWait",
+          "lineNumber": 138
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "titlesQueueRef.current.find",
+          "lineNumber": 141
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setTitlesQueue",
+          "lineNumber": 145
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "prev.map",
+          "lineNumber": 145
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "playPracticeFromText",
+          "lineNumber": 148
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssMinsToWait",
+          "lineNumber": 151
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "schedulePlayTick",
+          "lineNumber": 154
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useCallback",
+          "lineNumber": 157
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setTitlesQueue",
+          "lineNumber": 158
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "prev.map",
+          "lineNumber": 158
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useRef",
+          "lineNumber": 161
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Date.now",
+          "lineNumber": 167
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssPolling",
+          "lineNumber": 171
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssPollMinsToWait",
+          "lineNumber": 172
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setTimeout",
+          "lineNumber": 175
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "controller.abort",
+          "lineNumber": 175
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "fetch",
+          "lineNumber": 177
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "resp.text",
+          "lineNumber": 179
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "new DOMParser().parseFromString",
+          "lineNumber": 180
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "doc.querySelector",
+          "lineNumber": 181
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Array.from",
+          "lineNumber": 185
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "doc.querySelectorAll",
+          "lineNumber": 185
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "nodes\n          .map(n => {\n            const title = n.querySelector('title')?.textContent?.trim() ?? '';\n            // RSS 2.0 uses <description>; Atom uses <content> or <summary>\n            const description = (\n              n.querySelector('description')?.textContent\n              ?? n.querySelector('content')?.textContent\n              ?? n.querySelector('summary')?.textContent\n              ?? ''\n            ).trim();\n            // Prefer stable feed-provided identifiers over title for dedup so\n            // two articles with identical titles aren't silently collapsed.\n            const entryId = (\n              n.querySelector('guid')?.textContent?.trim()\n              || n.querySelector('id')?.textContent?.trim()\n              || n.querySelector('link')?.getAttribute('href')?.trim()\n              || n.querySelector('link')?.textContent?.trim()\n              || title\n            );\n            return { entryId, title, description };\n          })\n          .filter(i => i.title)\n          .reverse",
+          "lineNumber": 186
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "nodes\n          .map(n => {\n            const title = n.querySelector('title')?.textContent?.trim() ?? '';\n            // RSS 2.0 uses <description>; Atom uses <content> or <summary>\n            const description = (\n              n.querySelector('description')?.textContent\n              ?? n.querySelector('content')?.textContent\n              ?? n.querySelector('summary')?.textContent\n              ?? ''\n            ).trim();\n            // Prefer stable feed-provided identifiers over title for dedup so\n            // two articles with identical titles aren't silently collapsed.\n            const entryId = (\n              n.querySelector('guid')?.textContent?.trim()\n              || n.querySelector('id')?.textContent?.trim()\n              || n.querySelector('link')?.getAttribute('href')?.trim()\n              || n.querySelector('link')?.textContent?.trim()\n              || title\n            );\n            return { entryId, title, description };\n          })\n          .filter",
+          "lineNumber": 186
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "nodes\n          .map",
+          "lineNumber": 186
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector('title')?.textContent?.trim",
+          "lineNumber": 188
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 188
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "(\n              n.querySelector('description')?.textContent\n              ?? n.querySelector('content')?.textContent\n              ?? n.querySelector('summary')?.textContent\n              ?? ''\n            ).trim",
+          "lineNumber": 190
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 191
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 192
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 193
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector('guid')?.textContent?.trim",
+          "lineNumber": 199
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 199
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector('id')?.textContent?.trim",
+          "lineNumber": 200
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 200
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector('link')?.getAttribute('href')?.trim",
+          "lineNumber": 201
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector('link')?.getAttribute",
+          "lineNumber": 201
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 201
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector('link')?.textContent?.trim",
+          "lineNumber": 202
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "n.querySelector",
+          "lineNumber": 202
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setTitlesQueue",
+          "lineNumber": 210
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "rawItems.forEach",
+          "lineNumber": 212
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "next.some",
+          "lineNumber": 214
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "next.push",
+          "lineNumber": 215
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "next.push",
+          "lineNumber": 217
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "parseDescriptionToSentences",
+          "lineNumber": 217
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setLastPollMs",
+          "lineNumber": 222
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Date.now",
+          "lineNumber": 222
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssPollMinsToWait",
+          "lineNumber": 223
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setLastPollMs",
+          "lineNumber": 225
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "Date.now",
+          "lineNumber": 225
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "console.error",
+          "lineNumber": 227
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "window.alert",
+          "lineNumber": 228
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "String",
+          "lineNumber": 228
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "clearTimeout",
+          "lineNumber": 230
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssPolling",
+          "lineNumber": 231
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssPollMinsToWait",
+          "lineNumber": 234
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setTimeout",
+          "lineNumber": 238
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "pollTickRef.current",
+          "lineNumber": 238
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useCallback",
+          "lineNumber": 242
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssPollingOn",
+          "lineNumber": 248
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "pollTickRef.current",
+          "lineNumber": 250
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "clearTimeout",
+          "lineNumber": 252
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useCallback",
+          "lineNumber": 256
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "setRssPlayOn",
+          "lineNumber": 259
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "rssPlayTickRef.current",
+          "lineNumber": 261
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "clearTimeout",
+          "lineNumber": 263
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "useEffect",
+          "lineNumber": 267
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "clearTimeout",
+          "lineNumber": 268
+        },
+        {
+          "caller": "useRssPlugin",
+          "callee": "clearTimeout",
+          "lineNumber": 269
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useWavDownload.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "useWavDownload",
+          "startLine": 7,
+          "endLine": 30,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useWavDownload",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useWavDownload",
+          "callee": "useMorseApp",
+          "lineNumber": 10
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "useState",
+          "lineNumber": 11
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "useCallback",
+          "lineNumber": 13
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "showingText.trim",
+          "lineNumber": 14
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "setDownloading",
+          "lineNumber": 15
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "words.map(w => getDisplayWord(w).replace(/\\n/g, ' ')).join",
+          "lineNumber": 17
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "words.map",
+          "lineNumber": 17
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "getDisplayWord(w).replace",
+          "lineNumber": 17
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "getDisplayWord",
+          "lineNumber": 17
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "renderMorseWav",
+          "lineNumber": 18
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "Math.max",
+          "lineNumber": 20
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "downloadBlob",
+          "lineNumber": 23
+        },
+        {
+          "caller": "useWavDownload",
+          "callee": "setDownloading",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/downloadBlob.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "functions": [
+        {
+          "name": "downloadBlob",
+          "startLine": 1,
+          "endLine": 8,
+          "params": [
+            "blob",
+            "filename"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "downloadBlob",
+          "line": 1,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "downloadBlob",
+          "callee": "URL.createObjectURL",
+          "lineNumber": 2
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "document.createElement",
+          "lineNumber": 3
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "link.dispatchEvent",
+          "lineNumber": 6
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "window.setTimeout",
+          "lineNumber": 7
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "URL.revokeObjectURL",
+          "lineNumber": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/lessonPractice.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/lessonPractice.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "randomInt",
+          "startLine": 11,
+          "endLine": 12,
+          "params": [
+            "min",
+            "max"
+          ]
+        },
+        {
+          "name": "buildCharPool",
+          "startLine": 14,
+          "endLine": 20,
+          "params": [
+            "letters",
+            "stickySets"
+          ]
+        },
+        {
+          "name": "generateCustomGroupPractice",
+          "startLine": 23,
+          "endLine": 42,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "resolvePracticeSeconds",
+          "startLine": 47,
+          "endLine": 55,
+          "params": [
+            "config",
+            "ifOverrideTime",
+            "overrideMins",
+            "ifCustomGroup"
+          ]
+        },
+        {
+          "name": "generateRandomPractice",
+          "startLine": 58,
+          "endLine": 76,
+          "params": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "generateCustomGroupPractice",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "resolvePracticeSeconds",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "generateRandomPractice",
+          "line": 58,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "randomInt",
+          "callee": "Math.floor",
+          "lineNumber": 12
+        },
+        {
+          "caller": "randomInt",
+          "callee": "Math.random",
+          "lineNumber": 12
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "letters.toUpperCase().replace",
+          "lineNumber": 15
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "letters.toUpperCase",
+          "lineNumber": 15
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "stickySets?.trim",
+          "lineNumber": 16
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "stickySets.toUpperCase().trim().replace(/ {2}/g, ' ').replace",
+          "lineNumber": 17
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "stickySets.toUpperCase().trim().replace",
+          "lineNumber": 17
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "stickySets.toUpperCase().trim",
+          "lineNumber": 17
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "stickySets.toUpperCase",
+          "lineNumber": 17
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "pool.split('').filter",
+          "lineNumber": 19
+        },
+        {
+          "caller": "buildCharPool",
+          "callee": "pool.split",
+          "lineNumber": 19
+        },
+        {
+          "caller": "generateCustomGroupPractice",
+          "callee": "buildCharPool",
+          "lineNumber": 24
+        },
+        {
+          "caller": "generateCustomGroupPractice",
+          "callee": "Math.max",
+          "lineNumber": 29
+        },
+        {
+          "caller": "generateCustomGroupPractice",
+          "callee": "Math.max",
+          "lineNumber": 30
+        },
+        {
+          "caller": "generateCustomGroupPractice",
+          "callee": "randomInt",
+          "lineNumber": 33
+        },
+        {
+          "caller": "generateCustomGroupPractice",
+          "callee": "randomInt",
+          "lineNumber": 36
+        },
+        {
+          "caller": "generateCustomGroupPractice",
+          "callee": "words.push",
+          "lineNumber": 38
+        },
+        {
+          "caller": "generateCustomGroupPractice",
+          "callee": "words.join",
+          "lineNumber": 41
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "config.letters.toUpperCase().replace(/ /g, '').split",
+          "lineNumber": 59
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "config.letters.toUpperCase().replace",
+          "lineNumber": 59
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "config.letters.toUpperCase",
+          "lineNumber": 59
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "Math.max",
+          "lineNumber": 63
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "Math.ceil",
+          "lineNumber": 63
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "randomInt",
+          "lineNumber": 68
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "randomInt",
+          "lineNumber": 71
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "words.push",
+          "lineNumber": 73
+        },
+        {
+          "caller": "generateRandomPractice",
+          "callee": "words.join",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/lessonQueryString.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 25,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/lessonQueryString.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "replaceUrl",
+          "startLine": 12,
+          "endLine": 16,
+          "params": [
+            "params"
+          ]
+        },
+        {
+          "name": "removeLessonQueryParam",
+          "startLine": 18,
+          "endLine": 24,
+          "params": [
+            "variable"
+          ]
+        },
+        {
+          "name": "upsertLessonQueryParam",
+          "startLine": 26,
+          "endLine": 41,
+          "params": [
+            "variable",
+            "value"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "removeLessonQueryParam",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "upsertLessonQueryParam",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "replaceUrl",
+          "callee": "params.toString",
+          "lineNumber": 13
+        },
+        {
+          "caller": "replaceUrl",
+          "callee": "window.history.replaceState",
+          "lineNumber": 15
+        },
+        {
+          "caller": "removeLessonQueryParam",
+          "callee": "params.has",
+          "lineNumber": 21
+        },
+        {
+          "caller": "removeLessonQueryParam",
+          "callee": "params.delete",
+          "lineNumber": 22
+        },
+        {
+          "caller": "removeLessonQueryParam",
+          "callee": "replaceUrl",
+          "lineNumber": 23
+        },
+        {
+          "caller": "upsertLessonQueryParam",
+          "callee": "params.has",
+          "lineNumber": 30
+        },
+        {
+          "caller": "upsertLessonQueryParam",
+          "callee": "params.get",
+          "lineNumber": 30
+        },
+        {
+          "caller": "upsertLessonQueryParam",
+          "callee": "LESSON_QUERY_PRIORITY.indexOf",
+          "lineNumber": 32
+        },
+        {
+          "caller": "upsertLessonQueryParam",
+          "callee": "params.delete",
+          "lineNumber": 35
+        },
+        {
+          "caller": "upsertLessonQueryParam",
+          "callee": "params.set",
+          "lineNumber": 39
+        },
+        {
+          "caller": "upsertLessonQueryParam",
+          "callee": "replaceUrl",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/morseImages.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "getMorseImageSrc",
+          "startLine": 85,
+          "endLine": 87,
+          "params": [
+            "key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getMorseImageSrc",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/settingsAccordion.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "createDefaultAccordionOpen",
+          "startLine": 15,
+          "endLine": 25,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SETTINGS_ACCORDION_IDS",
+          "line": 2,
+          "isDefault": false
+        },
+        {
+          "name": "createDefaultAccordionOpen",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/words.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/words.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "doReplacements",
+          "startLine": 2,
+          "endLine": 10,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "getWords",
+          "startLine": 13,
+          "endLine": 24,
+          "params": [
+            "text",
+            "newlineChunking"
+          ]
+        },
+        {
+          "name": "getDisplayWord",
+          "startLine": 27,
+          "endLine": 40,
+          "params": [
+            "rawWord"
+          ]
+        },
+        {
+          "name": "rawTextCharCount",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getWords",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplayWord",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "rawTextCharCount",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace(/%/g, 'pct')\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "getWords",
+          "callee": "text.trim",
+          "lineNumber": 14
+        },
+        {
+          "caller": "getWords",
+          "callee": "doReplacements",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getWords",
+          "callee": "text.replace",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getWords",
+          "callee": "replaced\n    .split(splitPattern)\n    .filter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "getWords",
+          "callee": "replaced\n    .split",
+          "lineNumber": 21
+        },
+        {
+          "caller": "getWords",
+          "callee": "w.replace",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "rawWord.split",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "pieces.map(p => {\n    const trimmed = p.trim();\n    if (trimmed.includes('{')) {\n      const inner = (trimmed.startsWith('{') && trimmed.endsWith('}'))\n        ? trimmed.slice(1, -1)\n        : trimmed.replace(/[{}]/g, '');\n      const parts = inner.split('|');\n      return doReplacements(parts[0] ?? '');\n    }\n    return doReplacements(p);\n  }).join",
+          "lineNumber": 29
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "pieces.map",
+          "lineNumber": 29
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "p.trim",
+          "lineNumber": 30
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "trimmed.includes",
+          "lineNumber": 31
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "trimmed.startsWith",
+          "lineNumber": 32
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "trimmed.endsWith",
+          "lineNumber": 32
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "trimmed.slice",
+          "lineNumber": 33
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "trimmed.replace",
+          "lineNumber": 34
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "inner.split",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "doReplacements",
+          "lineNumber": 36
+        },
+        {
+          "caller": "getDisplayWord",
+          "callee": "doReplacements",
+          "lineNumber": 38
+        },
+        {
+          "caller": "rawTextCharCount",
+          "callee": "text.replace",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    }
+  ]
+}

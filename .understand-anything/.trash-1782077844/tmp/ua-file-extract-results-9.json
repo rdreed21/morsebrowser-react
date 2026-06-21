@@ -1,0 +1,488 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/web/vite-presets-plugin.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "resolvePresetsDir",
+          "startLine": 5,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "servePresetFile",
+          "startLine": 12,
+          "endLine": 28,
+          "params": [
+            "presetsDir",
+            "urlPath",
+            "res"
+          ]
+        },
+        {
+          "name": "presetsMiddleware",
+          "startLine": 30,
+          "endLine": 37,
+          "params": [
+            "presetsDir"
+          ]
+        },
+        {
+          "name": "copyPresetsToDist",
+          "startLine": 39,
+          "endLine": 47,
+          "params": [
+            "presetsDir",
+            "outDir",
+            "warn"
+          ]
+        },
+        {
+          "name": "presetsDevPlugin",
+          "startLine": 50,
+          "endLine": 79,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "presetsDevPlugin",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resolvePresetsDir",
+          "callee": "path.resolve",
+          "lineNumber": 7
+        },
+        {
+          "caller": "resolvePresetsDir",
+          "callee": "path.resolve",
+          "lineNumber": 9
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "import",
+          "lineNumber": 12
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "decodeURIComponent",
+          "lineNumber": 15
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "urlPath.split('?')[0].replace",
+          "lineNumber": 15
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "urlPath.split",
+          "lineNumber": 15
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "relative.includes",
+          "lineNumber": 19
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "path.join",
+          "lineNumber": 21
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "fs.existsSync",
+          "lineNumber": 22
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "fs.statSync(filePath).isFile",
+          "lineNumber": 22
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "fs.statSync",
+          "lineNumber": 22
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "res.setHeader",
+          "lineNumber": 25
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "fs.createReadStream(filePath).pipe",
+          "lineNumber": 26
+        },
+        {
+          "caller": "servePresetFile",
+          "callee": "fs.createReadStream",
+          "lineNumber": 26
+        },
+        {
+          "caller": "presetsMiddleware",
+          "callee": "import",
+          "lineNumber": 31
+        },
+        {
+          "caller": "presetsMiddleware",
+          "callee": "req.url?.startsWith",
+          "lineNumber": 32
+        },
+        {
+          "caller": "presetsMiddleware",
+          "callee": "next",
+          "lineNumber": 32
+        },
+        {
+          "caller": "presetsMiddleware",
+          "callee": "servePresetFile",
+          "lineNumber": 33
+        },
+        {
+          "caller": "presetsMiddleware",
+          "callee": "res.end",
+          "lineNumber": 35
+        },
+        {
+          "caller": "copyPresetsToDist",
+          "callee": "fs.existsSync",
+          "lineNumber": 40
+        },
+        {
+          "caller": "copyPresetsToDist",
+          "callee": "warn",
+          "lineNumber": 41
+        },
+        {
+          "caller": "copyPresetsToDist",
+          "callee": "path.join",
+          "lineNumber": 44
+        },
+        {
+          "caller": "copyPresetsToDist",
+          "callee": "fs.mkdirSync",
+          "lineNumber": 45
+        },
+        {
+          "caller": "copyPresetsToDist",
+          "callee": "fs.cpSync",
+          "lineNumber": 46
+        },
+        {
+          "caller": "presetsDevPlugin",
+          "callee": "resolvePresetsDir",
+          "lineNumber": 51
+        },
+        {
+          "caller": "configResolved",
+          "callee": "path.resolve",
+          "lineNumber": 61
+        },
+        {
+          "caller": "closeBundle",
+          "callee": "copyPresetsToDist",
+          "lineNumber": 65
+        },
+        {
+          "caller": "closeBundle",
+          "callee": "console.warn",
+          "lineNumber": 65
+        },
+        {
+          "caller": "configureServer",
+          "callee": "fs.existsSync",
+          "lineNumber": 68
+        },
+        {
+          "caller": "configureServer",
+          "callee": "server.config.logger.warn",
+          "lineNumber": 69
+        },
+        {
+          "caller": "configureServer",
+          "callee": "server.config.logger.info",
+          "lineNumber": 75
+        },
+        {
+          "caller": "configureServer",
+          "callee": "server.middlewares.use",
+          "lineNumber": 76
+        },
+        {
+          "caller": "configureServer",
+          "callee": "presetsMiddleware",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/vite-wordfiles-plugin.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "resolveWordfilesDir",
+          "startLine": 5,
+          "endLine": 11,
+          "params": []
+        },
+        {
+          "name": "serveWordfile",
+          "startLine": 13,
+          "endLine": 35,
+          "params": [
+            "wordfilesDir",
+            "urlPath",
+            "res"
+          ]
+        },
+        {
+          "name": "wordfilesMiddleware",
+          "startLine": 37,
+          "endLine": 44,
+          "params": [
+            "wordfilesDir"
+          ]
+        },
+        {
+          "name": "copyWordfilesToDist",
+          "startLine": 46,
+          "endLine": 54,
+          "params": [
+            "wordfilesDir",
+            "outDir",
+            "warn"
+          ]
+        },
+        {
+          "name": "wordfilesDevPlugin",
+          "startLine": 57,
+          "endLine": 86,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "wordfilesDevPlugin",
+          "line": 57,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resolveWordfilesDir",
+          "callee": "path.resolve",
+          "lineNumber": 7
+        },
+        {
+          "caller": "resolveWordfilesDir",
+          "callee": "path.resolve",
+          "lineNumber": 10
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "import",
+          "lineNumber": 13
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "decodeURIComponent",
+          "lineNumber": 19
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "urlPath.split",
+          "lineNumber": 19
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "path.basename",
+          "lineNumber": 23
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "path.resolve",
+          "lineNumber": 26
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "filePath.startsWith",
+          "lineNumber": 27
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "fs.existsSync",
+          "lineNumber": 28
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "fs.statSync(filePath).isFile",
+          "lineNumber": 28
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "fs.statSync",
+          "lineNumber": 28
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "fileName.endsWith",
+          "lineNumber": 30
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "res.setHeader",
+          "lineNumber": 32
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "fs.createReadStream(filePath).pipe",
+          "lineNumber": 33
+        },
+        {
+          "caller": "serveWordfile",
+          "callee": "fs.createReadStream",
+          "lineNumber": 33
+        },
+        {
+          "caller": "wordfilesMiddleware",
+          "callee": "import",
+          "lineNumber": 38
+        },
+        {
+          "caller": "wordfilesMiddleware",
+          "callee": "req.url?.startsWith",
+          "lineNumber": 39
+        },
+        {
+          "caller": "wordfilesMiddleware",
+          "callee": "next",
+          "lineNumber": 39
+        },
+        {
+          "caller": "wordfilesMiddleware",
+          "callee": "serveWordfile",
+          "lineNumber": 40
+        },
+        {
+          "caller": "wordfilesMiddleware",
+          "callee": "res.end",
+          "lineNumber": 42
+        },
+        {
+          "caller": "wordfilesMiddleware",
+          "callee": "path.basename",
+          "lineNumber": 42
+        },
+        {
+          "caller": "copyWordfilesToDist",
+          "callee": "fs.existsSync",
+          "lineNumber": 47
+        },
+        {
+          "caller": "copyWordfilesToDist",
+          "callee": "warn",
+          "lineNumber": 48
+        },
+        {
+          "caller": "copyWordfilesToDist",
+          "callee": "path.join",
+          "lineNumber": 51
+        },
+        {
+          "caller": "copyWordfilesToDist",
+          "callee": "fs.mkdirSync",
+          "lineNumber": 52
+        },
+        {
+          "caller": "copyWordfilesToDist",
+          "callee": "fs.cpSync",
+          "lineNumber": 53
+        },
+        {
+          "caller": "wordfilesDevPlugin",
+          "callee": "resolveWordfilesDir",
+          "lineNumber": 58
+        },
+        {
+          "caller": "configResolved",
+          "callee": "path.resolve",
+          "lineNumber": 68
+        },
+        {
+          "caller": "closeBundle",
+          "callee": "copyWordfilesToDist",
+          "lineNumber": 72
+        },
+        {
+          "caller": "closeBundle",
+          "callee": "console.warn",
+          "lineNumber": 72
+        },
+        {
+          "caller": "configureServer",
+          "callee": "fs.existsSync",
+          "lineNumber": 75
+        },
+        {
+          "caller": "configureServer",
+          "callee": "server.config.logger.warn",
+          "lineNumber": 76
+        },
+        {
+          "caller": "configureServer",
+          "callee": "server.config.logger.info",
+          "lineNumber": 82
+        },
+        {
+          "caller": "configureServer",
+          "callee": "server.middlewares.use",
+          "lineNumber": 83
+        },
+        {
+          "caller": "configureServer",
+          "callee": "wordfilesMiddleware",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/vite.config.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 18,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

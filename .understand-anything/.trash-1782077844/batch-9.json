@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/vite-presets-plugin.ts",
+      "type": "file",
+      "name": "vite-presets-plugin.ts",
+      "filePath": "apps/web/vite-presets-plugin.ts",
+      "summary": "Vite dev/build plugin that serves preset JSON files from a sibling directory during development and copies them into the dist output at build time.",
+      "tags": ["build-system", "plugin", "vite", "middleware"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/vite-presets-plugin.ts:servePresetFile",
+      "type": "function",
+      "name": "servePresetFile",
+      "filePath": "apps/web/vite-presets-plugin.ts",
+      "lineRange": [12, 28],
+      "summary": "Resolves and streams a requested preset JSON file back over the dev server HTTP response, returning 404 when missing.",
+      "tags": ["middleware", "file-serving", "http"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/vite-presets-plugin.ts:presetsDevPlugin",
+      "type": "function",
+      "name": "presetsDevPlugin",
+      "filePath": "apps/web/vite-presets-plugin.ts",
+      "lineRange": [50, 79],
+      "summary": "Factory returning the Vite plugin object wiring preset middleware into the dev server and copying presets to the build output.",
+      "tags": ["plugin", "factory", "vite", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/vite-wordfiles-plugin.ts",
+      "type": "file",
+      "name": "vite-wordfiles-plugin.ts",
+      "filePath": "apps/web/vite-wordfiles-plugin.ts",
+      "summary": "Vite dev/build plugin that serves Morse wordfile data from a configurable directory in development and copies the files into dist during build.",
+      "tags": ["build-system", "plugin", "vite", "middleware"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/vite-wordfiles-plugin.ts:serveWordfile",
+      "type": "function",
+      "name": "serveWordfile",
+      "filePath": "apps/web/vite-wordfiles-plugin.ts",
+      "lineRange": [13, 35],
+      "summary": "Resolves and streams a requested wordfile over the dev server response, returning 404 if the file is not found.",
+      "tags": ["middleware", "file-serving", "http"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/vite-wordfiles-plugin.ts:wordfilesDevPlugin",
+      "type": "function",
+      "name": "wordfilesDevPlugin",
+      "filePath": "apps/web/vite-wordfiles-plugin.ts",
+      "lineRange": [57, 86],
+      "summary": "Factory returning the Vite plugin object that registers wordfile middleware and copies wordfiles to the build output.",
+      "tags": ["plugin", "factory", "vite", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/vite.config.ts",
+      "type": "file",
+      "name": "vite.config.ts",
+      "filePath": "apps/web/vite.config.ts",
+      "summary": "Vite configuration for the web app, registering the React plugin alongside the custom presets and wordfiles dev plugins.",
+      "tags": ["build-system", "configuration", "vite", "entry-point"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:apps/web/vite-presets-plugin.ts", "target": "function:apps/web/vite-presets-plugin.ts:servePresetFile", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/vite-presets-plugin.ts", "target": "function:apps/web/vite-presets-plugin.ts:presetsDevPlugin", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/vite-presets-plugin.ts", "target": "function:apps/web/vite-presets-plugin.ts:presetsDevPlugin", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/vite-wordfiles-plugin.ts", "target": "function:apps/web/vite-wordfiles-plugin.ts:serveWordfile", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/vite-wordfiles-plugin.ts", "target": "function:apps/web/vite-wordfiles-plugin.ts:wordfilesDevPlugin", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/vite-wordfiles-plugin.ts", "target": "function:apps/web/vite-wordfiles-plugin.ts:wordfilesDevPlugin", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/vite.config.ts", "target": "file:apps/web/vite-presets-plugin.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/vite.config.ts", "target": "file:apps/web/vite-wordfiles-plugin.ts", "type": "imports", "direction": "forward", "weight": 0.7}
+  ]
+}

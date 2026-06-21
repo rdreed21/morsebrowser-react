@@ -1,0 +1,294 @@
+{
+  "nodes": [
+    {
+      "id": "config:.cursor/hooks/state/continual-learning.json",
+      "type": "config",
+      "name": "continual-learning.json",
+      "filePath": ".cursor/hooks/state/continual-learning.json",
+      "summary": "State file for the Cursor continual-learning hook, persisting accumulated learning metadata between editor sessions.",
+      "tags": ["configuration", "tooling", "state"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": ".DS_Store",
+      "summary": "macOS Finder metadata file with no project significance; tracked incidentally in the repository root.",
+      "tags": ["macos", "artifact", "noise"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.gitattributes",
+      "type": "file",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": "Git attributes file controlling line-ending normalization and diff behavior for tracked files.",
+      "tags": ["git", "configuration", "version-control"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.nvmrc",
+      "type": "file",
+      "name": ".nvmrc",
+      "filePath": ".nvmrc",
+      "summary": "Pins the Node.js version used by the monorepo for nvm-based toolchain consistency.",
+      "tags": ["configuration", "node", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Ignore patterns for the understand-anything analysis pipeline, excluding generated and vendored paths from scanning.",
+      "tags": ["configuration", "tooling", "ignore-rules"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/fingerprints.json",
+      "type": "config",
+      "name": "fingerprints.json",
+      "filePath": ".understand-anything/fingerprints.json",
+      "summary": "Cached file fingerprints used by the understand-anything pipeline to detect changes between analysis runs.",
+      "tags": ["configuration", "tooling", "cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/tmp/ua-scan-files.json",
+      "type": "config",
+      "name": "ua-scan-files.json",
+      "filePath": ".understand-anything/tmp/ua-scan-files.json",
+      "summary": "Temporary scan manifest enumerating all project files discovered by the understand-anything scanner.",
+      "tags": ["configuration", "tooling", "scan-manifest"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": "apps/.DS_Store",
+      "summary": "macOS Finder metadata file in the apps directory with no project significance.",
+      "tags": ["macos", "artifact", "noise"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/.npmrc",
+      "type": "file",
+      "name": ".npmrc",
+      "filePath": "apps/mobile/.npmrc",
+      "summary": "npm configuration for the mobile app workspace, controlling registry and install behavior for Expo dependencies.",
+      "tags": ["configuration", "npm", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/build.gradle",
+      "type": "config",
+      "name": "build.gradle",
+      "filePath": "apps/mobile/android/app/build.gradle",
+      "summary": "Gradle build configuration for the Android app module, defining React Native plugin setup, SDK versions, signing configs, and build variants.",
+      "tags": ["configuration", "build-system", "android", "gradle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/android/app/proguard-rules.pro",
+      "type": "file",
+      "name": "proguard-rules.pro",
+      "filePath": "apps/mobile/android/app/proguard-rules.pro",
+      "summary": "ProGuard rules controlling code shrinking and obfuscation for Android release builds.",
+      "tags": ["configuration", "android", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/debug/AndroidManifest.xml",
+      "type": "config",
+      "name": "AndroidManifest.xml",
+      "filePath": "apps/mobile/android/app/src/debug/AndroidManifest.xml",
+      "summary": "Debug-variant Android manifest overlay enabling debug permissions such as cleartext traffic for development.",
+      "tags": ["configuration", "android", "manifest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/debugOptimized/AndroidManifest.xml",
+      "type": "config",
+      "name": "AndroidManifest.xml",
+      "filePath": "apps/mobile/android/app/src/debugOptimized/AndroidManifest.xml",
+      "summary": "Debug-optimized variant Android manifest overlay for an optimized debug build flavor.",
+      "tags": ["configuration", "android", "manifest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/main/AndroidManifest.xml",
+      "type": "config",
+      "name": "AndroidManifest.xml",
+      "filePath": "apps/mobile/android/app/src/main/AndroidManifest.xml",
+      "summary": "Primary Android manifest declaring the application, main activity, permissions, and intent filters for the mobile app.",
+      "tags": ["configuration", "android", "manifest", "permissions"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt",
+      "type": "file",
+      "name": "MainActivity.kt",
+      "filePath": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt",
+      "summary": "Android entry-point activity hosting the React Native runtime, configuring the main component name and React activity delegate.",
+      "tags": ["entry-point", "android", "react-native", "kotlin"],
+      "complexity": "moderate",
+      "languageNotes": "Kotlin React Native activity subclassing ReactActivity with a delegate using the new architecture (Fabric) flags."
+    },
+    {
+      "id": "class:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt:MainActivity",
+      "type": "class",
+      "name": "MainActivity",
+      "filePath": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt",
+      "lineRange": [13, 61],
+      "summary": "React Native host activity that returns the JS module name 'main' and wires up the React activity delegate with Fabric/concurrent-root support.",
+      "tags": ["entry-point", "android", "react-native", "activity"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+      "type": "file",
+      "name": "MainApplication.kt",
+      "filePath": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+      "summary": "Android Application class bootstrapping the React Native host, autolinked packages, and Expo/Soloader initialization on startup.",
+      "tags": ["entry-point", "android", "react-native", "kotlin"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt:MainApplication",
+      "type": "class",
+      "name": "MainApplication",
+      "filePath": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+      "lineRange": [17, 45],
+      "summary": "Application subclass providing the ReactNativeHost, initializing SoLoader and the new architecture on onCreate, and handling configuration changes.",
+      "tags": ["entry-point", "android", "react-native", "application"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "type": "config",
+      "name": "ic_launcher_background.xml",
+      "filePath": "apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "summary": "Vector drawable defining the background layer of the adaptive Android launcher icon.",
+      "tags": ["android", "resource", "drawable"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/main/res/drawable/rn_edit_text_material.xml",
+      "type": "config",
+      "name": "rn_edit_text_material.xml",
+      "filePath": "apps/mobile/android/app/src/main/res/drawable/rn_edit_text_material.xml",
+      "summary": "React Native Material-style drawable used for text input backgrounds on Android.",
+      "tags": ["android", "resource", "drawable"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "type": "config",
+      "name": "ic_launcher_round.xml",
+      "filePath": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "summary": "Adaptive round launcher icon definition referencing foreground and background drawable layers.",
+      "tags": ["android", "resource", "icon"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "type": "config",
+      "name": "ic_launcher.xml",
+      "filePath": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "summary": "Adaptive launcher icon definition referencing foreground and background drawable layers.",
+      "tags": ["android", "resource", "icon"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/gradle/gradle-daemon-jvm.properties",
+      "type": "config",
+      "name": "gradle-daemon-jvm.properties",
+      "filePath": "apps/mobile/android/gradle/gradle-daemon-jvm.properties",
+      "summary": "Properties selecting the JVM toolchain used by the Gradle daemon for Android builds.",
+      "tags": ["configuration", "gradle", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/gradle/wrapper/gradle-wrapper.properties",
+      "type": "config",
+      "name": "gradle-wrapper.properties",
+      "filePath": "apps/mobile/android/gradle/wrapper/gradle-wrapper.properties",
+      "summary": "Gradle wrapper configuration pinning the Gradle distribution version and download URL for reproducible builds.",
+      "tags": ["configuration", "gradle", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/android/gradlew",
+      "type": "file",
+      "name": "gradlew",
+      "filePath": "apps/mobile/android/gradlew",
+      "summary": "POSIX shell wrapper script that downloads and runs the pinned Gradle distribution to drive Android builds.",
+      "tags": ["script", "gradle", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/babel.config.js",
+      "type": "file",
+      "name": "babel.config.js",
+      "filePath": "apps/mobile/babel.config.js",
+      "summary": "Babel configuration for the mobile app, applying the Expo preset to transpile React Native/TypeScript sources.",
+      "tags": ["configuration", "build-system", "babel", "expo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/.xcode.env",
+      "type": "config",
+      "name": ".xcode.env",
+      "filePath": "apps/mobile/ios/.xcode.env",
+      "summary": "Environment file exporting the Node binary path used by Xcode build phases for the iOS app.",
+      "tags": ["configuration", "ios", "build-system"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt",
+      "target": "class:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt:MainActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+      "target": "class:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt:MainApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "config:apps/mobile/android/app/src/main/AndroidManifest.xml",
+      "target": "class:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt:MainActivity",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/android/app/src/main/AndroidManifest.xml",
+      "target": "class:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt:MainApplication",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/android/app/build.gradle",
+      "target": "file:apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/android/app/build.gradle",
+      "target": "file:apps/mobile/android/app/proguard-rules.pro",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

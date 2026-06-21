@@ -1,0 +1,14 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": ".github/workflows/deploy.yml",
+      "language": "yaml",
+      "sizeLines": 59,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    ".github/workflows/deploy.yml": []
+  }
+}

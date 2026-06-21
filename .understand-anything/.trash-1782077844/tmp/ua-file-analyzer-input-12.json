@@ -1,0 +1,49 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "sizeLines": 53,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 177,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "sizeLines": 17,
+      "fileCategory": "config"
+    },
+    {
+      "path": "setup.sh",
+      "language": "shell",
+      "sizeLines": 980,
+      "fileCategory": "script"
+    },
+    {
+      "path": "tsconfig.json",
+      "language": "json",
+      "sizeLines": 13,
+      "fileCategory": "config"
+    },
+    {
+      "path": "turbo.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "CLAUDE.md": [],
+    "README.md": [],
+    "package.json": [],
+    "setup.sh": [],
+    "tsconfig.json": [],
+    "turbo.json": []
+  }
+}

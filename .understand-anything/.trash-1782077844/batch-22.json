@@ -1,0 +1,337 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/src/test-setup.ts",
+      "type": "file",
+      "name": "test-setup.ts",
+      "filePath": "apps/web/src/test-setup.ts",
+      "summary": "Vitest/Jest test bootstrap for the web app, registering jest-dom matchers and global mocks before the test suite runs.",
+      "tags": ["test", "config", "web", "setup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/morseStringUtils.ts",
+      "type": "file",
+      "name": "morseStringUtils.ts",
+      "filePath": "apps/web/src/utils/morseStringUtils.ts",
+      "summary": "String utilities that wordify punctuation and prepare phrases for text-to-speech of Morse content in the web app.",
+      "tags": ["utility", "web", "speech", "string-processing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/utils/morseStringUtils.ts:doReplacements",
+      "type": "function",
+      "name": "doReplacements",
+      "filePath": "apps/web/src/utils/morseStringUtils.ts",
+      "lineRange": [13, 21],
+      "summary": "Applies a series of configured string replacements to normalize input text before speech synthesis.",
+      "tags": ["utility", "string-processing", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/morseStringUtils.ts:wordifyPunctuation",
+      "type": "function",
+      "name": "wordifyPunctuation",
+      "filePath": "apps/web/src/utils/morseStringUtils.ts",
+      "lineRange": [24, 48],
+      "summary": "Converts punctuation characters into their spoken-word equivalents using the wordify config mapping.",
+      "tags": ["utility", "speech", "string-processing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/utils/morseStringUtils.ts:spellPiece",
+      "type": "function",
+      "name": "spellPiece",
+      "filePath": "apps/web/src/utils/morseStringUtils.ts",
+      "lineRange": [54, 64],
+      "summary": "Spells out an individual character or token for clearer text-to-speech pronunciation.",
+      "tags": ["utility", "speech", "string-processing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/morseStringUtils.ts:getSpeakText",
+      "type": "function",
+      "name": "getSpeakText",
+      "filePath": "apps/web/src/utils/morseStringUtils.ts",
+      "lineRange": [67, 93],
+      "summary": "Builds the final speakable text from a phrase, applying replacements, punctuation wordification, and spelling rules.",
+      "tags": ["utility", "speech", "string-processing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/vite-env.d.ts",
+      "type": "file",
+      "name": "vite-env.d.ts",
+      "filePath": "apps/web/src/vite-env.d.ts",
+      "summary": "TypeScript ambient declarations for Vite client types and custom env/asset module typings.",
+      "tags": ["type-definition", "web", "vite", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": "packages/.DS_Store",
+      "summary": "macOS Finder metadata file in the packages directory with no project significance.",
+      "tags": ["macos", "artifact", "noise"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": "packages/core/.DS_Store",
+      "summary": "macOS Finder metadata file in the core package directory with no project significance.",
+      "tags": ["macos", "artifact", "noise"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/jest.config.js",
+      "type": "file",
+      "name": "jest.config.js",
+      "filePath": "packages/core/jest.config.js",
+      "summary": "Jest configuration for the core package, using ts-jest to run the timing, lessons, and presets unit tests.",
+      "tags": ["configuration", "test", "build-system", "jest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/core/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "packages/core/package.json",
+      "summary": "npm manifest for the @morsebrowser/core package, declaring its build/test scripts, exports, and dependencies.",
+      "tags": ["configuration", "npm", "build-system", "package"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/scripts/sync-lesson-data.mjs",
+      "type": "file",
+      "name": "sync-lesson-data.mjs",
+      "filePath": "packages/core/scripts/sync-lesson-data.mjs",
+      "summary": "Build script that resolves the upstream dev repo and walks its lesson data, syncing lesson/word-list JSON into the core package.",
+      "tags": ["script", "build-system", "data", "lessons"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/scripts/sync-lesson-data.mjs:resolveDevRepo",
+      "type": "function",
+      "name": "resolveDevRepo",
+      "filePath": "packages/core/scripts/sync-lesson-data.mjs",
+      "lineRange": [27, 33],
+      "summary": "Resolves the local path to the upstream morsebrowser_dev repository used as the lesson data source.",
+      "tags": ["utility", "filesystem", "path-resolution"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/core/scripts/sync-lesson-data.mjs:walk",
+      "type": "function",
+      "name": "walk",
+      "filePath": "packages/core/scripts/sync-lesson-data.mjs",
+      "lineRange": [55, 61],
+      "summary": "Recursively walks a directory tree to enumerate lesson data files for syncing.",
+      "tags": ["utility", "filesystem", "recursion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/src/__tests__/presets.test.ts",
+      "type": "file",
+      "name": "presets.test.ts",
+      "filePath": "packages/core/src/__tests__/presets.test.ts",
+      "summary": "Unit tests for the presets subsystem, covering preset option building, legacy mixin merging, override application, and settings serialization.",
+      "tags": ["test", "core", "presets", "settings"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/core/src/__tests__/speedIntervals.test.ts",
+      "type": "file",
+      "name": "speedIntervals.test.ts",
+      "filePath": "packages/core/src/__tests__/speedIntervals.test.ts",
+      "summary": "Unit tests for the speed-interval logic, verifying getApplicableSpeed selects the correct speed for given progress points.",
+      "tags": ["test", "core", "timing", "speed"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/core/src/lessons/wordlists.json",
+      "type": "config",
+      "name": "wordlists.json",
+      "filePath": "packages/core/src/lessons/wordlists.json",
+      "summary": "Bundled lesson word-list data for the core package, mapping lessons to their practice word sets.",
+      "tags": ["data", "core", "lessons", "wordlist"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:packages/core/src/settings/speedIntervals.ts",
+      "type": "file",
+      "name": "speedIntervals.ts",
+      "filePath": "packages/core/src/settings/speedIntervals.ts",
+      "summary": "Computes the applicable Morse character speed based on configured speed intervals and the learner's progress.",
+      "tags": ["core", "timing", "settings", "speed"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/settings/speedIntervals.ts:getApplicableSpeed",
+      "type": "function",
+      "name": "getApplicableSpeed",
+      "filePath": "packages/core/src/settings/speedIntervals.ts",
+      "lineRange": [21, 66],
+      "summary": "Selects the appropriate speed value from configured intervals given the current position/progress, returning the matching speed setting.",
+      "tags": ["core", "timing", "speed", "settings"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:packages/core/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "packages/core/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the core package, setting module/target options and output for the shared Morse engine.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/types/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "packages/types/package.json",
+      "summary": "npm manifest for the shared @morsebrowser/types package providing cross-package TypeScript type definitions.",
+      "tags": ["configuration", "npm", "package", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/types/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "packages/types/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the shared types package.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tools/visual-diff.mjs",
+      "type": "file",
+      "name": "visual-diff.mjs",
+      "filePath": "tools/visual-diff.mjs",
+      "summary": "Developer tool that captures screenshots and produces visual diffs to compare the React web app against the upstream fork's look and feel.",
+      "tags": ["script", "tooling", "testing", "visual-diff"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:workers/rss-proxy/src/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "workers/rss-proxy/src/index.ts",
+      "summary": "Cloudflare Worker acting as a CORS proxy for the web app's RSS reader, fetching upstream feed URLs and returning them with permissive CORS headers.",
+      "tags": ["entry-point", "service", "worker", "cors-proxy"],
+      "complexity": "simple",
+      "languageNotes": "Cloudflare Worker module-format default export with an async fetch handler and edge caching via the cf request option."
+    },
+    {
+      "id": "config:workers/rss-proxy/wrangler.toml",
+      "type": "config",
+      "name": "wrangler.toml",
+      "filePath": "workers/rss-proxy/wrangler.toml",
+      "summary": "Wrangler configuration deploying the RSS-proxy Cloudflare Worker, declaring its name, entry point, and compatibility settings.",
+      "tags": ["configuration", "deployment", "cloudflare", "worker"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/web/src/utils/morseStringUtils.ts",
+      "target": "config:apps/web/src/configs/wordify.json",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/core/src/__tests__/speedIntervals.test.ts",
+      "target": "file:packages/core/src/settings/speedIntervals.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/utils/morseStringUtils.ts",
+      "target": "function:apps/web/src/utils/morseStringUtils.ts:doReplacements",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/web/src/utils/morseStringUtils.ts",
+      "target": "function:apps/web/src/utils/morseStringUtils.ts:wordifyPunctuation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/web/src/utils/morseStringUtils.ts",
+      "target": "function:apps/web/src/utils/morseStringUtils.ts:spellPiece",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/web/src/utils/morseStringUtils.ts",
+      "target": "function:apps/web/src/utils/morseStringUtils.ts:getSpeakText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/core/scripts/sync-lesson-data.mjs",
+      "target": "function:packages/core/scripts/sync-lesson-data.mjs:resolveDevRepo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/core/scripts/sync-lesson-data.mjs",
+      "target": "function:packages/core/scripts/sync-lesson-data.mjs:walk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/core/src/settings/speedIntervals.ts",
+      "target": "function:packages/core/src/settings/speedIntervals.ts:getApplicableSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/core/src/settings/speedIntervals.ts",
+      "target": "file:packages/core/src/__tests__/speedIntervals.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:packages/core/tsconfig.json",
+      "target": "file:packages/core/src/settings/speedIntervals.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:packages/core/jest.config.js",
+      "target": "file:packages/core/src/__tests__/presets.test.ts",
+      "type": "triggers",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:packages/core/jest.config.js",
+      "target": "file:packages/core/src/__tests__/speedIntervals.test.ts",
+      "type": "triggers",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:workers/rss-proxy/wrangler.toml",
+      "target": "file:workers/rss-proxy/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

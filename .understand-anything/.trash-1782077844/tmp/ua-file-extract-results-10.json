@@ -1,0 +1,553 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "packages/core/src/__tests__/settingsManager.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "mockDocumentCookie",
+          "startLine": 6,
+          "endLine": 32,
+          "params": [
+            "initial"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "mockDocumentCookie",
+          "callee": "Object.defineProperty",
+          "lineNumber": 8
+        },
+        {
+          "caller": "cookie",
+          "callee": "value.split",
+          "lineNumber": 12
+        },
+        {
+          "caller": "cookie",
+          "callee": "pair.indexOf",
+          "lineNumber": 13
+        },
+        {
+          "caller": "cookie",
+          "callee": "pair.slice",
+          "lineNumber": 14
+        },
+        {
+          "caller": "cookie",
+          "callee": "pair.slice",
+          "lineNumber": 15
+        },
+        {
+          "caller": "cookie",
+          "callee": "value.includes",
+          "lineNumber": 16
+        },
+        {
+          "caller": "cookie",
+          "callee": "store.split(';')\n            .map(s => s.trim())\n            .filter(s => s && !s.startsWith(`${name}=`))\n            .join",
+          "lineNumber": 17
+        },
+        {
+          "caller": "cookie",
+          "callee": "store.split(';')\n            .map(s => s.trim())\n            .filter",
+          "lineNumber": 17
+        },
+        {
+          "caller": "cookie",
+          "callee": "store.split(';')\n            .map",
+          "lineNumber": 17
+        },
+        {
+          "caller": "cookie",
+          "callee": "store.split",
+          "lineNumber": 17
+        },
+        {
+          "caller": "cookie",
+          "callee": "s.trim",
+          "lineNumber": 18
+        },
+        {
+          "caller": "cookie",
+          "callee": "s.startsWith",
+          "lineNumber": 19
+        },
+        {
+          "caller": "cookie",
+          "callee": "existing.split('; ')\n            .filter(s => s && !s.startsWith(`${name}=`))\n            .join",
+          "lineNumber": 23
+        },
+        {
+          "caller": "cookie",
+          "callee": "existing.split('; ')\n            .filter",
+          "lineNumber": 23
+        },
+        {
+          "caller": "cookie",
+          "callee": "existing.split",
+          "lineNumber": 23
+        },
+        {
+          "caller": "cookie",
+          "callee": "s.startsWith",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/settings/cookieStorage.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "hasDocument",
+          "startLine": 18,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "getCookie",
+          "startLine": 22,
+          "endLine": 32,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "setCookie",
+          "startLine": 34,
+          "endLine": 38,
+          "params": [
+            "name",
+            "value",
+            "days"
+          ]
+        },
+        {
+          "name": "removeCookie",
+          "startLine": 40,
+          "endLine": 43,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getAllCookies",
+          "startLine": 45,
+          "endLine": 56,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KO_COOKIE_KEYS",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "getCookie",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "setCookie",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "removeCookie",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "getAllCookies",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getCookie",
+          "callee": "hasDocument",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getCookie",
+          "callee": "document.cookie.split",
+          "lineNumber": 25
+        },
+        {
+          "caller": "getCookie",
+          "callee": "part.trim",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getCookie",
+          "callee": "trimmed.startsWith",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getCookie",
+          "callee": "decodeURIComponent",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getCookie",
+          "callee": "trimmed.slice",
+          "lineNumber": 28
+        },
+        {
+          "caller": "setCookie",
+          "callee": "hasDocument",
+          "lineNumber": 35
+        },
+        {
+          "caller": "setCookie",
+          "callee": "new Date(Date.now() + days * 864e5).toUTCString",
+          "lineNumber": 36
+        },
+        {
+          "caller": "setCookie",
+          "callee": "Date.now",
+          "lineNumber": 36
+        },
+        {
+          "caller": "setCookie",
+          "callee": "encodeURIComponent",
+          "lineNumber": 37
+        },
+        {
+          "caller": "removeCookie",
+          "callee": "hasDocument",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getAllCookies",
+          "callee": "hasDocument",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getAllCookies",
+          "callee": "document.cookie.split",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getAllCookies",
+          "callee": "part.trim",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getAllCookies",
+          "callee": "trimmed.indexOf",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getAllCookies",
+          "callee": "trimmed.slice",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getAllCookies",
+          "callee": "decodeURIComponent",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getAllCookies",
+          "callee": "trimmed.slice",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/settings/settingsManager.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "koVolumeToNormalized",
+          "startLine": 21,
+          "endLine": 23,
+          "params": [
+            "koVolume"
+          ]
+        },
+        {
+          "name": "normalizedVolumeToKo",
+          "startLine": 25,
+          "endLine": 27,
+          "params": [
+            "volume"
+          ]
+        },
+        {
+          "name": "parseIntCookie",
+          "startLine": 29,
+          "endLine": 34,
+          "params": [
+            "key",
+            "fallback"
+          ]
+        },
+        {
+          "name": "loadSettings",
+          "startLine": 37,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "saveSettings",
+          "startLine": 64,
+          "endLine": 73,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "resetSettings",
+          "startLine": 75,
+          "endLine": 79,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DEFAULT_SETTINGS",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "loadSettings",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "saveSettings",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "resetSettings",
+          "line": 75,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "koVolumeToNormalized",
+          "callee": "Math.min",
+          "lineNumber": 22
+        },
+        {
+          "caller": "koVolumeToNormalized",
+          "callee": "Math.max",
+          "lineNumber": 22
+        },
+        {
+          "caller": "normalizedVolumeToKo",
+          "callee": "Math.round",
+          "lineNumber": 26
+        },
+        {
+          "caller": "normalizedVolumeToKo",
+          "callee": "Math.min",
+          "lineNumber": 26
+        },
+        {
+          "caller": "normalizedVolumeToKo",
+          "callee": "Math.max",
+          "lineNumber": 26
+        },
+        {
+          "caller": "parseIntCookie",
+          "callee": "getCookie",
+          "lineNumber": 30
+        },
+        {
+          "caller": "parseIntCookie",
+          "callee": "parseInt",
+          "lineNumber": 32
+        },
+        {
+          "caller": "parseIntCookie",
+          "callee": "Number.isFinite",
+          "lineNumber": 33
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "getAllCookies",
+          "lineNumber": 39
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "parseIntCookie",
+          "lineNumber": 43
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "parseIntCookie",
+          "lineNumber": 44
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "parseIntCookie",
+          "lineNumber": 45
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "parseIntCookie",
+          "lineNumber": 46
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "normalizedVolumeToKo",
+          "lineNumber": 46
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "Math.min",
+          "lineNumber": 51
+        },
+        {
+          "caller": "loadSettings",
+          "callee": "koVolumeToNormalized",
+          "lineNumber": 53
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "setCookie",
+          "lineNumber": 66
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "String",
+          "lineNumber": 66
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "Math.round",
+          "lineNumber": 66
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "setCookie",
+          "lineNumber": 67
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "String",
+          "lineNumber": 67
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "Math.round",
+          "lineNumber": 67
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "Math.min",
+          "lineNumber": 67
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "setCookie",
+          "lineNumber": 68
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "String",
+          "lineNumber": 68
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "Math.round",
+          "lineNumber": 68
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "setCookie",
+          "lineNumber": 69
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "String",
+          "lineNumber": 69
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "Math.round",
+          "lineNumber": 69
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "setCookie",
+          "lineNumber": 70
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "String",
+          "lineNumber": 70
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "normalizedVolumeToKo",
+          "lineNumber": 70
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "setCookie",
+          "lineNumber": 71
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "String",
+          "lineNumber": 71
+        },
+        {
+          "caller": "saveSettings",
+          "callee": "setCookie",
+          "lineNumber": 72
+        },
+        {
+          "caller": "resetSettings",
+          "callee": "Object.values",
+          "lineNumber": 76
+        },
+        {
+          "caller": "resetSettings",
+          "callee": "removeCookie",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    }
+  ]
+}

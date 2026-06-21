@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "config:apps/mobile/android/app/src/main/res/values/colors.xml",
+      "type": "config",
+      "name": "colors.xml",
+      "filePath": "apps/mobile/android/app/src/main/res/values/colors.xml",
+      "summary": "Android resource file defining named color values used by the app's native theme and splash screen.",
+      "tags": ["configuration", "android", "resources", "theming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/main/res/values/strings.xml",
+      "type": "config",
+      "name": "strings.xml",
+      "filePath": "apps/mobile/android/app/src/main/res/values/strings.xml",
+      "summary": "Android string resource file holding the localized app name and other native string constants.",
+      "tags": ["configuration", "android", "resources", "localization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/app/src/main/res/values/styles.xml",
+      "type": "config",
+      "name": "styles.xml",
+      "filePath": "apps/mobile/android/app/src/main/res/values/styles.xml",
+      "summary": "Android style resource file defining the app theme and splash screen styles for the native shell.",
+      "tags": ["configuration", "android", "resources", "theming"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

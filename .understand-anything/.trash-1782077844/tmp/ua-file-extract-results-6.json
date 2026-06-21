@@ -1,0 +1,1385 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "packages/core/src/__tests__/catalogIntegrity.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 39,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/__tests__/lessonLoader.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 43,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/__tests__/morseMap.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 36,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/__tests__/morseScheduler.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "mockContext",
+          "startLine": 4,
+          "endLine": 45,
+          "params": [
+            "captureFrequency"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "value",
+          "callee": "captureFrequency",
+          "lineNumber": 19
+        },
+        {
+          "caller": "mockContext",
+          "callee": "captureFrequency",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/__tests__/timingEngine.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 117,
+      "nonEmptyLines": 105,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/__tests__/wavExport.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/audio/morseScheduler.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 225,
+      "nonEmptyLines": 209,
+      "functions": [
+        {
+          "name": "snapToRenderQuantum",
+          "startLine": 53,
+          "endLine": 59,
+          "params": [
+            "ctx",
+            "time"
+          ]
+        },
+        {
+          "name": "buildEnvelopeCurve",
+          "startLine": 66,
+          "endLine": 87,
+          "params": [
+            "durationSeconds",
+            "rampSeconds",
+            "peak"
+          ]
+        },
+        {
+          "name": "scheduleText",
+          "startLine": 109,
+          "endLine": 179,
+          "params": [
+            "ctx",
+            "text",
+            "config",
+            "opts"
+          ]
+        },
+        {
+          "name": "scheduleChar",
+          "startLine": 181,
+          "endLine": 184,
+          "params": [
+            "ctx",
+            "char",
+            "config",
+            "opts"
+          ]
+        },
+        {
+          "name": "scheduleTestTone",
+          "startLine": 187,
+          "endLine": 225,
+          "params": [
+            "ctx",
+            "config",
+            "durationSeconds",
+            "opts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "scheduleText",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "scheduleChar",
+          "line": 181,
+          "isDefault": false
+        },
+        {
+          "name": "scheduleTestTone",
+          "line": 187,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "snapToRenderQuantum",
+          "callee": "Math.ceil",
+          "lineNumber": 56
+        },
+        {
+          "caller": "snapToRenderQuantum",
+          "callee": "Math.ceil",
+          "lineNumber": 57
+        },
+        {
+          "caller": "buildEnvelopeCurve",
+          "callee": "Math.max",
+          "lineNumber": 67
+        },
+        {
+          "caller": "buildEnvelopeCurve",
+          "callee": "Math.min",
+          "lineNumber": 67
+        },
+        {
+          "caller": "buildEnvelopeCurve",
+          "callee": "Math.max",
+          "lineNumber": 72
+        },
+        {
+          "caller": "buildEnvelopeCurve",
+          "callee": "Math.min",
+          "lineNumber": 72
+        },
+        {
+          "caller": "buildEnvelopeCurve",
+          "callee": "Math.ceil",
+          "lineNumber": 72
+        },
+        {
+          "caller": "buildEnvelopeCurve",
+          "callee": "Math.max",
+          "lineNumber": 72
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "buildSchedule",
+          "lineNumber": 122
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "calculateFarnsworthTiming",
+          "lineNumber": 125
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "ctx.createOscillator",
+          "lineNumber": 135
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "ctx.createGain",
+          "lineNumber": 136
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "osc.connect",
+          "lineNumber": 137
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "gain.connect",
+          "lineNumber": 138
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "toneFrequency",
+          "lineNumber": 140
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "snapToRenderQuantum",
+          "lineNumber": 147
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "gain.gain.setValueCurveAtTime",
+          "lineNumber": 150
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "buildEnvelopeCurve",
+          "lineNumber": 150
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "osc.start",
+          "lineNumber": 151
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "osc.stop",
+          "lineNumber": 152
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "osc.disconnect",
+          "lineNumber": 158
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "gain.disconnect",
+          "lineNumber": 159
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "oscillators.push",
+          "lineNumber": 161
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "setTimeout",
+          "lineNumber": 169
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "clearTimeout",
+          "lineNumber": 175
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "oscillators.forEach",
+          "lineNumber": 176
+        },
+        {
+          "caller": "scheduleText",
+          "callee": "o.stop",
+          "lineNumber": 176
+        },
+        {
+          "caller": "scheduleChar",
+          "callee": "scheduleText",
+          "lineNumber": 184
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "ctx.createOscillator",
+          "lineNumber": 195
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "ctx.createGain",
+          "lineNumber": 196
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "osc.connect",
+          "lineNumber": 197
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "gain.connect",
+          "lineNumber": 198
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "toneFrequency",
+          "lineNumber": 200
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "snapToRenderQuantum",
+          "lineNumber": 203
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "gain.gain.setValueCurveAtTime",
+          "lineNumber": 205
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "buildEnvelopeCurve",
+          "lineNumber": 205
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "osc.start",
+          "lineNumber": 206
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "osc.stop",
+          "lineNumber": 207
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "osc.disconnect",
+          "lineNumber": 209
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "gain.disconnect",
+          "lineNumber": 210
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "setTimeout",
+          "lineNumber": 215
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "clearTimeout",
+          "lineNumber": 221
+        },
+        {
+          "caller": "scheduleTestTone",
+          "callee": "osc.stop",
+          "lineNumber": 222
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/audio/timingEngine.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 107,
+      "functions": [
+        {
+          "name": "toneFrequency",
+          "startLine": 23,
+          "endLine": 27,
+          "params": [
+            "cfg",
+            "type"
+          ]
+        },
+        {
+          "name": "unitDuration",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "wpm"
+          ]
+        },
+        {
+          "name": "calculateFarnsworthTiming",
+          "startLine": 52,
+          "endLine": 66,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "buildSchedule",
+          "startLine": 77,
+          "endLine": 109,
+          "params": [
+            "text",
+            "cfg"
+          ]
+        },
+        {
+          "name": "sequenceDuration",
+          "startLine": 111,
+          "endLine": 113,
+          "params": [
+            "els"
+          ]
+        },
+        {
+          "name": "kochCharsForLesson",
+          "startLine": 122,
+          "endLine": 124,
+          "params": [
+            "n"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "toneFrequency",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_TIMING",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "unitDuration",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "calculateFarnsworthTiming",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "buildSchedule",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "sequenceDuration",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "KOCH_ORDER",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "kochCharsForLesson",
+          "line": 122,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "calculateFarnsworthTiming",
+          "callee": "Math.max",
+          "lineNumber": 53
+        },
+        {
+          "caller": "calculateFarnsworthTiming",
+          "callee": "Math.min",
+          "lineNumber": 54
+        },
+        {
+          "caller": "calculateFarnsworthTiming",
+          "callee": "Math.max",
+          "lineNumber": 54
+        },
+        {
+          "caller": "calculateFarnsworthTiming",
+          "callee": "unitDuration",
+          "lineNumber": 56
+        },
+        {
+          "caller": "calculateFarnsworthTiming",
+          "callee": "Math.max",
+          "lineNumber": 63
+        },
+        {
+          "caller": "calculateFarnsworthTiming",
+          "callee": "Math.max",
+          "lineNumber": 64
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "calculateFarnsworthTiming",
+          "lineNumber": 78
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "text.toUpperCase().trim().split",
+          "lineNumber": 80
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "text.toUpperCase().trim",
+          "lineNumber": 80
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "text.toUpperCase",
+          "lineNumber": 80
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "words.forEach",
+          "lineNumber": 82
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "tokenizeText",
+          "lineNumber": 83
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "tokens.forEach",
+          "lineNumber": 84
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "charToMorse",
+          "lineNumber": 85
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "els.push",
+          "lineNumber": 90
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "els.push",
+          "lineNumber": 96
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "els.push",
+          "lineNumber": 100
+        },
+        {
+          "caller": "buildSchedule",
+          "callee": "els.push",
+          "lineNumber": 104
+        },
+        {
+          "caller": "sequenceDuration",
+          "callee": "els.reduce",
+          "lineNumber": 112
+        },
+        {
+          "caller": "kochCharsForLesson",
+          "callee": "KOCH_ORDER.slice",
+          "lineNumber": 123
+        },
+        {
+          "caller": "kochCharsForLesson",
+          "callee": "Math.max",
+          "lineNumber": 123
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 8,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/audio/wavExport.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "estimateScheduleDuration",
+          "startLine": 7,
+          "endLine": 25,
+          "params": [
+            "text",
+            "config",
+            "opts"
+          ]
+        },
+        {
+          "name": "encodeWav",
+          "startLine": 27,
+          "endLine": 69,
+          "params": [
+            "buffer"
+          ]
+        },
+        {
+          "name": "renderMorseWav",
+          "startLine": 71,
+          "endLine": 87,
+          "params": [
+            "text",
+            "config",
+            "opts",
+            "sampleRate"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "estimateScheduleDuration",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "encodeWav",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "renderMorseWav",
+          "line": 71,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "estimateScheduleDuration",
+          "callee": "buildSchedule",
+          "lineNumber": 18
+        },
+        {
+          "caller": "estimateScheduleDuration",
+          "callee": "calculateFarnsworthTiming",
+          "lineNumber": 19
+        },
+        {
+          "caller": "estimateScheduleDuration",
+          "callee": "elements.reduce",
+          "lineNumber": 23
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "buffer.getChannelData",
+          "lineNumber": 28
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "Math.max",
+          "lineNumber": 31
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "Math.min",
+          "lineNumber": 31
+        },
+        {
+          "caller": "writeString",
+          "callee": "view.setUint8",
+          "lineNumber": 45
+        },
+        {
+          "caller": "writeString",
+          "callee": "str.charCodeAt",
+          "lineNumber": 45
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "writeString",
+          "lineNumber": 49
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint32",
+          "lineNumber": 50
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "writeString",
+          "lineNumber": 51
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "writeString",
+          "lineNumber": 52
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint32",
+          "lineNumber": 53
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint16",
+          "lineNumber": 54
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint16",
+          "lineNumber": 55
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint32",
+          "lineNumber": 56
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint32",
+          "lineNumber": 57
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint16",
+          "lineNumber": 58
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint16",
+          "lineNumber": 59
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "writeString",
+          "lineNumber": 60
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setUint32",
+          "lineNumber": 61
+        },
+        {
+          "caller": "encodeWav",
+          "callee": "view.setInt16",
+          "lineNumber": 65
+        },
+        {
+          "caller": "renderMorseWav",
+          "callee": "estimateScheduleDuration",
+          "lineNumber": 78
+        },
+        {
+          "caller": "renderMorseWav",
+          "callee": "Math.max",
+          "lineNumber": 81
+        },
+        {
+          "caller": "renderMorseWav",
+          "callee": "Math.ceil",
+          "lineNumber": 81
+        },
+        {
+          "caller": "renderMorseWav",
+          "callee": "scheduleText",
+          "lineNumber": 84
+        },
+        {
+          "caller": "renderMorseWav",
+          "callee": "offline.startRendering",
+          "lineNumber": 85
+        },
+        {
+          "caller": "renderMorseWav",
+          "callee": "encodeWav",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/engine/morseMap.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "tidyText",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "tokenizeText",
+          "startLine": 36,
+          "endLine": 49,
+          "params": [
+            "text",
+            "useProsigns"
+          ]
+        },
+        {
+          "name": "lookupMap",
+          "startLine": 51,
+          "endLine": 53,
+          "params": [
+            "useProsigns"
+          ]
+        },
+        {
+          "name": "textToMorse",
+          "startLine": 56,
+          "endLine": 64,
+          "params": [
+            "text",
+            "useProsigns"
+          ]
+        },
+        {
+          "name": "morseToText",
+          "startLine": 71,
+          "endLine": 86,
+          "params": [
+            "morse",
+            "useProsigns"
+          ]
+        },
+        {
+          "name": "charToMorse",
+          "startLine": 89,
+          "endLine": 92,
+          "params": [
+            "char",
+            "useProsigns"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MORSE_MAP",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "PROSIGN_MAP",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "tokenizeText",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "textToMorse",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "morseToText",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "charToMorse",
+          "line": 89,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tidyText",
+          "callee": "text.toUpperCase().trim().replace",
+          "lineNumber": 32
+        },
+        {
+          "caller": "tidyText",
+          "callee": "text.toUpperCase().trim",
+          "lineNumber": 32
+        },
+        {
+          "caller": "tidyText",
+          "callee": "text.toUpperCase",
+          "lineNumber": 32
+        },
+        {
+          "caller": "tokenizeText",
+          "callee": "tidyText",
+          "lineNumber": 38
+        },
+        {
+          "caller": "tokenizeText",
+          "callee": "remaining.match",
+          "lineNumber": 42
+        },
+        {
+          "caller": "tokenizeText",
+          "callee": "tokens.push",
+          "lineNumber": 45
+        },
+        {
+          "caller": "tokenizeText",
+          "callee": "remaining.slice",
+          "lineNumber": 45
+        },
+        {
+          "caller": "tokenizeText",
+          "callee": "remaining.slice",
+          "lineNumber": 46
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "tidyText",
+          "lineNumber": 57
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "lookupMap",
+          "lineNumber": 59
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "tidy.split(' ').map(word => {\n    const tokens = tokenizeText(word, useProsigns);\n    return tokens.map(t => map[t] ?? '?').join(' ');\n  }).join",
+          "lineNumber": 60
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "tidy.split(' ').map",
+          "lineNumber": 60
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "tidy.split",
+          "lineNumber": 60
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "tokenizeText",
+          "lineNumber": 61
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "tokens.map(t => map[t] ?? '?').join",
+          "lineNumber": 62
+        },
+        {
+          "caller": "textToMorse",
+          "callee": "tokens.map",
+          "lineNumber": 62
+        },
+        {
+          "caller": "morseToText",
+          "callee": "morse\n    .replace(/\\|/g, '/')\n    .replace(/\\//g, ' / ')\n    .replace(/\\s+/g, ' ')\n    .replace(/(\\/ )+\\//g, '/')\n    .replace(/_/g, '-')\n    .trim",
+          "lineNumber": 72
+        },
+        {
+          "caller": "morseToText",
+          "callee": "morse\n    .replace(/\\|/g, '/')\n    .replace(/\\//g, ' / ')\n    .replace(/\\s+/g, ' ')\n    .replace(/(\\/ )+\\//g, '/')\n    .replace",
+          "lineNumber": 72
+        },
+        {
+          "caller": "morseToText",
+          "callee": "morse\n    .replace(/\\|/g, '/')\n    .replace(/\\//g, ' / ')\n    .replace(/\\s+/g, ' ')\n    .replace",
+          "lineNumber": 72
+        },
+        {
+          "caller": "morseToText",
+          "callee": "morse\n    .replace(/\\|/g, '/')\n    .replace(/\\//g, ' / ')\n    .replace",
+          "lineNumber": 72
+        },
+        {
+          "caller": "morseToText",
+          "callee": "morse\n    .replace(/\\|/g, '/')\n    .replace",
+          "lineNumber": 72
+        },
+        {
+          "caller": "morseToText",
+          "callee": "morse\n    .replace",
+          "lineNumber": 72
+        },
+        {
+          "caller": "morseToText",
+          "callee": "Object.fromEntries",
+          "lineNumber": 80
+        },
+        {
+          "caller": "morseToText",
+          "callee": "Object.entries(MORSE_MAP).map",
+          "lineNumber": 81
+        },
+        {
+          "caller": "morseToText",
+          "callee": "Object.entries",
+          "lineNumber": 81
+        },
+        {
+          "caller": "morseToText",
+          "callee": "canonical.split(' / ').map(word =>\n    word.split(' ').map(c => map[c] ?? '?').join(''),\n  ).join",
+          "lineNumber": 83
+        },
+        {
+          "caller": "morseToText",
+          "callee": "canonical.split(' / ').map",
+          "lineNumber": 83
+        },
+        {
+          "caller": "morseToText",
+          "callee": "canonical.split",
+          "lineNumber": 83
+        },
+        {
+          "caller": "morseToText",
+          "callee": "word.split(' ').map(c => map[c] ?? '?').join",
+          "lineNumber": 84
+        },
+        {
+          "caller": "morseToText",
+          "callee": "word.split(' ').map",
+          "lineNumber": 84
+        },
+        {
+          "caller": "morseToText",
+          "callee": "word.split",
+          "lineNumber": 84
+        },
+        {
+          "caller": "charToMorse",
+          "callee": "lookupMap",
+          "lineNumber": 90
+        },
+        {
+          "caller": "charToMorse",
+          "callee": "char.toUpperCase",
+          "lineNumber": 91
+        },
+        {
+          "caller": "charToMorse",
+          "callee": "PROSIGN_PATTERN.test",
+          "lineNumber": 91
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/lessons/lessonLoader.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 104,
+      "functions": [
+        {
+          "name": "getWordListCatalog",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "getUserTargets",
+          "startLine": 43,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "getClasses",
+          "startLine": 49,
+          "endLine": 53,
+          "params": [
+            "userTarget"
+          ]
+        },
+        {
+          "name": "getLetterGroups",
+          "startLine": 55,
+          "endLine": 61,
+          "params": [
+            "userTarget",
+            "lessonClass"
+          ]
+        },
+        {
+          "name": "getDisplays",
+          "startLine": 63,
+          "endLine": 73,
+          "params": [
+            "userTarget",
+            "lessonClass",
+            "letterGroup"
+          ]
+        },
+        {
+          "name": "findWordListOption",
+          "startLine": 75,
+          "endLine": 77,
+          "params": [
+            "fileName"
+          ]
+        },
+        {
+          "name": "loadLesson",
+          "startLine": 79,
+          "endLine": 82,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "wordFileUrl",
+          "startLine": 84,
+          "endLine": 86,
+          "params": [
+            "filename",
+            "basePath"
+          ]
+        },
+        {
+          "name": "loadWordList",
+          "startLine": 89,
+          "endLine": 96,
+          "params": [
+            "filename",
+            "basePath"
+          ]
+        },
+        {
+          "name": "loadLessonFile",
+          "startLine": 99,
+          "endLine": 113,
+          "params": [
+            "filename",
+            "basePath"
+          ]
+        },
+        {
+          "name": "isRandomWordListConfig",
+          "startLine": 115,
+          "endLine": 122,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WORDFILES_BASE_PATH",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getWordListCatalog",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getUserTargets",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "getClasses",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getLetterGroups",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplays",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "findWordListOption",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "loadLesson",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "loadWordList",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "loadLessonFile",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "isRandomWordListConfig",
+          "line": 115,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getUserTargets",
+          "callee": "CATALOG.forEach",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getUserTargets",
+          "callee": "targets.add",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getClasses",
+          "callee": "CATALOG.filter(e => e.userTarget === userTarget).forEach",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getClasses",
+          "callee": "CATALOG.filter",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getClasses",
+          "callee": "classes.add",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getLetterGroups",
+          "callee": "CATALOG\n    .filter(e => e.userTarget === userTarget && e.class === lessonClass)\n    .forEach",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getLetterGroups",
+          "callee": "CATALOG\n    .filter",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getLetterGroups",
+          "callee": "groups.add",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getDisplays",
+          "callee": "CATALOG.filter",
+          "lineNumber": 68
+        },
+        {
+          "caller": "findWordListOption",
+          "callee": "CATALOG.find",
+          "lineNumber": 76
+        },
+        {
+          "caller": "loadLesson",
+          "callee": "parseInt",
+          "lineNumber": 80
+        },
+        {
+          "caller": "loadLesson",
+          "callee": "id.replace",
+          "lineNumber": 80
+        },
+        {
+          "caller": "loadLesson",
+          "callee": "kochCharsForLesson",
+          "lineNumber": 81
+        },
+        {
+          "caller": "loadWordList",
+          "callee": "fetch",
+          "lineNumber": 93
+        },
+        {
+          "caller": "loadWordList",
+          "callee": "wordFileUrl",
+          "lineNumber": 93
+        },
+        {
+          "caller": "loadWordList",
+          "callee": "(await res.text()).split('\\n').map(w => w.trim()).filter",
+          "lineNumber": 95
+        },
+        {
+          "caller": "loadWordList",
+          "callee": "(await res.text()).split('\\n').map",
+          "lineNumber": 95
+        },
+        {
+          "caller": "loadWordList",
+          "callee": "(await res.text()).split",
+          "lineNumber": 95
+        },
+        {
+          "caller": "loadWordList",
+          "callee": "res.text",
+          "lineNumber": 95
+        },
+        {
+          "caller": "loadWordList",
+          "callee": "w.trim",
+          "lineNumber": 95
+        },
+        {
+          "caller": "loadLessonFile",
+          "callee": "fetch",
+          "lineNumber": 103
+        },
+        {
+          "caller": "loadLessonFile",
+          "callee": "wordFileUrl",
+          "lineNumber": 103
+        },
+        {
+          "caller": "loadLessonFile",
+          "callee": "filename.endsWith",
+          "lineNumber": 106
+        },
+        {
+          "caller": "loadLessonFile",
+          "callee": "res.json",
+          "lineNumber": 107
+        },
+        {
+          "caller": "loadLessonFile",
+          "callee": "res.text",
+          "lineNumber": 111
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 11,
+        "functionCount": 11,
+        "classCount": 0
+      }
+    }
+  ]
+}

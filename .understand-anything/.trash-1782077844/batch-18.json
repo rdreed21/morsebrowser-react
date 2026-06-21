@@ -1,0 +1,93 @@
+{
+  "nodes": [
+    {
+      "id": "document:docs/ADDING_LESSONS_PRESETS_WORDFILES.md",
+      "type": "document",
+      "name": "ADDING_LESSONS_PRESETS_WORDFILES.md",
+      "filePath": "docs/ADDING_LESSONS_PRESETS_WORDFILES.md",
+      "summary": "Content-authoring guide explaining how to add and wire up new lessons, presets, and word files across the core package and both apps.",
+      "tags": ["documentation", "content", "lessons", "guide"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/ANDROID_FRAMEWORK.md",
+      "type": "document",
+      "name": "ANDROID_FRAMEWORK.md",
+      "filePath": "docs/ANDROID_FRAMEWORK.md",
+      "summary": "Reference describing the Android native shell, build framework, and background-audio considerations for the mobile app.",
+      "tags": ["documentation", "android", "mobile", "architecture"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/LESSON_DATA_PIPELINE.md",
+      "type": "document",
+      "name": "LESSON_DATA_PIPELINE.md",
+      "filePath": "docs/LESSON_DATA_PIPELINE.md",
+      "summary": "Explanation of the lesson-data sync pipeline that generates manifests and propagates word-list and preset data into the apps.",
+      "tags": ["documentation", "data-pipeline", "lessons", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "docs/README.md",
+      "summary": "Index of the docs directory, linking to the repo map, content-authoring guide, and other reference documents.",
+      "tags": ["documentation", "entry-point", "index", "overview"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/REPO_MAP.md",
+      "type": "document",
+      "name": "REPO_MAP.md",
+      "filePath": "docs/REPO_MAP.md",
+      "summary": "Guided tour of the Turborepo monorepo layout, describing the core engine, web and mobile apps, workers, and where to make each kind of change.",
+      "tags": ["documentation", "architecture", "overview", "monorepo"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:docs/README.md",
+      "target": "document:docs/REPO_MAP.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/README.md",
+      "target": "document:docs/ADDING_LESSONS_PRESETS_WORDFILES.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/ADDING_LESSONS_PRESETS_WORDFILES.md",
+      "target": "file:packages/core/src/lessons/lessonLoader.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/LESSON_DATA_PIPELINE.md",
+      "target": "file:packages/core/scripts/sync-lesson-data.mjs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/ANDROID_FRAMEWORK.md",
+      "target": "config:apps/mobile/android/build.gradle",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/REPO_MAP.md",
+      "target": "file:packages/core/src/index.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,1763 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 12,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/web/src/hooks/playbackLoopSeek.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/playbackOrchestration.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 72,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/playbackOrchestration.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "isVoiceBufferFull",
+          "startLine": 3,
+          "endLine": 12,
+          "params": [
+            "voiceBufferMaxLength",
+            "currentIndex",
+            "wordCount",
+            "bufferLength"
+          ]
+        },
+        {
+          "name": "computePlayEndedActions",
+          "startLine": 14,
+          "endLine": 35,
+          "params": [
+            "flags"
+          ]
+        },
+        {
+          "name": "shouldRestartLoop",
+          "startLine": 37,
+          "endLine": 44,
+          "params": [
+            "loop",
+            "fromStopButton",
+            "fromPauseButton",
+            "skipLoopRestart"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "isVoiceBufferFull",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "computePlayEndedActions",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRestartLoop",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useMorsePlayback.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 516,
+      "nonEmptyLines": 453,
+      "functions": [
+        {
+          "name": "useMorsePlayback",
+          "startLine": 47,
+          "endLine": 516,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useMorsePlayback",
+          "line": 47,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useMorseApp",
+          "lineNumber": 48
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "usePlaybackState",
+          "lineNumber": 56
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useMorseAudio",
+          "lineNumber": 57
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 59
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 60
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 61
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 62
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 63
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 64
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 65
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 66
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 67
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useState",
+          "lineNumber": 68
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 72
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "Object.values(timersRef.current).forEach",
+          "lineNumber": 73
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "Object.values",
+          "lineNumber": 73
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "clearTimeout",
+          "lineNumber": 73
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 80
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 83
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "wordsRef.current.map",
+          "lineNumber": 84
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "getDisplayWord",
+          "lineNumber": 84
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 95
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "Math.max",
+          "lineNumber": 100
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 105
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "resolveSpeechVoice",
+          "lineNumber": 106
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 110
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "prepPhraseToSpeakForFinal",
+          "lineNumber": 111
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "resolveVoice",
+          "lineNumber": 115
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 124
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.push",
+          "lineNumber": 132
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "getSpeakText",
+          "lineNumber": 133
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 140
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "isVoiceBufferFull",
+          "lineNumber": 141
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 149
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.map(m => m.txt).join(' ')\n      .replace(/[\\r\\n]/g, ' ')\n      .trim",
+          "lineNumber": 150
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.map(m => m.txt).join(' ')\n      .replace",
+          "lineNumber": 150
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.map(m => m.txt).join",
+          "lineNumber": 150
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.map",
+          "lineNumber": 150
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 157
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "clearTimers",
+          "lineNumber": 164
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "cancelSpeech",
+          "lineNumber": 165
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "stopAll",
+          "lineNumber": 166
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setIsPlaying",
+          "lineNumber": 167
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setRunningPlayMs",
+          "lineNumber": 170
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "Date.now",
+          "lineNumber": 170
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setIsPaused",
+          "lineNumber": 171
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setIsPaused",
+          "lineNumber": 173
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 177
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setMaxRevealedTrail",
+          "lineNumber": 180
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "shouldRestartLoop",
+          "lineNumber": 185
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "app.shuffleWords",
+          "lineNumber": 187
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 189
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "bufferRef.current?.clear",
+          "lineNumber": 190
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 194
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 201
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "Date.now",
+          "lineNumber": 203
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "playEndedRef.current",
+          "lineNumber": 204
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "bufferRef.current?.getNextMorse",
+          "lineNumber": 209
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ifMaxVoiceBufferReached",
+          "lineNumber": 218
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "bufferRef.current?.hasMoreMorse",
+          "lineNumber": 219
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "Date.now",
+          "lineNumber": 221
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "scheduleOpts",
+          "lineNumber": 222
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "play",
+          "lineNumber": 224
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "playEndedRef.current",
+          "lineNumber": 226
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCharsPlayed",
+          "lineNumber": 229
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "morseText.replace",
+          "lineNumber": 229
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 232
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "app.showingText.indexOf",
+          "lineNumber": 239
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "bufferRef.current?.hasMoreMorse",
+          "lineNumber": 240
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ifMaxVoiceBufferReached",
+          "lineNumber": 241
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "computePlayEndedActions",
+          "lineNumber": 244
+        },
+        {
+          "caller": "advanceTrail",
+          "callee": "setTimeout",
+          "lineNumber": 256
+        },
+        {
+          "caller": "advanceTrail",
+          "callee": "setMaxRevealedTrail",
+          "lineNumber": 257
+        },
+        {
+          "caller": "advanceTrail",
+          "callee": "setTimeout",
+          "lineNumber": 258
+        },
+        {
+          "caller": "advanceTrail",
+          "callee": "playEndedRef.current",
+          "lineNumber": 260
+        },
+        {
+          "caller": "finalizeTrail",
+          "callee": "setTimeout",
+          "lineNumber": 268
+        },
+        {
+          "caller": "finalizeTrail",
+          "callee": "setMaxRevealedTrail",
+          "lineNumber": 269
+        },
+        {
+          "caller": "finalizeTrail",
+          "callee": "finalCallback",
+          "lineNumber": 270
+        },
+        {
+          "caller": "finalizeTrail",
+          "callee": "finalCallback",
+          "lineNumber": 273
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setRunningPlayMs",
+          "lineNumber": 278
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "Date.now",
+          "lineNumber": 278
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 285
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setTimeout",
+          "lineNumber": 289
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 290
+        },
+        {
+          "caller": "finalToDo",
+          "callee": "Date.now",
+          "lineNumber": 294
+        },
+        {
+          "caller": "finalToDo",
+          "callee": "setLastFullPlayTimeMs",
+          "lineNumber": 295
+        },
+        {
+          "caller": "finalToDo",
+          "callee": "endSession",
+          "lineNumber": 296
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "finalizeTrail",
+          "lineNumber": 298
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "speakText.indexOf",
+          "lineNumber": 304
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "getPhraseToSpeakFromBuffer",
+          "lineNumber": 312
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "phraseToSpeak.split",
+          "lineNumber": 314
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setTimeout",
+          "lineNumber": 318
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "speakPhrase",
+          "lineNumber": 320
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "buildSpeakConfig",
+          "lineNumber": 320
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "advanceTrail",
+          "lineNumber": 323
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "playEndedRef.current",
+          "lineNumber": 325
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "playEndedRef.current",
+          "lineNumber": 329
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "advanceTrail",
+          "lineNumber": 334
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 338
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "app.showingText.trim",
+          "lineNumber": 341
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "app.collapseSettingsAccordions",
+          "lineNumber": 347
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setRunningPlayMs",
+          "lineNumber": 348
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "bufferRef.current?.clear",
+          "lineNumber": 349
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCharsPlayed",
+          "lineNumber": 351
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ensureNoise",
+          "lineNumber": 354
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "primeSpeechPump",
+          "lineNumber": 356
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "resolveVoice",
+          "lineNumber": 356
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setIsPaused",
+          "lineNumber": 364
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setIsPlaying",
+          "lineNumber": 365
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "clearTimeout",
+          "lineNumber": 369
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setTimeout",
+          "lineNumber": 371
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "stopMorse",
+          "lineNumber": 374
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ensureNoise",
+          "lineNumber": 375
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setMaxRevealedTrail",
+          "lineNumber": 376
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "addToVoiceBuffer",
+          "lineNumber": 377
+        },
+        {
+          "caller": "runMorse",
+          "callee": "playMorseChunk",
+          "lineNumber": 379
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.map(m => m.txt).join(' ').trim",
+          "lineNumber": 386
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.map(m => m.txt).join",
+          "lineNumber": 386
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.map",
+          "lineNumber": 386
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "phrase.split",
+          "lineNumber": 388
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setTimeout",
+          "lineNumber": 391
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "speakPhrase",
+          "lineNumber": 393
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "buildSpeakConfig",
+          "lineNumber": 393
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "runMorse",
+          "lineNumber": 396
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "runMorse",
+          "lineNumber": 400
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 405
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "app.showingText.trim",
+          "lineNumber": 406
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ensureNoise",
+          "lineNumber": 407
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 408
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 411
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ensureNoise",
+          "lineNumber": 415
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 416
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "endSession",
+          "lineNumber": 419
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 422
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "endSession",
+          "lineNumber": 423
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 426
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "endSession",
+          "lineNumber": 428
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ensureNoise",
+          "lineNumber": 431
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 432
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 436
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "app.toggleLoop",
+          "lineNumber": 437
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 440
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 442
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 446
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "stopMorse",
+          "lineNumber": 448
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "ensureNoise",
+          "lineNumber": 449
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 450
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setTimeout",
+          "lineNumber": 451
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 452
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 457
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 458
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 461
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 463
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "endSession",
+          "lineNumber": 466
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 467
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 468
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 471
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "app.setShowingText",
+          "lineNumber": 472
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setCurrentIndex",
+          "lineNumber": 473
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "doPlayRef.current",
+          "lineNumber": 474
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useRef",
+          "lineNumber": 477
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "voiceBufferRef.current.shift",
+          "lineNumber": 481
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "prepPhraseToSpeakForFinal",
+          "lineNumber": 484
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "entry.txt.replace",
+          "lineNumber": 484
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "speakPhrase",
+          "lineNumber": 485
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "buildSpeakConfig",
+          "lineNumber": 485
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "setTimeout",
+          "lineNumber": 486
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "speakVoiceBufferRef.current",
+          "lineNumber": 487
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useCallback",
+          "lineNumber": 492
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "speakVoiceBufferRef.current",
+          "lineNumber": 493
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "useEffect",
+          "lineNumber": 496
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "clearTimers",
+          "lineNumber": 497
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "cancelSpeech",
+          "lineNumber": 498
+        },
+        {
+          "caller": "useMorsePlayback",
+          "callee": "stopAll",
+          "lineNumber": 499
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useMorseShortcutKeys.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 68,
+      "functions": [
+        {
+          "name": "makePlayback",
+          "startLine": 8,
+          "endLine": 24,
+          "params": [
+            "overrides"
+          ]
+        },
+        {
+          "name": "pressKey",
+          "startLine": 26,
+          "endLine": 28,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "mountShortcutHarness",
+          "startLine": 30,
+          "endLine": 43,
+          "params": [
+            "playback",
+            "onAnnounce"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 10
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 11
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 12
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 13
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 14
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 15
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 16
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 17
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 18
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 20
+        },
+        {
+          "caller": "makePlayback",
+          "callee": "vi.fn",
+          "lineNumber": 21
+        },
+        {
+          "caller": "pressKey",
+          "callee": "document.dispatchEvent",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Harness",
+          "callee": "useMorseApp",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Harness",
+          "callee": "vi.spyOn(app, 'announceAccessibility').mockImplementation",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Harness",
+          "callee": "vi.spyOn",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Harness",
+          "callee": "useMorseShortcutKeys",
+          "lineNumber": 34
+        },
+        {
+          "caller": "mountShortcutHarness",
+          "callee": "render",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 89,
+      "functions": [
+        {
+          "name": "useMorseShortcutKeys",
+          "startLine": 6,
+          "endLine": 79,
+          "params": [
+            "playback"
+          ]
+        },
+        {
+          "name": "changeFarnsworth",
+          "startLine": 81,
+          "endLine": 100,
+          "params": [
+            "app",
+            "delta"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "useMorseShortcutKeys",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "useMorseApp",
+          "lineNumber": 7
+        },
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "useRef",
+          "lineNumber": 8
+        },
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "usePlaybackState",
+          "lineNumber": 11
+        },
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "useRef",
+          "lineNumber": 12
+        },
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "useRef",
+          "lineNumber": 15
+        },
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "useEffect",
+          "lineNumber": 18
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "togglePlayback",
+          "lineNumber": 34
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "handleStop",
+          "lineNumber": 35
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "decrementIndex",
+          "lineNumber": 36
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "fullRewind",
+          "lineNumber": 37
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "incrementIndex",
+          "lineNumber": 38
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "current.addFlaggedWord",
+          "lineNumber": 42
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "current.announceAccessibility",
+          "lineNumber": 43
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "current.setHideList",
+          "lineNumber": 48
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "current.announceAccessibility",
+          "lineNumber": 49
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "current.shuffleWords",
+          "lineNumber": 53
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "current.announceAccessibility",
+          "lineNumber": 54
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "toggleLoop",
+          "lineNumber": 62
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "current.announceAccessibility",
+          "lineNumber": 63
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "changeFarnsworth",
+          "lineNumber": 65
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "changeFarnsworth",
+          "lineNumber": 66
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "e.preventDefault",
+          "lineNumber": 71
+        },
+        {
+          "caller": "onKeyPress",
+          "callee": "handler",
+          "lineNumber": 72
+        },
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "document.addEventListener",
+          "lineNumber": 76
+        },
+        {
+          "caller": "useMorseShortcutKeys",
+          "callee": "document.removeEventListener",
+          "lineNumber": 77
+        },
+        {
+          "caller": "changeFarnsworth",
+          "callee": "app.setCharWPM",
+          "lineNumber": 90
+        },
+        {
+          "caller": "changeFarnsworth",
+          "callee": "app.announceAccessibility",
+          "lineNumber": 91
+        },
+        {
+          "caller": "changeFarnsworth",
+          "callee": "app.setCharWPM",
+          "lineNumber": 96
+        },
+        {
+          "caller": "changeFarnsworth",
+          "callee": "app.setEffectiveWPM",
+          "lineNumber": 98
+        },
+        {
+          "caller": "changeFarnsworth",
+          "callee": "app.announceAccessibility",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/cardBufferManager.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 18,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/cardBufferManager.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "appendArrayNTimes",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "originalArray",
+            "n"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CardWordSubPart",
+          "startLine": 5,
+          "endLine": 10,
+          "methods": [
+            "constructor"
+          ],
+          "properties": [
+            "word"
+          ]
+        },
+        {
+          "name": "CardWord",
+          "startLine": 12,
+          "endLine": 21,
+          "methods": [
+            "constructor"
+          ],
+          "properties": [
+            "original",
+            "subparts"
+          ]
+        },
+        {
+          "name": "CardBufferManager",
+          "startLine": 28,
+          "endLine": 66,
+          "methods": [
+            "constructor",
+            "populateBuffer",
+            "hasMoreMorse",
+            "getNextMorse",
+            "clear"
+          ],
+          "properties": [
+            "buffer"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CardBufferManager",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "constructor",
+          "callee": "contents.split(' ').forEach",
+          "lineNumber": 17
+        },
+        {
+          "caller": "constructor",
+          "callee": "contents.split",
+          "lineNumber": 17
+        },
+        {
+          "caller": "constructor",
+          "callee": "this.subparts.push",
+          "lineNumber": 18
+        },
+        {
+          "caller": "appendArrayNTimes",
+          "callee": "Number.isInteger",
+          "lineNumber": 24
+        },
+        {
+          "caller": "appendArrayNTimes",
+          "callee": "Array.from({ length: n }, () => [...originalArray]).flat",
+          "lineNumber": 25
+        },
+        {
+          "caller": "appendArrayNTimes",
+          "callee": "Array.from",
+          "lineNumber": 25
+        },
+        {
+          "caller": "populateBuffer",
+          "callee": "this.getDisplayWords",
+          "lineNumber": 38
+        },
+        {
+          "caller": "populateBuffer",
+          "callee": "this.getCurrentIndex",
+          "lineNumber": 39
+        },
+        {
+          "caller": "populateBuffer",
+          "callee": "this.buffer.push",
+          "lineNumber": 42
+        },
+        {
+          "caller": "populateBuffer",
+          "callee": "this.buffer[0].subparts.push",
+          "lineNumber": 45
+        },
+        {
+          "caller": "populateBuffer",
+          "callee": "appendArrayNTimes",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getNextMorse",
+          "callee": "this.hasMoreMorse",
+          "lineNumber": 56
+        },
+        {
+          "caller": "getNextMorse",
+          "callee": "this.populateBuffer",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getNextMorse",
+          "callee": "this.hasMoreMorse",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getNextMorse",
+          "callee": "this.buffer[0].subparts.shift",
+          "lineNumber": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "apps/web/src/utils/speakText.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/speakText.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "exports": [
+        {
+          "name": "getSpeakText",
+          "line": 1,
+          "isDefault": false
+        },
+        {
+          "name": "prepPhraseToSpeakForFinal",
+          "line": 1,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/voiceSpeech.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "stubVoices",
+          "startLine": 4,
+          "endLine": 10,
+          "params": [
+            "langs"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "stubVoices",
+          "callee": "langs.map",
+          "lineNumber": 5
+        },
+        {
+          "caller": "stubVoices",
+          "callee": "vi.stubGlobal",
+          "lineNumber": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/voiceSpeech.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 130,
+      "nonEmptyLines": 113,
+      "functions": [
+        {
+          "name": "cancelSpeech",
+          "startLine": 22,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "speakSingleToken",
+          "startLine": 28,
+          "endLine": 50,
+          "params": [
+            "text",
+            "config",
+            "onComplete"
+          ]
+        },
+        {
+          "name": "speakPhrase",
+          "startLine": 52,
+          "endLine": 101,
+          "params": [
+            "config",
+            "onComplete"
+          ]
+        },
+        {
+          "name": "primeSpeechPump",
+          "startLine": 104,
+          "endLine": 117,
+          "params": [
+            "voice"
+          ]
+        },
+        {
+          "name": "resolveSpeechVoice",
+          "startLine": 119,
+          "endLine": 130,
+          "params": [
+            "voiceVoices",
+            "voiceVoiceIdx"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ALLOWED_VOICE_LANGS",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSpeech",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "speakPhrase",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "primeSpeechPump",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "resolveSpeechVoice",
+          "line": 119,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cancelSpeech",
+          "callee": "window.speechSynthesis.cancel",
+          "lineNumber": 24
+        },
+        {
+          "caller": "speakSingleToken",
+          "callee": "onComplete",
+          "lineNumber": 34
+        },
+        {
+          "caller": "speakSingleToken",
+          "callee": "text.toLowerCase",
+          "lineNumber": 38
+        },
+        {
+          "caller": "speakSingleToken",
+          "callee": "Number",
+          "lineNumber": 40
+        },
+        {
+          "caller": "speakSingleToken",
+          "callee": "Number",
+          "lineNumber": 41
+        },
+        {
+          "caller": "speakSingleToken",
+          "callee": "window.speechSynthesis.speak",
+          "lineNumber": 49
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "onComplete",
+          "lineNumber": 54
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "cancelSpeech",
+          "lineNumber": 58
+        },
+        {
+          "caller": "finish",
+          "callee": "window.setTimeout",
+          "lineNumber": 61
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "config.text.trim",
+          "lineNumber": 64
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "finish",
+          "lineNumber": 66
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "speakSingleToken",
+          "lineNumber": 71
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "phrase.split(/\\s+/).filter",
+          "lineNumber": 75
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "phrase.split",
+          "lineNumber": 75
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "speakSingleToken",
+          "lineNumber": 77
+        },
+        {
+          "caller": "speakNext",
+          "callee": "finish",
+          "lineNumber": 86
+        },
+        {
+          "caller": "speakNext",
+          "callee": "speakSingleToken",
+          "lineNumber": 91
+        },
+        {
+          "caller": "speakNext",
+          "callee": "finish",
+          "lineNumber": 93
+        },
+        {
+          "caller": "speakNext",
+          "callee": "window.setTimeout",
+          "lineNumber": 95
+        },
+        {
+          "caller": "speakPhrase",
+          "callee": "speakNext",
+          "lineNumber": 100
+        },
+        {
+          "caller": "primeSpeechPump",
+          "callee": "cancelSpeech",
+          "lineNumber": 107
+        },
+        {
+          "caller": "primeSpeechPump",
+          "callee": "window.speechSynthesis.speak",
+          "lineNumber": 116
+        },
+        {
+          "caller": "resolveSpeechVoice",
+          "callee": "window.speechSynthesis.getVoices",
+          "lineNumber": 124
+        },
+        {
+          "caller": "resolveSpeechVoice",
+          "callee": "all.find",
+          "lineNumber": 127
+        },
+        {
+          "caller": "resolveSpeechVoice",
+          "callee": "all.find",
+          "lineNumber": 129
+        },
+        {
+          "caller": "resolveSpeechVoice",
+          "callee": "ALLOWED_VOICE_LANGS.includes",
+          "lineNumber": 129
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    }
+  ]
+}

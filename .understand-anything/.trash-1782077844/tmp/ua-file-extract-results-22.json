@@ -1,0 +1,870 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 19,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/web/src/test-setup.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 25,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/morseStringUtils.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 86,
+      "functions": [
+        {
+          "name": "doReplacements",
+          "startLine": 13,
+          "endLine": 21,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "wordifyPunctuation",
+          "startLine": 24,
+          "endLine": 48,
+          "params": [
+            "s",
+            "spellOverridesOnly"
+          ]
+        },
+        {
+          "name": "replaceSpacesAroundE",
+          "startLine": 50,
+          "endLine": 52,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "spellPiece",
+          "startLine": 54,
+          "endLine": 64,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "getSpeakText",
+          "startLine": 67,
+          "endLine": 93,
+          "params": [
+            "rawWord",
+            "forceSpelling"
+          ]
+        },
+        {
+          "name": "prepPhraseToSpeakForFinal",
+          "startLine": 95,
+          "endLine": 101,
+          "params": [
+            "beforePhrase"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "doReplacements",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "wordifyPunctuation",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "getSpeakText",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "prepPhraseToSpeakForFinal",
+          "line": 95,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace(/%/g, 'pct')\n    .replace",
+          "lineNumber": 14
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace",
+          "lineNumber": 14
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace(/'/g, '')\n    .replace",
+          "lineNumber": 14
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace(/'/g, '')\n    .replace",
+          "lineNumber": 14
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace(/Ø/g, '0')\n    .replace",
+          "lineNumber": 14
+        },
+        {
+          "caller": "doReplacements",
+          "callee": "s\n    .replace",
+          "lineNumber": 14
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "WORDIFICATIONS.filter",
+          "lineNumber": 26
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "s.replace(/\\r/g, '').replace",
+          "lineNumber": 29
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "s.replace",
+          "lineNumber": 29
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "w.characters\n      .replace(/\\?/g, '\\\\?')\n      .replace(/\\./g, '\\\\.')\n      .replace",
+          "lineNumber": 33
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "w.characters\n      .replace(/\\?/g, '\\\\?')\n      .replace",
+          "lineNumber": 33
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "w.characters\n      .replace",
+          "lineNumber": 33
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "fixed.replace",
+          "lineNumber": 40
+        },
+        {
+          "caller": "wordifyPunctuation",
+          "callee": "fixed.replace",
+          "lineNumber": 43
+        },
+        {
+          "caller": "replaceSpacesAroundE",
+          "callee": "input.replace",
+          "lineNumber": 51
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "doReplacements",
+          "lineNumber": 55
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "base\n    .replace(/>/g, '')\n    .replace(/</g, '')\n    .split('')\n    .map(ch => wordifyPunctuation(ch, true))\n    .join",
+          "lineNumber": 56
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "base\n    .replace(/>/g, '')\n    .replace(/</g, '')\n    .split('')\n    .map",
+          "lineNumber": 56
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "base\n    .replace(/>/g, '')\n    .replace(/</g, '')\n    .split",
+          "lineNumber": 56
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "base\n    .replace(/>/g, '')\n    .replace",
+          "lineNumber": 56
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "base\n    .replace",
+          "lineNumber": 56
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "wordifyPunctuation",
+          "lineNumber": 60
+        },
+        {
+          "caller": "spellPiece",
+          "callee": "replaceSpacesAroundE",
+          "lineNumber": 62
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "rawWord.split",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "pieces.map((p) => {\n    const trimmed = p.trim();\n    const inner = (trimmed.startsWith('{') && trimmed.endsWith('}'))\n      ? trimmed.slice(1, -1)\n      : trimmed.replace(/[{}]/g, '');\n    const hasOverride = p.includes('{');\n\n    if (hasOverride) {\n      const parts = inner.split('|');\n      const morse = doReplacements(parts[0] ?? '');\n      const speech = parts[1] != null ? doReplacements(parts[1]) : null;\n      if (!forceSpelling) {\n        return speech ?? wordifyPunctuation(morse);\n      }\n      return morse.split('').join(' ');\n    }\n\n    if (!forceSpelling) {\n      return wordifyPunctuation(`${doReplacements(p)}\\n`);\n    }\n    return spellPiece(p);\n  }).join",
+          "lineNumber": 69
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "pieces.map",
+          "lineNumber": 69
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "p.trim",
+          "lineNumber": 70
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "trimmed.startsWith",
+          "lineNumber": 71
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "trimmed.endsWith",
+          "lineNumber": 71
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "trimmed.slice",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "trimmed.replace",
+          "lineNumber": 73
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "p.includes",
+          "lineNumber": 74
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "inner.split",
+          "lineNumber": 77
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "doReplacements",
+          "lineNumber": 78
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "doReplacements",
+          "lineNumber": 79
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "wordifyPunctuation",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "morse.split('').join",
+          "lineNumber": 83
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "morse.split",
+          "lineNumber": 83
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "wordifyPunctuation",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "doReplacements",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getSpeakText",
+          "callee": "spellPiece",
+          "lineNumber": 89
+        },
+        {
+          "caller": "prepPhraseToSpeakForFinal",
+          "callee": "beforePhrase\n    .replace(/\\|/g, ' ')\n    .replace(/\\WV\\W/g, ' VEE ')\n    .replace(/^V\\W/g, ' VEE ')\n    .replace",
+          "lineNumber": 96
+        },
+        {
+          "caller": "prepPhraseToSpeakForFinal",
+          "callee": "beforePhrase\n    .replace(/\\|/g, ' ')\n    .replace(/\\WV\\W/g, ' VEE ')\n    .replace",
+          "lineNumber": 96
+        },
+        {
+          "caller": "prepPhraseToSpeakForFinal",
+          "callee": "beforePhrase\n    .replace(/\\|/g, ' ')\n    .replace",
+          "lineNumber": 96
+        },
+        {
+          "caller": "prepPhraseToSpeakForFinal",
+          "callee": "beforePhrase\n    .replace",
+          "lineNumber": 96
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/vite-env.d.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/.DS_Store",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "packages/core/.DS_Store",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "packages/core/jest.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 19,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "types",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "packageManager",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "packages/core/scripts/sync-lesson-data.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "resolveDevRepo",
+          "startLine": 27,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "walk",
+          "startLine": 55,
+          "endLine": 61,
+          "params": [
+            "dir"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resolveDevRepo",
+          "callee": "path.resolve",
+          "lineNumber": 29
+        },
+        {
+          "caller": "resolveDevRepo",
+          "callee": "path.resolve",
+          "lineNumber": 31
+        },
+        {
+          "caller": "resolveDevRepo",
+          "callee": "fs.existsSync",
+          "lineNumber": 32
+        },
+        {
+          "caller": "walk",
+          "callee": "fs.readdirSync(dir, { withFileTypes: true }).flatMap",
+          "lineNumber": 56
+        },
+        {
+          "caller": "walk",
+          "callee": "fs.readdirSync",
+          "lineNumber": 56
+        },
+        {
+          "caller": "walk",
+          "callee": "path.join",
+          "lineNumber": 57
+        },
+        {
+          "caller": "walk",
+          "callee": "entry.isDirectory",
+          "lineNumber": 58
+        },
+        {
+          "caller": "walk",
+          "callee": "walk",
+          "lineNumber": 58
+        },
+        {
+          "caller": "walk",
+          "callee": "entry.isFile",
+          "lineNumber": 59
+        },
+        {
+          "caller": "walk",
+          "callee": "entry.name.startsWith",
+          "lineNumber": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/__tests__/presets.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 193,
+      "nonEmptyLines": 181,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/__tests__/speedIntervals.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 26,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/src/.DS_Store",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "packages/core/src/lessons/wordlists.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 990,
+      "nonEmptyLines": 851,
+      "sections": [
+        {
+          "heading": "fileOptions",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "packages/core/src/settings/speedIntervals.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "parseCsvNumbers",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "text",
+            "parser"
+          ]
+        },
+        {
+          "name": "getApplicableSpeed",
+          "startLine": 21,
+          "endLine": 66,
+          "params": [
+            "runningPlayMs",
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getApplicableSpeed",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseCsvNumbers",
+          "callee": "text.split(',').map(s => parser(s.trim())).filter",
+          "lineNumber": 18
+        },
+        {
+          "caller": "parseCsvNumbers",
+          "callee": "text.split(',').map",
+          "lineNumber": 18
+        },
+        {
+          "caller": "parseCsvNumbers",
+          "callee": "text.split",
+          "lineNumber": 18
+        },
+        {
+          "caller": "parseCsvNumbers",
+          "callee": "parser",
+          "lineNumber": 18
+        },
+        {
+          "caller": "parseCsvNumbers",
+          "callee": "s.trim",
+          "lineNumber": 18
+        },
+        {
+          "caller": "parseCsvNumbers",
+          "callee": "Number.isFinite",
+          "lineNumber": 18
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "intervalTimingsText.trim",
+          "lineNumber": 30
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "parseCsvNumbers",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "times.map",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "parseCsvNumbers",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "parseInt",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "parseCsvNumbers",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "parseInt",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "adjTimes.forEach",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getApplicableSpeed",
+          "callee": "Math.max",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/core/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 11,
+      "nonEmptyLines": 11,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "exclude",
+          "level": 1,
+          "line": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "packages/types/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "types",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "packages/types/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "exclude",
+          "level": 1,
+          "line": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "tools/visual-diff.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 50,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "workers/rss-proxy/src/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 51,
+      "callGraph": [
+        {
+          "caller": "fetch",
+          "callee": "incoming.pathname.slice",
+          "lineNumber": 29
+        },
+        {
+          "caller": "fetch",
+          "callee": "fetch",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fetch",
+          "callee": "upstream.toString",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fetch",
+          "callee": "resp.headers.get",
+          "lineNumber": 53
+        },
+        {
+          "caller": "fetch",
+          "callee": "headers.set",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "workers/rss-proxy/wrangler.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    }
+  ]
+}

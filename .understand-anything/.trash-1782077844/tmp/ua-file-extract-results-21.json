@@ -1,0 +1,573 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj",
+      "language": "pbxproj",
+      "fileCategory": "code",
+      "totalLines": 587,
+      "nonEmptyLines": 576,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme",
+      "language": "xcscheme",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 88,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata",
+      "language": "xcworkspacedata",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "language": "swift",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 58,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/AppIcon.appiconset/Contents.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "images",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "info",
+          "level": 1,
+          "line": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/Contents.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "sections": [
+        {
+          "heading": "info",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Info.plist",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 82,
+      "nonEmptyLines": 82,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h",
+      "language": "c",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements",
+      "language": "entitlements",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy",
+      "language": "xcprivacy",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 37,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard",
+      "language": "storyboard",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 47,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Supporting/Expo.plist",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/Podfile",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 55,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/ios/Podfile.properties.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "sections": [
+        {
+          "heading": "expo.jsEngine",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "EX_DEV_CLIENT_NETWORK_INSPECTOR",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "expo.inlineModules.watchedDirectories",
+          "level": 1,
+          "line": 4
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "apps/mobile/metro.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 51,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch",
+      "language": "patch",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/scripts/generate-asset-manifests.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "listFilesRecursive",
+          "startLine": 25,
+          "endLine": 37,
+          "params": [
+            "dir"
+          ]
+        },
+        {
+          "name": "writeManifest",
+          "startLine": 39,
+          "endLine": 50,
+          "params": [
+            "name",
+            "dir"
+          ]
+        },
+        {
+          "name": "hashFiles",
+          "startLine": 52,
+          "endLine": 59,
+          "params": [
+            "dir",
+            "files"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "listFilesRecursive",
+          "callee": "fs.readdirSync",
+          "lineNumber": 27
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "entry.name.startsWith",
+          "lineNumber": 28
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "path.join",
+          "lineNumber": 29
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "entry.isDirectory",
+          "lineNumber": 30
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "out.push",
+          "lineNumber": 31
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "listFilesRecursive",
+          "lineNumber": 31
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "out.push",
+          "lineNumber": 33
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "path.relative(base, full).split(path.sep).join",
+          "lineNumber": 33
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "path.relative(base, full).split",
+          "lineNumber": 33
+        },
+        {
+          "caller": "listFilesRecursive",
+          "callee": "path.relative",
+          "lineNumber": 33
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "path.join",
+          "lineNumber": 40
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "fs.existsSync",
+          "lineNumber": 41
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "fs.writeFileSync",
+          "lineNumber": 42
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "console.warn",
+          "lineNumber": 43
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "listFilesRecursive(dir).sort",
+          "lineNumber": 46
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "listFilesRecursive",
+          "lineNumber": 46
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "fs.writeFileSync",
+          "lineNumber": 47
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "JSON.stringify",
+          "lineNumber": 47
+        },
+        {
+          "caller": "writeManifest",
+          "callee": "console.log",
+          "lineNumber": 48
+        },
+        {
+          "caller": "hashFiles",
+          "callee": "crypto.createHash",
+          "lineNumber": 53
+        },
+        {
+          "caller": "hashFiles",
+          "callee": "hash.update",
+          "lineNumber": 55
+        },
+        {
+          "caller": "hashFiles",
+          "callee": "hash.update",
+          "lineNumber": 56
+        },
+        {
+          "caller": "hashFiles",
+          "callee": "fs.readFileSync",
+          "lineNumber": 56
+        },
+        {
+          "caller": "hashFiles",
+          "callee": "path.join",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/mobile/scripts/sync-presets.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "copyDir",
+          "startLine": 24,
+          "endLine": 40,
+          "params": [
+            "src",
+            "dst"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "copyDir",
+          "callee": "fs.mkdirSync",
+          "lineNumber": 25
+        },
+        {
+          "caller": "copyDir",
+          "callee": "fs.readdirSync",
+          "lineNumber": 26
+        },
+        {
+          "caller": "copyDir",
+          "callee": "entry.name.startsWith",
+          "lineNumber": 27
+        },
+        {
+          "caller": "copyDir",
+          "callee": "path.join",
+          "lineNumber": 28
+        },
+        {
+          "caller": "copyDir",
+          "callee": "path.join",
+          "lineNumber": 29
+        },
+        {
+          "caller": "copyDir",
+          "callee": "entry.isDirectory",
+          "lineNumber": 30
+        },
+        {
+          "caller": "copyDir",
+          "callee": "copyDir",
+          "lineNumber": 31
+        },
+        {
+          "caller": "copyDir",
+          "callee": "fs.existsSync",
+          "lineNumber": 35
+        },
+        {
+          "caller": "copyDir",
+          "callee": "fs.statSync",
+          "lineNumber": 35
+        },
+        {
+          "caller": "copyDir",
+          "callee": "fs.statSync",
+          "lineNumber": 35
+        },
+        {
+          "caller": "copyDir",
+          "callee": "fs.copyFileSync",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/mobile/scripts/sync-wordfiles.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "resolveSource",
+          "startLine": 14,
+          "endLine": 21,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resolveSource",
+          "callee": "path.resolve",
+          "lineNumber": 16
+        },
+        {
+          "caller": "resolveSource",
+          "callee": "path.resolve",
+          "lineNumber": 18
+        },
+        {
+          "caller": "resolveSource",
+          "callee": "fs.existsSync",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/mobile/src/configs/wordify.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 154,
+      "nonEmptyLines": 154,
+      "sections": [
+        {
+          "heading": "wordifications",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "apps/web/public/_redirects",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "apps/web/src/configs/wordify.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 154,
+      "nonEmptyLines": 154,
+      "sections": [
+        {
+          "heading": "wordifications",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/playbackTiming.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "shouldTrimLastWordSpace",
+          "startLine": 4,
+          "endLine": 11,
+          "params": [
+            "voiceEnabled",
+            "manualVoice",
+            "maxBufferReached",
+            "hasMoreMorse"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/styles/dark-mode.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 329,
+      "nonEmptyLines": 276,
+      "metrics": {}
+    },
+    {
+      "path": "apps/web/src/styles/morsebrowser.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 574,
+      "nonEmptyLines": 478,
+      "metrics": {}
+    }
+  ]
+}

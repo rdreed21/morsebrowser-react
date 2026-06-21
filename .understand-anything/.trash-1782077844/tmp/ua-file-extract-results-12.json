@@ -1,0 +1,248 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 53,
+      "nonEmptyLines": 45,
+      "sections": [
+        {
+          "heading": "CLAUDE.md — morsebrowser React Migration",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Hard Requirements",
+          "level": 2,
+          "line": 4
+        },
+        {
+          "heading": "Migration Status (2026-06-14)",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Agents",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "KO → React Quick Reference",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Commands",
+          "level": 2,
+          "line": 43
+        },
+        {
+          "heading": "Audio Rules",
+          "level": 2,
+          "line": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 177,
+      "nonEmptyLines": 134,
+      "sections": [
+        {
+          "heading": "LICW Morsebrowser — React/React Native Migration",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "What is this?",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Quick start",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "🌐 Running the web app",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "📱 Running the iOS app",
+          "level": 2,
+          "line": 60
+        },
+        {
+          "heading": "First-time setup",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Run it in the iOS Simulator",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "Run it on a real iPhone (required for the lock-screen audio demo!)",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "🎤 Show-and-tell checklist (for the next club meeting)",
+          "level": 2,
+          "line": 96
+        },
+        {
+          "heading": "🛠️ Tinkering & contributing",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "🚀 Deployment",
+          "level": 2,
+          "line": 144
+        },
+        {
+          "heading": "📚 Docs",
+          "level": 2,
+          "line": 153
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 17,
+      "nonEmptyLines": 17,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "packageManager",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "workspaces",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "setup.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 980,
+      "nonEmptyLines": 873,
+      "functions": [
+        {
+          "name": "deepMerge",
+          "startLine": 430,
+          "endLine": 439,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "turbo.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "$schema",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "tasks",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

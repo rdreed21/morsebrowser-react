@@ -1,0 +1,337 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docs/ADDING_LESSONS_PRESETS_WORDFILES.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 278,
+      "nonEmptyLines": 229,
+      "sections": [
+        {
+          "heading": "Adding Lessons, Presets, and Word Files",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Adding a word file",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "`.txt` — fixed word/phrase list",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "`.json` — random-word generator config",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "Where to put the file",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "2. Adding a lesson (making a word file selectable)",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "3. Adding a preset",
+          "level": 2,
+          "line": 137
+        },
+        {
+          "heading": "Step 3a — Create the settings bundle (`configs/`)",
+          "level": 3,
+          "line": 162
+        },
+        {
+          "heading": "Step 3b — List it in a set (`sets/`)",
+          "level": 3,
+          "line": 190
+        },
+        {
+          "heading": "Step 3c — Make sure the set is reachable (`config.json`)",
+          "level": 3,
+          "line": 205
+        },
+        {
+          "heading": "Optional — overrides and legacy mixin",
+          "level": 3,
+          "line": 228
+        },
+        {
+          "heading": "Make both apps see the new preset",
+          "level": 3,
+          "line": 237
+        },
+        {
+          "heading": "Quick checklists",
+          "level": 2,
+          "line": 254
+        },
+        {
+          "heading": "Related docs",
+          "level": 2,
+          "line": 273
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": "docs/ANDROID_FRAMEWORK.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 230,
+      "nonEmptyLines": 185,
+      "sections": [
+        {
+          "heading": "ANDROID_FRAMEWORK.md — Plan for an Android build of LICW Morsebrowser",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "TL;DR",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "What ports over for free",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Background audio — the #1 hard requirement",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "Platform-specific work checklist",
+          "level": 2,
+          "line": 81
+        },
+        {
+          "heading": "1. `app.json` — enable the platform",
+          "level": 3,
+          "line": 83
+        },
+        {
+          "heading": "2. Adaptive icon",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "3. `configureAudioSession()` — add an Android branch",
+          "level": 3,
+          "line": 116
+        },
+        {
+          "heading": "4. UI/UX — Material vs. Cupertino conventions",
+          "level": 3,
+          "line": 123
+        },
+        {
+          "heading": "5. Permissions & manifest",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "6. Asset loading — spot-check, don't rewrite",
+          "level": 3,
+          "line": 151
+        },
+        {
+          "heading": "Testing strategy",
+          "level": 2,
+          "line": 163
+        },
+        {
+          "heading": "Build & release path",
+          "level": 2,
+          "line": 180
+        },
+        {
+          "heading": "Suggested phased rollout",
+          "level": 2,
+          "line": 203
+        },
+        {
+          "heading": "Open questions / risks",
+          "level": 2,
+          "line": 220
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 15
+      }
+    },
+    {
+      "path": "docs/LESSON_DATA_PIPELINE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 75,
+      "nonEmptyLines": 61,
+      "sections": [
+        {
+          "heading": "LESSON_DATA_PIPELINE.md — consolidating lesson/preset data into one spot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "The problem",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "The proposed consolidation",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Why this is \"later\" work, not now",
+          "level": 2,
+          "line": 55
+        },
+        {
+          "heading": "Quick reference for whoever picks this up",
+          "level": 2,
+          "line": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "docs/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 22,
+      "nonEmptyLines": 18,
+      "sections": [
+        {
+          "heading": "docs/",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Start here",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Status & plans",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Archived",
+          "level": 2,
+          "line": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "docs/REPO_MAP.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 233,
+      "nonEmptyLines": 190,
+      "sections": [
+        {
+          "heading": "REPO_MAP.md — LICW Morsebrowser (React/React Native)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "The 10,000-foot view",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "`packages/core` — the shared engine",
+          "level": 2,
+          "line": 52
+        },
+        {
+          "heading": "The two hard timing rules (from `CLAUDE.md`)",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "Key public functions",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "`packages/types` — shared interfaces",
+          "level": 2,
+          "line": 103
+        },
+        {
+          "heading": "`apps/web` — the web app",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "`apps/mobile` — the iOS app (Android planned)",
+          "level": 2,
+          "line": 147
+        },
+        {
+          "heading": "`workers/rss-proxy` — RSS CORS proxy",
+          "level": 2,
+          "line": 181
+        },
+        {
+          "heading": "Build & deploy",
+          "level": 2,
+          "line": 191
+        },
+        {
+          "heading": "Where do I make a change?",
+          "level": 2,
+          "line": 209
+        },
+        {
+          "heading": "Related docs",
+          "level": 2,
+          "line": 223
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    }
+  ]
+}

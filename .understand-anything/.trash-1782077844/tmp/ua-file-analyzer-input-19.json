@@ -1,0 +1,35 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "docs/archived/AGENT_PROMPTS.md",
+      "language": "markdown",
+      "sizeLines": 194,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/archived/COMPLETE_STEPS.md",
+      "language": "markdown",
+      "sizeLines": 78,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/archived/COMPONENT_MAP.md",
+      "language": "markdown",
+      "sizeLines": 1314,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/archived/README.md",
+      "language": "markdown",
+      "sizeLines": 13,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "docs/archived/AGENT_PROMPTS.md": [],
+    "docs/archived/COMPLETE_STEPS.md": [],
+    "docs/archived/COMPONENT_MAP.md": [],
+    "docs/archived/README.md": []
+  }
+}

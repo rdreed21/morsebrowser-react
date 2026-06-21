@@ -1,0 +1,42 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "docs/ADDING_LESSONS_PRESETS_WORDFILES.md",
+      "language": "markdown",
+      "sizeLines": 278,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/ANDROID_FRAMEWORK.md",
+      "language": "markdown",
+      "sizeLines": 230,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/LESSON_DATA_PIPELINE.md",
+      "language": "markdown",
+      "sizeLines": 75,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/README.md",
+      "language": "markdown",
+      "sizeLines": 22,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/REPO_MAP.md",
+      "language": "markdown",
+      "sizeLines": 233,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "docs/ADDING_LESSONS_PRESETS_WORDFILES.md": [],
+    "docs/ANDROID_FRAMEWORK.md": [],
+    "docs/LESSON_DATA_PIPELINE.md": [],
+    "docs/README.md": [],
+    "docs/REPO_MAP.md": []
+  }
+}

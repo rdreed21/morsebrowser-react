@@ -1,0 +1,7 @@
+{
+  "issues": [],
+  "warnings": [
+    "5 dangling edges dropped during merge (sub-significance function targets + excluded wordlists.json)"
+  ],
+  "orphanFileNodes": 47
+}

@@ -1,0 +1,347 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/web/src/App.tsx",
+      "language": "typescript",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx",
+      "language": "typescript",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/HelpFooter/HelpFooter.test.tsx",
+      "language": "typescript",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx",
+      "language": "typescript",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx",
+      "language": "typescript",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx",
+      "language": "typescript",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx",
+      "language": "typescript",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/PageHeader/PageHeader.test.tsx",
+      "language": "typescript",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx",
+      "language": "typescript",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+      "language": "typescript",
+      "sizeLines": 125,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx",
+      "language": "typescript",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "language": "typescript",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx",
+      "language": "typescript",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+      "language": "typescript",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx",
+      "language": "typescript",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx",
+      "language": "typescript",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/WordCards/WordCards.test.tsx",
+      "language": "typescript",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/WordCards/WordCards.tsx",
+      "language": "typescript",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx",
+      "language": "typescript",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/components/shared/ErrorBoundary.tsx",
+      "language": "typescript",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/context/MorseAudioContext.tsx",
+      "language": "typescript",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/context/MorsePlaybackContext.tsx",
+      "language": "typescript",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/context/PlaybackStateContext.test.tsx",
+      "language": "typescript",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/context/PlaybackStateContext.tsx",
+      "language": "typescript",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/context/settingsCookies.test.tsx",
+      "language": "typescript",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/hooks/playbackPauseResume.test.tsx",
+      "language": "typescript",
+      "sizeLines": 160,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/hooks/useMorsePlayback.test.tsx",
+      "language": "typescript",
+      "sizeLines": 280,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/hooks/useTimingConfig.ts",
+      "language": "typescript",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/main.tsx",
+      "language": "typescript",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/test-utils.tsx",
+      "language": "typescript",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/utils/formatTime.ts",
+      "language": "typescript",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "apps/web/src/App.tsx": [
+      "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "apps/web/src/components/PageHeader/PageHeader.tsx",
+      "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/components/shared/ErrorBoundary.tsx",
+      "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+      "apps/web/src/components/StartupHooks.tsx",
+      "apps/web/src/components/WordCards/WordCards.tsx",
+      "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/MorseAudioContext.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx"
+    ],
+    "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx": [
+      "apps/web/src/App.tsx"
+    ],
+    "apps/web/src/components/HelpFooter/HelpFooter.test.tsx": [
+      "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx": [
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx": [
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx": [
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx": [
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/PageHeader/PageHeader.test.tsx": [
+      "apps/web/src/components/PageHeader/PageHeader.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx": [
+      "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/PlaybackControls/PlaybackControls.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx",
+      "apps/web/src/utils/morseImages.ts"
+    ],
+    "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx": [
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx": [
+      "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx"
+    ],
+    "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx": [
+      "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx",
+      "apps/web/src/hooks/useTimingConfig.ts",
+      "apps/web/src/utils/morseImages.ts"
+    ],
+    "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx": [
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx": [
+      "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/WordCards/WordCards.test.tsx": [
+      "apps/web/src/components/WordCards/WordCards.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/WordCards/WordCards.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx",
+      "apps/web/src/utils/words.ts"
+    ],
+    "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx": [
+      "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/components/shared/ErrorBoundary.tsx": [],
+    "apps/web/src/context/MorseAudioContext.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/hooks/useMorsePlayer.ts",
+      "apps/web/src/hooks/useTimingConfig.ts"
+    ],
+    "apps/web/src/context/MorsePlaybackContext.tsx": [
+      "apps/web/src/hooks/useMorsePlayback.ts",
+      "apps/web/src/hooks/useMorseShortcutKeys.ts"
+    ],
+    "apps/web/src/context/PlaybackStateContext.test.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/context/PlaybackStateContext.tsx": [
+      "apps/web/src/utils/formatTime.ts"
+    ],
+    "apps/web/src/context/settingsCookies.test.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/hooks/playbackPauseResume.test.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/hooks/useMorsePlayback.test.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx",
+      "apps/web/src/test-utils.tsx"
+    ],
+    "apps/web/src/hooks/useTimingConfig.ts": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx"
+    ],
+    "apps/web/src/main.tsx": [
+      "apps/web/src/App.tsx",
+      "apps/web/src/styles/dark-mode.css",
+      "apps/web/src/styles/morsebrowser.css"
+    ],
+    "apps/web/src/test-utils.tsx": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/context/MorseAudioContext.tsx",
+      "apps/web/src/context/MorsePlaybackContext.tsx",
+      "apps/web/src/context/PlaybackStateContext.tsx"
+    ],
+    "apps/web/src/utils/formatTime.ts": []
+  }
+}

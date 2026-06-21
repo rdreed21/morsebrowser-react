@@ -1,0 +1,1025 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "file",
+      "name": "MorseAppContext.tsx",
+      "filePath": "apps/web/src/context/MorseAppContext.tsx",
+      "summary": "Central React context holding all Morse application state, cookie-backed settings, and the actions/setters consumed across the web app.",
+      "tags": [
+        "context",
+        "state-management",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/context/MorseAppContext.tsx:MorseAppProvider",
+      "type": "function",
+      "name": "MorseAppProvider",
+      "filePath": "apps/web/src/context/MorseAppContext.tsx",
+      "lineRange": [
+        240,
+        1221
+      ],
+      "summary": "MorseAppProvider in MorseAppContext.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "context"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/context/MorseAppContext.tsx:useMorseApp",
+      "type": "function",
+      "name": "useMorseApp",
+      "filePath": "apps/web/src/context/MorseAppContext.tsx",
+      "lineRange": [
+        1223,
+        1227
+      ],
+      "summary": "useMorseApp in MorseAppContext.tsx.",
+      "tags": [
+        "hook",
+        "typescript",
+        "context"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "type": "file",
+      "name": "useLessonDeepLinks.test.tsx",
+      "filePath": "apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "summary": "Tests for the useLessonDeepLinks hook verifying deep-link parameter resolution.",
+      "tags": [
+        "test",
+        "component",
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "type": "file",
+      "name": "useLessonDeepLinks.ts",
+      "filePath": "apps/web/src/hooks/useLessonDeepLinks.ts",
+      "summary": "Hook that reads lesson deep-link URL parameters and applies the resolved lesson via the app context.",
+      "tags": [
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useLessonDeepLinks.ts:useLessonDeepLinks",
+      "type": "function",
+      "name": "useLessonDeepLinks",
+      "filePath": "apps/web/src/hooks/useLessonDeepLinks.ts",
+      "lineRange": [
+        18,
+        77
+      ],
+      "summary": "useLessonDeepLinks in useLessonDeepLinks.ts.",
+      "tags": [
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/hooks/usePresets.ts",
+      "type": "file",
+      "name": "usePresets.ts",
+      "filePath": "apps/web/src/hooks/usePresets.ts",
+      "summary": "Hook managing named settings presets: building, selecting, persisting, and reapplying preset configurations.",
+      "tags": [
+        "hook",
+        "presets",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/hooks/usePresets.ts:buildSnapshotFromApp",
+      "type": "function",
+      "name": "buildSnapshotFromApp",
+      "filePath": "apps/web/src/hooks/usePresets.ts",
+      "lineRange": [
+        25,
+        64
+      ],
+      "summary": "buildSnapshotFromApp in usePresets.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/usePresets.ts:buildMutatorFromApp",
+      "type": "function",
+      "name": "buildMutatorFromApp",
+      "filePath": "apps/web/src/hooks/usePresets.ts",
+      "lineRange": [
+        66,
+        105
+      ],
+      "summary": "buildMutatorFromApp in usePresets.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/usePresets.ts:usePresets",
+      "type": "function",
+      "name": "usePresets",
+      "filePath": "apps/web/src/hooks/usePresets.ts",
+      "lineRange": [
+        107,
+        327
+      ],
+      "summary": "usePresets in usePresets.ts.",
+      "tags": [
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "type": "file",
+      "name": "useRssPlugin.ts",
+      "filePath": "apps/web/src/hooks/useRssPlugin.ts",
+      "summary": "Hook encapsulating RSS feed fetching, polling, and queuing of article text into Morse playback.",
+      "tags": [
+        "hook",
+        "rss",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useRssPlugin.ts:parseDescriptionToSentences",
+      "type": "function",
+      "name": "parseDescriptionToSentences",
+      "filePath": "apps/web/src/hooks/useRssPlugin.ts",
+      "lineRange": [
+        19,
+        48
+      ],
+      "summary": "parseDescriptionToSentences in useRssPlugin.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useRssPlugin.ts:useRssPlugin",
+      "type": "function",
+      "name": "useRssPlugin",
+      "filePath": "apps/web/src/hooks/useRssPlugin.ts",
+      "lineRange": [
+        50,
+        293
+      ],
+      "summary": "useRssPlugin in useRssPlugin.ts.",
+      "tags": [
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useWavDownload.ts",
+      "type": "file",
+      "name": "useWavDownload.ts",
+      "filePath": "apps/web/src/hooks/useWavDownload.ts",
+      "summary": "Hook that renders the current working text to a WAV blob and triggers a file download.",
+      "tags": [
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useWavDownload.ts:useWavDownload",
+      "type": "function",
+      "name": "useWavDownload",
+      "filePath": "apps/web/src/hooks/useWavDownload.ts",
+      "lineRange": [
+        7,
+        30
+      ],
+      "summary": "useWavDownload in useWavDownload.ts.",
+      "tags": [
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/downloadBlob.ts",
+      "type": "file",
+      "name": "downloadBlob.ts",
+      "filePath": "apps/web/src/utils/downloadBlob.ts",
+      "summary": "Tiny helper that triggers a browser download for a given Blob and filename.",
+      "tags": [
+        "utility",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/downloadBlob.ts:downloadBlob",
+      "type": "function",
+      "name": "downloadBlob",
+      "filePath": "apps/web/src/utils/downloadBlob.ts",
+      "lineRange": [
+        1,
+        8
+      ],
+      "summary": "downloadBlob in downloadBlob.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/lessonPractice.test.ts",
+      "type": "file",
+      "name": "lessonPractice.test.ts",
+      "filePath": "apps/web/src/utils/lessonPractice.test.ts",
+      "summary": "Tests for lesson practice generation helpers.",
+      "tags": [
+        "test",
+        "utility",
+        "lessons",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/lessonPractice.ts",
+      "type": "file",
+      "name": "lessonPractice.ts",
+      "filePath": "apps/web/src/utils/lessonPractice.ts",
+      "summary": "Helpers that generate random and custom-group practice text and resolve practice duration in seconds.",
+      "tags": [
+        "utility",
+        "lessons",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/utils/lessonPractice.ts:generateCustomGroupPractice",
+      "type": "function",
+      "name": "generateCustomGroupPractice",
+      "filePath": "apps/web/src/utils/lessonPractice.ts",
+      "lineRange": [
+        23,
+        42
+      ],
+      "summary": "generateCustomGroupPractice in lessonPractice.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/lessonPractice.ts:resolvePracticeSeconds",
+      "type": "function",
+      "name": "resolvePracticeSeconds",
+      "filePath": "apps/web/src/utils/lessonPractice.ts",
+      "lineRange": [
+        47,
+        55
+      ],
+      "summary": "resolvePracticeSeconds in lessonPractice.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/lessonPractice.ts:generateRandomPractice",
+      "type": "function",
+      "name": "generateRandomPractice",
+      "filePath": "apps/web/src/utils/lessonPractice.ts",
+      "lineRange": [
+        58,
+        76
+      ],
+      "summary": "generateRandomPractice in lessonPractice.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/lessonQueryString.test.ts",
+      "type": "file",
+      "name": "lessonQueryString.test.ts",
+      "filePath": "apps/web/src/utils/lessonQueryString.test.ts",
+      "summary": "Tests for lesson query-string upsert/remove helpers.",
+      "tags": [
+        "test",
+        "utility",
+        "lessons",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/lessonQueryString.ts",
+      "type": "file",
+      "name": "lessonQueryString.ts",
+      "filePath": "apps/web/src/utils/lessonQueryString.ts",
+      "summary": "URL query-string helpers to insert and remove the lesson parameter for shareable deep links.",
+      "tags": [
+        "utility",
+        "lessons",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/lessonQueryString.ts:removeLessonQueryParam",
+      "type": "function",
+      "name": "removeLessonQueryParam",
+      "filePath": "apps/web/src/utils/lessonQueryString.ts",
+      "lineRange": [
+        18,
+        24
+      ],
+      "summary": "removeLessonQueryParam in lessonQueryString.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/lessonQueryString.ts:upsertLessonQueryParam",
+      "type": "function",
+      "name": "upsertLessonQueryParam",
+      "filePath": "apps/web/src/utils/lessonQueryString.ts",
+      "lineRange": [
+        26,
+        41
+      ],
+      "summary": "upsertLessonQueryParam in lessonQueryString.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/morseImages.ts",
+      "type": "file",
+      "name": "morseImages.ts",
+      "filePath": "apps/web/src/utils/morseImages.ts",
+      "summary": "Resolves icon/image asset paths for Morse UI controls, returning the correct src per setting.",
+      "tags": [
+        "utility",
+        "assets",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/utils/morseImages.ts:getMorseImageSrc",
+      "type": "function",
+      "name": "getMorseImageSrc",
+      "filePath": "apps/web/src/utils/morseImages.ts",
+      "lineRange": [
+        85,
+        87
+      ],
+      "summary": "getMorseImageSrc in morseImages.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "file",
+      "name": "settingsAccordion.ts",
+      "filePath": "apps/web/src/utils/settingsAccordion.ts",
+      "summary": "Defines settings accordion section IDs and constructs the default open/closed state map.",
+      "tags": [
+        "utility",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/settingsAccordion.ts:createDefaultAccordionOpen",
+      "type": "function",
+      "name": "createDefaultAccordionOpen",
+      "filePath": "apps/web/src/utils/settingsAccordion.ts",
+      "lineRange": [
+        15,
+        25
+      ],
+      "summary": "createDefaultAccordionOpen in settingsAccordion.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/words.test.ts",
+      "type": "file",
+      "name": "words.test.ts",
+      "filePath": "apps/web/src/utils/words.test.ts",
+      "summary": "Tests for word-splitting and display helpers.",
+      "tags": [
+        "test",
+        "utility",
+        "lessons",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/words.ts",
+      "type": "file",
+      "name": "words.ts",
+      "filePath": "apps/web/src/utils/words.ts",
+      "summary": "Text utilities for splitting working text into words, computing display words, and counting raw characters.",
+      "tags": [
+        "utility",
+        "lessons",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/words.ts:getWords",
+      "type": "function",
+      "name": "getWords",
+      "filePath": "apps/web/src/utils/words.ts",
+      "lineRange": [
+        13,
+        24
+      ],
+      "summary": "getWords in words.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/words.ts:getDisplayWord",
+      "type": "function",
+      "name": "getDisplayWord",
+      "filePath": "apps/web/src/utils/words.ts",
+      "lineRange": [
+        27,
+        40
+      ],
+      "summary": "getDisplayWord in words.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/words.ts:rawTextCharCount",
+      "type": "function",
+      "name": "rawTextCharCount",
+      "filePath": "apps/web/src/utils/words.ts",
+      "lineRange": [
+        42,
+        44
+      ],
+      "summary": "rawTextCharCount in words.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "function:apps/web/src/context/MorseAppContext.tsx:MorseAppProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "function:apps/web/src/context/MorseAppContext.tsx:MorseAppProvider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "function:apps/web/src/context/MorseAppContext.tsx:useMorseApp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "function:apps/web/src/context/MorseAppContext.tsx:useMorseApp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "target": "function:apps/web/src/hooks/useLessonDeepLinks.ts:useLessonDeepLinks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "target": "function:apps/web/src/hooks/useLessonDeepLinks.ts:useLessonDeepLinks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/hooks/usePresets.ts",
+      "target": "function:apps/web/src/hooks/usePresets.ts:buildSnapshotFromApp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/hooks/usePresets.ts",
+      "target": "function:apps/web/src/hooks/usePresets.ts:buildMutatorFromApp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/hooks/usePresets.ts",
+      "target": "function:apps/web/src/hooks/usePresets.ts:usePresets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/hooks/usePresets.ts",
+      "target": "function:apps/web/src/hooks/usePresets.ts:usePresets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "target": "function:apps/web/src/hooks/useRssPlugin.ts:parseDescriptionToSentences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "target": "function:apps/web/src/hooks/useRssPlugin.ts:useRssPlugin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "target": "function:apps/web/src/hooks/useRssPlugin.ts:useRssPlugin",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/hooks/useWavDownload.ts",
+      "target": "function:apps/web/src/hooks/useWavDownload.ts:useWavDownload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/hooks/useWavDownload.ts",
+      "target": "function:apps/web/src/hooks/useWavDownload.ts:useWavDownload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/downloadBlob.ts",
+      "target": "function:apps/web/src/utils/downloadBlob.ts:downloadBlob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/downloadBlob.ts",
+      "target": "function:apps/web/src/utils/downloadBlob.ts:downloadBlob",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.ts",
+      "target": "function:apps/web/src/utils/lessonPractice.ts:generateCustomGroupPractice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.ts",
+      "target": "function:apps/web/src/utils/lessonPractice.ts:generateCustomGroupPractice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.ts",
+      "target": "function:apps/web/src/utils/lessonPractice.ts:resolvePracticeSeconds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.ts",
+      "target": "function:apps/web/src/utils/lessonPractice.ts:resolvePracticeSeconds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.ts",
+      "target": "function:apps/web/src/utils/lessonPractice.ts:generateRandomPractice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.ts",
+      "target": "function:apps/web/src/utils/lessonPractice.ts:generateRandomPractice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonQueryString.ts",
+      "target": "function:apps/web/src/utils/lessonQueryString.ts:removeLessonQueryParam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonQueryString.ts",
+      "target": "function:apps/web/src/utils/lessonQueryString.ts:removeLessonQueryParam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonQueryString.ts",
+      "target": "function:apps/web/src/utils/lessonQueryString.ts:upsertLessonQueryParam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonQueryString.ts",
+      "target": "function:apps/web/src/utils/lessonQueryString.ts:upsertLessonQueryParam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/morseImages.ts",
+      "target": "function:apps/web/src/utils/morseImages.ts:getMorseImageSrc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/morseImages.ts",
+      "target": "function:apps/web/src/utils/morseImages.ts:getMorseImageSrc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/settingsAccordion.ts",
+      "target": "function:apps/web/src/utils/settingsAccordion.ts:createDefaultAccordionOpen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/settingsAccordion.ts",
+      "target": "function:apps/web/src/utils/settingsAccordion.ts:createDefaultAccordionOpen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/words.ts",
+      "target": "function:apps/web/src/utils/words.ts:getWords",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/words.ts",
+      "target": "function:apps/web/src/utils/words.ts:getWords",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/words.ts",
+      "target": "function:apps/web/src/utils/words.ts:getDisplayWord",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/words.ts",
+      "target": "function:apps/web/src/utils/words.ts:getDisplayWord",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/utils/words.ts",
+      "target": "function:apps/web/src/utils/words.ts:rawTextCharCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/utils/words.ts",
+      "target": "function:apps/web/src/utils/words.ts:rawTextCharCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/context/PlaybackStateContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/utils/lessonDeepLink.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/utils/lessonPractice.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/utils/urlParams.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/utils/voiceSpeech.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/utils/words.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "target": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "target": "file:apps/web/src/test-utils.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "target": "file:apps/web/src/utils/lessonDeepLink.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "target": "file:apps/web/src/utils/lessonQueryString.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/usePresets.ts",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/usePresets.ts",
+      "target": "file:apps/web/src/utils/lessonQueryString.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/usePresets.ts",
+      "target": "file:apps/web/src/utils/urlParams.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "target": "file:apps/web/src/context/MorsePlaybackContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "target": "file:apps/web/src/context/PlaybackStateContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useWavDownload.ts",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useWavDownload.ts",
+      "target": "file:apps/web/src/utils/downloadBlob.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/hooks/useWavDownload.ts",
+      "target": "file:apps/web/src/utils/words.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.test.ts",
+      "target": "file:apps/web/src/utils/lessonPractice.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonQueryString.test.ts",
+      "target": "file:apps/web/src/utils/lessonQueryString.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/utils/words.test.ts",
+      "target": "file:apps/web/src/utils/words.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/context/MorseAppContext.tsx",
+      "target": "file:apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "target": "file:apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonPractice.ts",
+      "target": "file:apps/web/src/utils/lessonPractice.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/web/src/utils/lessonQueryString.ts",
+      "target": "file:apps/web/src/utils/lessonQueryString.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/web/src/utils/words.ts",
+      "target": "file:apps/web/src/utils/words.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

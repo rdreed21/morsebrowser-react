@@ -1,0 +1,182 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": ".cursor/hooks/state/continual-learning.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".DS_Store",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".gitattributes",
+      "language": "unknown",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".nvmrc",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/fingerprints.json",
+      "language": "json",
+      "sizeLines": 16,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".understand-anything/tmp/ua-scan-files.json",
+      "language": "json",
+      "sizeLines": 1645,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/.npmrc",
+      "language": "unknown",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/android/app/build.gradle",
+      "language": "gradle",
+      "sizeLines": 192,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/app/proguard-rules.pro",
+      "language": "pro",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/android/app/src/debug/AndroidManifest.xml",
+      "language": "xml",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/app/src/debugOptimized/AndroidManifest.xml",
+      "language": "xml",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/AndroidManifest.xml",
+      "language": "xml",
+      "sizeLines": 34,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt",
+      "language": "kotlin",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+      "language": "kotlin",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "language": "xml",
+      "sizeLines": 5,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/rn_edit_text_material.xml",
+      "language": "xml",
+      "sizeLines": 37,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "language": "xml",
+      "sizeLines": 4,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "language": "xml",
+      "sizeLines": 4,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/gradle/gradle-daemon-jvm.properties",
+      "language": "properties",
+      "sizeLines": 12,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/gradle/wrapper/gradle-wrapper.properties",
+      "language": "properties",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/gradlew",
+      "language": "unknown",
+      "sizeLines": 248,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/babel.config.js",
+      "language": "javascript",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/.xcode.env",
+      "language": "config",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    ".cursor/hooks/state/continual-learning.json": [],
+    ".DS_Store": [],
+    ".gitattributes": [],
+    ".nvmrc": [],
+    ".understand-anything/.understandignore": [],
+    ".understand-anything/fingerprints.json": [],
+    ".understand-anything/tmp/ua-scan-files.json": [],
+    "apps/.DS_Store": [],
+    "apps/mobile/.npmrc": [],
+    "apps/mobile/android/app/build.gradle": [],
+    "apps/mobile/android/app/proguard-rules.pro": [],
+    "apps/mobile/android/app/src/debug/AndroidManifest.xml": [],
+    "apps/mobile/android/app/src/debugOptimized/AndroidManifest.xml": [],
+    "apps/mobile/android/app/src/main/AndroidManifest.xml": [],
+    "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt": [],
+    "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt": [],
+    "apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml": [],
+    "apps/mobile/android/app/src/main/res/drawable/rn_edit_text_material.xml": [],
+    "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml": [],
+    "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml": [],
+    "apps/mobile/android/gradle/gradle-daemon-jvm.properties": [],
+    "apps/mobile/android/gradle/wrapper/gradle-wrapper.properties": [],
+    "apps/mobile/android/gradlew": [],
+    "apps/mobile/babel.config.js": [],
+    "apps/mobile/ios/.xcode.env": []
+  }
+}

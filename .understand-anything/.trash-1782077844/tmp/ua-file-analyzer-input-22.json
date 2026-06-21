@@ -1,0 +1,144 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/web/src/test-setup.ts",
+      "language": "typescript",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/utils/morseStringUtils.ts",
+      "language": "typescript",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/vite-env.d.ts",
+      "language": "typescript",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/jest.config.js",
+      "language": "javascript",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/package.json",
+      "language": "json",
+      "sizeLines": 19,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/core/scripts/sync-lesson-data.mjs",
+      "language": "javascript",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/src/__tests__/presets.test.ts",
+      "language": "typescript",
+      "sizeLines": 193,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/src/__tests__/speedIntervals.test.ts",
+      "language": "typescript",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/src/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/src/lessons/wordlists.json",
+      "language": "json",
+      "sizeLines": 990,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/core/src/settings/speedIntervals.ts",
+      "language": "typescript",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/tsconfig.json",
+      "language": "json",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/types/package.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/types/tsconfig.json",
+      "language": "json",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tools/visual-diff.mjs",
+      "language": "javascript",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "workers/rss-proxy/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "workers/rss-proxy/wrangler.toml",
+      "language": "toml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "apps/web/src/test-setup.ts": [],
+    "apps/web/src/utils/morseStringUtils.ts": [
+      "apps/web/src/configs/wordify.json"
+    ],
+    "apps/web/src/vite-env.d.ts": [],
+    "packages/.DS_Store": [],
+    "packages/core/.DS_Store": [],
+    "packages/core/jest.config.js": [],
+    "packages/core/package.json": [],
+    "packages/core/scripts/sync-lesson-data.mjs": [],
+    "packages/core/src/__tests__/presets.test.ts": [],
+    "packages/core/src/__tests__/speedIntervals.test.ts": [
+      "packages/core/src/settings/speedIntervals.ts"
+    ],
+    "packages/core/src/.DS_Store": [],
+    "packages/core/src/lessons/wordlists.json": [],
+    "packages/core/src/settings/speedIntervals.ts": [],
+    "packages/core/tsconfig.json": [],
+    "packages/types/package.json": [],
+    "packages/types/tsconfig.json": [],
+    "tools/visual-diff.mjs": [],
+    "workers/rss-proxy/src/index.ts": [],
+    "workers/rss-proxy/wrangler.toml": []
+  }
+}

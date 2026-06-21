@@ -1,0 +1,389 @@
+{
+  "nodes": [
+    {
+      "id": "file:packages/core/src/__tests__/catalogIntegrity.test.ts",
+      "type": "file",
+      "name": "catalogIntegrity.test.ts",
+      "filePath": "packages/core/src/__tests__/catalogIntegrity.test.ts",
+      "summary": "Test suite verifying the integrity of the lesson word-list catalog loaded by lessonLoader.",
+      "tags": ["test", "lessons", "validation", "catalog"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/src/__tests__/lessonLoader.test.ts",
+      "type": "file",
+      "name": "lessonLoader.test.ts",
+      "filePath": "packages/core/src/__tests__/lessonLoader.test.ts",
+      "summary": "Tests for the lesson loader covering catalog queries and lesson/word-list resolution.",
+      "tags": ["test", "lessons", "loader"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/src/__tests__/morseMap.test.ts",
+      "type": "file",
+      "name": "morseMap.test.ts",
+      "filePath": "packages/core/src/__tests__/morseMap.test.ts",
+      "summary": "Tests for the Morse character map, covering text-to-Morse and Morse-to-text conversion.",
+      "tags": ["test", "morse", "encoding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/src/__tests__/morseScheduler.test.ts",
+      "type": "file",
+      "name": "morseScheduler.test.ts",
+      "filePath": "packages/core/src/__tests__/morseScheduler.test.ts",
+      "summary": "Tests for the AudioContext-clock Morse scheduler using a mock audio context to verify oscillator scheduling and timing.",
+      "tags": ["test", "audio", "scheduler", "timing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/core/src/__tests__/timingEngine.test.ts",
+      "type": "file",
+      "name": "timingEngine.test.ts",
+      "filePath": "packages/core/src/__tests__/timingEngine.test.ts",
+      "summary": "Tests for the timing engine validating Farnsworth timing, unit durations, and schedule building.",
+      "tags": ["test", "audio", "timing", "farnsworth"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/core/src/__tests__/wavExport.test.ts",
+      "type": "file",
+      "name": "wavExport.test.ts",
+      "filePath": "packages/core/src/__tests__/wavExport.test.ts",
+      "summary": "Tests for WAV export verifying schedule duration estimation and offline Morse rendering.",
+      "tags": ["test", "audio", "wav", "export"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/core/src/audio/morseScheduler.ts",
+      "type": "file",
+      "name": "morseScheduler.ts",
+      "filePath": "packages/core/src/audio/morseScheduler.ts",
+      "summary": "Schedules Morse code playback by pre-scheduling oscillator tones on the AudioContext clock with envelope shaping, avoiding setTimeout for timing accuracy.",
+      "tags": ["audio", "scheduler", "timing", "oscillator", "service"],
+      "complexity": "complex",
+      "languageNotes": "Uses AudioContext render-quantum snapping and setValueCurveAtTime envelopes to achieve glitch-free, sample-accurate Morse timing."
+    },
+    {
+      "id": "file:packages/core/src/audio/timingEngine.ts",
+      "type": "file",
+      "name": "timingEngine.ts",
+      "filePath": "packages/core/src/audio/timingEngine.ts",
+      "summary": "Computes Morse timing parameters (unit durations, Farnsworth spacing, tone frequency) and builds the element schedule from text, including Koch lesson ordering.",
+      "tags": ["audio", "timing", "farnsworth", "koch", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:packages/core/src/audio/wavExport.ts",
+      "type": "file",
+      "name": "wavExport.ts",
+      "filePath": "packages/core/src/audio/wavExport.ts",
+      "summary": "Renders Morse text to a downloadable WAV file via an OfflineAudioContext, including duration estimation and PCM WAV encoding.",
+      "tags": ["audio", "wav", "export", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/core/src/engine/morseMap.ts",
+      "type": "file",
+      "name": "morseMap.ts",
+      "filePath": "packages/core/src/engine/morseMap.ts",
+      "summary": "Defines the Morse and prosign character maps and provides bidirectional text/Morse conversion plus tokenization helpers.",
+      "tags": ["morse", "encoding", "data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/core/src/lessons/lessonLoader.ts",
+      "type": "file",
+      "name": "lessonLoader.ts",
+      "filePath": "packages/core/src/lessons/lessonLoader.ts",
+      "summary": "Loads and queries the lesson word-list catalog and fetches word/lesson files, resolving Koch lessons and random word-list configs.",
+      "tags": ["lessons", "loader", "catalog", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/__tests__/morseScheduler.test.ts:mockContext",
+      "type": "function",
+      "name": "mockContext",
+      "filePath": "packages/core/src/__tests__/morseScheduler.test.ts",
+      "lineRange": [4, 45],
+      "summary": "Builds a mock AudioContext that captures scheduled frequencies for asserting scheduler behavior in tests.",
+      "tags": ["test", "mock", "audio"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/audio/morseScheduler.ts:buildEnvelopeCurve",
+      "type": "function",
+      "name": "buildEnvelopeCurve",
+      "filePath": "packages/core/src/audio/morseScheduler.ts",
+      "lineRange": [66, 87],
+      "summary": "Generates an amplitude envelope curve with attack/release ramps to prevent audible clicks on Morse tone edges.",
+      "tags": ["audio", "envelope", "dsp"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/audio/morseScheduler.ts:scheduleText",
+      "type": "function",
+      "name": "scheduleText",
+      "filePath": "packages/core/src/audio/morseScheduler.ts",
+      "lineRange": [109, 179],
+      "summary": "Pre-schedules all oscillator tones for a Morse text on the AudioContext clock, applying Farnsworth timing and envelopes.",
+      "tags": ["audio", "scheduler", "timing", "entry-point"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:packages/core/src/audio/morseScheduler.ts:scheduleChar",
+      "type": "function",
+      "name": "scheduleChar",
+      "filePath": "packages/core/src/audio/morseScheduler.ts",
+      "lineRange": [181, 184],
+      "summary": "Convenience wrapper that schedules a single character via scheduleText.",
+      "tags": ["audio", "scheduler", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/core/src/audio/morseScheduler.ts:scheduleTestTone",
+      "type": "function",
+      "name": "scheduleTestTone",
+      "filePath": "packages/core/src/audio/morseScheduler.ts",
+      "lineRange": [187, 225],
+      "summary": "Schedules a single test tone of a given duration on the AudioContext for tone preview and calibration.",
+      "tags": ["audio", "scheduler", "test-tone"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/audio/timingEngine.ts:toneFrequency",
+      "type": "function",
+      "name": "toneFrequency",
+      "filePath": "packages/core/src/audio/timingEngine.ts",
+      "lineRange": [23, 27],
+      "summary": "Returns the oscillator frequency for the given timing config and tone type.",
+      "tags": ["audio", "timing", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/core/src/audio/timingEngine.ts:calculateFarnsworthTiming",
+      "type": "function",
+      "name": "calculateFarnsworthTiming",
+      "filePath": "packages/core/src/audio/timingEngine.ts",
+      "lineRange": [52, 66],
+      "summary": "Computes Farnsworth character and word spacing durations from the WPM/effective-WPM config.",
+      "tags": ["audio", "timing", "farnsworth"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/audio/timingEngine.ts:buildSchedule",
+      "type": "function",
+      "name": "buildSchedule",
+      "filePath": "packages/core/src/audio/timingEngine.ts",
+      "lineRange": [77, 109],
+      "summary": "Converts Morse text into a timed element schedule (tones and gaps) using tokenization and Farnsworth timing.",
+      "tags": ["audio", "timing", "schedule", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/audio/timingEngine.ts:kochCharsForLesson",
+      "type": "function",
+      "name": "kochCharsForLesson",
+      "filePath": "packages/core/src/audio/timingEngine.ts",
+      "lineRange": [122, 124],
+      "summary": "Returns the set of Koch-method characters introduced through a given lesson number.",
+      "tags": ["lessons", "koch", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/core/src/audio/wavExport.ts:estimateScheduleDuration",
+      "type": "function",
+      "name": "estimateScheduleDuration",
+      "filePath": "packages/core/src/audio/wavExport.ts",
+      "lineRange": [7, 25],
+      "summary": "Estimates the total playback duration of a Morse schedule to size the offline render buffer.",
+      "tags": ["audio", "wav", "timing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/audio/wavExport.ts:encodeWav",
+      "type": "function",
+      "name": "encodeWav",
+      "filePath": "packages/core/src/audio/wavExport.ts",
+      "lineRange": [27, 69],
+      "summary": "Encodes a rendered AudioBuffer into a 16-bit PCM WAV byte buffer with a proper RIFF header.",
+      "tags": ["audio", "wav", "serialization", "export"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/audio/wavExport.ts:renderMorseWav",
+      "type": "function",
+      "name": "renderMorseWav",
+      "filePath": "packages/core/src/audio/wavExport.ts",
+      "lineRange": [71, 87],
+      "summary": "Renders Morse text to a WAV blob via an OfflineAudioContext using the scheduler and encoder.",
+      "tags": ["audio", "wav", "export", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/engine/morseMap.ts:tokenizeText",
+      "type": "function",
+      "name": "tokenizeText",
+      "filePath": "packages/core/src/engine/morseMap.ts",
+      "lineRange": [36, 49],
+      "summary": "Tokenizes input text into Morse-mappable units, optionally recognizing multi-character prosigns.",
+      "tags": ["morse", "tokenize", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/engine/morseMap.ts:textToMorse",
+      "type": "function",
+      "name": "textToMorse",
+      "filePath": "packages/core/src/engine/morseMap.ts",
+      "lineRange": [56, 64],
+      "summary": "Converts plain text into a Morse code string using the character/prosign map.",
+      "tags": ["morse", "encoding", "conversion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/core/src/engine/morseMap.ts:morseToText",
+      "type": "function",
+      "name": "morseToText",
+      "filePath": "packages/core/src/engine/morseMap.ts",
+      "lineRange": [71, 86],
+      "summary": "Decodes a Morse code string back into plain text using a reversed character map.",
+      "tags": ["morse", "decoding", "conversion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/engine/morseMap.ts:charToMorse",
+      "type": "function",
+      "name": "charToMorse",
+      "filePath": "packages/core/src/engine/morseMap.ts",
+      "lineRange": [89, 92],
+      "summary": "Returns the Morse pattern for a single character or prosign.",
+      "tags": ["morse", "encoding", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/core/src/lessons/lessonLoader.ts:getDisplays",
+      "type": "function",
+      "name": "getDisplays",
+      "filePath": "packages/core/src/lessons/lessonLoader.ts",
+      "lineRange": [63, 73],
+      "summary": "Filters the catalog to the displayable word-list options for a given target/class/letter-group selection.",
+      "tags": ["lessons", "catalog", "query"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/lessons/lessonLoader.ts:loadWordList",
+      "type": "function",
+      "name": "loadWordList",
+      "filePath": "packages/core/src/lessons/lessonLoader.ts",
+      "lineRange": [89, 96],
+      "summary": "Fetches a word-list file by name and parses it into a trimmed array of words.",
+      "tags": ["lessons", "loader", "fetch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/core/src/lessons/lessonLoader.ts:loadLessonFile",
+      "type": "function",
+      "name": "loadLessonFile",
+      "filePath": "packages/core/src/lessons/lessonLoader.ts",
+      "lineRange": [99, 113],
+      "summary": "Fetches a lesson file, parsing JSON or plain-text formats based on the file extension.",
+      "tags": ["lessons", "loader", "fetch", "parsing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/core/src/lessons/lessonLoader.ts:isRandomWordListConfig",
+      "type": "function",
+      "name": "isRandomWordListConfig",
+      "filePath": "packages/core/src/lessons/lessonLoader.ts",
+      "lineRange": [115, 122],
+      "summary": "Type guard determining whether a value is a random word-list configuration object.",
+      "tags": ["lessons", "validation", "type-guard"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:packages/core/src/__tests__/catalogIntegrity.test.ts", "target": "file:packages/core/src/lessons/lessonLoader.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/__tests__/lessonLoader.test.ts", "target": "file:packages/core/src/lessons/lessonLoader.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/__tests__/morseMap.test.ts", "target": "file:packages/core/src/engine/morseMap.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/__tests__/morseScheduler.test.ts", "target": "file:packages/core/src/audio/morseScheduler.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/__tests__/morseScheduler.test.ts", "target": "file:packages/core/src/audio/timingEngine.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/__tests__/timingEngine.test.ts", "target": "file:packages/core/src/audio/timingEngine.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/__tests__/wavExport.test.ts", "target": "file:packages/core/src/audio/timingEngine.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/__tests__/wavExport.test.ts", "target": "file:packages/core/src/audio/wavExport.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "file:packages/core/src/audio/timingEngine.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "file:packages/core/src/engine/morseMap.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "file:packages/core/src/audio/morseScheduler.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "file:packages/core/src/audio/timingEngine.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "file:packages/core/src/audio/timingEngine.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "file:packages/core/src/lessons/wordlists.json", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:packages/core/src/__tests__/morseScheduler.test.ts", "target": "function:packages/core/src/__tests__/morseScheduler.test.ts:mockContext", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "function:packages/core/src/audio/morseScheduler.ts:buildEnvelopeCurve", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleText", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleChar", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleTestTone", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleText", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleChar", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleTestTone", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:toneFrequency", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:calculateFarnsworthTiming", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:buildSchedule", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:kochCharsForLesson", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:toneFrequency", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:calculateFarnsworthTiming", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:buildSchedule", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "function:packages/core/src/audio/timingEngine.ts:kochCharsForLesson", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "function:packages/core/src/audio/wavExport.ts:estimateScheduleDuration", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "function:packages/core/src/audio/wavExport.ts:encodeWav", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "function:packages/core/src/audio/wavExport.ts:renderMorseWav", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "function:packages/core/src/audio/wavExport.ts:estimateScheduleDuration", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "function:packages/core/src/audio/wavExport.ts:encodeWav", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "function:packages/core/src/audio/wavExport.ts:renderMorseWav", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:tokenizeText", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:textToMorse", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:morseToText", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:charToMorse", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:tokenizeText", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:textToMorse", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:morseToText", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "function:packages/core/src/engine/morseMap.ts:charToMorse", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:getDisplays", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:loadWordList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:loadLessonFile", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:isRandomWordListConfig", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:getDisplays", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:loadWordList", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:loadLessonFile", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "function:packages/core/src/lessons/lessonLoader.ts:isRandomWordListConfig", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "function:packages/core/src/audio/morseScheduler.ts:scheduleText", "target": "function:packages/core/src/audio/timingEngine.ts:buildSchedule", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/morseScheduler.ts:scheduleText", "target": "function:packages/core/src/audio/timingEngine.ts:calculateFarnsworthTiming", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/morseScheduler.ts:scheduleText", "target": "function:packages/core/src/audio/timingEngine.ts:toneFrequency", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/morseScheduler.ts:scheduleChar", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleText", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/morseScheduler.ts:scheduleTestTone", "target": "function:packages/core/src/audio/timingEngine.ts:toneFrequency", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "function:packages/core/src/audio/timingEngine.ts:buildSchedule", "target": "function:packages/core/src/audio/timingEngine.ts:calculateFarnsworthTiming", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/timingEngine.ts:buildSchedule", "target": "function:packages/core/src/engine/morseMap.ts:tokenizeText", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/timingEngine.ts:buildSchedule", "target": "function:packages/core/src/engine/morseMap.ts:charToMorse", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "function:packages/core/src/audio/wavExport.ts:estimateScheduleDuration", "target": "function:packages/core/src/audio/timingEngine.ts:buildSchedule", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/wavExport.ts:estimateScheduleDuration", "target": "function:packages/core/src/audio/timingEngine.ts:calculateFarnsworthTiming", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/wavExport.ts:renderMorseWav", "target": "function:packages/core/src/audio/wavExport.ts:estimateScheduleDuration", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/wavExport.ts:renderMorseWav", "target": "function:packages/core/src/audio/wavExport.ts:encodeWav", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:packages/core/src/audio/wavExport.ts:renderMorseWav", "target": "function:packages/core/src/audio/morseScheduler.ts:scheduleText", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "function:packages/core/src/lessons/lessonLoader.ts:loadLesson", "target": "function:packages/core/src/audio/timingEngine.ts:kochCharsForLesson", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:packages/core/src/audio/morseScheduler.ts", "target": "file:packages/core/src/__tests__/morseScheduler.test.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:packages/core/src/audio/timingEngine.ts", "target": "file:packages/core/src/__tests__/timingEngine.test.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:packages/core/src/audio/wavExport.ts", "target": "file:packages/core/src/__tests__/wavExport.test.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:packages/core/src/engine/morseMap.ts", "target": "file:packages/core/src/__tests__/morseMap.test.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "file:packages/core/src/__tests__/lessonLoader.test.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:packages/core/src/lessons/lessonLoader.ts", "target": "file:packages/core/src/__tests__/catalogIntegrity.test.ts", "type": "tested_by", "direction": "forward", "weight": 0.5}
+  ]
+}

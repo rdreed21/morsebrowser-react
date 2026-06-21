@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {
+      "id": "pipeline:.github/workflows/deploy.yml",
+      "type": "pipeline",
+      "name": "deploy.yml",
+      "filePath": ".github/workflows/deploy.yml",
+      "summary": "GitHub Actions workflow that builds the web bundle and deploys the SPA to Cloudflare Pages and the RSS proxy to a Cloudflare Worker on pushes to master.",
+      "tags": ["ci-cd", "deployment", "cloudflare", "infrastructure"],
+      "complexity": "moderate",
+      "languageNotes": "Single deploy job with steps: checkout, setup-node, npm ci, build web bundle, deploy RSS Worker, ensure Pages project, deploy Pages site. Uses a concurrency group to cancel in-progress runs and injects Cloudflare credentials via repository secrets."
+    }
+  ],
+  "edges": [
+    {"source": "pipeline:.github/workflows/deploy.yml", "target": "file:workers/rss-proxy/src/index.ts", "type": "deploys", "direction": "forward", "weight": 0.7},
+    {"source": "pipeline:.github/workflows/deploy.yml", "target": "file:apps/web/vite.config.ts", "type": "deploys", "direction": "forward", "weight": 0.7},
+    {"source": "pipeline:.github/workflows/deploy.yml", "target": "config:package.json", "type": "triggers", "direction": "forward", "weight": 0.6}
+  ]
+}

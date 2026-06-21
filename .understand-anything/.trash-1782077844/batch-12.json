@@ -1,0 +1,66 @@
+{
+  "nodes": [
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Project guidance for the morsebrowser React migration covering hard requirements, migration status, agent roles, KO-to-React mapping, and audio rules.",
+      "tags": ["documentation", "migration", "guidance", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Top-level project overview documenting the monorepo structure, the web and mobile apps, the shared core engine, and development commands.",
+      "tags": ["documentation", "entry-point", "overview"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Root workspace manifest defining the npm/turbo monorepo workspaces and shared dev scripts for the morsebrowser packages and apps.",
+      "tags": ["configuration", "build-system", "monorepo", "npm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:setup.sh",
+      "type": "file",
+      "name": "setup.sh",
+      "filePath": "setup.sh",
+      "summary": "Large bootstrap shell script that scaffolds the monorepo, writing out package configs and source files (including TypeScript via heredocs) to set up the project from scratch.",
+      "tags": ["script", "bootstrap", "scaffolding", "build-system"],
+      "complexity": "complex",
+      "languageNotes": "Linear shell script emitting many project files via heredocs; embedded TypeScript like deepMerge lives inside those heredocs rather than as shell functions."
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Root TypeScript compiler configuration providing shared compiler options inherited across the monorepo packages and apps.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:turbo.json",
+      "type": "config",
+      "name": "turbo.json",
+      "filePath": "turbo.json",
+      "summary": "Turborepo pipeline configuration defining task dependencies and caching for dev, build, and test across the workspace.",
+      "tags": ["configuration", "build-system", "monorepo", "turbo"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "document:README.md", "target": "config:package.json", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "document:CLAUDE.md", "target": "file:packages/core/src/index.ts", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "config:package.json", "target": "config:turbo.json", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "config:tsconfig.json", "target": "config:package.json", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:turbo.json", "target": "config:package.json", "type": "configures", "direction": "forward", "weight": 0.6}
+  ]
+}

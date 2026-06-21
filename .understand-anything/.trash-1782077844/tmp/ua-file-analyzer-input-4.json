@@ -1,0 +1,205 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/mobile/src/context/MorseAppContext.tsx",
+      "language": "typescript",
+      "sizeLines": 829,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/context/MorseAudioContext.tsx",
+      "language": "typescript",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/context/MorsePlaybackContext.tsx",
+      "language": "typescript",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/hooks/playbackOrchestration.ts",
+      "language": "typescript",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/hooks/useMorsePlayback.ts",
+      "language": "typescript",
+      "sizeLines": 457,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/hooks/useMorsePlayer.ts",
+      "language": "typescript",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/hooks/usePresets.ts",
+      "language": "typescript",
+      "sizeLines": 180,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/cardBufferManager.ts",
+      "language": "typescript",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/colors.ts",
+      "language": "typescript",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/formatTime.ts",
+      "language": "typescript",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/lessonPractice.ts",
+      "language": "typescript",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "language": "typescript",
+      "sizeLines": 283,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/mobileSettingsExport.ts",
+      "language": "typescript",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/settingsPersistence.ts",
+      "language": "typescript",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/settingsSnapshot.ts",
+      "language": "typescript",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/speakText.ts",
+      "language": "typescript",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/theme.ts",
+      "language": "typescript",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/voiceSpeech.ts",
+      "language": "typescript",
+      "sizeLines": 132,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/utils/words.ts",
+      "language": "typescript",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/core/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/types/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "apps/mobile/src/context/MorseAppContext.tsx": [
+      "apps/mobile/src/utils/formatTime.ts",
+      "apps/mobile/src/utils/lessonPractice.ts",
+      "apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "apps/mobile/src/utils/settingsPersistence.ts",
+      "apps/mobile/src/utils/settingsSnapshot.ts",
+      "apps/mobile/src/utils/voiceSpeech.ts",
+      "apps/mobile/src/utils/words.ts",
+      "packages/core/src/index.ts",
+      "packages/types/src/index.ts"
+    ],
+    "apps/mobile/src/context/MorseAudioContext.tsx": [
+      "apps/mobile/src/context/MorseAppContext.tsx",
+      "apps/mobile/src/hooks/useMorsePlayer.ts"
+    ],
+    "apps/mobile/src/context/MorsePlaybackContext.tsx": [
+      "apps/mobile/src/hooks/useMorsePlayback.ts"
+    ],
+    "apps/mobile/src/hooks/playbackOrchestration.ts": [],
+    "apps/mobile/src/hooks/useMorsePlayback.ts": [
+      "apps/mobile/src/context/MorseAppContext.tsx",
+      "apps/mobile/src/context/MorseAudioContext.tsx",
+      "apps/mobile/src/hooks/playbackOrchestration.ts",
+      "apps/mobile/src/utils/cardBufferManager.ts",
+      "apps/mobile/src/utils/speakText.ts",
+      "apps/mobile/src/utils/voiceSpeech.ts",
+      "apps/mobile/src/utils/words.ts",
+      "packages/core/src/index.ts"
+    ],
+    "apps/mobile/src/hooks/useMorsePlayer.ts": [
+      "packages/core/src/index.ts",
+      "packages/types/src/index.ts"
+    ],
+    "apps/mobile/src/hooks/usePresets.ts": [
+      "apps/mobile/src/context/MorseAppContext.tsx",
+      "apps/mobile/src/utils/mobileSettingsExport.ts",
+      "apps/mobile/src/utils/settingsSnapshot.ts",
+      "packages/core/src/index.ts"
+    ],
+    "apps/mobile/src/utils/cardBufferManager.ts": [],
+    "apps/mobile/src/utils/colors.ts": [],
+    "apps/mobile/src/utils/formatTime.ts": [],
+    "apps/mobile/src/utils/lessonPractice.ts": [
+      "packages/core/src/index.ts"
+    ],
+    "apps/mobile/src/utils/loadMobileLessonFile.ts": [
+      "apps/mobile/assets/lesson-data-version.json",
+      "apps/mobile/assets/presets-manifest.json",
+      "apps/mobile/assets/wordfiles-manifest.json",
+      "packages/core/src/index.ts"
+    ],
+    "apps/mobile/src/utils/mobileSettingsExport.ts": [
+      "packages/core/src/index.ts"
+    ],
+    "apps/mobile/src/utils/settingsPersistence.ts": [
+      "packages/core/src/index.ts"
+    ],
+    "apps/mobile/src/utils/settingsSnapshot.ts": [
+      "apps/mobile/src/context/MorseAppContext.tsx",
+      "packages/core/src/index.ts"
+    ],
+    "apps/mobile/src/utils/speakText.ts": [
+      "apps/mobile/src/configs/wordify.json"
+    ],
+    "apps/mobile/src/utils/theme.ts": [
+      "apps/mobile/src/context/MorseAppContext.tsx",
+      "apps/mobile/src/utils/colors.ts"
+    ],
+    "apps/mobile/src/utils/voiceSpeech.ts": [],
+    "apps/mobile/src/utils/words.ts": [],
+    "packages/core/src/index.ts": [],
+    "packages/types/src/index.ts": []
+  }
+}

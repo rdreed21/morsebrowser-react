@@ -1,0 +1,517 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".cursor/hooks/state/continual-learning.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "lastRunAtMs",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "turnsSinceLastRun",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "lastTranscriptMtimeMs",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "lastProcessedGenerationId",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "trialStartedAtMs",
+          "level": 1,
+          "line": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": ".DS_Store",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": ".gitattributes",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": ".nvmrc",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 63,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/fingerprints.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 17,
+      "nonEmptyLines": 17,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "gitCommitHash",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "generatedAt",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "files",
+          "level": 1,
+          "line": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": ".understand-anything/tmp/ua-scan-files.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1541,
+      "nonEmptyLines": 1541,
+      "sections": [
+        {
+          "heading": "scriptCompleted",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "files",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "totalFiles",
+          "level": 1,
+          "line": 1499
+        },
+        {
+          "heading": "filteredByIgnore",
+          "level": 1,
+          "line": 1500
+        },
+        {
+          "heading": "estimatedComplexity",
+          "level": 1,
+          "line": 1501
+        },
+        {
+          "heading": "stats",
+          "level": 1,
+          "line": 1502
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "apps/.DS_Store",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/.npmrc",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/build.gradle",
+      "language": "gradle",
+      "fileCategory": "config",
+      "totalLines": 192,
+      "nonEmptyLines": 170,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/proguard-rules.pro",
+      "language": "pro",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/src/debug/AndroidManifest.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/src/debugOptimized/AndroidManifest.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/AndroidManifest.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 35,
+      "nonEmptyLines": 35,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt",
+      "language": "kotlin",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "onCreate",
+          "startLine": 14,
+          "endLine": 20,
+          "params": [
+            "savedInstanceState"
+          ]
+        },
+        {
+          "name": "getMainComponentName",
+          "startLine": 26,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "createReactActivityDelegate",
+          "startLine": 32,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "invokeDefaultOnBackPressed",
+          "startLine": 48,
+          "endLine": 60,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MainActivity",
+          "startLine": 13,
+          "endLine": 61,
+          "methods": [
+            "onCreate",
+            "getMainComponentName",
+            "createReactActivityDelegate",
+            "invokeDefaultOnBackPressed"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "onCreate",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "getMainComponentName",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "createReactActivityDelegate",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "invokeDefaultOnBackPressed",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "MainActivity",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "onCreate",
+          "callee": "setTheme",
+          "lineNumber": 18
+        },
+        {
+          "caller": "onCreate",
+          "callee": "onCreate",
+          "lineNumber": 19
+        },
+        {
+          "caller": "createReactActivityDelegate",
+          "callee": "ReactActivityDelegateWrapper",
+          "lineNumber": 33
+        },
+        {
+          "caller": "invokeDefaultOnBackPressed",
+          "callee": "invokeDefaultOnBackPressed",
+          "lineNumber": 52
+        },
+        {
+          "caller": "invokeDefaultOnBackPressed",
+          "callee": "invokeDefaultOnBackPressed",
+          "lineNumber": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+      "language": "kotlin",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "onCreate",
+          "startLine": 30,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "onConfigurationChanged",
+          "startLine": 41,
+          "endLine": 44,
+          "params": [
+            "newConfig"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MainApplication",
+          "startLine": 17,
+          "endLine": 45,
+          "methods": [
+            "onCreate",
+            "onConfigurationChanged"
+          ],
+          "properties": [
+            "reactHost"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "reactHost",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "onCreate",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "onConfigurationChanged",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "MainApplication",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "onCreate",
+          "callee": "onCreate",
+          "lineNumber": 31
+        },
+        {
+          "caller": "onCreate",
+          "callee": "valueOf",
+          "lineNumber": 33
+        },
+        {
+          "caller": "onCreate",
+          "callee": "uppercase",
+          "lineNumber": 33
+        },
+        {
+          "caller": "onCreate",
+          "callee": "loadReactNative",
+          "lineNumber": 37
+        },
+        {
+          "caller": "onCreate",
+          "callee": "onApplicationCreate",
+          "lineNumber": 38
+        },
+        {
+          "caller": "onConfigurationChanged",
+          "callee": "onConfigurationChanged",
+          "lineNumber": 42
+        },
+        {
+          "caller": "onConfigurationChanged",
+          "callee": "onConfigurationChanged",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/rn_edit_text_material.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 37,
+      "nonEmptyLines": 30,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/gradle/gradle-daemon-jvm.properties",
+      "language": "properties",
+      "fileCategory": "config",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/gradle/wrapper/gradle-wrapper.properties",
+      "language": "properties",
+      "fileCategory": "config",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/android/gradlew",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 248,
+      "nonEmptyLines": 220,
+      "metrics": {}
+    },
+    {
+      "path": "apps/mobile/babel.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/mobile/ios/.xcode.env",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 11,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    }
+  ]
+}

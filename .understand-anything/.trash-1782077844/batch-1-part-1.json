@@ -1,0 +1,275 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/src/App.tsx",
+      "type": "file",
+      "name": "App.tsx",
+      "filePath": "apps/web/src/App.tsx",
+      "summary": "Root application component that composes all context providers and lays out the main Morse browser UI (header, settings accordion, speed bar, playback controls, word cards).",
+      "tags": ["entry-point", "component", "composition", "providers"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/App.tsx:App",
+      "type": "function",
+      "name": "App",
+      "filePath": "apps/web/src/App.tsx",
+      "lineRange": [15, 38],
+      "summary": "Top-level component rendering the provider tree and primary UI panels of the Morse browser.",
+      "tags": ["entry-point", "component", "composition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx",
+      "type": "file",
+      "name": "FlaggedWordsAccordion.test.tsx",
+      "filePath": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx",
+      "summary": "Smoke test rendering the full App to verify the flagged-words accordion mounts without error.",
+      "tags": ["test", "smoke-test", "component"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/HelpFooter/HelpFooter.test.tsx",
+      "type": "file",
+      "name": "HelpFooter.test.tsx",
+      "filePath": "apps/web/src/components/HelpFooter/HelpFooter.test.tsx",
+      "summary": "Tests for the HelpFooter component rendered through the shared Morse provider test harness.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx",
+      "type": "file",
+      "name": "InputOptionsPanel.test.tsx",
+      "filePath": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx",
+      "summary": "Tests for the input options accordion panel, opening it via fireEvent and asserting on rendered controls.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx",
+      "type": "file",
+      "name": "LessonOptionsPanel.test.tsx",
+      "filePath": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx",
+      "summary": "Tests for the lesson options accordion panel, exercising the open interaction and scoped queries.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx",
+      "type": "file",
+      "name": "LessonsPicker.test.tsx",
+      "filePath": "apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx",
+      "summary": "Tests rendering the LessonsPicker accordion through the SettingsAccordion harness.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx",
+      "type": "file",
+      "name": "OutputOptionsPanel.test.tsx",
+      "filePath": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx",
+      "summary": "Tests for the output options accordion panel including playback-context-driven controls.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/PageHeader/PageHeader.test.tsx",
+      "type": "file",
+      "name": "PageHeader.test.tsx",
+      "filePath": "apps/web/src/components/PageHeader/PageHeader.test.tsx",
+      "summary": "Tests for the PageHeader component rendered via the Morse provider test harness.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx",
+      "type": "file",
+      "name": "PlaybackControls.test.tsx",
+      "filePath": "apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx",
+      "summary": "Tests for the PlaybackControls component using the playback context and provider harness.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+      "type": "file",
+      "name": "PlaybackControls.tsx",
+      "filePath": "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+      "summary": "Renders the transport controls (play, pause, stop, loop, shuffle, hide) wired to the playback contexts and Morse image assets.",
+      "tags": ["component", "playback", "controls", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/PlaybackControls/PlaybackControls.tsx:PlaybackControls",
+      "type": "function",
+      "name": "PlaybackControls",
+      "filePath": "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+      "lineRange": [6, 125],
+      "summary": "Component pulling app, playback state, and control callbacks from context to render and handle the playback button row.",
+      "tags": ["component", "playback", "controls", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx",
+      "type": "file",
+      "name": "SettingsAccordion.test.tsx",
+      "filePath": "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx",
+      "summary": "Tests for the SettingsAccordion covering collapse-on-play and auto-close behaviors via test harness components.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "type": "file",
+      "name": "SettingsAccordion.tsx",
+      "filePath": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "summary": "Composes all settings accordion panels (input, lesson, lessons picker, output, RSS, tone, voice) into a single Bootstrap accordion.",
+      "tags": ["component", "composition", "settings", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx:SettingsAccordion",
+      "type": "function",
+      "name": "SettingsAccordion",
+      "filePath": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "lineRange": [9, 23],
+      "summary": "Renders the container accordion wrapping each settings panel component.",
+      "tags": ["component", "composition", "settings"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx",
+      "type": "file",
+      "name": "SpeedSettingsBar.test.tsx",
+      "filePath": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx",
+      "summary": "Tests for the SpeedSettingsBar, including an interval-timing harness driving app speed settings during playback.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+      "type": "file",
+      "name": "SpeedSettingsBar.tsx",
+      "filePath": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+      "summary": "Renders the WPM/Farnsworth/effective-speed and volume controls, syncing them to app settings and interval timing config.",
+      "tags": ["component", "settings", "speed", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx:SpeedSettingsBar",
+      "type": "function",
+      "name": "SpeedSettingsBar",
+      "filePath": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+      "lineRange": [6, 113],
+      "summary": "Component binding speed and volume inputs to MorseApp settings and the interval timing configuration.",
+      "tags": ["component", "settings", "speed", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx",
+      "type": "file",
+      "name": "ToneOptionsPanel.test.tsx",
+      "filePath": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx",
+      "summary": "Tests for the tone options accordion panel rendered through the SettingsAccordion harness.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx",
+      "type": "file",
+      "name": "VoiceOptionsPanel.test.tsx",
+      "filePath": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx",
+      "summary": "Tests for the voice options accordion panel, opening it and asserting on the rendered voice settings.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/HelpFooter/HelpFooter.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/PageHeader/PageHeader.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/shared/ErrorBoundary.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/StartupHooks.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/WordCards/WordCards.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/context/MorseAudioContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/App.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx", "target": "file:apps/web/src/App.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/HelpFooter/HelpFooter.test.tsx", "target": "file:apps/web/src/components/HelpFooter/HelpFooter.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/HelpFooter/HelpFooter.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/PageHeader/PageHeader.test.tsx", "target": "file:apps/web/src/components/PageHeader/PageHeader.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/PageHeader/PageHeader.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx", "target": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "target": "file:apps/web/src/utils/morseImages.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx", "target": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "target": "file:apps/web/src/hooks/useTimingConfig.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "target": "file:apps/web/src/utils/morseImages.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/App.tsx", "target": "function:apps/web/src/App.tsx:App", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/App.tsx", "target": "function:apps/web/src/App.tsx:App", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "target": "function:apps/web/src/components/PlaybackControls/PlaybackControls.tsx:PlaybackControls", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "target": "function:apps/web/src/components/PlaybackControls/PlaybackControls.tsx:PlaybackControls", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "function:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx:SettingsAccordion", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "function:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx:SettingsAccordion", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "target": "function:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx:SpeedSettingsBar", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "target": "function:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx:SpeedSettingsBar", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:apps/web/src/components/PlaybackControls/PlaybackControls.tsx", "target": "file:apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx", "target": "file:apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx", "target": "file:apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx", "type": "tested_by", "direction": "forward", "weight": 0.5}
+  ]
+}

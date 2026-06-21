@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "document:docs/archived/AGENT_PROMPTS.md",
+      "type": "document",
+      "name": "AGENT_PROMPTS.md",
+      "filePath": "docs/archived/AGENT_PROMPTS.md",
+      "summary": "Archived collection of agent prompts and setup instructions used during the original Knockout.js-to-React migration effort.",
+      "tags": ["documentation", "archived", "migration", "agents"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/archived/COMPLETE_STEPS.md",
+      "type": "document",
+      "name": "COMPLETE_STEPS.md",
+      "filePath": "docs/archived/COMPLETE_STEPS.md",
+      "summary": "Archived step-by-step checklist documenting the completed phases of the React migration.",
+      "tags": ["documentation", "archived", "migration", "checklist"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/archived/COMPONENT_MAP.md",
+      "type": "document",
+      "name": "COMPONENT_MAP.md",
+      "filePath": "docs/archived/COMPONENT_MAP.md",
+      "summary": "Archived comprehensive audit mapping every Knockout.js component and binding to its React counterpart, produced as the migration reference bible.",
+      "tags": ["documentation", "archived", "migration", "component-map"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/archived/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "docs/archived/README.md",
+      "summary": "Index for the archived docs directory explaining that these documents are historical migration artifacts.",
+      "tags": ["documentation", "archived", "index", "overview"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:docs/archived/README.md",
+      "target": "document:docs/archived/COMPONENT_MAP.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/archived/README.md",
+      "target": "document:docs/archived/AGENT_PROMPTS.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/archived/README.md",
+      "target": "document:docs/archived/COMPLETE_STEPS.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

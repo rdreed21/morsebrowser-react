@@ -1,0 +1,353 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/src/components/WordCards/WordCards.test.tsx",
+      "type": "file",
+      "name": "WordCards.test.tsx",
+      "filePath": "apps/web/src/components/WordCards/WordCards.test.tsx",
+      "summary": "Tests for the WordCards component rendered through the playback context and Morse provider harness.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/WordCards/WordCards.tsx",
+      "type": "file",
+      "name": "WordCards.tsx",
+      "filePath": "apps/web/src/components/WordCards/WordCards.tsx",
+      "summary": "Renders the practice words as clickable cards, masking/revealing labels and dispatching flag and seek actions through context.",
+      "tags": ["component", "playback", "word-cards", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/components/WordCards/WordCards.tsx:WordCards",
+      "type": "function",
+      "name": "WordCards",
+      "filePath": "apps/web/src/components/WordCards/WordCards.tsx",
+      "lineRange": [6, 49],
+      "summary": "Component mapping the current word list to display cards with masking and click-to-seek/flag handlers.",
+      "tags": ["component", "word-cards", "event-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx",
+      "type": "file",
+      "name": "WorkingTextStats.test.tsx",
+      "filePath": "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx",
+      "summary": "Tests for the WorkingTextStats component rendered via the Morse provider test harness.",
+      "tags": ["test", "component", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/shared/ErrorBoundary.tsx",
+      "type": "file",
+      "name": "ErrorBoundary.tsx",
+      "filePath": "apps/web/src/components/shared/ErrorBoundary.tsx",
+      "summary": "React error boundary component that catches render errors in its subtree and displays a fallback UI.",
+      "tags": ["component", "error-handling", "shared"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:apps/web/src/components/shared/ErrorBoundary.tsx:ErrorBoundary",
+      "type": "class",
+      "name": "ErrorBoundary",
+      "filePath": "apps/web/src/components/shared/ErrorBoundary.tsx",
+      "lineRange": [17, 39],
+      "summary": "Class component implementing getDerivedStateFromError and componentDidCatch to render a fallback on errors.",
+      "tags": ["component", "error-handling", "lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/context/MorseAudioContext.tsx",
+      "type": "file",
+      "name": "MorseAudioContext.tsx",
+      "filePath": "apps/web/src/context/MorseAudioContext.tsx",
+      "summary": "Context provider that wires the Morse player hook and interval timing config to expose audio capabilities to the component tree.",
+      "tags": ["context", "provider", "audio", "hook"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/context/MorseAudioContext.tsx:MorseAudioProvider",
+      "type": "function",
+      "name": "MorseAudioProvider",
+      "filePath": "apps/web/src/context/MorseAudioContext.tsx",
+      "lineRange": [11, 20],
+      "summary": "Provider that builds the audio value from useMorsePlayer and timing config and supplies it via context.",
+      "tags": ["context", "provider", "audio"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/context/MorseAudioContext.tsx:useMorseAudio",
+      "type": "function",
+      "name": "useMorseAudio",
+      "filePath": "apps/web/src/context/MorseAudioContext.tsx",
+      "lineRange": [22, 26],
+      "summary": "Hook returning the Morse audio context value, throwing if used outside its provider.",
+      "tags": ["context", "hook", "audio"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/context/MorsePlaybackContext.tsx",
+      "type": "file",
+      "name": "MorsePlaybackContext.tsx",
+      "filePath": "apps/web/src/context/MorsePlaybackContext.tsx",
+      "summary": "Context provider combining the playback and keyboard-shortcut hooks to expose playback control callbacks to the tree.",
+      "tags": ["context", "provider", "playback", "hook"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/context/MorsePlaybackContext.tsx:MorsePlaybackProvider",
+      "type": "function",
+      "name": "MorsePlaybackProvider",
+      "filePath": "apps/web/src/context/MorsePlaybackContext.tsx",
+      "lineRange": [7, 15],
+      "summary": "Provider wiring useMorsePlayback and useMorseShortcutKeys and supplying playback controls via context.",
+      "tags": ["context", "provider", "playback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/context/MorsePlaybackContext.tsx:useMorsePlaybackControls",
+      "type": "function",
+      "name": "useMorsePlaybackControls",
+      "filePath": "apps/web/src/context/MorsePlaybackContext.tsx",
+      "lineRange": [17, 21],
+      "summary": "Hook returning the playback control context value, throwing if used outside its provider.",
+      "tags": ["context", "hook", "playback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/context/PlaybackStateContext.test.tsx",
+      "type": "file",
+      "name": "PlaybackStateContext.test.tsx",
+      "filePath": "apps/web/src/context/PlaybackStateContext.test.tsx",
+      "summary": "Tests for the playback state context covering action dispatch and state observation through probe components.",
+      "tags": ["test", "context", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/context/PlaybackStateContext.tsx",
+      "type": "file",
+      "name": "PlaybackStateContext.tsx",
+      "filePath": "apps/web/src/context/PlaybackStateContext.tsx",
+      "summary": "Defines the playback state store with separate actions and state contexts, tracking current index, running time, and derived formatted values.",
+      "tags": ["context", "provider", "state-management", "playback"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/context/PlaybackStateContext.tsx:PlaybackStateProvider",
+      "type": "function",
+      "name": "PlaybackStateProvider",
+      "filePath": "apps/web/src/context/PlaybackStateContext.tsx",
+      "lineRange": [37, 73],
+      "summary": "Provider holding playback state with useState and exposing memoized actions and derived values via split contexts.",
+      "tags": ["context", "provider", "state-management"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/context/PlaybackStateContext.tsx:usePlaybackActions",
+      "type": "function",
+      "name": "usePlaybackActions",
+      "filePath": "apps/web/src/context/PlaybackStateContext.tsx",
+      "lineRange": [76, 80],
+      "summary": "Hook returning the playback actions context value, throwing if used outside the provider.",
+      "tags": ["context", "hook", "state-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/context/PlaybackStateContext.tsx:usePlaybackState",
+      "type": "function",
+      "name": "usePlaybackState",
+      "filePath": "apps/web/src/context/PlaybackStateContext.tsx",
+      "lineRange": [83, 94],
+      "summary": "Hook returning derived playback state from context, throwing if used outside the provider.",
+      "tags": ["context", "hook", "state-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/context/settingsCookies.test.tsx",
+      "type": "file",
+      "name": "settingsCookies.test.tsx",
+      "filePath": "apps/web/src/context/settingsCookies.test.tsx",
+      "summary": "Tests verifying that MorseApp settings are persisted to and restored from cookies across renders.",
+      "tags": ["test", "context", "settings", "cookies"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/hooks/playbackPauseResume.test.tsx",
+      "type": "file",
+      "name": "playbackPauseResume.test.tsx",
+      "filePath": "apps/web/src/hooks/playbackPauseResume.test.tsx",
+      "summary": "Integration tests for pause/resume playback behavior driven through a harness wired to the playback contexts.",
+      "tags": ["test", "playback", "integration-test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useMorsePlayback.test.tsx",
+      "type": "file",
+      "name": "useMorsePlayback.test.tsx",
+      "filePath": "apps/web/src/hooks/useMorsePlayback.test.tsx",
+      "summary": "Comprehensive tests for the Morse playback hook covering seeking, voice, trailing reveal, and looping via multiple harness components.",
+      "tags": ["test", "playback", "integration-test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useTimingConfig.ts",
+      "type": "file",
+      "name": "useTimingConfig.ts",
+      "filePath": "apps/web/src/hooks/useTimingConfig.ts",
+      "summary": "Hook that derives the active interval timing configuration from app settings and current playback position.",
+      "tags": ["hook", "timing", "settings"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useTimingConfig.ts:useIntervalTimingConfig",
+      "type": "function",
+      "name": "useIntervalTimingConfig",
+      "filePath": "apps/web/src/hooks/useTimingConfig.ts",
+      "lineRange": [13, 38],
+      "summary": "Computes the memoized timing config applying interval speed rules based on the running play time.",
+      "tags": ["hook", "timing", "memoization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/main.tsx",
+      "type": "file",
+      "name": "main.tsx",
+      "filePath": "apps/web/src/main.tsx",
+      "summary": "Application bootstrap that mounts the App component into the DOM and loads global stylesheets.",
+      "tags": ["entry-point", "bootstrap"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/test-utils.tsx",
+      "type": "file",
+      "name": "test-utils.tsx",
+      "filePath": "apps/web/src/test-utils.tsx",
+      "summary": "Test helpers that wrap components in the full Morse provider stack and expose a renderWithMorseProviders utility.",
+      "tags": ["test", "utility", "providers", "harness"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/test-utils.tsx:AllProviders",
+      "type": "function",
+      "name": "AllProviders",
+      "filePath": "apps/web/src/test-utils.tsx",
+      "lineRange": [22, 34],
+      "summary": "Wrapper composing every Morse context provider so tests render components with full app context.",
+      "tags": ["test", "providers", "composition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/test-utils.tsx:renderWithMorseProviders",
+      "type": "function",
+      "name": "renderWithMorseProviders",
+      "filePath": "apps/web/src/test-utils.tsx",
+      "lineRange": [36, 41],
+      "summary": "Renders a UI element wrapped in all Morse providers using Testing Library's render.",
+      "tags": ["test", "utility", "harness"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/formatTime.ts",
+      "type": "file",
+      "name": "formatTime.ts",
+      "filePath": "apps/web/src/utils/formatTime.ts",
+      "summary": "Utility that formats a duration in milliseconds into a mm:ss play-time string.",
+      "tags": ["utility", "formatting", "time"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/utils/formatTime.ts:formatPlayTime",
+      "type": "function",
+      "name": "formatPlayTime",
+      "filePath": "apps/web/src/utils/formatTime.ts",
+      "lineRange": [7, 12],
+      "summary": "Converts milliseconds into a zero-padded minutes:seconds string.",
+      "tags": ["utility", "formatting", "time"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:apps/web/src/components/WordCards/WordCards.test.tsx", "target": "file:apps/web/src/components/WordCards/WordCards.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/WordCards/WordCards.test.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/WordCards/WordCards.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/WordCards/WordCards.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/WordCards/WordCards.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/WordCards/WordCards.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/WordCards/WordCards.tsx", "target": "file:apps/web/src/utils/words.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx", "target": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/context/MorseAudioContext.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/context/MorseAudioContext.tsx", "target": "file:apps/web/src/hooks/useMorsePlayer.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/context/MorseAudioContext.tsx", "target": "file:apps/web/src/hooks/useTimingConfig.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/context/MorsePlaybackContext.tsx", "target": "file:apps/web/src/hooks/useMorsePlayback.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/context/MorsePlaybackContext.tsx", "target": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/context/PlaybackStateContext.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.test.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "file:apps/web/src/utils/formatTime.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/context/settingsCookies.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/context/settingsCookies.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/hooks/playbackPauseResume.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/playbackPauseResume.test.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/playbackPauseResume.test.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/playbackPauseResume.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.test.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.test.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/hooks/useTimingConfig.ts", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useTimingConfig.ts", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/main.tsx", "target": "file:apps/web/src/App.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/main.tsx", "target": "file:apps/web/src/styles/dark-mode.css", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/main.tsx", "target": "file:apps/web/src/styles/morsebrowser.css", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "file:apps/web/src/context/MorseAudioContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "file:apps/web/src/context/MorsePlaybackContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:apps/web/src/components/WordCards/WordCards.tsx", "target": "function:apps/web/src/components/WordCards/WordCards.tsx:WordCards", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/components/WordCards/WordCards.tsx", "target": "function:apps/web/src/components/WordCards/WordCards.tsx:WordCards", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/components/shared/ErrorBoundary.tsx", "target": "class:apps/web/src/components/shared/ErrorBoundary.tsx:ErrorBoundary", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/components/shared/ErrorBoundary.tsx", "target": "class:apps/web/src/components/shared/ErrorBoundary.tsx:ErrorBoundary", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/context/MorseAudioContext.tsx", "target": "function:apps/web/src/context/MorseAudioContext.tsx:MorseAudioProvider", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/context/MorseAudioContext.tsx", "target": "function:apps/web/src/context/MorseAudioContext.tsx:MorseAudioProvider", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/context/MorseAudioContext.tsx", "target": "function:apps/web/src/context/MorseAudioContext.tsx:useMorseAudio", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/context/MorseAudioContext.tsx", "target": "function:apps/web/src/context/MorseAudioContext.tsx:useMorseAudio", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/context/MorsePlaybackContext.tsx", "target": "function:apps/web/src/context/MorsePlaybackContext.tsx:MorsePlaybackProvider", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/context/MorsePlaybackContext.tsx", "target": "function:apps/web/src/context/MorsePlaybackContext.tsx:MorsePlaybackProvider", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/context/MorsePlaybackContext.tsx", "target": "function:apps/web/src/context/MorsePlaybackContext.tsx:useMorsePlaybackControls", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/context/MorsePlaybackContext.tsx", "target": "function:apps/web/src/context/MorsePlaybackContext.tsx:useMorsePlaybackControls", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "function:apps/web/src/context/PlaybackStateContext.tsx:PlaybackStateProvider", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "function:apps/web/src/context/PlaybackStateContext.tsx:PlaybackStateProvider", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "function:apps/web/src/context/PlaybackStateContext.tsx:usePlaybackActions", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "function:apps/web/src/context/PlaybackStateContext.tsx:usePlaybackActions", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "function:apps/web/src/context/PlaybackStateContext.tsx:usePlaybackState", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "function:apps/web/src/context/PlaybackStateContext.tsx:usePlaybackState", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/hooks/useTimingConfig.ts", "target": "function:apps/web/src/hooks/useTimingConfig.ts:useIntervalTimingConfig", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/hooks/useTimingConfig.ts", "target": "function:apps/web/src/hooks/useTimingConfig.ts:useIntervalTimingConfig", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "function:apps/web/src/test-utils.tsx:AllProviders", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "function:apps/web/src/test-utils.tsx:AllProviders", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "function:apps/web/src/test-utils.tsx:renderWithMorseProviders", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/test-utils.tsx", "target": "function:apps/web/src/test-utils.tsx:renderWithMorseProviders", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/utils/formatTime.ts", "target": "function:apps/web/src/utils/formatTime.ts:formatPlayTime", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/utils/formatTime.ts", "target": "function:apps/web/src/utils/formatTime.ts:formatPlayTime", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "function:apps/web/src/context/PlaybackStateContext.tsx:PlaybackStateProvider", "target": "function:apps/web/src/utils/formatTime.ts:formatPlayTime", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:apps/web/src/context/MorseAudioContext.tsx:MorseAudioProvider", "target": "file:apps/web/src/hooks/useMorsePlayer.ts", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:apps/web/src/components/WordCards/WordCards.tsx", "target": "file:apps/web/src/components/WordCards/WordCards.test.tsx", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/context/PlaybackStateContext.tsx", "target": "file:apps/web/src/context/PlaybackStateContext.test.tsx", "type": "tested_by", "direction": "forward", "weight": 0.5}
+  ]
+}

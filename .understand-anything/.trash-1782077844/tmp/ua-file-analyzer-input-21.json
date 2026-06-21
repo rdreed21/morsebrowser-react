@@ -1,0 +1,182 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj",
+      "language": "pbxproj",
+      "sizeLines": 587,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme",
+      "language": "xcscheme",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata",
+      "language": "xcworkspacedata",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "language": "swift",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/AppIcon.appiconset/Contents.json",
+      "language": "json",
+      "sizeLines": 13,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/Contents.json",
+      "language": "json",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Info.plist",
+      "language": "xml",
+      "sizeLines": 82,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h",
+      "language": "c",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements",
+      "language": "entitlements",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy",
+      "language": "xcprivacy",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard",
+      "language": "storyboard",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/LICWMorsebrowser/Supporting/Expo.plist",
+      "language": "xml",
+      "sizeLines": 13,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/ios/Podfile",
+      "language": "unknown",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/ios/Podfile.properties.json",
+      "language": "json",
+      "sizeLines": 5,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/metro.config.js",
+      "language": "javascript",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch",
+      "language": "patch",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/scripts/generate-asset-manifests.mjs",
+      "language": "javascript",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/scripts/sync-presets.mjs",
+      "language": "javascript",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/scripts/sync-wordfiles.mjs",
+      "language": "javascript",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/mobile/src/configs/wordify.json",
+      "language": "json",
+      "sizeLines": 154,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/web/public/_redirects",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/configs/wordify.json",
+      "language": "json",
+      "sizeLines": 154,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/web/src/hooks/playbackTiming.test.ts",
+      "language": "typescript",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/styles/dark-mode.css",
+      "language": "css",
+      "sizeLines": 329,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "apps/web/src/styles/morsebrowser.css",
+      "language": "css",
+      "sizeLines": 574,
+      "fileCategory": "markup"
+    }
+  ],
+  "batchImportData": {
+    "apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj": [],
+    "apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme": [],
+    "apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata": [],
+    "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift": [],
+    "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/AppIcon.appiconset/Contents.json": [],
+    "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/Contents.json": [],
+    "apps/mobile/ios/LICWMorsebrowser/Info.plist": [],
+    "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h": [],
+    "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements": [],
+    "apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy": [],
+    "apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard": [],
+    "apps/mobile/ios/LICWMorsebrowser/Supporting/Expo.plist": [],
+    "apps/mobile/ios/Podfile": [],
+    "apps/mobile/ios/Podfile.properties.json": [],
+    "apps/mobile/metro.config.js": [],
+    "apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch": [],
+    "apps/mobile/scripts/generate-asset-manifests.mjs": [],
+    "apps/mobile/scripts/sync-presets.mjs": [],
+    "apps/mobile/scripts/sync-wordfiles.mjs": [],
+    "apps/mobile/src/configs/wordify.json": [],
+    "apps/web/public/_redirects": [],
+    "apps/web/src/configs/wordify.json": [],
+    "apps/web/src/hooks/playbackTiming.test.ts": [],
+    "apps/web/src/styles/dark-mode.css": [],
+    "apps/web/src/styles/morsebrowser.css": []
+  }
+}

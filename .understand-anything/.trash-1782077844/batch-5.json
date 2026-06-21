@@ -1,0 +1,247 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/src/hooks/playbackLoopSeek.test.ts",
+      "type": "file",
+      "name": "playbackLoopSeek.test.ts",
+      "filePath": "apps/web/src/hooks/playbackLoopSeek.test.ts",
+      "summary": "Unit test exercising loop-seek behaviour of the playback orchestration helpers.",
+      "tags": ["test", "playback", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/hooks/playbackOrchestration.test.ts",
+      "type": "file",
+      "name": "playbackOrchestration.test.ts",
+      "filePath": "apps/web/src/hooks/playbackOrchestration.test.ts",
+      "summary": "Unit tests for the pure playback orchestration helpers covering buffer fullness, play-ended actions, and loop restart logic.",
+      "tags": ["test", "playback", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/hooks/playbackOrchestration.ts",
+      "type": "file",
+      "name": "playbackOrchestration.ts",
+      "filePath": "apps/web/src/hooks/playbackOrchestration.ts",
+      "summary": "Pure decision helpers for the Morse playback loop, computing voice-buffer state, post-play actions, and loop-restart conditions.",
+      "tags": ["playback", "utility", "pure-functions"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/playbackOrchestration.ts:isVoiceBufferFull",
+      "type": "function",
+      "name": "isVoiceBufferFull",
+      "filePath": "apps/web/src/hooks/playbackOrchestration.ts",
+      "lineRange": [3, 12],
+      "summary": "Determines whether the voice-announcement buffer has reached its configured maximum given current playback position.",
+      "tags": ["playback", "utility", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/playbackOrchestration.ts:computePlayEndedActions",
+      "type": "function",
+      "name": "computePlayEndedActions",
+      "filePath": "apps/web/src/hooks/playbackOrchestration.ts",
+      "lineRange": [14, 35],
+      "summary": "Computes the set of follow-up actions to take when a playback pass ends, based on stop/pause/loop flags.",
+      "tags": ["playback", "utility", "state-machine"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useMorsePlayback.ts",
+      "type": "file",
+      "name": "useMorsePlayback.ts",
+      "filePath": "apps/web/src/hooks/useMorsePlayback.ts",
+      "summary": "Core web playback hook orchestrating Morse scheduling, voice announcements, card buffering, looping, and pause/resume against the audio clock.",
+      "tags": ["hook", "playback", "audio", "orchestration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useMorsePlayback.ts:useMorsePlayback",
+      "type": "function",
+      "name": "useMorsePlayback",
+      "filePath": "apps/web/src/hooks/useMorsePlayback.ts",
+      "lineRange": [47, 516],
+      "summary": "React hook wiring together app settings, audio player, card buffer, and voice speech to drive the full Morse playback lifecycle.",
+      "tags": ["hook", "playback", "audio", "orchestration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useMorseShortcutKeys.test.tsx",
+      "type": "file",
+      "name": "useMorseShortcutKeys.test.tsx",
+      "filePath": "apps/web/src/hooks/useMorseShortcutKeys.test.tsx",
+      "summary": "Tests for the keyboard-shortcut hook, mounting a harness that simulates key presses and asserts the resulting playback actions.",
+      "tags": ["test", "hook", "keyboard", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useMorseShortcutKeys.test.tsx:mountShortcutHarness",
+      "type": "function",
+      "name": "mountShortcutHarness",
+      "filePath": "apps/web/src/hooks/useMorseShortcutKeys.test.tsx",
+      "lineRange": [30, 43],
+      "summary": "Test helper that mounts a component using the shortcut-keys hook with a mock playback object and announcement callback.",
+      "tags": ["test", "harness", "hook"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/hooks/useMorseShortcutKeys.ts",
+      "type": "file",
+      "name": "useMorseShortcutKeys.ts",
+      "filePath": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+      "summary": "Hook binding global keyboard shortcuts to playback controls such as play/pause, stop, and Farnsworth speed adjustments.",
+      "tags": ["hook", "keyboard", "event-handler", "playback"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useMorseShortcutKeys.ts:useMorseShortcutKeys",
+      "type": "function",
+      "name": "useMorseShortcutKeys",
+      "filePath": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+      "lineRange": [6, 79],
+      "summary": "Registers a keydown listener mapping keys to playback actions and announcing changes for the supplied playback object.",
+      "tags": ["hook", "keyboard", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/hooks/useMorseShortcutKeys.ts:changeFarnsworth",
+      "type": "function",
+      "name": "changeFarnsworth",
+      "filePath": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+      "lineRange": [81, 100],
+      "summary": "Adjusts the Farnsworth spacing setting on the app context by a delta, clamping to valid bounds.",
+      "tags": ["utility", "settings", "playback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/cardBufferManager.test.ts",
+      "type": "file",
+      "name": "cardBufferManager.test.ts",
+      "filePath": "apps/web/src/utils/cardBufferManager.test.ts",
+      "summary": "Unit tests verifying the CardBufferManager populates, dispenses, and clears Morse card buffers correctly.",
+      "tags": ["test", "buffer", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/cardBufferManager.ts",
+      "type": "file",
+      "name": "cardBufferManager.ts",
+      "filePath": "apps/web/src/utils/cardBufferManager.ts",
+      "summary": "Manages a buffer of word cards and their Morse sub-parts, exposing iteration over the next Morse fragment to play.",
+      "tags": ["buffer", "data-model", "playback"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:apps/web/src/utils/cardBufferManager.ts:CardBufferManager",
+      "type": "class",
+      "name": "CardBufferManager",
+      "filePath": "apps/web/src/utils/cardBufferManager.ts",
+      "lineRange": [28, 66],
+      "summary": "Builds and iterates a buffer of CardWord items, tracking position so playback can request the next Morse fragment.",
+      "tags": ["buffer", "data-model", "playback"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/utils/speakText.test.ts",
+      "type": "file",
+      "name": "speakText.test.ts",
+      "filePath": "apps/web/src/utils/speakText.test.ts",
+      "summary": "Unit tests for the speakText re-export wrappers used by the web voice pipeline.",
+      "tags": ["test", "voice", "unit-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/speakText.ts",
+      "type": "file",
+      "name": "speakText.ts",
+      "filePath": "apps/web/src/utils/speakText.ts",
+      "summary": "Thin barrel re-exporting speech-text helpers (getSpeakText, prepPhraseToSpeakForFinal) for the web voice pipeline.",
+      "tags": ["barrel", "voice", "re-export"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/utils/voiceSpeech.test.ts",
+      "type": "file",
+      "name": "voiceSpeech.test.ts",
+      "filePath": "apps/web/src/utils/voiceSpeech.test.ts",
+      "summary": "Tests for the web voice-speech utilities, stubbing browser speechSynthesis voices and verifying language filtering and selection.",
+      "tags": ["test", "voice", "unit-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/utils/voiceSpeech.ts",
+      "type": "file",
+      "name": "voiceSpeech.ts",
+      "filePath": "apps/web/src/utils/voiceSpeech.ts",
+      "summary": "Browser SpeechSynthesis wrapper providing phrase speaking, voice priming, voice resolution, and cancellation for spoken Morse feedback.",
+      "tags": ["voice", "speech-synthesis", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/utils/voiceSpeech.ts:speakPhrase",
+      "type": "function",
+      "name": "speakPhrase",
+      "filePath": "apps/web/src/utils/voiceSpeech.ts",
+      "lineRange": [52, 101],
+      "summary": "Speaks a multi-token phrase through SpeechSynthesis, chaining tokens and invoking a completion callback when finished.",
+      "tags": ["voice", "speech-synthesis", "async"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/utils/voiceSpeech.ts:resolveSpeechVoice",
+      "type": "function",
+      "name": "resolveSpeechVoice",
+      "filePath": "apps/web/src/utils/voiceSpeech.ts",
+      "lineRange": [119, 130],
+      "summary": "Selects a SpeechSynthesisVoice from the available list by index, falling back gracefully when unavailable.",
+      "tags": ["voice", "speech-synthesis", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:apps/web/src/hooks/playbackLoopSeek.test.ts", "target": "file:apps/web/src/hooks/playbackOrchestration.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/playbackLoopSeek.test.ts", "target": "file:apps/web/src/hooks/playbackOrchestration.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/hooks/playbackOrchestration.test.ts", "target": "file:apps/web/src/hooks/playbackOrchestration.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/playbackOrchestration.test.ts", "target": "file:apps/web/src/hooks/playbackOrchestration.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/hooks/playbackOrchestration.ts", "target": "function:apps/web/src/hooks/playbackOrchestration.ts:isVoiceBufferFull", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/hooks/playbackOrchestration.ts", "target": "function:apps/web/src/hooks/playbackOrchestration.ts:isVoiceBufferFull", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/hooks/playbackOrchestration.ts", "target": "function:apps/web/src/hooks/playbackOrchestration.ts:computePlayEndedActions", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/hooks/playbackOrchestration.ts", "target": "function:apps/web/src/hooks/playbackOrchestration.ts:computePlayEndedActions", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "function:apps/web/src/hooks/useMorsePlayback.ts:useMorsePlayback", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "function:apps/web/src/hooks/useMorsePlayback.ts:useMorsePlayback", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/context/MorseAudioContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/hooks/playbackOrchestration.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/utils/cardBufferManager.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/utils/speakText.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/utils/voiceSpeech.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "file:apps/web/src/utils/words.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorsePlayback.ts", "target": "function:apps/web/src/hooks/playbackOrchestration.ts:computePlayEndedActions", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.test.tsx", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.test.tsx", "target": "file:apps/web/src/hooks/useMorsePlayback.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.test.tsx", "target": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.test.tsx", "target": "file:apps/web/src/test-utils.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.test.tsx", "target": "function:apps/web/src/hooks/useMorseShortcutKeys.test.tsx:mountShortcutHarness", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.test.tsx", "target": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "target": "file:apps/web/src/context/MorseAppContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "target": "file:apps/web/src/context/PlaybackStateContext.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "target": "file:apps/web/src/hooks/useMorsePlayback.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "target": "function:apps/web/src/hooks/useMorseShortcutKeys.ts:useMorseShortcutKeys", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "target": "function:apps/web/src/hooks/useMorseShortcutKeys.ts:useMorseShortcutKeys", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/hooks/useMorseShortcutKeys.ts", "target": "function:apps/web/src/hooks/useMorseShortcutKeys.ts:changeFarnsworth", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/utils/cardBufferManager.test.ts", "target": "file:apps/web/src/utils/cardBufferManager.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/utils/cardBufferManager.test.ts", "target": "file:apps/web/src/utils/cardBufferManager.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/utils/cardBufferManager.ts", "target": "class:apps/web/src/utils/cardBufferManager.ts:CardBufferManager", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/utils/cardBufferManager.ts", "target": "class:apps/web/src/utils/cardBufferManager.ts:CardBufferManager", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/utils/speakText.test.ts", "target": "file:apps/web/src/utils/speakText.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/utils/speakText.test.ts", "target": "file:apps/web/src/utils/speakText.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/utils/voiceSpeech.test.ts", "target": "file:apps/web/src/utils/voiceSpeech.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:apps/web/src/utils/voiceSpeech.test.ts", "target": "file:apps/web/src/utils/voiceSpeech.ts", "type": "tested_by", "direction": "forward", "weight": 0.5},
+    {"source": "file:apps/web/src/utils/voiceSpeech.ts", "target": "function:apps/web/src/utils/voiceSpeech.ts:speakPhrase", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/utils/voiceSpeech.ts", "target": "function:apps/web/src/utils/voiceSpeech.ts:speakPhrase", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:apps/web/src/utils/voiceSpeech.ts", "target": "function:apps/web/src/utils/voiceSpeech.ts:resolveSpeechVoice", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:apps/web/src/utils/voiceSpeech.ts", "target": "function:apps/web/src/utils/voiceSpeech.ts:resolveSpeechVoice", "type": "exports", "direction": "forward", "weight": 0.8}
+  ]
+}

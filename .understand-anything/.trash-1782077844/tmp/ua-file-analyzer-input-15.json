@@ -1,0 +1,35 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/mobile/android/build.gradle",
+      "language": "gradle",
+      "sizeLines": 24,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/gradle.properties",
+      "language": "properties",
+      "sizeLines": 62,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/android/gradlew.bat",
+      "language": "batch",
+      "sizeLines": 98,
+      "fileCategory": "script"
+    },
+    {
+      "path": "apps/mobile/android/settings.gradle",
+      "language": "gradle",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "apps/mobile/android/build.gradle": [],
+    "apps/mobile/android/gradle.properties": [],
+    "apps/mobile/android/gradlew.bat": [],
+    "apps/mobile/android/settings.gradle": []
+  }
+}

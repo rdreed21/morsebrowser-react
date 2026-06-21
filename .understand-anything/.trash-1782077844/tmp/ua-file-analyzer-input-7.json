@@ -1,0 +1,68 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/web/src/components/StartupHooks.tsx",
+      "language": "typescript",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/hooks/useStartupUrlParams.ts",
+      "language": "typescript",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/utils/lessonDeepLink.test.ts",
+      "language": "typescript",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/utils/lessonDeepLink.ts",
+      "language": "typescript",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/utils/screenWakeLock.ts",
+      "language": "typescript",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/utils/urlParams.test.ts",
+      "language": "typescript",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/src/utils/urlParams.ts",
+      "language": "typescript",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "apps/web/src/components/StartupHooks.tsx": [
+      "apps/web/src/hooks/useStartupUrlParams.ts"
+    ],
+    "apps/web/src/hooks/useStartupUrlParams.ts": [
+      "apps/web/src/context/MorseAppContext.tsx",
+      "apps/web/src/utils/screenWakeLock.ts",
+      "apps/web/src/utils/urlParams.ts"
+    ],
+    "apps/web/src/utils/lessonDeepLink.test.ts": [
+      "apps/web/src/utils/lessonDeepLink.ts"
+    ],
+    "apps/web/src/utils/lessonDeepLink.ts": [
+      "apps/web/src/utils/urlParams.ts"
+    ],
+    "apps/web/src/utils/screenWakeLock.ts": [],
+    "apps/web/src/utils/urlParams.test.ts": [
+      "apps/web/src/utils/urlParams.ts"
+    ],
+    "apps/web/src/utils/urlParams.ts": []
+  }
+}

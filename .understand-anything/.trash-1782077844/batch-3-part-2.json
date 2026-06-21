@@ -1,0 +1,736 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/mobile/src/components/SettingsSection.tsx",
+      "type": "file",
+      "name": "SettingsSection.tsx",
+      "filePath": "apps/mobile/src/components/SettingsSection.tsx",
+      "summary": "Collapsible settings section wrapper with animated expand/collapse and optional badge.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/SettingsSection.tsx:SettingsSection",
+      "type": "function",
+      "name": "SettingsSection",
+      "filePath": "apps/mobile/src/components/SettingsSection.tsx",
+      "lineRange": [
+        18,
+        60
+      ],
+      "summary": "SettingsSection in SettingsSection.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "type": "file",
+      "name": "SpeedSettingsBar.tsx",
+      "filePath": "apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "summary": "Speed control bar binding WPM, effective WPM, and volume fields to the Morse app context.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/SpeedSettingsBar.tsx:SpeedSettingsBar",
+      "type": "function",
+      "name": "SpeedSettingsBar",
+      "filePath": "apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "lineRange": [
+        8,
+        115
+      ],
+      "summary": "SpeedSettingsBar in SpeedSettingsBar.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/ThemedNumField.tsx",
+      "type": "file",
+      "name": "ThemedNumField.tsx",
+      "filePath": "apps/mobile/src/components/ThemedNumField.tsx",
+      "summary": "Themed numeric input field with clamping and rounding for settings values.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/ThemedNumField.tsx:ThemedNumField",
+      "type": "function",
+      "name": "ThemedNumField",
+      "filePath": "apps/mobile/src/components/ThemedNumField.tsx",
+      "lineRange": [
+        15,
+        49
+      ],
+      "summary": "ThemedNumField in ThemedNumField.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/ThemedStatusBar.tsx",
+      "type": "file",
+      "name": "ThemedStatusBar.tsx",
+      "filePath": "apps/mobile/src/components/ThemedStatusBar.tsx",
+      "summary": "Status bar component that adapts style to the current dark-mode setting.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/src/components/ThemedStatusBar.tsx:ThemedStatusBar",
+      "type": "function",
+      "name": "ThemedStatusBar",
+      "filePath": "apps/mobile/src/components/ThemedStatusBar.tsx",
+      "lineRange": [
+        4,
+        7
+      ],
+      "summary": "ThemedStatusBar in ThemedStatusBar.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/ToneSettingsSection.tsx",
+      "type": "file",
+      "name": "ToneSettingsSection.tsx",
+      "filePath": "apps/mobile/src/components/ToneSettingsSection.tsx",
+      "summary": "Mobile settings section for dit/dah tone frequencies, frequency sync, and zero-beat test tone.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/ToneSettingsSection.tsx:ToneSettingsSection",
+      "type": "function",
+      "name": "ToneSettingsSection",
+      "filePath": "apps/mobile/src/components/ToneSettingsSection.tsx",
+      "lineRange": [
+        7,
+        107
+      ],
+      "summary": "ToneSettingsSection in ToneSettingsSection.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "type": "file",
+      "name": "VoiceOptionsSection.tsx",
+      "filePath": "apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "summary": "Mobile settings section for speech-synthesis voice selection and initialization.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "voice",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/VoiceOptionsSection.tsx:VoiceOptionsSection",
+      "type": "function",
+      "name": "VoiceOptionsSection",
+      "filePath": "apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "lineRange": [
+        10,
+        84
+      ],
+      "summary": "VoiceOptionsSection in VoiceOptionsSection.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/WordCards 2.tsx",
+      "type": "file",
+      "name": "WordCards 2.tsx",
+      "filePath": "apps/mobile/src/components/WordCards 2.tsx",
+      "summary": "Duplicate variant of the WordCards component rendering scrollable practice word cards with current-word highlighting.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/WordCards 2.tsx:WordCards",
+      "type": "function",
+      "name": "WordCards",
+      "filePath": "apps/mobile/src/components/WordCards 2.tsx",
+      "lineRange": [
+        8,
+        88
+      ],
+      "summary": "WordCards in WordCards 2.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/WordCards.tsx",
+      "type": "file",
+      "name": "WordCards.tsx",
+      "filePath": "apps/mobile/src/components/WordCards.tsx",
+      "summary": "Scrollable word-card list highlighting the current word and supporting flagging via tap.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/WordCards.tsx:WordCards",
+      "type": "function",
+      "name": "WordCards",
+      "filePath": "apps/mobile/src/components/WordCards.tsx",
+      "lineRange": [
+        8,
+        88
+      ],
+      "summary": "WordCards in WordCards.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/WorkingTextStats.tsx",
+      "type": "file",
+      "name": "WorkingTextStats.tsx",
+      "filePath": "apps/mobile/src/components/WorkingTextStats.tsx",
+      "summary": "Themed stats display of character/word counts for the mobile working text.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/src/components/WorkingTextStats.tsx:WorkingTextStats",
+      "type": "function",
+      "name": "WorkingTextStats",
+      "filePath": "apps/mobile/src/components/WorkingTextStats.tsx",
+      "lineRange": [
+        6,
+        26
+      ],
+      "summary": "WorkingTextStats in WorkingTextStats.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/shared/DropdownPicker.tsx",
+      "type": "file",
+      "name": "DropdownPicker.tsx",
+      "filePath": "apps/mobile/src/components/shared/DropdownPicker.tsx",
+      "summary": "Reusable themed dropdown picker for mobile settings using a modal option list.",
+      "tags": [
+        "component",
+        "picker",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/shared/DropdownPicker.tsx:DropdownPicker",
+      "type": "function",
+      "name": "DropdownPicker",
+      "filePath": "apps/mobile/src/components/shared/DropdownPicker.tsx",
+      "lineRange": [
+        17,
+        68
+      ],
+      "summary": "DropdownPicker in DropdownPicker.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "type": "file",
+      "name": "MorseAppContext 2.tsx",
+      "filePath": "apps/mobile/src/context/MorseAppContext 2.tsx",
+      "summary": "Duplicate variant of the mobile Morse application context holding all app state, settings, and actions.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/mobile/src/context/MorseAppContext 2.tsx:MorseAppProvider",
+      "type": "function",
+      "name": "MorseAppProvider",
+      "filePath": "apps/mobile/src/context/MorseAppContext 2.tsx",
+      "lineRange": [
+        179,
+        733
+      ],
+      "summary": "MorseAppProvider in MorseAppContext 2.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/mobile/src/context/MorseAppContext 2.tsx:useMorseApp",
+      "type": "function",
+      "name": "useMorseApp",
+      "filePath": "apps/mobile/src/context/MorseAppContext 2.tsx",
+      "lineRange": [
+        735,
+        739
+      ],
+      "summary": "useMorseApp in MorseAppContext 2.tsx.",
+      "tags": [
+        "hook",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/mobile/src/components/SettingsSection.tsx",
+      "target": "function:apps/mobile/src/components/SettingsSection.tsx:SettingsSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/SettingsSection.tsx",
+      "target": "function:apps/mobile/src/components/SettingsSection.tsx:SettingsSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "target": "function:apps/mobile/src/components/SpeedSettingsBar.tsx:SpeedSettingsBar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "target": "function:apps/mobile/src/components/SpeedSettingsBar.tsx:SpeedSettingsBar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/ThemedNumField.tsx",
+      "target": "function:apps/mobile/src/components/ThemedNumField.tsx:ThemedNumField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/ThemedNumField.tsx",
+      "target": "function:apps/mobile/src/components/ThemedNumField.tsx:ThemedNumField",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/ThemedStatusBar.tsx",
+      "target": "function:apps/mobile/src/components/ThemedStatusBar.tsx:ThemedStatusBar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/ThemedStatusBar.tsx",
+      "target": "function:apps/mobile/src/components/ThemedStatusBar.tsx:ThemedStatusBar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/ToneSettingsSection.tsx",
+      "target": "function:apps/mobile/src/components/ToneSettingsSection.tsx:ToneSettingsSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/ToneSettingsSection.tsx",
+      "target": "function:apps/mobile/src/components/ToneSettingsSection.tsx:ToneSettingsSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/VoiceOptionsSection.tsx:VoiceOptionsSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/VoiceOptionsSection.tsx:VoiceOptionsSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards 2.tsx",
+      "target": "function:apps/mobile/src/components/WordCards 2.tsx:WordCards",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards 2.tsx",
+      "target": "function:apps/mobile/src/components/WordCards 2.tsx:WordCards",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards.tsx",
+      "target": "function:apps/mobile/src/components/WordCards.tsx:WordCards",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards.tsx",
+      "target": "function:apps/mobile/src/components/WordCards.tsx:WordCards",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/WorkingTextStats.tsx",
+      "target": "function:apps/mobile/src/components/WorkingTextStats.tsx:WorkingTextStats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/WorkingTextStats.tsx",
+      "target": "function:apps/mobile/src/components/WorkingTextStats.tsx:WorkingTextStats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/shared/DropdownPicker.tsx",
+      "target": "function:apps/mobile/src/components/shared/DropdownPicker.tsx:DropdownPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/shared/DropdownPicker.tsx",
+      "target": "function:apps/mobile/src/components/shared/DropdownPicker.tsx:DropdownPicker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "function:apps/mobile/src/context/MorseAppContext 2.tsx:MorseAppProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "function:apps/mobile/src/context/MorseAppContext 2.tsx:MorseAppProvider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "function:apps/mobile/src/context/MorseAppContext 2.tsx:useMorseApp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "function:apps/mobile/src/context/MorseAppContext 2.tsx:useMorseApp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/SettingsSection.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/ThemedNumField.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/ThemedStatusBar.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/ToneSettingsSection.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/ToneSettingsSection.tsx",
+      "target": "file:apps/mobile/src/context/MorseAudioContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/ToneSettingsSection.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "target": "file:apps/mobile/src/components/CheckToggle.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "target": "file:apps/mobile/src/components/ThemedNumField.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards 2.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards 2.tsx",
+      "target": "file:apps/mobile/src/hooks/useMorsePlayback.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards 2.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards 2.tsx",
+      "target": "file:apps/mobile/src/utils/words.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards.tsx",
+      "target": "file:apps/mobile/src/context/MorsePlaybackContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WordCards.tsx",
+      "target": "file:apps/mobile/src/utils/words.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WorkingTextStats.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/WorkingTextStats.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/shared/DropdownPicker.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "file:apps/mobile/src/utils/formatTime.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "file:apps/mobile/src/utils/lessonPractice.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "file:apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "file:apps/mobile/src/utils/voiceSpeech.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "file:apps/mobile/src/utils/words.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "file:packages/core/src/index.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/context/MorseAppContext 2.tsx",
+      "target": "file:packages/types/src/index.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

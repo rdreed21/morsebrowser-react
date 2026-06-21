@@ -1,0 +1,54 @@
+{
+  "nodes": [
+    {
+      "id": "config:apps/mobile/assets/lesson-data-version.json",
+      "type": "config",
+      "name": "lesson-data-version.json",
+      "filePath": "apps/mobile/assets/lesson-data-version.json",
+      "summary": "Version stamp for the bundled mobile lesson data, used to detect when cached presets and wordfiles need refreshing.",
+      "tags": ["configuration", "data", "mobile", "versioning"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/assets/presets-manifest.json",
+      "type": "config",
+      "name": "presets-manifest.json",
+      "filePath": "apps/mobile/assets/presets-manifest.json",
+      "summary": "Generated manifest listing all preset asset files bundled with the mobile app so they can be resolved and cached at runtime.",
+      "tags": ["configuration", "data", "mobile", "assets"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:apps/mobile/assets/wordfiles-manifest.json",
+      "type": "config",
+      "name": "wordfiles-manifest.json",
+      "filePath": "apps/mobile/assets/wordfiles-manifest.json",
+      "summary": "Generated manifest enumerating all word-list asset files bundled with the mobile app for offline lesson loading.",
+      "tags": ["configuration", "data", "mobile", "assets"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:apps/mobile/assets/presets-manifest.json",
+      "target": "file:apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/assets/wordfiles-manifest.json",
+      "target": "file:apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/assets/lesson-data-version.json",
+      "target": "file:apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

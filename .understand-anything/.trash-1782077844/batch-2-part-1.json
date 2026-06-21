@@ -1,0 +1,1084 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "type": "file",
+      "name": "FlaggedWordsAccordion.tsx",
+      "filePath": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "summary": "Accordion panel listing words the user flagged during practice, with controls to clear them via the Morse app context.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx:FlaggedWordsAccordion",
+      "type": "function",
+      "name": "FlaggedWordsAccordion",
+      "filePath": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "lineRange": [
+        4,
+        46
+      ],
+      "summary": "FlaggedWordsAccordion in FlaggedWordsAccordion.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "type": "file",
+      "name": "HelpFooter.tsx",
+      "filePath": "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "summary": "Footer component rendering keyboard-shortcut help and project links, reading shortcut definitions from the Morse app context.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/HelpFooter/HelpFooter.tsx:HelpFooter",
+      "type": "function",
+      "name": "HelpFooter",
+      "filePath": "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "lineRange": [
+        18,
+        96
+      ],
+      "summary": "HelpFooter in HelpFooter.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "type": "file",
+      "name": "InputOptionsPanel.tsx",
+      "filePath": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "summary": "Settings accordion panel for text input options, including file upload and raw-text display toggles.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx:InputOptionsPanel",
+      "type": "function",
+      "name": "InputOptionsPanel",
+      "filePath": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "lineRange": [
+        8,
+        115
+      ],
+      "summary": "InputOptionsPanel in InputOptionsPanel.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "type": "file",
+      "name": "LessonOptionsPanel.tsx",
+      "filePath": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "summary": "Large settings accordion panel exposing lesson-generation, Farnsworth timing interval, repeat, trailing-reveal, and noise options.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx:LessonOptionsPanel",
+      "type": "function",
+      "name": "LessonOptionsPanel",
+      "filePath": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "lineRange": [
+        8,
+        367
+      ],
+      "summary": "LessonOptionsPanel in LessonOptionsPanel.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "type": "file",
+      "name": "NoiseSettingsGroup.tsx",
+      "filePath": "apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "summary": "Sub-panel for background-noise type and volume controls used within the lesson options panel.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx:NoiseSettingsGroup",
+      "type": "function",
+      "name": "NoiseSettingsGroup",
+      "filePath": "apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "lineRange": [
+        6,
+        63
+      ],
+      "summary": "NoiseSettingsGroup in NoiseSettingsGroup.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "type": "file",
+      "name": "LessonsPicker.tsx",
+      "filePath": "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "summary": "Lesson selection UI that loads word lists and Koch/LICW lessons, manages presets, and applies deep-link and query-string settings.",
+      "tags": [
+        "component",
+        "picker",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/components/LessonsPicker/LessonsPicker.tsx:LessonsPicker",
+      "type": "function",
+      "name": "LessonsPicker",
+      "filePath": "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "lineRange": [
+        17,
+        297
+      ],
+      "summary": "LessonsPicker in LessonsPicker.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "type": "file",
+      "name": "OutputOptionsPanel.tsx",
+      "filePath": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "summary": "Settings panel controlling card layout, spacing, font size, visibility, and WAV download of the rendered Morse.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx:OutputOptionsPanel",
+      "type": "function",
+      "name": "OutputOptionsPanel",
+      "filePath": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "lineRange": [
+        7,
+        132
+      ],
+      "summary": "OutputOptionsPanel in OutputOptionsPanel.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/PageHeader/PageHeader.tsx",
+      "type": "file",
+      "name": "PageHeader.tsx",
+      "filePath": "apps/web/src/components/PageHeader/PageHeader.tsx",
+      "summary": "Page header with title and dark-mode toggle, driven by the Morse app context.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/components/PageHeader/PageHeader.tsx:PageHeader",
+      "type": "function",
+      "name": "PageHeader",
+      "filePath": "apps/web/src/components/PageHeader/PageHeader.tsx",
+      "lineRange": [
+        4,
+        46
+      ],
+      "summary": "PageHeader in PageHeader.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "type": "file",
+      "name": "RssAccordion.tsx",
+      "filePath": "apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "summary": "Accordion panel for configuring RSS feed playback, including preset feeds, proxy URL, poll/play intervals, and full-article mode.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "rss",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/RssAccordion/RssAccordion.tsx:RssAccordion",
+      "type": "function",
+      "name": "RssAccordion",
+      "filePath": "apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "lineRange": [
+        14,
+        158
+      ],
+      "summary": "RssAccordion in RssAccordion.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "type": "file",
+      "name": "ToneOptionsPanel.tsx",
+      "filePath": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "summary": "Settings panel for tone frequencies (dit/dah), frequency sync, and a test-tone trigger via the audio context.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx:ToneOptionsPanel",
+      "type": "function",
+      "name": "ToneOptionsPanel",
+      "filePath": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "lineRange": [
+        8,
+        107
+      ],
+      "summary": "ToneOptionsPanel in ToneOptionsPanel.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "type": "file",
+      "name": "VoiceOptionsPanel.tsx",
+      "filePath": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "summary": "Settings panel for speech-synthesis voice selection, thinking times, volume, pitch, rate, and buffer length.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "voice",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx:VoiceOptionsPanel",
+      "type": "function",
+      "name": "VoiceOptionsPanel",
+      "filePath": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "lineRange": [
+        7,
+        212
+      ],
+      "summary": "VoiceOptionsPanel in VoiceOptionsPanel.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "type": "file",
+      "name": "WorkingTextStats.tsx",
+      "filePath": "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "summary": "Compact stats display showing character/word counts and playback progress for the current working text.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx:WorkingTextStats",
+      "type": "function",
+      "name": "WorkingTextStats",
+      "filePath": "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "lineRange": [
+        5,
+        30
+      ],
+      "summary": "WorkingTextStats in WorkingTextStats.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/shared/DropdownPicker.test.tsx",
+      "type": "file",
+      "name": "DropdownPicker.test.tsx",
+      "filePath": "apps/web/src/components/shared/DropdownPicker.test.tsx",
+      "summary": "Unit tests for the shared DropdownPicker component covering open/close and selection behavior.",
+      "tags": [
+        "test",
+        "component",
+        "picker",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/shared/DropdownPicker.tsx",
+      "type": "file",
+      "name": "DropdownPicker.tsx",
+      "filePath": "apps/web/src/components/shared/DropdownPicker.tsx",
+      "summary": "Reusable accessible dropdown picker with outside-click handling and option selection callback.",
+      "tags": [
+        "component",
+        "picker",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/shared/DropdownPicker.tsx:DropdownPicker",
+      "type": "function",
+      "name": "DropdownPicker",
+      "filePath": "apps/web/src/components/shared/DropdownPicker.tsx",
+      "lineRange": [
+        13,
+        78
+      ],
+      "summary": "DropdownPicker in DropdownPicker.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "file",
+      "name": "SettingsAccordionItem.tsx",
+      "filePath": "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "summary": "Shared Bootstrap accordion item wrapper that wires open/close state to the Morse app accordion controls.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/web/src/components/shared/SettingsAccordionItem.tsx:SettingsAccordionItem",
+      "type": "function",
+      "name": "SettingsAccordionItem",
+      "filePath": "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "lineRange": [
+        17,
+        60
+      ],
+      "summary": "SettingsAccordionItem in SettingsAccordionItem.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "type": "file",
+      "name": "SettingsCheckToggle.tsx",
+      "filePath": "apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "summary": "Shared labeled checkbox toggle with optional icon used across settings panels.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/components/shared/SettingsCheckToggle.tsx:SettingsCheckToggle",
+      "type": "function",
+      "name": "SettingsCheckToggle",
+      "filePath": "apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "lineRange": [
+        13,
+        36
+      ],
+      "summary": "SettingsCheckToggle in SettingsCheckToggle.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "target": "function:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx:FlaggedWordsAccordion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "target": "function:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx:FlaggedWordsAccordion",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "target": "function:apps/web/src/components/HelpFooter/HelpFooter.tsx:HelpFooter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "target": "function:apps/web/src/components/HelpFooter/HelpFooter.tsx:HelpFooter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx:InputOptionsPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx:InputOptionsPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx:LessonOptionsPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx:LessonOptionsPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "target": "function:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx:NoiseSettingsGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "target": "function:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx:NoiseSettingsGroup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "function:apps/web/src/components/LessonsPicker/LessonsPicker.tsx:LessonsPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "function:apps/web/src/components/LessonsPicker/LessonsPicker.tsx:LessonsPicker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx:OutputOptionsPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx:OutputOptionsPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/PageHeader/PageHeader.tsx",
+      "target": "function:apps/web/src/components/PageHeader/PageHeader.tsx:PageHeader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/PageHeader/PageHeader.tsx",
+      "target": "function:apps/web/src/components/PageHeader/PageHeader.tsx:PageHeader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "target": "function:apps/web/src/components/RssAccordion/RssAccordion.tsx:RssAccordion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "target": "function:apps/web/src/components/RssAccordion/RssAccordion.tsx:RssAccordion",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx:ToneOptionsPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx:ToneOptionsPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx:VoiceOptionsPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "target": "function:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx:VoiceOptionsPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "target": "function:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx:WorkingTextStats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "target": "function:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx:WorkingTextStats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/shared/DropdownPicker.tsx",
+      "target": "function:apps/web/src/components/shared/DropdownPicker.tsx:DropdownPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/shared/DropdownPicker.tsx",
+      "target": "function:apps/web/src/components/shared/DropdownPicker.tsx:DropdownPicker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "target": "function:apps/web/src/components/shared/SettingsAccordionItem.tsx:SettingsAccordionItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "target": "function:apps/web/src/components/shared/SettingsAccordionItem.tsx:SettingsAccordionItem",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "target": "function:apps/web/src/components/shared/SettingsCheckToggle.tsx:SettingsCheckToggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "target": "function:apps/web/src/components/shared/SettingsCheckToggle.tsx:SettingsCheckToggle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/HelpFooter/HelpFooter.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/components/shared/DropdownPicker.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/context/PlaybackStateContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/hooks/useLessonDeepLinks.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/hooks/usePresets.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/utils/lessonPractice.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/utils/lessonQueryString.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "target": "file:apps/web/src/hooks/useWavDownload.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/PageHeader/PageHeader.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/PageHeader/PageHeader.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "target": "file:apps/web/src/hooks/useRssPlugin.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/RssAccordion/RssAccordion.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "target": "file:apps/web/src/context/MorseAudioContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "target": "file:apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "target": "file:apps/web/src/context/PlaybackStateContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/shared/DropdownPicker.test.tsx",
+      "target": "file:apps/web/src/components/shared/DropdownPicker.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "target": "file:apps/web/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/shared/SettingsAccordionItem.tsx",
+      "target": "file:apps/web/src/utils/settingsAccordion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/shared/SettingsCheckToggle.tsx",
+      "target": "file:apps/web/src/utils/morseImages.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/web/src/components/shared/DropdownPicker.tsx",
+      "target": "file:apps/web/src/components/shared/DropdownPicker.test.tsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

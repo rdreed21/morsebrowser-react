@@ -1,0 +1,42 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/mobile/MOBILE_STATUS.md",
+      "language": "markdown",
+      "sizeLines": 264,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "apps/mobile/app.json",
+      "language": "json",
+      "sizeLines": 55,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/eas.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/package.json",
+      "language": "json",
+      "sizeLines": 53,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/mobile/tsconfig.json",
+      "language": "json",
+      "sizeLines": 10,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "apps/mobile/MOBILE_STATUS.md": [],
+    "apps/mobile/app.json": [],
+    "apps/mobile/eas.json": [],
+    "apps/mobile/package.json": [],
+    "apps/mobile/tsconfig.json": []
+  }
+}

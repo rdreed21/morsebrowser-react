@@ -1,0 +1,31 @@
+{
+  "projectRoot": "/Users/rdreed/Documents/GitHub/morsebrowser-react",
+  "batchFiles": [
+    {
+      "path": "apps/web/vite-presets-plugin.ts",
+      "language": "typescript",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/vite-wordfiles-plugin.ts",
+      "language": "typescript",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/web/vite.config.ts",
+      "language": "typescript",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "apps/web/vite-presets-plugin.ts": [],
+    "apps/web/vite-wordfiles-plugin.ts": [],
+    "apps/web/vite.config.ts": [
+      "apps/web/vite-presets-plugin.ts",
+      "apps/web/vite-wordfiles-plugin.ts"
+    ]
+  }
+}

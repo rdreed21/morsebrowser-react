@@ -1,0 +1,56 @@
+{
+  "nodes": [
+    {
+      "id": "config:apps/mobile/android/build.gradle",
+      "type": "config",
+      "name": "build.gradle",
+      "filePath": "apps/mobile/android/build.gradle",
+      "summary": "Root Gradle build script for the Android project defining buildscript repositories, SDK versions, and the React Native / Expo Gradle plugins.",
+      "tags": ["configuration", "android", "build-system", "gradle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/android/gradle.properties",
+      "type": "config",
+      "name": "gradle.properties",
+      "filePath": "apps/mobile/android/gradle.properties",
+      "summary": "Gradle project properties controlling JVM memory, AndroidX, Hermes/New Architecture flags, and other React Native build toggles.",
+      "tags": ["configuration", "android", "build-system", "gradle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/android/gradlew.bat",
+      "type": "file",
+      "name": "gradlew.bat",
+      "filePath": "apps/mobile/android/gradlew.bat",
+      "summary": "Windows batch wrapper script that bootstraps and launches the Gradle build for the Android project.",
+      "tags": ["script", "build-system", "gradle", "windows"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:apps/mobile/android/settings.gradle",
+      "type": "config",
+      "name": "settings.gradle",
+      "filePath": "apps/mobile/android/settings.gradle",
+      "summary": "Gradle settings file registering the app module and applying Expo/React Native autolinking and plugin management.",
+      "tags": ["configuration", "android", "build-system", "gradle"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:apps/mobile/android/settings.gradle",
+      "target": "config:apps/mobile/android/build.gradle",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/android/build.gradle",
+      "target": "config:apps/mobile/android/gradle.properties",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

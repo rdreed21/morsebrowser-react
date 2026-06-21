@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "document:apps/mobile/MOBILE_STATUS.md",
+      "type": "document",
+      "name": "MOBILE_STATUS.md",
+      "filePath": "apps/mobile/MOBILE_STATUS.md",
+      "summary": "Status report for the Expo/React Native iOS app, covering background-audio readiness, remaining real-device verification, and feature parity with the web app.",
+      "tags": ["documentation", "mobile", "status", "ios"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:apps/mobile/app.json",
+      "type": "config",
+      "name": "app.json",
+      "filePath": "apps/mobile/app.json",
+      "summary": "Expo application manifest defining the mobile app name, bundle identifiers, icons, plugins, and iOS UIBackgroundModes for background audio.",
+      "tags": ["configuration", "expo", "mobile", "ios"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/eas.json",
+      "type": "config",
+      "name": "eas.json",
+      "filePath": "apps/mobile/eas.json",
+      "summary": "EAS Build configuration defining build profiles for the mobile app's cloud builds.",
+      "tags": ["configuration", "eas", "build-system", "mobile"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "apps/mobile/package.json",
+      "summary": "npm manifest for the Expo/React Native mobile app declaring dependencies (including react-native-audio-api and @morsebrowser/core) and build/sync scripts.",
+      "tags": ["configuration", "mobile", "build-system", "expo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "apps/mobile/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the mobile app, extending the Expo base tsconfig.",
+      "tags": ["configuration", "typescript", "mobile", "build-system"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:apps/mobile/tsconfig.json",
+      "target": "file:apps/mobile/app/_layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/package.json",
+      "target": "file:apps/mobile/app/_layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/app.json",
+      "target": "file:apps/mobile/app/_layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:apps/mobile/MOBILE_STATUS.md",
+      "target": "file:apps/mobile/src/audio/audioSession.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

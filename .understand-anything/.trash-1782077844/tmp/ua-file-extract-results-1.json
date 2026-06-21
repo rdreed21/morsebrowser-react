@@ -1,0 +1,1745 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 31,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/web/src/App.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "App",
+          "startLine": 15,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "App",
+          "line": 15,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 13,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/HelpFooter/HelpFooter.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "renderFooter",
+          "startLine": 6,
+          "endLine": 12,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderFooter",
+          "callee": "render",
+          "lineNumber": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "renderPanel",
+          "startLine": 12,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "openInputOptions",
+          "startLine": 20,
+          "endLine": 22,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderPanel",
+          "callee": "render",
+          "lineNumber": 13
+        },
+        {
+          "caller": "openInputOptions",
+          "callee": "fireEvent.click",
+          "lineNumber": 21
+        },
+        {
+          "caller": "openInputOptions",
+          "callee": "screen.getByRole",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "renderAccordion",
+          "startLine": 11,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "openLessonOptions",
+          "startLine": 19,
+          "endLine": 24,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderAccordion",
+          "callee": "render",
+          "lineNumber": 12
+        },
+        {
+          "caller": "openLessonOptions",
+          "callee": "fireEvent.click",
+          "lineNumber": 20
+        },
+        {
+          "caller": "openLessonOptions",
+          "callee": "screen.getByRole",
+          "lineNumber": 20
+        },
+        {
+          "caller": "openLessonOptions",
+          "callee": "document.getElementById",
+          "lineNumber": 21
+        },
+        {
+          "caller": "openLessonOptions",
+          "callee": "within",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "renderAccordion",
+          "startLine": 11,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderAccordion",
+          "callee": "render",
+          "lineNumber": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "renderAccordion",
+          "startLine": 25,
+          "endLine": 33,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderAccordion",
+          "callee": "render",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/PageHeader/PageHeader.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "renderHeader",
+          "startLine": 6,
+          "endLine": 12,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderHeader",
+          "callee": "render",
+          "lineNumber": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "renderControls",
+          "startLine": 7,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderControls",
+          "callee": "render",
+          "lineNumber": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 125,
+      "nonEmptyLines": 120,
+      "functions": [
+        {
+          "name": "PlaybackControls",
+          "startLine": 6,
+          "endLine": 125,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PlaybackControls",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PlaybackControls",
+          "callee": "useMorseApp",
+          "lineNumber": 11
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "usePlaybackState",
+          "lineNumber": 12
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 16
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 44
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 59
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 65
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "setHideList",
+          "lineNumber": 76
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 84
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "shuffleWords",
+          "lineNumber": 93
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 97
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 107
+        },
+        {
+          "caller": "PlaybackControls",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 118
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 83,
+      "callGraph": [
+        {
+          "caller": "CollapseOnPlay",
+          "callee": "useMorseApp",
+          "lineNumber": 43
+        },
+        {
+          "caller": "AutoCloseHarness",
+          "callee": "useMorseApp",
+          "lineNumber": 69
+        },
+        {
+          "caller": "AutoCloseHarness",
+          "callee": "setAutoCloseLessonAccordion",
+          "lineNumber": 72
+        },
+        {
+          "caller": "AutoCloseHarness",
+          "callee": "closeLessonAccordionIfAutoClosing",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "SettingsAccordion",
+          "startLine": 9,
+          "endLine": 23,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SettingsAccordion",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "renderBar",
+          "startLine": 9,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderBar",
+          "callee": "render",
+          "lineNumber": 10
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "useMorseApp",
+          "lineNumber": 38
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "usePlaybackActions",
+          "lineNumber": 39
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "useRef",
+          "lineNumber": 40
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "useEffect",
+          "lineNumber": 42
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "app.setSpeedInterval",
+          "lineNumber": 45
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "app.setIntervalTimingsText",
+          "lineNumber": 46
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "app.setIntervalWpmText",
+          "lineNumber": 47
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "app.setIntervalFwpmText",
+          "lineNumber": 48
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "setIsPlaying",
+          "lineNumber": 49
+        },
+        {
+          "caller": "IntervalHarness",
+          "callee": "setRunningPlayMs",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 113,
+      "nonEmptyLines": 110,
+      "functions": [
+        {
+          "name": "SpeedSettingsBar",
+          "startLine": 6,
+          "endLine": 113,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SpeedSettingsBar",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "useMorseApp",
+          "lineNumber": 12
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "usePlaybackState",
+          "lineNumber": 13
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "useIntervalTimingConfig",
+          "lineNumber": 14
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "intervalTimingsText.trim",
+          "lineNumber": 18
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 27
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "setCharWPM",
+          "lineNumber": 41
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "Number",
+          "lineNumber": 41
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 64
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "setSyncWpm",
+          "lineNumber": 65
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "setEffectiveWPM",
+          "lineNumber": 78
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "Number",
+          "lineNumber": 78
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "getMorseImageSrc",
+          "lineNumber": 96
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "setKoVolume",
+          "lineNumber": 107
+        },
+        {
+          "caller": "SpeedSettingsBar",
+          "callee": "Number",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "renderAccordion",
+          "startLine": 26,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderAccordion",
+          "callee": "render",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "openVoiceOptions",
+          "startLine": 11,
+          "endLine": 16,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "openVoiceOptions",
+          "callee": "fireEvent.click",
+          "lineNumber": 12
+        },
+        {
+          "caller": "openVoiceOptions",
+          "callee": "screen.getByRole",
+          "lineNumber": 12
+        },
+        {
+          "caller": "openVoiceOptions",
+          "callee": "document.getElementById",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/WordCards/WordCards.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "renderCards",
+          "startLine": 17,
+          "endLine": 25,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderCards",
+          "callee": "render",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/WordCards/WordCards.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "WordCards",
+          "startLine": 6,
+          "endLine": 49,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "WordCards",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "WordCards",
+          "callee": "useMorseApp",
+          "lineNumber": 10
+        },
+        {
+          "caller": "WordCards",
+          "callee": "usePlaybackState",
+          "lineNumber": 11
+        },
+        {
+          "caller": "WordCards",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 12
+        },
+        {
+          "caller": "WordCards",
+          "callee": "words.map",
+          "lineNumber": 19
+        },
+        {
+          "caller": "WordCards",
+          "callee": "getDisplayWord",
+          "lineNumber": 25
+        },
+        {
+          "caller": "WordCards",
+          "callee": "'X'.repeat",
+          "lineNumber": 29
+        },
+        {
+          "caller": "WordCards",
+          "callee": "label.replace(/\\r/g, '').replace(/\\n/g, '').trim",
+          "lineNumber": 29
+        },
+        {
+          "caller": "WordCards",
+          "callee": "label.replace(/\\r/g, '').replace",
+          "lineNumber": 29
+        },
+        {
+          "caller": "WordCards",
+          "callee": "label.replace",
+          "lineNumber": 29
+        },
+        {
+          "caller": "WordCards",
+          "callee": "addFlaggedWord",
+          "lineNumber": 38
+        },
+        {
+          "caller": "WordCards",
+          "callee": "setWordIndex",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/components/shared/ErrorBoundary.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 33,
+      "classes": [
+        {
+          "name": "ErrorBoundary",
+          "startLine": 17,
+          "endLine": 39,
+          "methods": [
+            "getDerivedStateFromError",
+            "componentDidCatch",
+            "render"
+          ],
+          "properties": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ErrorBoundary",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "componentDidCatch",
+          "callee": "console.error",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "apps/web/src/context/MorseAudioContext.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "MorseAudioProvider",
+          "startLine": 11,
+          "endLine": 20,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "useMorseAudio",
+          "startLine": 22,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MorseAudioProvider",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "useMorseAudio",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MorseAudioProvider",
+          "callee": "useMorseApp",
+          "lineNumber": 12
+        },
+        {
+          "caller": "MorseAudioProvider",
+          "callee": "useIntervalTimingConfig",
+          "lineNumber": 13
+        },
+        {
+          "caller": "MorseAudioProvider",
+          "callee": "useMorsePlayer",
+          "lineNumber": 14
+        },
+        {
+          "caller": "useMorseAudio",
+          "callee": "useContext",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/context/MorsePlaybackContext.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "MorsePlaybackProvider",
+          "startLine": 7,
+          "endLine": 15,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "useMorsePlaybackControls",
+          "startLine": 17,
+          "endLine": 21,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MorsePlaybackProvider",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "useMorsePlaybackControls",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MorsePlaybackProvider",
+          "callee": "useMorsePlayback",
+          "lineNumber": 8
+        },
+        {
+          "caller": "MorsePlaybackProvider",
+          "callee": "useMorseShortcutKeys",
+          "lineNumber": 9
+        },
+        {
+          "caller": "useMorsePlaybackControls",
+          "callee": "useContext",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/context/PlaybackStateContext.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "fireSetCurrentIndex",
+          "startLine": 8,
+          "endLine": 8,
+          "params": []
+        },
+        {
+          "name": "fireSetRunningPlayMs",
+          "startLine": 9,
+          "endLine": 9,
+          "params": []
+        },
+        {
+          "name": "Driver",
+          "startLine": 11,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "AppProbe",
+          "startLine": 18,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "PlaybackProbe",
+          "startLine": 25,
+          "endLine": 35,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Driver",
+          "callee": "usePlaybackActions",
+          "lineNumber": 12
+        },
+        {
+          "caller": "AppProbe",
+          "callee": "useMorseApp",
+          "lineNumber": 19
+        },
+        {
+          "caller": "AppProbe",
+          "callee": "useRef",
+          "lineNumber": 20
+        },
+        {
+          "caller": "PlaybackProbe",
+          "callee": "usePlaybackState",
+          "lineNumber": 26
+        },
+        {
+          "caller": "PlaybackProbe",
+          "callee": "useRef",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/context/PlaybackStateContext.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "PlaybackStateProvider",
+          "startLine": 37,
+          "endLine": 73,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "usePlaybackActions",
+          "startLine": 76,
+          "endLine": 80,
+          "params": []
+        },
+        {
+          "name": "usePlaybackState",
+          "startLine": 83,
+          "endLine": 94,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PlaybackStateProvider",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "usePlaybackActions",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "usePlaybackState",
+          "line": 83,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useState",
+          "lineNumber": 38
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useState",
+          "lineNumber": 39
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useState",
+          "lineNumber": 40
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useState",
+          "lineNumber": 41
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useState",
+          "lineNumber": 42
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useState",
+          "lineNumber": 43
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useMemo",
+          "lineNumber": 45
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "formatPlayTime",
+          "lineNumber": 45
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useMemo",
+          "lineNumber": 47
+        },
+        {
+          "caller": "PlaybackStateProvider",
+          "callee": "useMemo",
+          "lineNumber": 57
+        },
+        {
+          "caller": "usePlaybackActions",
+          "callee": "useContext",
+          "lineNumber": 77
+        },
+        {
+          "caller": "usePlaybackState",
+          "callee": "useContext",
+          "lineNumber": 84
+        },
+        {
+          "caller": "usePlaybackState",
+          "callee": "useContext",
+          "lineNumber": 85
+        },
+        {
+          "caller": "usePlaybackState",
+          "callee": "useMemo",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/context/settingsCookies.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "SettingsHarness",
+          "startLine": 12,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "renderApp",
+          "startLine": 26,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "clearCookies",
+          "startLine": 34,
+          "endLine": 39,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SettingsHarness",
+          "callee": "useMorseApp",
+          "lineNumber": 13
+        },
+        {
+          "caller": "SettingsHarness",
+          "callee": "app.setProxyUrl",
+          "lineNumber": 16
+        },
+        {
+          "caller": "SettingsHarness",
+          "callee": "app.setTrailFinal",
+          "lineNumber": 17
+        },
+        {
+          "caller": "SettingsHarness",
+          "callee": "app.setRssFeedUrl",
+          "lineNumber": 18
+        },
+        {
+          "caller": "renderApp",
+          "callee": "render",
+          "lineNumber": 27
+        },
+        {
+          "caller": "clearCookies",
+          "callee": "document.cookie.split(';').forEach",
+          "lineNumber": 35
+        },
+        {
+          "caller": "clearCookies",
+          "callee": "document.cookie.split",
+          "lineNumber": 35
+        },
+        {
+          "caller": "clearCookies",
+          "callee": "c.split('=')[0]?.trim",
+          "lineNumber": 36
+        },
+        {
+          "caller": "clearCookies",
+          "callee": "c.split",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/playbackPauseResume.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 160,
+      "nonEmptyLines": 139,
+      "functions": [
+        {
+          "name": "Harness",
+          "startLine": 36,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "renderHarness",
+          "startLine": 61,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "num",
+          "startLine": 71,
+          "endLine": 71,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "text",
+          "startLine": 72,
+          "endLine": 72,
+          "params": [
+            "id"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Harness",
+          "callee": "useMorseApp",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Harness",
+          "callee": "usePlaybackState",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Harness",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Harness",
+          "callee": "useRef",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Harness",
+          "callee": "useEffect",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Harness",
+          "callee": "app.setShowingText",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Harness",
+          "callee": "String",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Harness",
+          "callee": "String",
+          "lineNumber": 54
+        },
+        {
+          "caller": "renderHarness",
+          "callee": "render",
+          "lineNumber": 62
+        },
+        {
+          "caller": "num",
+          "callee": "Number",
+          "lineNumber": 71
+        },
+        {
+          "caller": "num",
+          "callee": "screen.getByTestId",
+          "lineNumber": 71
+        },
+        {
+          "caller": "text",
+          "callee": "screen.getByTestId",
+          "lineNumber": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useMorsePlayback.test.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 280,
+      "nonEmptyLines": 242,
+      "functions": [
+        {
+          "name": "SeedAndPlay",
+          "startLine": 37,
+          "endLine": 50,
+          "params": [
+            "{ text = 'A' }"
+          ]
+        },
+        {
+          "name": "renderPlayback",
+          "startLine": 52,
+          "endLine": 60,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SeedAndPlay",
+          "callee": "useMorseApp",
+          "lineNumber": 38
+        },
+        {
+          "caller": "SeedAndPlay",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 39
+        },
+        {
+          "caller": "SeedAndPlay",
+          "callee": "useEffect",
+          "lineNumber": 41
+        },
+        {
+          "caller": "SeedAndPlay",
+          "callee": "app.setShowingText",
+          "lineNumber": 42
+        },
+        {
+          "caller": "renderPlayback",
+          "callee": "render",
+          "lineNumber": 53
+        },
+        {
+          "caller": "SeekHarness",
+          "callee": "useMorseApp",
+          "lineNumber": 96
+        },
+        {
+          "caller": "SeekHarness",
+          "callee": "usePlaybackState",
+          "lineNumber": 97
+        },
+        {
+          "caller": "SeekHarness",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 98
+        },
+        {
+          "caller": "SeekHarness",
+          "callee": "useEffect",
+          "lineNumber": 100
+        },
+        {
+          "caller": "SeekHarness",
+          "callee": "app.setShowingText",
+          "lineNumber": 101
+        },
+        {
+          "caller": "SeekHarness",
+          "callee": "setWordIndex",
+          "lineNumber": 107
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "useMorseApp",
+          "lineNumber": 147
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 148
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "useRef",
+          "lineNumber": 149
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "useEffect",
+          "lineNumber": 151
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "app.setShowingText",
+          "lineNumber": 154
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "app.setVoiceEnabled",
+          "lineNumber": 155
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "app.setVoiceBufferMaxLength",
+          "lineNumber": 156
+        },
+        {
+          "caller": "VoiceHarness",
+          "callee": "app.setVoiceThinkingTime",
+          "lineNumber": 157
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "useMorseApp",
+          "lineNumber": 184
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "usePlaybackState",
+          "lineNumber": 185
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 186
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "useRef",
+          "lineNumber": 187
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "useEffect",
+          "lineNumber": 189
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "app.setShowingText",
+          "lineNumber": 192
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "app.setTrailReveal",
+          "lineNumber": 193
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "app.setTrailPreDelay",
+          "lineNumber": 194
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "app.setTrailPostDelay",
+          "lineNumber": 195
+        },
+        {
+          "caller": "TrailHarness",
+          "callee": "app.setCardSpace",
+          "lineNumber": 196
+        },
+        {
+          "caller": "LoopHarness",
+          "callee": "useMorseApp",
+          "lineNumber": 240
+        },
+        {
+          "caller": "LoopHarness",
+          "callee": "useMorsePlaybackControls",
+          "lineNumber": 241
+        },
+        {
+          "caller": "LoopHarness",
+          "callee": "useRef",
+          "lineNumber": 242
+        },
+        {
+          "caller": "LoopHarness",
+          "callee": "useEffect",
+          "lineNumber": 244
+        },
+        {
+          "caller": "LoopHarness",
+          "callee": "app.setShowingText",
+          "lineNumber": 247
+        },
+        {
+          "caller": "LoopHarness",
+          "callee": "app.setTrailFinal",
+          "lineNumber": 248
+        },
+        {
+          "caller": "LoopHarness",
+          "callee": "app.toggleLoop",
+          "lineNumber": 249
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useTimingConfig.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "useIntervalTimingConfig",
+          "startLine": 13,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useIntervalTimingConfig",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useIntervalTimingConfig",
+          "callee": "useMorseApp",
+          "lineNumber": 17
+        },
+        {
+          "caller": "useIntervalTimingConfig",
+          "callee": "usePlaybackState",
+          "lineNumber": 18
+        },
+        {
+          "caller": "useIntervalTimingConfig",
+          "callee": "intervalTimingsText.trim",
+          "lineNumber": 20
+        },
+        {
+          "caller": "useIntervalTimingConfig",
+          "callee": "useMemo",
+          "lineNumber": 23
+        },
+        {
+          "caller": "useIntervalTimingConfig",
+          "callee": "getApplicableSpeed",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/main.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/test-utils.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "StateProviders",
+          "startLine": 12,
+          "endLine": 20,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "AllProviders",
+          "startLine": 22,
+          "endLine": 34,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "renderWithMorseProviders",
+          "startLine": 36,
+          "endLine": 41,
+          "params": [
+            "ui",
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StateProviders",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "AllProviders",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "renderWithMorseProviders",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderWithMorseProviders",
+          "callee": "render",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/formatTime.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "formatPlayTime",
+          "startLine": 7,
+          "endLine": 12,
+          "params": [
+            "ms"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "formatPlayTime",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "formatPlayTime",
+          "callee": "Math.floor",
+          "lineNumber": 8
+        },
+        {
+          "caller": "formatPlayTime",
+          "callee": "Math.floor",
+          "lineNumber": 9
+        },
+        {
+          "caller": "formatPlayTime",
+          "callee": "String",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

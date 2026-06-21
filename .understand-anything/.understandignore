@@ -1,0 +1,71 @@
+# .understandignore — patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+# Lines below are suggestions — uncomment to activate.
+# Use ! prefix to force-include something excluded by defaults.
+#
+# Built-in defaults (always excluded unless negated):
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, etc.
+#
+
+# --- Bulk content/data (excluded — repetitive records, not architecture) ---
+apps/mobile/assets/wordfiles/
+apps/mobile/assets/presets/
+packages/core/src/presets/
+
+# --- Binary / non-analyzable assets ---
+*.webp
+*.png
+*.jpg
+*.jar
+*.keystore
+*.jks
+
+# --- From .gitignore (uncomment to exclude) ---
+
+# *.tsbuildinfo
+# .expo/
+# *.jsbundle
+# **/ios/Pods/
+# **/ios/build/
+# **/android/build/
+# **/android/.gradle/
+# **/android/app/build/
+# .eslintcache
+# visual-diff-output/
+# apps/web/dummy-non-existing-folder/
+# npm-debug.log*
+# .env
+# .env.local
+# *.keystore
+# !apps/mobile/android/app/debug.keystore
+# *.jks
+# *.p8
+# *.p12
+# *.mobileprovision
+# *.pem
+# .DS_Store
+# **/.claude/settings.local.json
+# **/.claude/scheduled_tasks.lock
+
+# --- Detected directories (uncomment to exclude) ---
+
+# docs/
+
+# --- Test file patterns (uncomment to exclude) ---
+
+# JS / TS
+# *.test.*
+# *.spec.*
+# *.snap
+# C# / .NET
+# **/*Tests.cs
+# **/*Test.cs
+# **/*Fixture.cs
+# **/*.Tests.csproj
+# Java / Kotlin
+# **/src/test/**
+# **/*Test.java
+# **/*IT.java
+# **/*Spec.kt
+# Go
+# **/*_test.go

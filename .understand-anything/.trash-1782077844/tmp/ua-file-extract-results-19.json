@@ -1,0 +1,451 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docs/archived/AGENT_PROMPTS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 194,
+      "nonEmptyLines": 146,
+      "sections": [
+        {
+          "heading": "Agent Prompts — Morsebrowser React Migration",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Agent 1 — Audit Agent",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Agent 2 — Core Engine Agent",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Agent 3 — Web UI Agent",
+          "level": 2,
+          "line": 68
+        },
+        {
+          "heading": "Agent 4 — Mobile Agent",
+          "level": 2,
+          "line": 97
+        },
+        {
+          "heading": "Running Multiple Agents (Claude Code CLI)",
+          "level": 2,
+          "line": 135
+        },
+        {
+          "heading": "Cursor Setup",
+          "level": 2,
+          "line": 153
+        },
+        {
+          "heading": "Background Audio Checklist",
+          "level": 2,
+          "line": 166
+        },
+        {
+          "heading": "Timing Verification Checklist",
+          "level": 2,
+          "line": 182
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "docs/archived/COMPLETE_STEPS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 79,
+      "nonEmptyLines": 63,
+      "sections": [
+        {
+          "heading": "Step 1 — bootstrap expo so SDK version is known",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "Step 2 — let expo install all compatible versions",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "Tab 2 — Web UI  (or open this folder in Cursor)",
+          "level": 1,
+          "line": 48
+        },
+        {
+          "heading": "Tab 3 — Mobile (start after web is stable)",
+          "level": 1,
+          "line": 52
+        },
+        {
+          "heading": "Opens at http://localhost:5173",
+          "level": 1,
+          "line": 59
+        },
+        {
+          "heading": "Terminal B — run the diff",
+          "level": 1,
+          "line": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "docs/archived/COMPONENT_MAP.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 1314,
+      "nonEmptyLines": 1187,
+      "sections": [
+        {
+          "heading": "COMPONENT_MAP.md — Morsebrowser KO → React Migration Bible",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Migration Status (updated 2026-06-06)",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Test counts",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Core engine (`packages/core/`) — **COMPLETE**",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "Web UI (`apps/web/`) — **IN PROGRESS**",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "Behavior still missing (web)",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Recommended next steps (web)",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "Commands",
+          "level": 3,
+          "line": 78
+        },
+        {
+          "heading": "0. Source-of-truth file locations (paths differ from the brief)",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "1. View-model object graph (what each React store/context must replace)",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "1A. Views / Sections → React components",
+          "level": 2,
+          "line": 137
+        },
+        {
+          "heading": "2. Every `data-bind` in the HTML (with Bootstrap classes)",
+          "level": 2,
+          "line": 160
+        },
+        {
+          "heading": "2.1 Header (lines 45–67)",
+          "level": 3,
+          "line": 165
+        },
+        {
+          "heading": "2.2 Basic speed settings (lines 70–103) — `section.speed-settings-section`",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "2.3 Accordion shell (lines 106–107)",
+          "level": 3,
+          "line": 190
+        },
+        {
+          "heading": "2.4 LICW Lessons accordion (lines 109–238) — **open by default** (`collapse show`)",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "2.5 Lesson Options accordion (lines 239–506) — collapsed",
+          "level": 3,
+          "line": 214
+        },
+        {
+          "heading": "2.6 Voice Options accordion (lines 508–771) — collapsed",
+          "level": 3,
+          "line": 261
+        },
+        {
+          "heading": "2.7 Tone Options accordion (lines 772–813) — collapsed",
+          "level": 3,
+          "line": 281
+        },
+        {
+          "heading": "2.8 Input Options accordion (lines 815–871) — collapsed",
+          "level": 3,
+          "line": 290
+        },
+        {
+          "heading": "2.9 Output Options accordion (lines 873–945) — collapsed",
+          "level": 3,
+          "line": 302
+        },
+        {
+          "heading": "2.10 RSS + Noise component slots (lines 947–957)",
+          "level": 3,
+          "line": 315
+        },
+        {
+          "heading": "2.11 Working-text stats (lines 963–985) — `section.working-text-section`",
+          "level": 3,
+          "line": 319
+        },
+        {
+          "heading": "2.12 Playback controls (lines 987–1057) — `section.playback-controls`",
+          "level": 3,
+          "line": 327
+        },
+        {
+          "heading": "2.13 Card / word list (lines 1060–1075) — `section.col`",
+          "level": 3,
+          "line": 346
+        },
+        {
+          "heading": "2.14 Help footer (lines 1077–1127) — `footer#page-help-footer`",
+          "level": 3,
+          "line": 356
+        },
+        {
+          "heading": "2.15 A11y live region (lines 1130–1132)",
+          "level": 3,
+          "line": 365
+        },
+        {
+          "heading": "2.16 KO component templates (not in `template.html` body)",
+          "level": 3,
+          "line": 368
+        },
+        {
+          "heading": "3. Every `ko.observable` / `ko.computed` (state inventory)",
+          "level": 2,
+          "line": 411
+        },
+        {
+          "heading": "3.1 `MorseViewModel` (`src/morse/morse.ts`)",
+          "level": 3,
+          "line": 413
+        },
+        {
+          "heading": "3.2 `SpeedSettings` (`settings/speedSettings.ts`)",
+          "level": 3,
+          "line": 418
+        },
+        {
+          "heading": "3.3 `FrequencySettings` (`settings/frequencySettings.ts`)",
+          "level": 3,
+          "line": 423
+        },
+        {
+          "heading": "3.4 `MiscSettings` (`settings/miscSettings.ts`)",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "3.5 `MorseLessonPlugin` (`lessons/morseLessonPlugin.ts`)",
+          "level": 3,
+          "line": 429
+        },
+        {
+          "heading": "3.6 `MorseVoice` (`voice/MorseVoice.ts`)",
+          "level": 3,
+          "line": 434
+        },
+        {
+          "heading": "3.7 `MorseRssPlugin` (`rss/morseRssPlugin.ts`)",
+          "level": 3,
+          "line": 439
+        },
+        {
+          "heading": "3.8 `FlaggedWords` (`flaggedWords/flaggedWords.ts`)",
+          "level": 3,
+          "line": 442
+        },
+        {
+          "heading": "3.9 Custom KO extenders (`koextenders/morseExtenders.ts`) — must become React effects/middleware",
+          "level": 3,
+          "line": 445
+        },
+        {
+          "heading": "4. Audio / tone generation — **port to `morseScheduler.ts`, never `setTimeout`**",
+          "level": 2,
+          "line": 451
+        },
+        {
+          "heading": "4.1 Façade",
+          "level": 3,
+          "line": 453
+        },
+        {
+          "heading": "4.2 Tone-generation points — `SmoothedSoundsPlayer` (live Web Audio) **[PRIMARY PATH]**",
+          "level": 3,
+          "line": 458
+        },
+        {
+          "heading": "4.3 Tone-generation points — `MorseWavBufferPlayer` (decoded PCM) **[SECONDARY/legacy path, smoothing off]**",
+          "level": 3,
+          "line": 479
+        },
+        {
+          "heading": "4.4 Sample/WAV synthesis (the math behind the samples)",
+          "level": 3,
+          "line": 484
+        },
+        {
+          "heading": "4.5 Noise generation (both soundmakers)",
+          "level": 3,
+          "line": 489
+        },
+        {
+          "heading": "4.6 Test tone & download (entry points)",
+          "level": 3,
+          "line": 492
+        },
+        {
+          "heading": "4.7 ⚠️ `setTimeout` usage that the React port must reconcile with `morseScheduler.ts`",
+          "level": 3,
+          "line": 496
+        },
+        {
+          "heading": "4.8 morse-pro engine files (`src/morse-pro/`) — legacy library",
+          "level": 3,
+          "line": 503
+        },
+        {
+          "heading": "5. Bootstrap classes used (preserve EXACTLY in React)",
+          "level": 2,
+          "line": 508
+        },
+        {
+          "heading": "5.1 Bootstrap 5 classes (from `template.html` + 4 component templates)",
+          "level": 3,
+          "line": 510
+        },
+        {
+          "heading": "5.2 Fork custom CSS classes (in `src/css/style.css`) — **the fork's UI, preserve EXACTLY**",
+          "level": 3,
+          "line": 523
+        },
+        {
+          "heading": "6. Lesson / word files",
+          "level": 2,
+          "line": 540
+        },
+        {
+          "heading": "6.1 `src/wordfiles/` — 634 files total",
+          "level": 3,
+          "line": 542
+        },
+        {
+          "heading": "6.2 Presets (`src/presets/`) — drive the PRESETS picker",
+          "level": 3,
+          "line": 549
+        },
+        {
+          "heading": "6.3 Other config inputs",
+          "level": 3,
+          "line": 556
+        },
+        {
+          "heading": "6.4 `srd/wordfiles/` (brief path — not the corpus)",
+          "level": 3,
+          "line": 561
+        },
+        {
+          "heading": "6.5 Complete file inventory — `src/wordfiles/` (634 files)",
+          "level": 3,
+          "line": 564
+        },
+        {
+          "heading": "6B. Cookie keys (`js-cookie`, 365-day expiry)",
+          "level": 2,
+          "line": 1209
+        },
+        {
+          "heading": "6C. Event handlers (`click` / `event` / `onclick` in templates + view model)",
+          "level": 2,
+          "line": 1243
+        },
+        {
+          "heading": "7. Keyboard shortcuts (registered in `shortcutKeys/morseShortcutKeys.ts`)",
+          "level": 2,
+          "line": 1282
+        },
+        {
+          "heading": "8. Key behavioral contracts the React port must preserve",
+          "level": 2,
+          "line": 1301
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 60
+      }
+    },
+    {
+      "path": "docs/archived/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "sections": [
+        {
+          "heading": "Archived docs",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    }
+  ]
+}

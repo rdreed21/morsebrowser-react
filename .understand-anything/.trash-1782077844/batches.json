@@ -1,0 +1,4850 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 249,
+  "totalBatches": 22,
+  "exportsByPath": {
+    ".DS_Store": [],
+    ".gitattributes": [],
+    ".nvmrc": [],
+    ".understand-anything/.understandignore": [],
+    "apps/.DS_Store": [],
+    "apps/mobile/.npmrc": [],
+    "apps/mobile/android/app/proguard-rules.pro": [],
+    "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt": [
+      "onCreate",
+      "getMainComponentName",
+      "createReactActivityDelegate",
+      "invokeDefaultOnBackPressed",
+      "MainActivity"
+    ],
+    "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt": [
+      "reactHost",
+      "onCreate",
+      "onConfigurationChanged",
+      "MainApplication"
+    ],
+    "apps/mobile/android/gradlew": [],
+    "apps/mobile/app/_layout.tsx": [
+      "RootLayout"
+    ],
+    "apps/mobile/app/index.tsx": [
+      "HomeScreen"
+    ],
+    "apps/mobile/app/settings.tsx": [
+      "SettingsScreen"
+    ],
+    "apps/mobile/babel.config.js": [],
+    "apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj": [],
+    "apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme": [],
+    "apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata": [],
+    "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift": [],
+    "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h": [],
+    "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements": [],
+    "apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy": [],
+    "apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard": [],
+    "apps/mobile/ios/Podfile": [],
+    "apps/mobile/metro.config.js": [],
+    "apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch": [],
+    "apps/mobile/scripts/generate-asset-manifests.mjs": [],
+    "apps/mobile/scripts/sync-presets.mjs": [],
+    "apps/mobile/scripts/sync-wordfiles.mjs": [],
+    "apps/mobile/src/audio/audioSession.ts": [
+      "configureAudioSession"
+    ],
+    "apps/mobile/src/components/AboutSection.tsx": [
+      "AboutSection"
+    ],
+    "apps/mobile/src/components/CheckToggle.tsx": [
+      "CheckToggle"
+    ],
+    "apps/mobile/src/components/InputOptionsSection.tsx": [
+      "InputOptionsSection"
+    ],
+    "apps/mobile/src/components/LessonOptionsSection.tsx": [
+      "LessonOptionsSection"
+    ],
+    "apps/mobile/src/components/LessonsPicker.tsx": [
+      "LessonsPicker"
+    ],
+    "apps/mobile/src/components/OutputOptionsSection.tsx": [
+      "OutputOptionsSection"
+    ],
+    "apps/mobile/src/components/PlaybackControls.tsx": [
+      "PlaybackControls"
+    ],
+    "apps/mobile/src/components/SettingsSection.tsx": [
+      "SettingsSection"
+    ],
+    "apps/mobile/src/components/shared/DropdownPicker.tsx": [
+      "DropdownPicker"
+    ],
+    "apps/mobile/src/components/SpeedSettingsBar.tsx": [
+      "SpeedSettingsBar"
+    ],
+    "apps/mobile/src/components/ThemedNumField.tsx": [
+      "ThemedNumField"
+    ],
+    "apps/mobile/src/components/ThemedStatusBar.tsx": [
+      "ThemedStatusBar"
+    ],
+    "apps/mobile/src/components/ToneSettingsSection.tsx": [
+      "ToneSettingsSection"
+    ],
+    "apps/mobile/src/components/VoiceOptionsSection.tsx": [
+      "VoiceOptionsSection"
+    ],
+    "apps/mobile/src/components/WordCards 2.tsx": [
+      "WordCards"
+    ],
+    "apps/mobile/src/components/WordCards.tsx": [
+      "WordCards"
+    ],
+    "apps/mobile/src/components/WorkingTextStats.tsx": [
+      "WorkingTextStats"
+    ],
+    "apps/mobile/src/context/MorseAppContext 2.tsx": [
+      "VoiceOption",
+      "DEFAULT_SHOWING_TEXT",
+      "MorseAppProvider",
+      "useMorseApp"
+    ],
+    "apps/mobile/src/context/MorseAppContext.tsx": [
+      "VoiceOption",
+      "DEFAULT_SHOWING_TEXT",
+      "MorseAppProvider",
+      "useMorseApp"
+    ],
+    "apps/mobile/src/context/MorseAudioContext.tsx": [
+      "MorseAudioProvider",
+      "useMorseAudio"
+    ],
+    "apps/mobile/src/context/MorsePlaybackContext.tsx": [
+      "MorsePlaybackProvider",
+      "useMorsePlaybackControls"
+    ],
+    "apps/mobile/src/hooks/playbackOrchestration.ts": [
+      "isVoiceBufferFull",
+      "computePlayEndedActions",
+      "shouldRestartLoop"
+    ],
+    "apps/mobile/src/hooks/useMorsePlayback.ts": [
+      "useMorsePlayback"
+    ],
+    "apps/mobile/src/hooks/useMorsePlayer.ts": [
+      "useMorsePlayer"
+    ],
+    "apps/mobile/src/hooks/usePresets.ts": [
+      "usePresets"
+    ],
+    "apps/mobile/src/utils/cardBufferManager.ts": [
+      "CardBufferManager"
+    ],
+    "apps/mobile/src/utils/colors.ts": [
+      "C"
+    ],
+    "apps/mobile/src/utils/formatTime.ts": [
+      "formatPlayTime"
+    ],
+    "apps/mobile/src/utils/lessonPractice.ts": [
+      "generateCustomGroupPractice",
+      "resolvePracticeSeconds",
+      "generateRandomPractice"
+    ],
+    "apps/mobile/src/utils/loadMobileLessonFile.ts": [
+      "ensureWordfilesCached",
+      "ensurePresetsCached",
+      "installPresetFetchFallback",
+      "loadMobileLessonFile"
+    ],
+    "apps/mobile/src/utils/mobileSettingsExport.ts": [
+      "shareSettingsFile",
+      "pickAndParseSettingsFile"
+    ],
+    "apps/mobile/src/utils/settingsPersistence.ts": [
+      "loadPersistedSettings",
+      "savePersistedSettings"
+    ],
+    "apps/mobile/src/utils/settingsSnapshot.ts": [
+      "buildSnapshotFromApp",
+      "buildMutatorFromApp"
+    ],
+    "apps/mobile/src/utils/speakText.ts": [
+      "doReplacements",
+      "wordifyPunctuation",
+      "getSpeakText",
+      "prepPhraseToSpeakForFinal"
+    ],
+    "apps/mobile/src/utils/theme.ts": [
+      "getTheme",
+      "useTheme"
+    ],
+    "apps/mobile/src/utils/voiceSpeech.ts": [
+      "cancelSpeech",
+      "checkVoiceCapable",
+      "loadAvailableVoices",
+      "speakPhrase",
+      "primeSpeechPump",
+      "resolveSpeechVoice"
+    ],
+    "apps/mobile/src/utils/words.ts": [
+      "getWords",
+      "getDisplayWord",
+      "rawTextCharCount"
+    ],
+    "apps/web/public/_redirects": [],
+    "apps/web/src/App.tsx": [
+      "App"
+    ],
+    "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx": [],
+    "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx": [
+      "FlaggedWordsAccordion"
+    ],
+    "apps/web/src/components/HelpFooter/HelpFooter.test.tsx": [],
+    "apps/web/src/components/HelpFooter/HelpFooter.tsx": [
+      "HelpFooter"
+    ],
+    "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx": [],
+    "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx": [
+      "InputOptionsPanel"
+    ],
+    "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx": [],
+    "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx": [
+      "LessonOptionsPanel"
+    ],
+    "apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx": [
+      "NoiseSettingsGroup"
+    ],
+    "apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx": [],
+    "apps/web/src/components/LessonsPicker/LessonsPicker.tsx": [
+      "LessonsPicker"
+    ],
+    "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx": [],
+    "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx": [
+      "OutputOptionsPanel"
+    ],
+    "apps/web/src/components/PageHeader/PageHeader.test.tsx": [],
+    "apps/web/src/components/PageHeader/PageHeader.tsx": [
+      "PageHeader"
+    ],
+    "apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx": [],
+    "apps/web/src/components/PlaybackControls/PlaybackControls.tsx": [
+      "PlaybackControls"
+    ],
+    "apps/web/src/components/RssAccordion/RssAccordion.tsx": [
+      "RssAccordion"
+    ],
+    "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx": [],
+    "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx": [
+      "SettingsAccordion"
+    ],
+    "apps/web/src/components/shared/DropdownPicker.test.tsx": [],
+    "apps/web/src/components/shared/DropdownPicker.tsx": [
+      "DropdownPicker"
+    ],
+    "apps/web/src/components/shared/ErrorBoundary.tsx": [
+      "ErrorBoundary"
+    ],
+    "apps/web/src/components/shared/SettingsAccordionItem.tsx": [
+      "SettingsAccordionItem"
+    ],
+    "apps/web/src/components/shared/SettingsCheckToggle.tsx": [
+      "SettingsCheckToggle"
+    ],
+    "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx": [],
+    "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx": [
+      "SpeedSettingsBar"
+    ],
+    "apps/web/src/components/StartupHooks.tsx": [
+      "StartupHooks"
+    ],
+    "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx": [],
+    "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx": [
+      "ToneOptionsPanel"
+    ],
+    "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx": [],
+    "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx": [
+      "VoiceOptionsPanel"
+    ],
+    "apps/web/src/components/WordCards/WordCards.test.tsx": [],
+    "apps/web/src/components/WordCards/WordCards.tsx": [
+      "WordCards"
+    ],
+    "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx": [],
+    "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx": [
+      "WorkingTextStats"
+    ],
+    "apps/web/src/context/MorseAppContext.tsx": [
+      "DEFAULT_SHOWING_TEXT",
+      "MorseAppProvider",
+      "useMorseApp",
+      "DEFAULT_SETTINGS"
+    ],
+    "apps/web/src/context/MorseAudioContext.tsx": [
+      "MorseAudioProvider",
+      "useMorseAudio"
+    ],
+    "apps/web/src/context/MorsePlaybackContext.tsx": [
+      "MorsePlaybackProvider",
+      "useMorsePlaybackControls"
+    ],
+    "apps/web/src/context/PlaybackStateContext.test.tsx": [],
+    "apps/web/src/context/PlaybackStateContext.tsx": [
+      "PlaybackStateProvider",
+      "usePlaybackActions",
+      "usePlaybackState"
+    ],
+    "apps/web/src/context/settingsCookies.test.tsx": [],
+    "apps/web/src/hooks/playbackLoopSeek.test.ts": [],
+    "apps/web/src/hooks/playbackOrchestration.test.ts": [],
+    "apps/web/src/hooks/playbackOrchestration.ts": [
+      "isVoiceBufferFull",
+      "computePlayEndedActions",
+      "shouldRestartLoop"
+    ],
+    "apps/web/src/hooks/playbackPauseResume.test.tsx": [],
+    "apps/web/src/hooks/playbackTiming.test.ts": [],
+    "apps/web/src/hooks/useLessonDeepLinks.test.tsx": [],
+    "apps/web/src/hooks/useLessonDeepLinks.ts": [
+      "useLessonDeepLinks"
+    ],
+    "apps/web/src/hooks/useMorsePlayback.test.tsx": [],
+    "apps/web/src/hooks/useMorsePlayback.ts": [
+      "useMorsePlayback"
+    ],
+    "apps/web/src/hooks/useMorsePlayer.ts": [
+      "useMorsePlayer"
+    ],
+    "apps/web/src/hooks/useMorseShortcutKeys.test.tsx": [],
+    "apps/web/src/hooks/useMorseShortcutKeys.ts": [
+      "useMorseShortcutKeys"
+    ],
+    "apps/web/src/hooks/usePresets.ts": [
+      "usePresets"
+    ],
+    "apps/web/src/hooks/useRssPlugin.ts": [
+      "useRssPlugin"
+    ],
+    "apps/web/src/hooks/useStartupUrlParams.ts": [
+      "useStartupUrlParams"
+    ],
+    "apps/web/src/hooks/useTimingConfig.ts": [
+      "useIntervalTimingConfig"
+    ],
+    "apps/web/src/hooks/useWavDownload.ts": [
+      "useWavDownload"
+    ],
+    "apps/web/src/main.tsx": [],
+    "apps/web/src/test-setup.ts": [],
+    "apps/web/src/test-utils.tsx": [
+      "StateProviders",
+      "AllProviders",
+      "renderWithMorseProviders"
+    ],
+    "apps/web/src/utils/cardBufferManager.test.ts": [],
+    "apps/web/src/utils/cardBufferManager.ts": [
+      "CardBufferManager"
+    ],
+    "apps/web/src/utils/downloadBlob.ts": [
+      "downloadBlob"
+    ],
+    "apps/web/src/utils/formatTime.ts": [
+      "formatPlayTime"
+    ],
+    "apps/web/src/utils/lessonDeepLink.test.ts": [],
+    "apps/web/src/utils/lessonDeepLink.ts": [
+      "resolveLessonDeepLink",
+      "hasLessonDeepLinkParams"
+    ],
+    "apps/web/src/utils/lessonPractice.test.ts": [],
+    "apps/web/src/utils/lessonPractice.ts": [
+      "generateCustomGroupPractice",
+      "resolvePracticeSeconds",
+      "generateRandomPractice"
+    ],
+    "apps/web/src/utils/lessonQueryString.test.ts": [],
+    "apps/web/src/utils/lessonQueryString.ts": [
+      "removeLessonQueryParam",
+      "upsertLessonQueryParam"
+    ],
+    "apps/web/src/utils/morseImages.ts": [
+      "getMorseImageSrc"
+    ],
+    "apps/web/src/utils/morseStringUtils.ts": [
+      "doReplacements",
+      "wordifyPunctuation",
+      "getSpeakText",
+      "prepPhraseToSpeakForFinal"
+    ],
+    "apps/web/src/utils/noisePlayer.test.ts": [],
+    "apps/web/src/utils/noisePlayer.ts": [
+      "NoisePlayer"
+    ],
+    "apps/web/src/utils/screenWakeLock.ts": [
+      "ScreenWakeLock"
+    ],
+    "apps/web/src/utils/settingsAccordion.ts": [
+      "SETTINGS_ACCORDION_IDS",
+      "createDefaultAccordionOpen"
+    ],
+    "apps/web/src/utils/speakText.test.ts": [],
+    "apps/web/src/utils/speakText.ts": [
+      "getSpeakText",
+      "prepPhraseToSpeakForFinal"
+    ],
+    "apps/web/src/utils/urlParams.test.ts": [],
+    "apps/web/src/utils/urlParams.ts": [
+      "getUrlParam",
+      "hasUrlParam",
+      "isDevBuild"
+    ],
+    "apps/web/src/utils/voiceSpeech.test.ts": [],
+    "apps/web/src/utils/voiceSpeech.ts": [
+      "ALLOWED_VOICE_LANGS",
+      "cancelSpeech",
+      "speakPhrase",
+      "primeSpeechPump",
+      "resolveSpeechVoice"
+    ],
+    "apps/web/src/utils/words.test.ts": [],
+    "apps/web/src/utils/words.ts": [
+      "getWords",
+      "getDisplayWord",
+      "rawTextCharCount"
+    ],
+    "apps/web/src/vite-env.d.ts": [],
+    "apps/web/vite-presets-plugin.ts": [
+      "presetsDevPlugin"
+    ],
+    "apps/web/vite-wordfiles-plugin.ts": [
+      "wordfilesDevPlugin"
+    ],
+    "apps/web/vite.config.ts": [],
+    "packages/.DS_Store": [],
+    "packages/core/.DS_Store": [],
+    "packages/core/jest.config.js": [],
+    "packages/core/scripts/sync-lesson-data.mjs": [],
+    "packages/core/src/__tests__/catalogIntegrity.test.ts": [],
+    "packages/core/src/__tests__/lessonLoader.test.ts": [],
+    "packages/core/src/__tests__/morseMap.test.ts": [],
+    "packages/core/src/__tests__/morseScheduler.test.ts": [],
+    "packages/core/src/__tests__/presets.test.ts": [],
+    "packages/core/src/__tests__/settingsManager.test.ts": [],
+    "packages/core/src/__tests__/speedIntervals.test.ts": [],
+    "packages/core/src/__tests__/timingEngine.test.ts": [],
+    "packages/core/src/__tests__/wavExport.test.ts": [],
+    "packages/core/src/.DS_Store": [],
+    "packages/core/src/audio/morseScheduler.ts": [
+      "scheduleText",
+      "scheduleChar",
+      "scheduleTestTone"
+    ],
+    "packages/core/src/audio/timingEngine.ts": [
+      "toneFrequency",
+      "DEFAULT_TIMING",
+      "unitDuration",
+      "calculateFarnsworthTiming",
+      "buildSchedule",
+      "sequenceDuration",
+      "KOCH_ORDER",
+      "kochCharsForLesson"
+    ],
+    "packages/core/src/audio/wavExport.ts": [
+      "estimateScheduleDuration",
+      "encodeWav",
+      "renderMorseWav"
+    ],
+    "packages/core/src/engine/morseMap.ts": [
+      "MORSE_MAP",
+      "PROSIGN_MAP",
+      "tokenizeText",
+      "textToMorse",
+      "morseToText",
+      "charToMorse"
+    ],
+    "packages/core/src/index.ts": [],
+    "packages/core/src/lessons/lessonLoader.ts": [
+      "WORDFILES_BASE_PATH",
+      "getWordListCatalog",
+      "getUserTargets",
+      "getClasses",
+      "getLetterGroups",
+      "getDisplays",
+      "findWordListOption",
+      "loadLesson",
+      "loadWordList",
+      "loadLessonFile",
+      "isRandomWordListConfig"
+    ],
+    "packages/core/src/settings/cookieStorage.ts": [
+      "KO_COOKIE_KEYS",
+      "getCookie",
+      "setCookie",
+      "removeCookie",
+      "getAllCookies"
+    ],
+    "packages/core/src/settings/settingsManager.ts": [
+      "DEFAULT_SETTINGS",
+      "loadSettings",
+      "saveSettings",
+      "resetSettings"
+    ],
+    "packages/core/src/settings/speedIntervals.ts": [
+      "getApplicableSpeed"
+    ],
+    "packages/types/src/index.ts": [],
+    "tools/visual-diff.mjs": [],
+    "workers/rss-proxy/src/index.ts": []
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "apps/web/src/App.tsx",
+          "language": "typescript",
+          "sizeLines": 38,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx",
+          "language": "typescript",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/HelpFooter/HelpFooter.test.tsx",
+          "language": "typescript",
+          "sizeLines": 50,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx",
+          "language": "typescript",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx",
+          "language": "typescript",
+          "sizeLines": 64,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx",
+          "language": "typescript",
+          "sizeLines": 48,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx",
+          "language": "typescript",
+          "sizeLines": 57,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/PageHeader/PageHeader.test.tsx",
+          "language": "typescript",
+          "sizeLines": 36,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx",
+          "language": "typescript",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+          "language": "typescript",
+          "sizeLines": 125,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx",
+          "language": "typescript",
+          "sizeLines": 94,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "language": "typescript",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx",
+          "language": "typescript",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+          "language": "typescript",
+          "sizeLines": 113,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx",
+          "language": "typescript",
+          "sizeLines": 53,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx",
+          "language": "typescript",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/WordCards/WordCards.test.tsx",
+          "language": "typescript",
+          "sizeLines": 45,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/WordCards/WordCards.tsx",
+          "language": "typescript",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx",
+          "language": "typescript",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/shared/ErrorBoundary.tsx",
+          "language": "typescript",
+          "sizeLines": 39,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/context/MorseAudioContext.tsx",
+          "language": "typescript",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/context/MorsePlaybackContext.tsx",
+          "language": "typescript",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/context/PlaybackStateContext.test.tsx",
+          "language": "typescript",
+          "sizeLines": 59,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/context/PlaybackStateContext.tsx",
+          "language": "typescript",
+          "sizeLines": 94,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/context/settingsCookies.test.tsx",
+          "language": "typescript",
+          "sizeLines": 73,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/playbackPauseResume.test.tsx",
+          "language": "typescript",
+          "sizeLines": 160,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useMorsePlayback.test.tsx",
+          "language": "typescript",
+          "sizeLines": 280,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useTimingConfig.ts",
+          "language": "typescript",
+          "sizeLines": 38,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/main.tsx",
+          "language": "typescript",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/test-utils.tsx",
+          "language": "typescript",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/formatTime.ts",
+          "language": "typescript",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/src/App.tsx": [
+          "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+          "apps/web/src/components/PageHeader/PageHeader.tsx",
+          "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/components/shared/ErrorBoundary.tsx",
+          "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+          "apps/web/src/components/StartupHooks.tsx",
+          "apps/web/src/components/WordCards/WordCards.tsx",
+          "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorseAudioContext.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx"
+        ],
+        "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.test.tsx": [
+          "apps/web/src/App.tsx"
+        ],
+        "apps/web/src/components/HelpFooter/HelpFooter.test.tsx": [
+          "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx": [
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.test.tsx": [
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/LessonsPicker/LessonsPicker.test.tsx": [
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.test.tsx": [
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/PageHeader/PageHeader.test.tsx": [
+          "apps/web/src/components/PageHeader/PageHeader.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/PlaybackControls/PlaybackControls.test.tsx": [
+          "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/PlaybackControls/PlaybackControls.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx": [
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx": [
+          "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+          "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+          "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+          "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+          "apps/web/src/components/RssAccordion/RssAccordion.tsx",
+          "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+          "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx"
+        ],
+        "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx": [
+          "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/hooks/useTimingConfig.ts",
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.test.tsx": [
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.test.tsx": [
+          "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/WordCards/WordCards.test.tsx": [
+          "apps/web/src/components/WordCards/WordCards.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/WordCards/WordCards.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/utils/words.ts"
+        ],
+        "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx": [
+          "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/components/shared/ErrorBoundary.tsx": [],
+        "apps/web/src/context/MorseAudioContext.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/hooks/useMorsePlayer.ts",
+          "apps/web/src/hooks/useTimingConfig.ts"
+        ],
+        "apps/web/src/context/MorsePlaybackContext.tsx": [
+          "apps/web/src/hooks/useMorsePlayback.ts",
+          "apps/web/src/hooks/useMorseShortcutKeys.ts"
+        ],
+        "apps/web/src/context/PlaybackStateContext.test.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/context/PlaybackStateContext.tsx": [
+          "apps/web/src/utils/formatTime.ts"
+        ],
+        "apps/web/src/context/settingsCookies.test.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/hooks/playbackPauseResume.test.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/hooks/useMorsePlayback.test.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/hooks/useTimingConfig.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx"
+        ],
+        "apps/web/src/main.tsx": [
+          "apps/web/src/App.tsx",
+          "apps/web/src/styles/dark-mode.css",
+          "apps/web/src/styles/morsebrowser.css"
+        ],
+        "apps/web/src/test-utils.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorseAudioContext.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx"
+        ],
+        "apps/web/src/utils/formatTime.ts": []
+      },
+      "neighborMap": {
+        "apps/web/src/App.tsx": [
+          {
+            "path": "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "HelpFooter"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/PageHeader/PageHeader.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "PageHeader"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/StartupHooks.tsx",
+            "batchIndex": 7,
+            "symbols": [
+              "StartupHooks"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "WorkingTextStats"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/components/HelpFooter/HelpFooter.test.tsx": [
+          {
+            "path": "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "HelpFooter"
+            ]
+          }
+        ],
+        "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/components/PageHeader/PageHeader.test.tsx": [
+          {
+            "path": "apps/web/src/components/PageHeader/PageHeader.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "PageHeader"
+            ]
+          }
+        ],
+        "apps/web/src/components/PlaybackControls/PlaybackControls.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/utils/morseImages.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "getMorseImageSrc"
+            ]
+          }
+        ],
+        "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx": [
+          {
+            "path": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "InputOptionsPanel"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "LessonOptionsPanel"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "OutputOptionsPanel"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/RssAccordion/RssAccordion.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "RssAccordion"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "ToneOptionsPanel"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "VoiceOptionsPanel"
+            ]
+          }
+        ],
+        "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/utils/morseImages.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "getMorseImageSrc"
+            ]
+          }
+        ],
+        "apps/web/src/components/WordCards/WordCards.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/utils/words.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "getWords",
+              "getDisplayWord",
+              "rawTextCharCount"
+            ]
+          }
+        ],
+        "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx": [
+          {
+            "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "WorkingTextStats"
+            ]
+          }
+        ],
+        "apps/web/src/context/MorseAudioContext.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useMorsePlayer.ts",
+            "batchIndex": 8,
+            "symbols": [
+              "useMorsePlayer"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "ToneOptionsPanel"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useMorsePlayback.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorsePlayback"
+            ]
+          }
+        ],
+        "apps/web/src/context/MorsePlaybackContext.tsx": [
+          {
+            "path": "apps/web/src/hooks/useMorsePlayback.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorsePlayback"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorseShortcutKeys"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useRssPlugin.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "useRssPlugin"
+            ]
+          }
+        ],
+        "apps/web/src/context/PlaybackStateContext.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/context/PlaybackStateContext.tsx": [
+          {
+            "path": "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "WorkingTextStats"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useMorsePlayback.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorsePlayback"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorseShortcutKeys"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useRssPlugin.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "useRssPlugin"
+            ]
+          }
+        ],
+        "apps/web/src/context/settingsCookies.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/playbackPauseResume.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useMorsePlayback.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useTimingConfig.ts": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/main.tsx": [
+          {
+            "path": "apps/web/src/styles/dark-mode.css",
+            "batchIndex": 21,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/styles/morsebrowser.css",
+            "batchIndex": 21,
+            "symbols": []
+          }
+        ],
+        "apps/web/src/test-utils.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/hooks/useMorseShortcutKeys.test.tsx",
+            "batchIndex": 5,
+            "symbols": []
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+          "language": "typescript",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/HelpFooter/HelpFooter.tsx",
+          "language": "typescript",
+          "sizeLines": 96,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx",
+          "language": "typescript",
+          "sizeLines": 115,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx",
+          "language": "typescript",
+          "sizeLines": 367,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+          "language": "typescript",
+          "sizeLines": 63,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/LessonsPicker/LessonsPicker.tsx",
+          "language": "typescript",
+          "sizeLines": 297,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx",
+          "language": "typescript",
+          "sizeLines": 132,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/PageHeader/PageHeader.tsx",
+          "language": "typescript",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/RssAccordion/RssAccordion.tsx",
+          "language": "typescript",
+          "sizeLines": 158,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx",
+          "language": "typescript",
+          "sizeLines": 107,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx",
+          "language": "typescript",
+          "sizeLines": 212,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx",
+          "language": "typescript",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/shared/DropdownPicker.test.tsx",
+          "language": "typescript",
+          "sizeLines": 42,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/shared/DropdownPicker.tsx",
+          "language": "typescript",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "language": "typescript",
+          "sizeLines": 60,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/components/shared/SettingsCheckToggle.tsx",
+          "language": "typescript",
+          "sizeLines": 36,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/context/MorseAppContext.tsx",
+          "language": "typescript",
+          "sizeLines": 1229,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useLessonDeepLinks.test.tsx",
+          "language": "typescript",
+          "sizeLines": 39,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useLessonDeepLinks.ts",
+          "language": "typescript",
+          "sizeLines": 77,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/usePresets.ts",
+          "language": "typescript",
+          "sizeLines": 327,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useRssPlugin.ts",
+          "language": "typescript",
+          "sizeLines": 293,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useWavDownload.ts",
+          "language": "typescript",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/downloadBlob.ts",
+          "language": "typescript",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/lessonPractice.test.ts",
+          "language": "typescript",
+          "sizeLines": 36,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/lessonPractice.ts",
+          "language": "typescript",
+          "sizeLines": 76,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/lessonQueryString.test.ts",
+          "language": "typescript",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/lessonQueryString.ts",
+          "language": "typescript",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/morseImages.ts",
+          "language": "typescript",
+          "sizeLines": 87,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/settingsAccordion.ts",
+          "language": "typescript",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/words.test.ts",
+          "language": "typescript",
+          "sizeLines": 36,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/words.ts",
+          "language": "typescript",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/components/HelpFooter/HelpFooter.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx": [
+          "apps/web/src/components/FlaggedWordsAccordion/FlaggedWordsAccordion.tsx",
+          "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/morseImages.ts",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx": [
+          "apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx",
+          "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "apps/web/src/components/shared/SettingsCheckToggle.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/morseImages.ts",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/LessonOptionsPanel/NoiseSettingsGroup.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/components/LessonsPicker/LessonsPicker.tsx": [
+          "apps/web/src/components/shared/DropdownPicker.tsx",
+          "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/hooks/useLessonDeepLinks.ts",
+          "apps/web/src/hooks/usePresets.ts",
+          "apps/web/src/utils/lessonPractice.ts",
+          "apps/web/src/utils/lessonQueryString.ts",
+          "apps/web/src/utils/morseImages.ts",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx": [
+          "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/hooks/useWavDownload.ts",
+          "apps/web/src/utils/morseImages.ts",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/PageHeader/PageHeader.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/components/RssAccordion/RssAccordion.tsx": [
+          "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "apps/web/src/hooks/useRssPlugin.ts",
+          "apps/web/src/utils/morseImages.ts",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx": [
+          "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorseAudioContext.tsx",
+          "apps/web/src/utils/morseImages.ts",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx": [
+          "apps/web/src/components/shared/SettingsAccordionItem.tsx",
+          "apps/web/src/components/shared/SettingsCheckToggle.tsx",
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/morseImages.ts",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/components/shared/DropdownPicker.test.tsx": [
+          "apps/web/src/components/shared/DropdownPicker.tsx"
+        ],
+        "apps/web/src/components/shared/DropdownPicker.tsx": [],
+        "apps/web/src/components/shared/SettingsAccordionItem.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/settingsAccordion.ts"
+        ],
+        "apps/web/src/components/shared/SettingsCheckToggle.tsx": [
+          "apps/web/src/utils/morseImages.ts"
+        ],
+        "apps/web/src/context/MorseAppContext.tsx": [
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/utils/lessonDeepLink.ts",
+          "apps/web/src/utils/lessonPractice.ts",
+          "apps/web/src/utils/settingsAccordion.ts",
+          "apps/web/src/utils/urlParams.ts",
+          "apps/web/src/utils/voiceSpeech.ts",
+          "apps/web/src/utils/words.ts"
+        ],
+        "apps/web/src/hooks/useLessonDeepLinks.test.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/hooks/useLessonDeepLinks.ts",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/hooks/useLessonDeepLinks.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/lessonDeepLink.ts",
+          "apps/web/src/utils/lessonQueryString.ts"
+        ],
+        "apps/web/src/hooks/usePresets.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/lessonQueryString.ts",
+          "apps/web/src/utils/urlParams.ts"
+        ],
+        "apps/web/src/hooks/useRssPlugin.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorsePlaybackContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx"
+        ],
+        "apps/web/src/hooks/useWavDownload.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/downloadBlob.ts",
+          "apps/web/src/utils/words.ts"
+        ],
+        "apps/web/src/utils/downloadBlob.ts": [],
+        "apps/web/src/utils/lessonPractice.test.ts": [
+          "apps/web/src/utils/lessonPractice.ts"
+        ],
+        "apps/web/src/utils/lessonPractice.ts": [],
+        "apps/web/src/utils/lessonQueryString.test.ts": [
+          "apps/web/src/utils/lessonQueryString.ts"
+        ],
+        "apps/web/src/utils/lessonQueryString.ts": [],
+        "apps/web/src/utils/morseImages.ts": [],
+        "apps/web/src/utils/settingsAccordion.ts": [],
+        "apps/web/src/utils/words.test.ts": [
+          "apps/web/src/utils/words.ts"
+        ],
+        "apps/web/src/utils/words.ts": []
+      },
+      "neighborMap": {
+        "apps/web/src/components/HelpFooter/HelpFooter.tsx": [
+          {
+            "path": "apps/web/src/App.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "App"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/HelpFooter/HelpFooter.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          }
+        ],
+        "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.tsx": [
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SettingsAccordion"
+            ]
+          }
+        ],
+        "apps/web/src/components/LessonOptionsPanel/LessonOptionsPanel.tsx": [
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SettingsAccordion"
+            ]
+          }
+        ],
+        "apps/web/src/components/LessonsPicker/LessonsPicker.tsx": [
+          {
+            "path": "apps/web/src/context/PlaybackStateContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackStateProvider",
+              "usePlaybackActions",
+              "usePlaybackState"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SettingsAccordion"
+            ]
+          }
+        ],
+        "apps/web/src/components/OutputOptionsPanel/OutputOptionsPanel.tsx": [
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SettingsAccordion"
+            ]
+          }
+        ],
+        "apps/web/src/components/PageHeader/PageHeader.tsx": [
+          {
+            "path": "apps/web/src/App.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "App"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/PageHeader/PageHeader.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          }
+        ],
+        "apps/web/src/components/RssAccordion/RssAccordion.tsx": [
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SettingsAccordion"
+            ]
+          }
+        ],
+        "apps/web/src/components/ToneOptionsPanel/ToneOptionsPanel.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAudioContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MorseAudioProvider",
+              "useMorseAudio"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SettingsAccordion"
+            ]
+          }
+        ],
+        "apps/web/src/components/VoiceOptionsPanel/VoiceOptionsPanel.tsx": [
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SettingsAccordion"
+            ]
+          }
+        ],
+        "apps/web/src/components/WorkingTextStats/WorkingTextStats.tsx": [
+          {
+            "path": "apps/web/src/context/PlaybackStateContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackStateProvider",
+              "usePlaybackActions",
+              "usePlaybackState"
+            ]
+          },
+          {
+            "path": "apps/web/src/App.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "App"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/WorkingTextStats/WorkingTextStats.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          }
+        ],
+        "apps/web/src/context/MorseAppContext.tsx": [
+          {
+            "path": "apps/web/src/context/PlaybackStateContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackStateProvider",
+              "usePlaybackActions",
+              "usePlaybackState"
+            ]
+          },
+          {
+            "path": "apps/web/src/utils/lessonDeepLink.ts",
+            "batchIndex": 7,
+            "symbols": [
+              "resolveLessonDeepLink",
+              "hasLessonDeepLinkParams"
+            ]
+          },
+          {
+            "path": "apps/web/src/utils/urlParams.ts",
+            "batchIndex": 7,
+            "symbols": [
+              "getUrlParam",
+              "hasUrlParam",
+              "isDevBuild"
+            ]
+          },
+          {
+            "path": "apps/web/src/utils/voiceSpeech.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "ALLOWED_VOICE_LANGS",
+              "cancelSpeech",
+              "speakPhrase",
+              "primeSpeechPump",
+              "resolveSpeechVoice"
+            ]
+          },
+          {
+            "path": "apps/web/src/App.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "App"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/InputOptionsPanel/InputOptionsPanel.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/SettingsAccordion/SettingsAccordion.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SpeedSettingsBar"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/WordCards/WordCards.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/MorseAudioContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MorseAudioProvider",
+              "useMorseAudio"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/PlaybackStateContext.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/context/settingsCookies.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/hooks/playbackPauseResume.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/hooks/useMorsePlayback.test.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/hooks/useMorsePlayback.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorsePlayback"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useMorseShortcutKeys.test.tsx",
+            "batchIndex": 5,
+            "symbols": []
+          },
+          {
+            "path": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorseShortcutKeys"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useStartupUrlParams.ts",
+            "batchIndex": 7,
+            "symbols": [
+              "useStartupUrlParams"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useTimingConfig.ts",
+            "batchIndex": 1,
+            "symbols": [
+              "useIntervalTimingConfig"
+            ]
+          },
+          {
+            "path": "apps/web/src/test-utils.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "StateProviders",
+              "AllProviders",
+              "renderWithMorseProviders"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useLessonDeepLinks.test.tsx": [
+          {
+            "path": "apps/web/src/test-utils.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "StateProviders",
+              "AllProviders",
+              "renderWithMorseProviders"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useLessonDeepLinks.ts": [
+          {
+            "path": "apps/web/src/utils/lessonDeepLink.ts",
+            "batchIndex": 7,
+            "symbols": [
+              "resolveLessonDeepLink",
+              "hasLessonDeepLinkParams"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/usePresets.ts": [
+          {
+            "path": "apps/web/src/utils/urlParams.ts",
+            "batchIndex": 7,
+            "symbols": [
+              "getUrlParam",
+              "hasUrlParam",
+              "isDevBuild"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useRssPlugin.ts": [
+          {
+            "path": "apps/web/src/context/MorsePlaybackContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MorsePlaybackProvider",
+              "useMorsePlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/PlaybackStateContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackStateProvider",
+              "usePlaybackActions",
+              "usePlaybackState"
+            ]
+          }
+        ],
+        "apps/web/src/utils/morseImages.ts": [
+          {
+            "path": "apps/web/src/components/PlaybackControls/PlaybackControls.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/web/src/components/SpeedSettingsBar/SpeedSettingsBar.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "SpeedSettingsBar"
+            ]
+          }
+        ],
+        "apps/web/src/utils/words.ts": [
+          {
+            "path": "apps/web/src/components/WordCards/WordCards.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useMorsePlayback.ts",
+            "batchIndex": 5,
+            "symbols": [
+              "useMorsePlayback"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "apps/mobile/app/_layout.tsx",
+          "language": "typescript",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/app/index.tsx",
+          "language": "typescript",
+          "sizeLines": 147,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/app/settings.tsx",
+          "language": "typescript",
+          "sizeLines": 65,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/audio/audioSession.ts",
+          "language": "typescript",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/AboutSection.tsx",
+          "language": "typescript",
+          "sizeLines": 87,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/CheckToggle.tsx",
+          "language": "typescript",
+          "sizeLines": 60,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/InputOptionsSection.tsx",
+          "language": "typescript",
+          "sizeLines": 148,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/LessonOptionsSection.tsx",
+          "language": "typescript",
+          "sizeLines": 241,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/LessonsPicker.tsx",
+          "language": "typescript",
+          "sizeLines": 225,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/OutputOptionsSection.tsx",
+          "language": "typescript",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/PlaybackControls.tsx",
+          "language": "typescript",
+          "sizeLines": 198,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/SettingsSection.tsx",
+          "language": "typescript",
+          "sizeLines": 99,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/SpeedSettingsBar.tsx",
+          "language": "typescript",
+          "sizeLines": 150,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/ThemedNumField.tsx",
+          "language": "typescript",
+          "sizeLines": 68,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/ThemedStatusBar.tsx",
+          "language": "typescript",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/ToneSettingsSection.tsx",
+          "language": "typescript",
+          "sizeLines": 150,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/VoiceOptionsSection.tsx",
+          "language": "typescript",
+          "sizeLines": 123,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/WordCards 2.tsx",
+          "language": "typescript",
+          "sizeLines": 123,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/WordCards.tsx",
+          "language": "typescript",
+          "sizeLines": 123,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/WorkingTextStats.tsx",
+          "language": "typescript",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/components/shared/DropdownPicker.tsx",
+          "language": "typescript",
+          "sizeLines": 135,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+          "language": "typescript",
+          "sizeLines": 739,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/mobile/app/_layout.tsx": [
+          "apps/mobile/src/audio/audioSession.ts",
+          "apps/mobile/src/components/ThemedStatusBar.tsx",
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/context/MorseAudioContext.tsx",
+          "apps/mobile/src/context/MorsePlaybackContext.tsx",
+          "apps/mobile/src/utils/loadMobileLessonFile.ts"
+        ],
+        "apps/mobile/app/index.tsx": [
+          "apps/mobile/src/components/LessonOptionsSection.tsx",
+          "apps/mobile/src/components/LessonsPicker.tsx",
+          "apps/mobile/src/components/PlaybackControls.tsx",
+          "apps/mobile/src/components/SettingsSection.tsx",
+          "apps/mobile/src/components/SpeedSettingsBar.tsx",
+          "apps/mobile/src/components/WordCards.tsx",
+          "apps/mobile/src/components/WorkingTextStats.tsx",
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/app/settings.tsx": [
+          "apps/mobile/src/components/AboutSection.tsx",
+          "apps/mobile/src/components/InputOptionsSection.tsx",
+          "apps/mobile/src/components/OutputOptionsSection.tsx",
+          "apps/mobile/src/components/SettingsSection.tsx",
+          "apps/mobile/src/components/ToneSettingsSection.tsx",
+          "apps/mobile/src/components/VoiceOptionsSection.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/audio/audioSession.ts": [],
+        "apps/mobile/src/components/AboutSection.tsx": [
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/CheckToggle.tsx": [
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/InputOptionsSection.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/LessonOptionsSection.tsx": [
+          "apps/mobile/src/components/CheckToggle.tsx",
+          "apps/mobile/src/components/ThemedNumField.tsx",
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/LessonsPicker.tsx": [
+          "apps/mobile/src/components/shared/DropdownPicker.tsx",
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/hooks/usePresets.ts",
+          "apps/mobile/src/utils/lessonPractice.ts",
+          "apps/mobile/src/utils/loadMobileLessonFile.ts",
+          "apps/mobile/src/utils/theme.ts",
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/components/OutputOptionsSection.tsx": [
+          "apps/mobile/src/components/CheckToggle.tsx",
+          "apps/mobile/src/components/ThemedNumField.tsx",
+          "apps/mobile/src/context/MorseAppContext.tsx"
+        ],
+        "apps/mobile/src/components/PlaybackControls.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/context/MorsePlaybackContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/SettingsSection.tsx": [
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/SpeedSettingsBar.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/ThemedNumField.tsx": [
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/ThemedStatusBar.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx"
+        ],
+        "apps/mobile/src/components/ToneSettingsSection.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/context/MorseAudioContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/VoiceOptionsSection.tsx": [
+          "apps/mobile/src/components/CheckToggle.tsx",
+          "apps/mobile/src/components/ThemedNumField.tsx",
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/WordCards 2.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/hooks/useMorsePlayback.ts",
+          "apps/mobile/src/utils/theme.ts",
+          "apps/mobile/src/utils/words.ts"
+        ],
+        "apps/mobile/src/components/WordCards.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/context/MorsePlaybackContext.tsx",
+          "apps/mobile/src/utils/theme.ts",
+          "apps/mobile/src/utils/words.ts"
+        ],
+        "apps/mobile/src/components/WorkingTextStats.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/components/shared/DropdownPicker.tsx": [
+          "apps/mobile/src/utils/theme.ts"
+        ],
+        "apps/mobile/src/context/MorseAppContext 2.tsx": [
+          "apps/mobile/src/utils/formatTime.ts",
+          "apps/mobile/src/utils/lessonPractice.ts",
+          "apps/mobile/src/utils/loadMobileLessonFile.ts",
+          "apps/mobile/src/utils/voiceSpeech.ts",
+          "apps/mobile/src/utils/words.ts",
+          "packages/core/src/index.ts",
+          "packages/types/src/index.ts"
+        ]
+      },
+      "neighborMap": {
+        "apps/mobile/app/_layout.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorseAudioContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "MorseAudioProvider",
+              "useMorseAudio"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorsePlaybackContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "MorsePlaybackProvider",
+              "useMorsePlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "ensureWordfilesCached",
+              "ensurePresetsCached",
+              "installPresetFetchFallback",
+              "loadMobileLessonFile"
+            ]
+          }
+        ],
+        "apps/mobile/app/index.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/app/settings.tsx": [
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/AboutSection.tsx": [
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/CheckToggle.tsx": [
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/InputOptionsSection.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/LessonOptionsSection.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/LessonsPicker.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/hooks/usePresets.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "usePresets"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/lessonPractice.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "generateCustomGroupPractice",
+              "resolvePracticeSeconds",
+              "generateRandomPractice"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "ensureWordfilesCached",
+              "ensurePresetsCached",
+              "installPresetFetchFallback",
+              "loadMobileLessonFile"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          },
+          {
+            "path": "packages/core/src/index.ts",
+            "batchIndex": 4,
+            "symbols": []
+          }
+        ],
+        "apps/mobile/src/components/OutputOptionsSection.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/PlaybackControls.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorsePlaybackContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "MorsePlaybackProvider",
+              "useMorsePlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/SettingsSection.tsx": [
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/SpeedSettingsBar.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/ThemedNumField.tsx": [
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/ThemedStatusBar.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/ToneSettingsSection.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorseAudioContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "MorseAudioProvider",
+              "useMorseAudio"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/VoiceOptionsSection.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/WordCards 2.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/hooks/useMorsePlayback.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "useMorsePlayback"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/words.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getWords",
+              "getDisplayWord",
+              "rawTextCharCount"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/WordCards.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorsePlaybackContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "MorsePlaybackProvider",
+              "useMorsePlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/words.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getWords",
+              "getDisplayWord",
+              "rawTextCharCount"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/WorkingTextStats.tsx": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/components/shared/DropdownPicker.tsx": [
+          {
+            "path": "apps/mobile/src/utils/theme.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getTheme",
+              "useTheme"
+            ]
+          }
+        ],
+        "apps/mobile/src/context/MorseAppContext 2.tsx": [
+          {
+            "path": "apps/mobile/src/utils/formatTime.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "formatPlayTime"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/lessonPractice.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "generateCustomGroupPractice",
+              "resolvePracticeSeconds",
+              "generateRandomPractice"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "ensureWordfilesCached",
+              "ensurePresetsCached",
+              "installPresetFetchFallback",
+              "loadMobileLessonFile"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/voiceSpeech.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "cancelSpeech",
+              "checkVoiceCapable",
+              "loadAvailableVoices",
+              "speakPhrase",
+              "primeSpeechPump",
+              "resolveSpeechVoice"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/utils/words.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "getWords",
+              "getDisplayWord",
+              "rawTextCharCount"
+            ]
+          },
+          {
+            "path": "packages/core/src/index.ts",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "packages/types/src/index.ts",
+            "batchIndex": 4,
+            "symbols": []
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "apps/mobile/src/context/MorseAppContext.tsx",
+          "language": "typescript",
+          "sizeLines": 829,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/context/MorseAudioContext.tsx",
+          "language": "typescript",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/context/MorsePlaybackContext.tsx",
+          "language": "typescript",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/hooks/playbackOrchestration.ts",
+          "language": "typescript",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/hooks/useMorsePlayback.ts",
+          "language": "typescript",
+          "sizeLines": 457,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/hooks/useMorsePlayer.ts",
+          "language": "typescript",
+          "sizeLines": 55,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/hooks/usePresets.ts",
+          "language": "typescript",
+          "sizeLines": 180,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/cardBufferManager.ts",
+          "language": "typescript",
+          "sizeLines": 53,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/colors.ts",
+          "language": "typescript",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/formatTime.ts",
+          "language": "typescript",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/lessonPractice.ts",
+          "language": "typescript",
+          "sizeLines": 74,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+          "language": "typescript",
+          "sizeLines": 283,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/mobileSettingsExport.ts",
+          "language": "typescript",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/settingsPersistence.ts",
+          "language": "typescript",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/settingsSnapshot.ts",
+          "language": "typescript",
+          "sizeLines": 86,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/speakText.ts",
+          "language": "typescript",
+          "sizeLines": 98,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/theme.ts",
+          "language": "typescript",
+          "sizeLines": 88,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/voiceSpeech.ts",
+          "language": "typescript",
+          "sizeLines": 132,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/utils/words.ts",
+          "language": "typescript",
+          "sizeLines": 35,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/index.ts",
+          "language": "typescript",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/types/src/index.ts",
+          "language": "typescript",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/mobile/src/context/MorseAppContext.tsx": [
+          "apps/mobile/src/utils/formatTime.ts",
+          "apps/mobile/src/utils/lessonPractice.ts",
+          "apps/mobile/src/utils/loadMobileLessonFile.ts",
+          "apps/mobile/src/utils/settingsPersistence.ts",
+          "apps/mobile/src/utils/settingsSnapshot.ts",
+          "apps/mobile/src/utils/voiceSpeech.ts",
+          "apps/mobile/src/utils/words.ts",
+          "packages/core/src/index.ts",
+          "packages/types/src/index.ts"
+        ],
+        "apps/mobile/src/context/MorseAudioContext.tsx": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/hooks/useMorsePlayer.ts"
+        ],
+        "apps/mobile/src/context/MorsePlaybackContext.tsx": [
+          "apps/mobile/src/hooks/useMorsePlayback.ts"
+        ],
+        "apps/mobile/src/hooks/playbackOrchestration.ts": [],
+        "apps/mobile/src/hooks/useMorsePlayback.ts": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/context/MorseAudioContext.tsx",
+          "apps/mobile/src/hooks/playbackOrchestration.ts",
+          "apps/mobile/src/utils/cardBufferManager.ts",
+          "apps/mobile/src/utils/speakText.ts",
+          "apps/mobile/src/utils/voiceSpeech.ts",
+          "apps/mobile/src/utils/words.ts",
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/hooks/useMorsePlayer.ts": [
+          "packages/core/src/index.ts",
+          "packages/types/src/index.ts"
+        ],
+        "apps/mobile/src/hooks/usePresets.ts": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/mobileSettingsExport.ts",
+          "apps/mobile/src/utils/settingsSnapshot.ts",
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/utils/cardBufferManager.ts": [],
+        "apps/mobile/src/utils/colors.ts": [],
+        "apps/mobile/src/utils/formatTime.ts": [],
+        "apps/mobile/src/utils/lessonPractice.ts": [
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/utils/loadMobileLessonFile.ts": [
+          "apps/mobile/assets/lesson-data-version.json",
+          "apps/mobile/assets/presets-manifest.json",
+          "apps/mobile/assets/wordfiles-manifest.json",
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/utils/mobileSettingsExport.ts": [
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/utils/settingsPersistence.ts": [
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/utils/settingsSnapshot.ts": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "packages/core/src/index.ts"
+        ],
+        "apps/mobile/src/utils/speakText.ts": [
+          "apps/mobile/src/configs/wordify.json"
+        ],
+        "apps/mobile/src/utils/theme.ts": [
+          "apps/mobile/src/context/MorseAppContext.tsx",
+          "apps/mobile/src/utils/colors.ts"
+        ],
+        "apps/mobile/src/utils/voiceSpeech.ts": [],
+        "apps/mobile/src/utils/words.ts": [],
+        "packages/core/src/index.ts": [],
+        "packages/types/src/index.ts": []
+      },
+      "neighborMap": {
+        "apps/mobile/src/context/MorseAppContext.tsx": [
+          {
+            "path": "apps/mobile/app/_layout.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "RootLayout"
+            ]
+          },
+          {
+            "path": "apps/mobile/app/index.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "HomeScreen"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/InputOptionsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "InputOptionsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/LessonOptionsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonOptionsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/LessonsPicker.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/OutputOptionsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "OutputOptionsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/PlaybackControls.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "PlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/SpeedSettingsBar.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "SpeedSettingsBar"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/ThemedStatusBar.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "ThemedStatusBar"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/ToneSettingsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "ToneSettingsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/VoiceOptionsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOptionsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WordCards 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WordCards.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WorkingTextStats.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WorkingTextStats"
+            ]
+          }
+        ],
+        "apps/mobile/src/context/MorseAudioContext.tsx": [
+          {
+            "path": "apps/mobile/app/_layout.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "RootLayout"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/ToneSettingsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "ToneSettingsSection"
+            ]
+          }
+        ],
+        "apps/mobile/src/context/MorsePlaybackContext.tsx": [
+          {
+            "path": "apps/mobile/app/_layout.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "RootLayout"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/PlaybackControls.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "PlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WordCards.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          }
+        ],
+        "apps/mobile/src/hooks/useMorsePlayback.ts": [
+          {
+            "path": "apps/mobile/src/components/WordCards 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          }
+        ],
+        "apps/mobile/src/hooks/usePresets.ts": [
+          {
+            "path": "apps/mobile/src/components/LessonsPicker.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          }
+        ],
+        "apps/mobile/src/utils/formatTime.ts": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "apps/mobile/src/utils/lessonPractice.ts": [
+          {
+            "path": "apps/mobile/src/components/LessonsPicker.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "apps/mobile/src/utils/loadMobileLessonFile.ts": [
+          {
+            "path": "apps/mobile/assets/lesson-data-version.json",
+            "batchIndex": 16,
+            "symbols": []
+          },
+          {
+            "path": "apps/mobile/assets/presets-manifest.json",
+            "batchIndex": 16,
+            "symbols": []
+          },
+          {
+            "path": "apps/mobile/assets/wordfiles-manifest.json",
+            "batchIndex": 16,
+            "symbols": []
+          },
+          {
+            "path": "apps/mobile/app/_layout.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "RootLayout"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/LessonsPicker.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "apps/mobile/src/utils/speakText.ts": [
+          {
+            "path": "apps/mobile/src/configs/wordify.json",
+            "batchIndex": 21,
+            "symbols": []
+          }
+        ],
+        "apps/mobile/src/utils/theme.ts": [
+          {
+            "path": "apps/mobile/app/index.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "HomeScreen"
+            ]
+          },
+          {
+            "path": "apps/mobile/app/settings.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "SettingsScreen"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/AboutSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "AboutSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/CheckToggle.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "CheckToggle"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/InputOptionsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "InputOptionsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/LessonOptionsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonOptionsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/LessonsPicker.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/PlaybackControls.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "PlaybackControls"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/SettingsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "SettingsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/shared/DropdownPicker.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "DropdownPicker"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/SpeedSettingsBar.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "SpeedSettingsBar"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/ThemedNumField.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "ThemedNumField"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/ToneSettingsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "ToneSettingsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/VoiceOptionsSection.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOptionsSection"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WordCards 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WordCards.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WorkingTextStats.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WorkingTextStats"
+            ]
+          }
+        ],
+        "apps/mobile/src/utils/voiceSpeech.ts": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "apps/mobile/src/utils/words.ts": [
+          {
+            "path": "apps/mobile/src/components/WordCards 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/components/WordCards.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WordCards"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "packages/core/src/index.ts": [
+          {
+            "path": "apps/mobile/src/components/LessonsPicker.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "LessonsPicker"
+            ]
+          },
+          {
+            "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ],
+        "packages/types/src/index.ts": [
+          {
+            "path": "apps/mobile/src/context/MorseAppContext 2.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "VoiceOption",
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "apps/web/src/hooks/playbackLoopSeek.test.ts",
+          "language": "typescript",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/playbackOrchestration.test.ts",
+          "language": "typescript",
+          "sizeLines": 81,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/playbackOrchestration.ts",
+          "language": "typescript",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useMorsePlayback.ts",
+          "language": "typescript",
+          "sizeLines": 516,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useMorseShortcutKeys.test.tsx",
+          "language": "typescript",
+          "sizeLines": 81,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useMorseShortcutKeys.ts",
+          "language": "typescript",
+          "sizeLines": 100,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/cardBufferManager.test.ts",
+          "language": "typescript",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/cardBufferManager.ts",
+          "language": "typescript",
+          "sizeLines": 66,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/speakText.test.ts",
+          "language": "typescript",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/speakText.ts",
+          "language": "typescript",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/voiceSpeech.test.ts",
+          "language": "typescript",
+          "sizeLines": 52,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/voiceSpeech.ts",
+          "language": "typescript",
+          "sizeLines": 130,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/src/hooks/playbackLoopSeek.test.ts": [
+          "apps/web/src/hooks/playbackOrchestration.ts"
+        ],
+        "apps/web/src/hooks/playbackOrchestration.test.ts": [
+          "apps/web/src/hooks/playbackOrchestration.ts"
+        ],
+        "apps/web/src/hooks/playbackOrchestration.ts": [],
+        "apps/web/src/hooks/useMorsePlayback.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/MorseAudioContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/hooks/playbackOrchestration.ts",
+          "apps/web/src/utils/cardBufferManager.ts",
+          "apps/web/src/utils/speakText.ts",
+          "apps/web/src/utils/voiceSpeech.ts",
+          "apps/web/src/utils/words.ts"
+        ],
+        "apps/web/src/hooks/useMorseShortcutKeys.test.tsx": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/hooks/useMorsePlayback.ts",
+          "apps/web/src/hooks/useMorseShortcutKeys.ts",
+          "apps/web/src/test-utils.tsx"
+        ],
+        "apps/web/src/hooks/useMorseShortcutKeys.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/context/PlaybackStateContext.tsx",
+          "apps/web/src/hooks/useMorsePlayback.ts"
+        ],
+        "apps/web/src/utils/cardBufferManager.test.ts": [
+          "apps/web/src/utils/cardBufferManager.ts"
+        ],
+        "apps/web/src/utils/cardBufferManager.ts": [],
+        "apps/web/src/utils/speakText.test.ts": [
+          "apps/web/src/utils/speakText.ts"
+        ],
+        "apps/web/src/utils/speakText.ts": [],
+        "apps/web/src/utils/voiceSpeech.test.ts": [
+          "apps/web/src/utils/voiceSpeech.ts"
+        ],
+        "apps/web/src/utils/voiceSpeech.ts": []
+      },
+      "neighborMap": {
+        "apps/web/src/hooks/useMorsePlayback.ts": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/MorseAudioContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MorseAudioProvider",
+              "useMorseAudio"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/PlaybackStateContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackStateProvider",
+              "usePlaybackActions",
+              "usePlaybackState"
+            ]
+          },
+          {
+            "path": "apps/web/src/utils/words.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "getWords",
+              "getDisplayWord",
+              "rawTextCharCount"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/MorsePlaybackContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MorsePlaybackProvider",
+              "useMorsePlaybackControls"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useMorseShortcutKeys.test.tsx": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/test-utils.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "StateProviders",
+              "AllProviders",
+              "renderWithMorseProviders"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useMorseShortcutKeys.ts": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/PlaybackStateContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "PlaybackStateProvider",
+              "usePlaybackActions",
+              "usePlaybackState"
+            ]
+          },
+          {
+            "path": "apps/web/src/context/MorsePlaybackContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MorsePlaybackProvider",
+              "useMorsePlaybackControls"
+            ]
+          }
+        ],
+        "apps/web/src/utils/voiceSpeech.ts": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 6,
+      "files": [
+        {
+          "path": "packages/core/src/__tests__/catalogIntegrity.test.ts",
+          "language": "typescript",
+          "sizeLines": 43,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/__tests__/lessonLoader.test.ts",
+          "language": "typescript",
+          "sizeLines": 50,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/__tests__/morseMap.test.ts",
+          "language": "typescript",
+          "sizeLines": 42,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/__tests__/morseScheduler.test.ts",
+          "language": "typescript",
+          "sizeLines": 73,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/__tests__/timingEngine.test.ts",
+          "language": "typescript",
+          "sizeLines": 117,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/__tests__/wavExport.test.ts",
+          "language": "typescript",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/audio/morseScheduler.ts",
+          "language": "typescript",
+          "sizeLines": 225,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/audio/timingEngine.ts",
+          "language": "typescript",
+          "sizeLines": 124,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/audio/wavExport.ts",
+          "language": "typescript",
+          "sizeLines": 87,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/engine/morseMap.ts",
+          "language": "typescript",
+          "sizeLines": 92,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/lessons/lessonLoader.ts",
+          "language": "typescript",
+          "sizeLines": 122,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "packages/core/src/__tests__/catalogIntegrity.test.ts": [
+          "packages/core/src/lessons/lessonLoader.ts"
+        ],
+        "packages/core/src/__tests__/lessonLoader.test.ts": [
+          "packages/core/src/lessons/lessonLoader.ts"
+        ],
+        "packages/core/src/__tests__/morseMap.test.ts": [
+          "packages/core/src/engine/morseMap.ts"
+        ],
+        "packages/core/src/__tests__/morseScheduler.test.ts": [
+          "packages/core/src/audio/morseScheduler.ts",
+          "packages/core/src/audio/timingEngine.ts"
+        ],
+        "packages/core/src/__tests__/timingEngine.test.ts": [
+          "packages/core/src/audio/timingEngine.ts"
+        ],
+        "packages/core/src/__tests__/wavExport.test.ts": [
+          "packages/core/src/audio/timingEngine.ts",
+          "packages/core/src/audio/wavExport.ts"
+        ],
+        "packages/core/src/audio/morseScheduler.ts": [
+          "packages/core/src/audio/timingEngine.ts"
+        ],
+        "packages/core/src/audio/timingEngine.ts": [
+          "packages/core/src/engine/morseMap.ts"
+        ],
+        "packages/core/src/audio/wavExport.ts": [
+          "packages/core/src/audio/morseScheduler.ts",
+          "packages/core/src/audio/timingEngine.ts"
+        ],
+        "packages/core/src/engine/morseMap.ts": [],
+        "packages/core/src/lessons/lessonLoader.ts": [
+          "packages/core/src/audio/timingEngine.ts",
+          "packages/core/src/lessons/wordlists.json"
+        ]
+      },
+      "neighborMap": {
+        "packages/core/src/lessons/lessonLoader.ts": [
+          {
+            "path": "packages/core/src/lessons/wordlists.json",
+            "batchIndex": 22,
+            "symbols": []
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 7,
+      "files": [
+        {
+          "path": "apps/web/src/components/StartupHooks.tsx",
+          "language": "typescript",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/hooks/useStartupUrlParams.ts",
+          "language": "typescript",
+          "sizeLines": 53,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/lessonDeepLink.test.ts",
+          "language": "typescript",
+          "sizeLines": 39,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/lessonDeepLink.ts",
+          "language": "typescript",
+          "sizeLines": 81,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/screenWakeLock.ts",
+          "language": "typescript",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/urlParams.test.ts",
+          "language": "typescript",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/urlParams.ts",
+          "language": "typescript",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/src/components/StartupHooks.tsx": [
+          "apps/web/src/hooks/useStartupUrlParams.ts"
+        ],
+        "apps/web/src/hooks/useStartupUrlParams.ts": [
+          "apps/web/src/context/MorseAppContext.tsx",
+          "apps/web/src/utils/screenWakeLock.ts",
+          "apps/web/src/utils/urlParams.ts"
+        ],
+        "apps/web/src/utils/lessonDeepLink.test.ts": [
+          "apps/web/src/utils/lessonDeepLink.ts"
+        ],
+        "apps/web/src/utils/lessonDeepLink.ts": [
+          "apps/web/src/utils/urlParams.ts"
+        ],
+        "apps/web/src/utils/screenWakeLock.ts": [],
+        "apps/web/src/utils/urlParams.test.ts": [
+          "apps/web/src/utils/urlParams.ts"
+        ],
+        "apps/web/src/utils/urlParams.ts": []
+      },
+      "neighborMap": {
+        "apps/web/src/components/StartupHooks.tsx": [
+          {
+            "path": "apps/web/src/App.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "App"
+            ]
+          }
+        ],
+        "apps/web/src/hooks/useStartupUrlParams.ts": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          }
+        ],
+        "apps/web/src/utils/lessonDeepLink.ts": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/useLessonDeepLinks.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "useLessonDeepLinks"
+            ]
+          }
+        ],
+        "apps/web/src/utils/urlParams.ts": [
+          {
+            "path": "apps/web/src/context/MorseAppContext.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "DEFAULT_SHOWING_TEXT",
+              "MorseAppProvider",
+              "useMorseApp",
+              "DEFAULT_SETTINGS"
+            ]
+          },
+          {
+            "path": "apps/web/src/hooks/usePresets.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "usePresets"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 8,
+      "files": [
+        {
+          "path": "apps/web/src/hooks/useMorsePlayer.ts",
+          "language": "typescript",
+          "sizeLines": 81,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/noisePlayer.test.ts",
+          "language": "typescript",
+          "sizeLines": 35,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/noisePlayer.ts",
+          "language": "typescript",
+          "sizeLines": 117,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/src/hooks/useMorsePlayer.ts": [
+          "apps/web/src/utils/noisePlayer.ts"
+        ],
+        "apps/web/src/utils/noisePlayer.test.ts": [
+          "apps/web/src/utils/noisePlayer.ts"
+        ],
+        "apps/web/src/utils/noisePlayer.ts": []
+      },
+      "neighborMap": {
+        "apps/web/src/hooks/useMorsePlayer.ts": [
+          {
+            "path": "apps/web/src/context/MorseAudioContext.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MorseAudioProvider",
+              "useMorseAudio"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 9,
+      "files": [
+        {
+          "path": "apps/web/vite-presets-plugin.ts",
+          "language": "typescript",
+          "sizeLines": 79,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/vite-wordfiles-plugin.ts",
+          "language": "typescript",
+          "sizeLines": 86,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/vite.config.ts",
+          "language": "typescript",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/vite-presets-plugin.ts": [],
+        "apps/web/vite-wordfiles-plugin.ts": [],
+        "apps/web/vite.config.ts": [
+          "apps/web/vite-presets-plugin.ts",
+          "apps/web/vite-wordfiles-plugin.ts"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 10,
+      "files": [
+        {
+          "path": "packages/core/src/__tests__/settingsManager.test.ts",
+          "language": "typescript",
+          "sizeLines": 70,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/settings/cookieStorage.ts",
+          "language": "typescript",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/settings/settingsManager.ts",
+          "language": "typescript",
+          "sizeLines": 79,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "packages/core/src/__tests__/settingsManager.test.ts": [
+          "packages/core/src/settings/cookieStorage.ts",
+          "packages/core/src/settings/settingsManager.ts"
+        ],
+        "packages/core/src/settings/cookieStorage.ts": [],
+        "packages/core/src/settings/settingsManager.ts": [
+          "packages/core/src/settings/cookieStorage.ts"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 11,
+      "files": [
+        {
+          "path": ".github/workflows/deploy.yml",
+          "language": "yaml",
+          "sizeLines": 59,
+          "fileCategory": "infra"
+        }
+      ],
+      "batchImportData": {
+        ".github/workflows/deploy.yml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 12,
+      "files": [
+        {
+          "path": "CLAUDE.md",
+          "language": "markdown",
+          "sizeLines": 53,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "README.md",
+          "language": "markdown",
+          "sizeLines": 177,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "package.json",
+          "language": "json",
+          "sizeLines": 17,
+          "fileCategory": "config"
+        },
+        {
+          "path": "setup.sh",
+          "language": "shell",
+          "sizeLines": 980,
+          "fileCategory": "script"
+        },
+        {
+          "path": "tsconfig.json",
+          "language": "json",
+          "sizeLines": 13,
+          "fileCategory": "config"
+        },
+        {
+          "path": "turbo.json",
+          "language": "json",
+          "sizeLines": 9,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "CLAUDE.md": [],
+        "README.md": [],
+        "package.json": [],
+        "setup.sh": [],
+        "tsconfig.json": [],
+        "turbo.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 13,
+      "files": [
+        {
+          "path": "apps/mobile/MOBILE_STATUS.md",
+          "language": "markdown",
+          "sizeLines": 264,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "apps/mobile/app.json",
+          "language": "json",
+          "sizeLines": 55,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/eas.json",
+          "language": "json",
+          "sizeLines": 8,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/package.json",
+          "language": "json",
+          "sizeLines": 53,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/tsconfig.json",
+          "language": "json",
+          "sizeLines": 10,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "apps/mobile/MOBILE_STATUS.md": [],
+        "apps/mobile/app.json": [],
+        "apps/mobile/eas.json": [],
+        "apps/mobile/package.json": [],
+        "apps/mobile/tsconfig.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 14,
+      "files": [
+        {
+          "path": "apps/mobile/android/app/src/main/res/values/colors.xml",
+          "language": "xml",
+          "sizeLines": 4,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/res/values/strings.xml",
+          "language": "xml",
+          "sizeLines": 2,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/res/values/styles.xml",
+          "language": "xml",
+          "sizeLines": 10,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "apps/mobile/android/app/src/main/res/values/colors.xml": [],
+        "apps/mobile/android/app/src/main/res/values/strings.xml": [],
+        "apps/mobile/android/app/src/main/res/values/styles.xml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 15,
+      "files": [
+        {
+          "path": "apps/mobile/android/build.gradle",
+          "language": "gradle",
+          "sizeLines": 24,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/gradle.properties",
+          "language": "properties",
+          "sizeLines": 62,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/gradlew.bat",
+          "language": "batch",
+          "sizeLines": 98,
+          "fileCategory": "script"
+        },
+        {
+          "path": "apps/mobile/android/settings.gradle",
+          "language": "gradle",
+          "sizeLines": 39,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "apps/mobile/android/build.gradle": [],
+        "apps/mobile/android/gradle.properties": [],
+        "apps/mobile/android/gradlew.bat": [],
+        "apps/mobile/android/settings.gradle": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 16,
+      "files": [
+        {
+          "path": "apps/mobile/assets/lesson-data-version.json",
+          "language": "json",
+          "sizeLines": 3,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/assets/presets-manifest.json",
+          "language": "json",
+          "sizeLines": 230,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/assets/wordfiles-manifest.json",
+          "language": "json",
+          "sizeLines": 638,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "apps/mobile/assets/lesson-data-version.json": [],
+        "apps/mobile/assets/presets-manifest.json": [],
+        "apps/mobile/assets/wordfiles-manifest.json": []
+      },
+      "neighborMap": {
+        "apps/mobile/assets/lesson-data-version.json": [
+          {
+            "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "ensureWordfilesCached",
+              "ensurePresetsCached",
+              "installPresetFetchFallback",
+              "loadMobileLessonFile"
+            ]
+          }
+        ],
+        "apps/mobile/assets/presets-manifest.json": [
+          {
+            "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "ensureWordfilesCached",
+              "ensurePresetsCached",
+              "installPresetFetchFallback",
+              "loadMobileLessonFile"
+            ]
+          }
+        ],
+        "apps/mobile/assets/wordfiles-manifest.json": [
+          {
+            "path": "apps/mobile/src/utils/loadMobileLessonFile.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "ensureWordfilesCached",
+              "ensurePresetsCached",
+              "installPresetFetchFallback",
+              "loadMobileLessonFile"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 17,
+      "files": [
+        {
+          "path": "apps/web/index.html",
+          "language": "html",
+          "sizeLines": 20,
+          "fileCategory": "markup"
+        },
+        {
+          "path": "apps/web/package.json",
+          "language": "json",
+          "sizeLines": 31,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/web/tsconfig.build.json",
+          "language": "json",
+          "sizeLines": 12,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/web/tsconfig.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/web/wrangler.toml",
+          "language": "toml",
+          "sizeLines": 7,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/index.html": [],
+        "apps/web/package.json": [],
+        "apps/web/tsconfig.build.json": [],
+        "apps/web/tsconfig.json": [],
+        "apps/web/wrangler.toml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 18,
+      "files": [
+        {
+          "path": "docs/ADDING_LESSONS_PRESETS_WORDFILES.md",
+          "language": "markdown",
+          "sizeLines": 278,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "docs/ANDROID_FRAMEWORK.md",
+          "language": "markdown",
+          "sizeLines": 230,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "docs/LESSON_DATA_PIPELINE.md",
+          "language": "markdown",
+          "sizeLines": 75,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "docs/README.md",
+          "language": "markdown",
+          "sizeLines": 22,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "docs/REPO_MAP.md",
+          "language": "markdown",
+          "sizeLines": 233,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "docs/ADDING_LESSONS_PRESETS_WORDFILES.md": [],
+        "docs/ANDROID_FRAMEWORK.md": [],
+        "docs/LESSON_DATA_PIPELINE.md": [],
+        "docs/README.md": [],
+        "docs/REPO_MAP.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 19,
+      "files": [
+        {
+          "path": "docs/archived/AGENT_PROMPTS.md",
+          "language": "markdown",
+          "sizeLines": 194,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "docs/archived/COMPLETE_STEPS.md",
+          "language": "markdown",
+          "sizeLines": 78,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "docs/archived/COMPONENT_MAP.md",
+          "language": "markdown",
+          "sizeLines": 1314,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "docs/archived/README.md",
+          "language": "markdown",
+          "sizeLines": 13,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "docs/archived/AGENT_PROMPTS.md": [],
+        "docs/archived/COMPLETE_STEPS.md": [],
+        "docs/archived/COMPONENT_MAP.md": [],
+        "docs/archived/README.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 20,
+      "files": [
+        {
+          "path": ".cursor/hooks/state/continual-learning.json",
+          "language": "json",
+          "sizeLines": 8,
+          "fileCategory": "config"
+        },
+        {
+          "path": ".DS_Store",
+          "language": "unknown",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".gitattributes",
+          "language": "unknown",
+          "sizeLines": 2,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".nvmrc",
+          "language": "unknown",
+          "sizeLines": 1,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".understand-anything/.understandignore",
+          "language": "unknown",
+          "sizeLines": 71,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".understand-anything/fingerprints.json",
+          "language": "json",
+          "sizeLines": 16,
+          "fileCategory": "config"
+        },
+        {
+          "path": ".understand-anything/tmp/ua-scan-files.json",
+          "language": "json",
+          "sizeLines": 1645,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/.DS_Store",
+          "language": "unknown",
+          "sizeLines": 1,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/.npmrc",
+          "language": "unknown",
+          "sizeLines": 2,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/android/app/build.gradle",
+          "language": "gradle",
+          "sizeLines": 192,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/proguard-rules.pro",
+          "language": "pro",
+          "sizeLines": 14,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/android/app/src/debug/AndroidManifest.xml",
+          "language": "xml",
+          "sizeLines": 7,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/debugOptimized/AndroidManifest.xml",
+          "language": "xml",
+          "sizeLines": 7,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/AndroidManifest.xml",
+          "language": "xml",
+          "sizeLines": 34,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt",
+          "language": "kotlin",
+          "sizeLines": 61,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt",
+          "language": "kotlin",
+          "sizeLines": 45,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml",
+          "language": "xml",
+          "sizeLines": 5,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/res/drawable/rn_edit_text_material.xml",
+          "language": "xml",
+          "sizeLines": 37,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+          "language": "xml",
+          "sizeLines": 4,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+          "language": "xml",
+          "sizeLines": 4,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/gradle/gradle-daemon-jvm.properties",
+          "language": "properties",
+          "sizeLines": 12,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/gradle/wrapper/gradle-wrapper.properties",
+          "language": "properties",
+          "sizeLines": 7,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/android/gradlew",
+          "language": "unknown",
+          "sizeLines": 248,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/babel.config.js",
+          "language": "javascript",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/.xcode.env",
+          "language": "config",
+          "sizeLines": 11,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        ".cursor/hooks/state/continual-learning.json": [],
+        ".DS_Store": [],
+        ".gitattributes": [],
+        ".nvmrc": [],
+        ".understand-anything/.understandignore": [],
+        ".understand-anything/fingerprints.json": [],
+        ".understand-anything/tmp/ua-scan-files.json": [],
+        "apps/.DS_Store": [],
+        "apps/mobile/.npmrc": [],
+        "apps/mobile/android/app/build.gradle": [],
+        "apps/mobile/android/app/proguard-rules.pro": [],
+        "apps/mobile/android/app/src/debug/AndroidManifest.xml": [],
+        "apps/mobile/android/app/src/debugOptimized/AndroidManifest.xml": [],
+        "apps/mobile/android/app/src/main/AndroidManifest.xml": [],
+        "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainActivity.kt": [],
+        "apps/mobile/android/app/src/main/java/com/kq4nkf/morsebrowser/MainApplication.kt": [],
+        "apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml": [],
+        "apps/mobile/android/app/src/main/res/drawable/rn_edit_text_material.xml": [],
+        "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml": [],
+        "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml": [],
+        "apps/mobile/android/gradle/gradle-daemon-jvm.properties": [],
+        "apps/mobile/android/gradle/wrapper/gradle-wrapper.properties": [],
+        "apps/mobile/android/gradlew": [],
+        "apps/mobile/babel.config.js": [],
+        "apps/mobile/ios/.xcode.env": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 21,
+      "files": [
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj",
+          "language": "pbxproj",
+          "sizeLines": 587,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme",
+          "language": "xcscheme",
+          "sizeLines": 88,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata",
+          "language": "xcworkspacedata",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+          "language": "swift",
+          "sizeLines": 69,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/AppIcon.appiconset/Contents.json",
+          "language": "json",
+          "sizeLines": 13,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/Contents.json",
+          "language": "json",
+          "sizeLines": 6,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/Info.plist",
+          "language": "xml",
+          "sizeLines": 82,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h",
+          "language": "c",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements",
+          "language": "entitlements",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy",
+          "language": "xcprivacy",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard",
+          "language": "storyboard",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/LICWMorsebrowser/Supporting/Expo.plist",
+          "language": "xml",
+          "sizeLines": 13,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/ios/Podfile",
+          "language": "unknown",
+          "sizeLines": 66,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/ios/Podfile.properties.json",
+          "language": "json",
+          "sizeLines": 5,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/mobile/metro.config.js",
+          "language": "javascript",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch",
+          "language": "patch",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/scripts/generate-asset-manifests.mjs",
+          "language": "javascript",
+          "sizeLines": 72,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/scripts/sync-presets.mjs",
+          "language": "javascript",
+          "sizeLines": 43,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/scripts/sync-wordfiles.mjs",
+          "language": "javascript",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/mobile/src/configs/wordify.json",
+          "language": "json",
+          "sizeLines": 154,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/web/public/_redirects",
+          "language": "unknown",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/configs/wordify.json",
+          "language": "json",
+          "sizeLines": 154,
+          "fileCategory": "config"
+        },
+        {
+          "path": "apps/web/src/hooks/playbackTiming.test.ts",
+          "language": "typescript",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/styles/dark-mode.css",
+          "language": "css",
+          "sizeLines": 329,
+          "fileCategory": "markup"
+        },
+        {
+          "path": "apps/web/src/styles/morsebrowser.css",
+          "language": "css",
+          "sizeLines": 574,
+          "fileCategory": "markup"
+        }
+      ],
+      "batchImportData": {
+        "apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj": [],
+        "apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme": [],
+        "apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata": [],
+        "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift": [],
+        "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/AppIcon.appiconset/Contents.json": [],
+        "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/Contents.json": [],
+        "apps/mobile/ios/LICWMorsebrowser/Info.plist": [],
+        "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h": [],
+        "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements": [],
+        "apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy": [],
+        "apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard": [],
+        "apps/mobile/ios/LICWMorsebrowser/Supporting/Expo.plist": [],
+        "apps/mobile/ios/Podfile": [],
+        "apps/mobile/ios/Podfile.properties.json": [],
+        "apps/mobile/metro.config.js": [],
+        "apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch": [],
+        "apps/mobile/scripts/generate-asset-manifests.mjs": [],
+        "apps/mobile/scripts/sync-presets.mjs": [],
+        "apps/mobile/scripts/sync-wordfiles.mjs": [],
+        "apps/mobile/src/configs/wordify.json": [],
+        "apps/web/public/_redirects": [],
+        "apps/web/src/configs/wordify.json": [],
+        "apps/web/src/hooks/playbackTiming.test.ts": [],
+        "apps/web/src/styles/dark-mode.css": [],
+        "apps/web/src/styles/morsebrowser.css": []
+      },
+      "neighborMap": {
+        "apps/mobile/src/configs/wordify.json": [
+          {
+            "path": "apps/mobile/src/utils/speakText.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "doReplacements",
+              "wordifyPunctuation",
+              "getSpeakText",
+              "prepPhraseToSpeakForFinal"
+            ]
+          }
+        ],
+        "apps/web/src/configs/wordify.json": [
+          {
+            "path": "apps/web/src/utils/morseStringUtils.ts",
+            "batchIndex": 22,
+            "symbols": [
+              "doReplacements",
+              "wordifyPunctuation",
+              "getSpeakText",
+              "prepPhraseToSpeakForFinal"
+            ]
+          }
+        ],
+        "apps/web/src/styles/dark-mode.css": [
+          {
+            "path": "apps/web/src/main.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          }
+        ],
+        "apps/web/src/styles/morsebrowser.css": [
+          {
+            "path": "apps/web/src/main.tsx",
+            "batchIndex": 1,
+            "symbols": []
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 22,
+      "files": [
+        {
+          "path": "apps/web/src/test-setup.ts",
+          "language": "typescript",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/utils/morseStringUtils.ts",
+          "language": "typescript",
+          "sizeLines": 101,
+          "fileCategory": "code"
+        },
+        {
+          "path": "apps/web/src/vite-env.d.ts",
+          "language": "typescript",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/.DS_Store",
+          "language": "unknown",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/.DS_Store",
+          "language": "unknown",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/jest.config.js",
+          "language": "javascript",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/package.json",
+          "language": "json",
+          "sizeLines": 19,
+          "fileCategory": "config"
+        },
+        {
+          "path": "packages/core/scripts/sync-lesson-data.mjs",
+          "language": "javascript",
+          "sizeLines": 89,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/__tests__/presets.test.ts",
+          "language": "typescript",
+          "sizeLines": 193,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/__tests__/speedIntervals.test.ts",
+          "language": "typescript",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/.DS_Store",
+          "language": "unknown",
+          "sizeLines": 2,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/src/lessons/wordlists.json",
+          "language": "json",
+          "sizeLines": 990,
+          "fileCategory": "config"
+        },
+        {
+          "path": "packages/core/src/settings/speedIntervals.ts",
+          "language": "typescript",
+          "sizeLines": 66,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/core/tsconfig.json",
+          "language": "json",
+          "sizeLines": 11,
+          "fileCategory": "config"
+        },
+        {
+          "path": "packages/types/package.json",
+          "language": "json",
+          "sizeLines": 8,
+          "fileCategory": "config"
+        },
+        {
+          "path": "packages/types/tsconfig.json",
+          "language": "json",
+          "sizeLines": 6,
+          "fileCategory": "config"
+        },
+        {
+          "path": "tools/visual-diff.mjs",
+          "language": "javascript",
+          "sizeLines": 61,
+          "fileCategory": "code"
+        },
+        {
+          "path": "workers/rss-proxy/src/index.ts",
+          "language": "typescript",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "workers/rss-proxy/wrangler.toml",
+          "language": "toml",
+          "sizeLines": 8,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "apps/web/src/test-setup.ts": [],
+        "apps/web/src/utils/morseStringUtils.ts": [
+          "apps/web/src/configs/wordify.json"
+        ],
+        "apps/web/src/vite-env.d.ts": [],
+        "packages/.DS_Store": [],
+        "packages/core/.DS_Store": [],
+        "packages/core/jest.config.js": [],
+        "packages/core/package.json": [],
+        "packages/core/scripts/sync-lesson-data.mjs": [],
+        "packages/core/src/__tests__/presets.test.ts": [],
+        "packages/core/src/__tests__/speedIntervals.test.ts": [
+          "packages/core/src/settings/speedIntervals.ts"
+        ],
+        "packages/core/src/.DS_Store": [],
+        "packages/core/src/lessons/wordlists.json": [],
+        "packages/core/src/settings/speedIntervals.ts": [],
+        "packages/core/tsconfig.json": [],
+        "packages/types/package.json": [],
+        "packages/types/tsconfig.json": [],
+        "tools/visual-diff.mjs": [],
+        "workers/rss-proxy/src/index.ts": [],
+        "workers/rss-proxy/wrangler.toml": []
+      },
+      "neighborMap": {
+        "apps/web/src/utils/morseStringUtils.ts": [
+          {
+            "path": "apps/web/src/configs/wordify.json",
+            "batchIndex": 21,
+            "symbols": []
+          }
+        ],
+        "packages/core/src/lessons/wordlists.json": [
+          {
+            "path": "packages/core/src/lessons/lessonLoader.ts",
+            "batchIndex": 6,
+            "symbols": [
+              "WORDFILES_BASE_PATH",
+              "getWordListCatalog",
+              "getUserTargets",
+              "getClasses",
+              "getLetterGroups",
+              "getDisplays",
+              "findWordListOption",
+              "loadLesson",
+              "loadWordList",
+              "loadLessonFile",
+              "isRandomWordListConfig"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

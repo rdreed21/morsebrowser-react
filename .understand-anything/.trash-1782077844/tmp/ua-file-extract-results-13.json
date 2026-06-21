@@ -1,0 +1,252 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/mobile/MOBILE_STATUS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 264,
+      "nonEmptyLines": 205,
+      "sections": [
+        {
+          "heading": "Mobile App Status — LICW Morsebrowser (iOS)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Executive summary",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Hard requirements (non-negotiable)",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "What’s done",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "Infrastructure & native",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "Audio stack",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "State & data",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "UI components (ported)",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "Behavior working in dev (simulator)",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "What’s left",
+          "level": 2,
+          "line": 105
+        },
+        {
+          "heading": "Priority 1 — Must-have before calling mobile “done”",
+          "level": 3,
+          "line": 107
+        },
+        {
+          "heading": "Priority 2 — Feature parity with web",
+          "level": 3,
+          "line": 121
+        },
+        {
+          "heading": "Priority 3 — Quality & ship",
+          "level": 3,
+          "line": 139
+        },
+        {
+          "heading": "Known issues & warnings",
+          "level": 2,
+          "line": 149
+        },
+        {
+          "heading": "Project layout (key files)",
+          "level": 2,
+          "line": 160
+        },
+        {
+          "heading": "Commands",
+          "level": 2,
+          "line": 182
+        },
+        {
+          "heading": "Getting the app onto a real iPhone",
+          "level": 2,
+          "line": 203
+        },
+        {
+          "heading": "1. Quick tethered run (USB/wireless debugging, Metro required)",
+          "level": 3,
+          "line": 207
+        },
+        {
+          "heading": "2. Standalone install, still tethered once (no Metro needed after install)",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "3. Untethered extended testing — EAS internal/ad-hoc build (recommended pre-TestFlight step)",
+          "level": 3,
+          "line": 228
+        },
+        {
+          "heading": "Suggested next steps (ordered)",
+          "level": 2,
+          "line": 245
+        },
+        {
+          "heading": "Related docs",
+          "level": 2,
+          "line": 257
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 22
+      }
+    },
+    {
+      "path": "apps/mobile/app.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 55,
+      "nonEmptyLines": 55,
+      "sections": [
+        {
+          "heading": "expo",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "apps/mobile/eas.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "sections": [
+        {
+          "heading": "cli",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "build",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "apps/mobile/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 53,
+      "nonEmptyLines": 53,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "apps/mobile/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

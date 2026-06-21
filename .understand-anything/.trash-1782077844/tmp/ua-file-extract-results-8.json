@@ -1,0 +1,365 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/web/src/hooks/useMorsePlayer.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "useMorsePlayer",
+          "startLine": 15,
+          "endLine": 81,
+          "params": [
+            "config",
+            "noise"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "useMorsePlayer",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useRef",
+          "lineNumber": 16
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useRef",
+          "lineNumber": 17
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useRef",
+          "lineNumber": 18
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useRef",
+          "lineNumber": 19
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useCallback",
+          "lineNumber": 22
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "ctxRef.current.resume",
+          "lineNumber": 27
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useCallback",
+          "lineNumber": 32
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "noisePlayerRef.current.sync",
+          "lineNumber": 34
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "getCtx",
+          "lineNumber": 34
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useCallback",
+          "lineNumber": 37
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "cancelRef.current",
+          "lineNumber": 38
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useCallback",
+          "lineNumber": 42
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "stopMorse",
+          "lineNumber": 43
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "noisePlayerRef.current.stop",
+          "lineNumber": 44
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useCallback",
+          "lineNumber": 47
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "stopMorse",
+          "lineNumber": 51
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "scheduleText",
+          "lineNumber": 53
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "getCtx",
+          "lineNumber": 53
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useCallback",
+          "lineNumber": 57
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "stopMorse",
+          "lineNumber": 58
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "scheduleTestTone",
+          "lineNumber": 59
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "getCtx",
+          "lineNumber": 59
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useEffect",
+          "lineNumber": 63
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "noisePlayerRef.current.isPlaying",
+          "lineNumber": 64
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "noisePlayerRef.current.sync",
+          "lineNumber": 66
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "getCtx",
+          "lineNumber": 66
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useEffect",
+          "lineNumber": 69
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "stopAll",
+          "lineNumber": 70
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "ctxRef.current?.close",
+          "lineNumber": 71
+        },
+        {
+          "caller": "useMorsePlayer",
+          "callee": "useMemo",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/noisePlayer.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 33,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/noisePlayer.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 117,
+      "nonEmptyLines": 101,
+      "functions": [
+        {
+          "name": "fillNoiseBuffer",
+          "startLine": 5,
+          "endLine": 44,
+          "params": [
+            "data",
+            "type"
+          ]
+        },
+        {
+          "name": "createLoopingNoiseSource",
+          "startLine": 46,
+          "endLine": 58,
+          "params": [
+            "ctx",
+            "type"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NoisePlayer",
+          "startLine": 60,
+          "endLine": 117,
+          "methods": [
+            "isPlaying",
+            "sync",
+            "setVolume",
+            "stop",
+            "start"
+          ],
+          "properties": [
+            "node",
+            "gain",
+            "activeType",
+            "playing"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NoisePlayer",
+          "line": 60,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fillNoiseBuffer",
+          "callee": "Math.random",
+          "lineNumber": 10
+        },
+        {
+          "caller": "fillNoiseBuffer",
+          "callee": "Math.random",
+          "lineNumber": 18
+        },
+        {
+          "caller": "fillNoiseBuffer",
+          "callee": "Math.random",
+          "lineNumber": 34
+        },
+        {
+          "caller": "createLoopingNoiseSource",
+          "callee": "Math.floor",
+          "lineNumber": 50
+        },
+        {
+          "caller": "createLoopingNoiseSource",
+          "callee": "ctx.createBuffer",
+          "lineNumber": 51
+        },
+        {
+          "caller": "createLoopingNoiseSource",
+          "callee": "fillNoiseBuffer",
+          "lineNumber": 52
+        },
+        {
+          "caller": "createLoopingNoiseSource",
+          "callee": "buffer.getChannelData",
+          "lineNumber": 52
+        },
+        {
+          "caller": "createLoopingNoiseSource",
+          "callee": "ctx.createBufferSource",
+          "lineNumber": 54
+        },
+        {
+          "caller": "sync",
+          "callee": "this.stop",
+          "lineNumber": 73
+        },
+        {
+          "caller": "sync",
+          "callee": "this.setVolume",
+          "lineNumber": 78
+        },
+        {
+          "caller": "sync",
+          "callee": "this.stop",
+          "lineNumber": 82
+        },
+        {
+          "caller": "sync",
+          "callee": "this.start",
+          "lineNumber": 83
+        },
+        {
+          "caller": "setVolume",
+          "callee": "this.gain?.gain.setValueAtTime",
+          "lineNumber": 87
+        },
+        {
+          "caller": "stop",
+          "callee": "this.node.stop",
+          "lineNumber": 92
+        },
+        {
+          "caller": "start",
+          "callee": "createLoopingNoiseSource",
+          "lineNumber": 105
+        },
+        {
+          "caller": "start",
+          "callee": "ctx.createGain",
+          "lineNumber": 106
+        },
+        {
+          "caller": "start",
+          "callee": "gain.gain.setValueAtTime",
+          "lineNumber": 107
+        },
+        {
+          "caller": "start",
+          "callee": "node.connect",
+          "lineNumber": 108
+        },
+        {
+          "caller": "start",
+          "callee": "gain.connect",
+          "lineNumber": 109
+        },
+        {
+          "caller": "start",
+          "callee": "node.start",
+          "lineNumber": 110
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

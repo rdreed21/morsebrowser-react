@@ -1,0 +1,484 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "apps/web/src/components/StartupHooks.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "functions": [
+        {
+          "name": "StartupHooks",
+          "startLine": 4,
+          "endLine": 7,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "StartupHooks",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "StartupHooks",
+          "callee": "useStartupUrlParams",
+          "lineNumber": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/hooks/useStartupUrlParams.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "getWakeLock",
+          "startLine": 8,
+          "endLine": 13,
+          "params": []
+        },
+        {
+          "name": "useStartupUrlParams",
+          "startLine": 16,
+          "endLine": 53,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useStartupUrlParams",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "useMorseApp",
+          "lineNumber": 19
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "useRef",
+          "lineNumber": 20
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "useEffect",
+          "lineNumber": 22
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "getUrlParam",
+          "lineNumber": 26
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "setVoiceEnabled",
+          "lineNumber": 27
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "getUrlParam",
+          "lineNumber": 30
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "Number.parseInt",
+          "lineNumber": 32
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "Number.isInteger",
+          "lineNumber": 33
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "setVoiceBufferMaxLength",
+          "lineNumber": 34
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "getUrlParam",
+          "lineNumber": 38
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "setNoiseType",
+          "lineNumber": 40
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "useEffect",
+          "lineNumber": 44
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "getWakeLock",
+          "lineNumber": 45
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "lock.activate",
+          "lineNumber": 47
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "lock.deactivate",
+          "lineNumber": 49
+        },
+        {
+          "caller": "useStartupUrlParams",
+          "callee": "lock.deactivate",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/lessonDeepLink.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 34,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/lessonDeepLink.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "findIgnoreCase",
+          "startLine": 6,
+          "endLine": 9,
+          "params": [
+            "items",
+            "getLabel",
+            "param"
+          ]
+        },
+        {
+          "name": "resolveLessonDeepLink",
+          "startLine": 19,
+          "endLine": 73,
+          "params": [
+            "userTarget",
+            "fallbackClass",
+            "fallbackGroup"
+          ]
+        },
+        {
+          "name": "hasLessonDeepLinkParams",
+          "startLine": 75,
+          "endLine": 81,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "resolveLessonDeepLink",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "hasLessonDeepLinkParams",
+          "line": 75,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "findIgnoreCase",
+          "callee": "param.toUpperCase",
+          "lineNumber": 7
+        },
+        {
+          "caller": "findIgnoreCase",
+          "callee": "items.find",
+          "lineNumber": 8
+        },
+        {
+          "caller": "findIgnoreCase",
+          "callee": "getLabel(item).toUpperCase",
+          "lineNumber": 8
+        },
+        {
+          "caller": "findIgnoreCase",
+          "callee": "getLabel",
+          "lineNumber": 8
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "getUrlParam",
+          "lineNumber": 24
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "getUrlParam",
+          "lineNumber": 25
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "getUrlParam",
+          "lineNumber": 26
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "findIgnoreCase",
+          "lineNumber": 35
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "getClasses",
+          "lineNumber": 35
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "consumed.push",
+          "lineNumber": 38
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "findIgnoreCase",
+          "lineNumber": 43
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "getLetterGroups",
+          "lineNumber": 44
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "consumed.push",
+          "lineNumber": 50
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "findIgnoreCase",
+          "lineNumber": 55
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "getDisplays",
+          "lineNumber": 56
+        },
+        {
+          "caller": "resolveLessonDeepLink",
+          "callee": "consumed.push",
+          "lineNumber": 62
+        },
+        {
+          "caller": "hasLessonDeepLinkParams",
+          "callee": "getUrlParam",
+          "lineNumber": 77
+        },
+        {
+          "caller": "hasLessonDeepLinkParams",
+          "callee": "getUrlParam",
+          "lineNumber": 78
+        },
+        {
+          "caller": "hasLessonDeepLinkParams",
+          "callee": "getUrlParam",
+          "lineNumber": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/screenWakeLock.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 34,
+      "classes": [
+        {
+          "name": "ScreenWakeLock",
+          "startLine": 2,
+          "endLine": 37,
+          "methods": [
+            "constructor",
+            "activate",
+            "deactivate"
+          ],
+          "properties": [
+            "requested",
+            "wakeLock",
+            "wakeLockAvailable"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ScreenWakeLock",
+          "line": 2,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "constructor",
+          "callee": "document.addEventListener",
+          "lineNumber": 10
+        },
+        {
+          "caller": "constructor",
+          "callee": "this.activate",
+          "lineNumber": 13
+        },
+        {
+          "caller": "activate",
+          "callee": "navigator.wakeLock.request",
+          "lineNumber": 23
+        },
+        {
+          "caller": "deactivate",
+          "callee": "this.wakeLock.release().then",
+          "lineNumber": 32
+        },
+        {
+          "caller": "deactivate",
+          "callee": "this.wakeLock.release",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "apps/web/src/utils/urlParams.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/web/src/utils/urlParams.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "getUrlParam",
+          "startLine": 2,
+          "endLine": 6,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "hasUrlParam",
+          "startLine": 8,
+          "endLine": 10,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "isDevBuild",
+          "startLine": 16,
+          "endLine": 23,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getUrlParam",
+          "line": 2,
+          "isDefault": false
+        },
+        {
+          "name": "hasUrlParam",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "isDevBuild",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getUrlParam",
+          "callee": "new URLSearchParams(window.location.search).get",
+          "lineNumber": 4
+        },
+        {
+          "caller": "hasUrlParam",
+          "callee": "getUrlParam",
+          "lineNumber": 9
+        },
+        {
+          "caller": "isDevBuild",
+          "callee": "window.location.href.toLowerCase",
+          "lineNumber": 18
+        },
+        {
+          "caller": "isDevBuild",
+          "callee": "href.includes",
+          "lineNumber": 19
+        },
+        {
+          "caller": "isDevBuild",
+          "callee": "params.get",
+          "lineNumber": 21
+        },
+        {
+          "caller": "isDevBuild",
+          "callee": "params.get",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

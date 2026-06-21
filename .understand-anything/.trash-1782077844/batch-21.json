@@ -1,0 +1,390 @@
+{
+  "nodes": [
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj",
+      "type": "config",
+      "name": "project.pbxproj",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj",
+      "summary": "Xcode project definition describing build phases, targets, file references, and build settings for the iOS app.",
+      "tags": ["configuration", "ios", "xcode", "build-system"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme",
+      "type": "config",
+      "name": "LICWMorsebrowser.xcscheme",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser.xcodeproj/xcshareddata/xcschemes/LICWMorsebrowser.xcscheme",
+      "summary": "Shared Xcode scheme defining build, run, test, and archive actions for the LICWMorsebrowser iOS target.",
+      "tags": ["configuration", "ios", "xcode"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata",
+      "type": "config",
+      "name": "contents.xcworkspacedata",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata",
+      "summary": "Xcode workspace manifest referencing the app project and the CocoaPods Pods project.",
+      "tags": ["configuration", "ios", "xcode", "workspace"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "type": "file",
+      "name": "AppDelegate.swift",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "summary": "iOS application entry point bootstrapping the Expo/React Native runtime and handling deep links and universal links via RCTLinkingManager.",
+      "tags": ["entry-point", "ios", "react-native", "swift"],
+      "complexity": "moderate",
+      "languageNotes": "Swift ExpoAppDelegate subclass starting React Native through ExpoReactNativeFactory and overriding URL/userActivity handlers for Linking support."
+    },
+    {
+      "id": "class:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift:AppDelegate",
+      "type": "class",
+      "name": "AppDelegate",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "lineRange": [6, 52],
+      "summary": "Main iOS app delegate that starts React Native with module 'main' and forwards open-URL and continue-userActivity calls to RCTLinkingManager for deep linking.",
+      "tags": ["entry-point", "ios", "react-native", "deep-linking"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift:ReactNativeDelegate",
+      "type": "class",
+      "name": "ReactNativeDelegate",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "lineRange": [54, 69],
+      "summary": "Expo React Native factory delegate resolving the JS bundle URL, using the metro dev bundle in DEBUG and the embedded main.jsbundle in release.",
+      "tags": ["ios", "react-native", "bundling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser/Images.xcassets/AppIcon.appiconset/Contents.json",
+      "type": "config",
+      "name": "Contents.json",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/AppIcon.appiconset/Contents.json",
+      "summary": "Asset catalog manifest mapping app icon image variants to their iOS size and scale slots.",
+      "tags": ["configuration", "ios", "assets", "icon"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser/Images.xcassets/Contents.json",
+      "type": "config",
+      "name": "Contents.json",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/Images.xcassets/Contents.json",
+      "summary": "Top-level asset catalog manifest declaring the asset author metadata for the iOS image set.",
+      "tags": ["configuration", "ios", "assets"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser/Info.plist",
+      "type": "config",
+      "name": "Info.plist",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/Info.plist",
+      "summary": "iOS app property list declaring bundle identifiers, URL schemes, UIBackgroundModes for background audio, and other runtime configuration.",
+      "tags": ["configuration", "ios", "plist", "background-audio"],
+      "complexity": "moderate",
+      "languageNotes": "Declares UIBackgroundModes:audio required for Morse playback through screen lock per project hard requirements."
+    },
+    {
+      "id": "file:apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h",
+      "type": "file",
+      "name": "LICWMorsebrowser-Bridging-Header.h",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser-Bridging-Header.h",
+      "summary": "Objective-C bridging header exposing native headers to the Swift app target.",
+      "tags": ["ios", "swift", "bridging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements",
+      "type": "config",
+      "name": "LICWMorsebrowser.entitlements",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/LICWMorsebrowser.entitlements",
+      "summary": "iOS entitlements file declaring app capabilities such as associated domains for universal links.",
+      "tags": ["configuration", "ios", "entitlements", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy",
+      "type": "config",
+      "name": "PrivacyInfo.xcprivacy",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/PrivacyInfo.xcprivacy",
+      "summary": "Apple privacy manifest declaring required-reason API usage and data collection practices for App Store review.",
+      "tags": ["configuration", "ios", "privacy", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard",
+      "type": "config",
+      "name": "SplashScreen.storyboard",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/SplashScreen.storyboard",
+      "summary": "Interface Builder storyboard defining the iOS launch/splash screen shown during app startup.",
+      "tags": ["ios", "ui", "splash-screen"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/ios/LICWMorsebrowser/Supporting/Expo.plist",
+      "type": "config",
+      "name": "Expo.plist",
+      "filePath": "apps/mobile/ios/LICWMorsebrowser/Supporting/Expo.plist",
+      "summary": "Expo-specific property list configuring update URLs and runtime settings for the iOS build.",
+      "tags": ["configuration", "ios", "expo", "plist"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/ios/Podfile",
+      "type": "file",
+      "name": "Podfile",
+      "filePath": "apps/mobile/ios/Podfile",
+      "summary": "CocoaPods dependency manifest for the iOS app, configuring Expo autolinking and React Native pods plus post-install build settings.",
+      "tags": ["configuration", "ios", "cocoapods", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:apps/mobile/ios/Podfile.properties.json",
+      "type": "config",
+      "name": "Podfile.properties.json",
+      "filePath": "apps/mobile/ios/Podfile.properties.json",
+      "summary": "JSON properties consumed by the Podfile to toggle Expo build options such as Hermes and new architecture.",
+      "tags": ["configuration", "ios", "cocoapods"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/metro.config.js",
+      "type": "file",
+      "name": "metro.config.js",
+      "filePath": "apps/mobile/metro.config.js",
+      "summary": "Metro bundler configuration for the mobile app, extending the Expo defaults to resolve monorepo workspace packages from the repo root.",
+      "tags": ["configuration", "build-system", "metro", "monorepo"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch",
+      "type": "file",
+      "name": "@react-native+gradle-plugin+0.85.3.patch",
+      "filePath": "apps/mobile/patches/@react-native+gradle-plugin+0.85.3.patch",
+      "summary": "patch-package diff modifying the React Native Gradle plugin to fix a build issue in version 0.85.3.",
+      "tags": ["patch", "android", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/scripts/generate-asset-manifests.mjs",
+      "type": "file",
+      "name": "generate-asset-manifests.mjs",
+      "filePath": "apps/mobile/scripts/generate-asset-manifests.mjs",
+      "summary": "Build script that recursively lists bundled lesson/preset/word-file assets and writes hashed manifest JSON for the mobile app to load at runtime.",
+      "tags": ["script", "build-system", "assets", "mobile"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/scripts/generate-asset-manifests.mjs:listFilesRecursive",
+      "type": "function",
+      "name": "listFilesRecursive",
+      "filePath": "apps/mobile/scripts/generate-asset-manifests.mjs",
+      "lineRange": [25, 37],
+      "summary": "Recursively walks a directory tree and returns all contained file paths for manifest generation.",
+      "tags": ["utility", "filesystem", "recursion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/scripts/generate-asset-manifests.mjs:writeManifest",
+      "type": "function",
+      "name": "writeManifest",
+      "filePath": "apps/mobile/scripts/generate-asset-manifests.mjs",
+      "lineRange": [39, 50],
+      "summary": "Writes an asset manifest JSON file describing the bundled assets and their content hashes.",
+      "tags": ["utility", "filesystem", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/scripts/generate-asset-manifests.mjs:hashFiles",
+      "type": "function",
+      "name": "hashFiles",
+      "filePath": "apps/mobile/scripts/generate-asset-manifests.mjs",
+      "lineRange": [52, 59],
+      "summary": "Computes a content hash over a set of files to support cache invalidation of generated manifests.",
+      "tags": ["utility", "hashing", "cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/scripts/sync-presets.mjs",
+      "type": "file",
+      "name": "sync-presets.mjs",
+      "filePath": "apps/mobile/scripts/sync-presets.mjs",
+      "summary": "Build script copying shared preset JSON files into the mobile app's bundled assets directory.",
+      "tags": ["script", "build-system", "assets", "mobile"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/scripts/sync-presets.mjs:copyDir",
+      "type": "function",
+      "name": "copyDir",
+      "filePath": "apps/mobile/scripts/sync-presets.mjs",
+      "lineRange": [24, 40],
+      "summary": "Recursively copies a directory of preset files into the mobile app's asset destination.",
+      "tags": ["utility", "filesystem", "recursion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/scripts/sync-wordfiles.mjs",
+      "type": "file",
+      "name": "sync-wordfiles.mjs",
+      "filePath": "apps/mobile/scripts/sync-wordfiles.mjs",
+      "summary": "Build script resolving and copying shared word-list files into the mobile app's bundled assets.",
+      "tags": ["script", "build-system", "assets", "mobile"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/scripts/sync-wordfiles.mjs:resolveSource",
+      "type": "function",
+      "name": "resolveSource",
+      "filePath": "apps/mobile/scripts/sync-wordfiles.mjs",
+      "lineRange": [14, 21],
+      "summary": "Resolves the source directory for word files, preferring a local dev repo when available.",
+      "tags": ["utility", "filesystem", "path-resolution"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/mobile/src/configs/wordify.json",
+      "type": "config",
+      "name": "wordify.json",
+      "filePath": "apps/mobile/src/configs/wordify.json",
+      "summary": "Punctuation-to-word mapping config used by the mobile app to spell out characters for text-to-speech of Morse content.",
+      "tags": ["configuration", "data", "mobile", "speech"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/public/_redirects",
+      "type": "file",
+      "name": "_redirects",
+      "filePath": "apps/web/public/_redirects",
+      "summary": "Static-host redirect rules (Netlify/Cloudflare style) enabling SPA fallback routing for the web app.",
+      "tags": ["configuration", "deployment", "web", "routing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/web/src/configs/wordify.json",
+      "type": "config",
+      "name": "wordify.json",
+      "filePath": "apps/web/src/configs/wordify.json",
+      "summary": "Punctuation-to-word mapping config used by the web app to spell out characters for text-to-speech of Morse content.",
+      "tags": ["configuration", "data", "web", "speech"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/hooks/playbackTiming.test.ts",
+      "type": "file",
+      "name": "playbackTiming.test.ts",
+      "filePath": "apps/web/src/hooks/playbackTiming.test.ts",
+      "summary": "Unit test verifying playback timing helper behavior, specifically whether the trailing word space should be trimmed.",
+      "tags": ["test", "web", "playback", "timing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/web/src/hooks/playbackTiming.test.ts:shouldTrimLastWordSpace",
+      "type": "function",
+      "name": "shouldTrimLastWordSpace",
+      "filePath": "apps/web/src/hooks/playbackTiming.test.ts",
+      "lineRange": [4, 11],
+      "summary": "Test helper determining whether the final inter-word space should be trimmed from a Morse playback sequence.",
+      "tags": ["test", "utility", "timing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/web/src/styles/dark-mode.css",
+      "type": "file",
+      "name": "dark-mode.css",
+      "filePath": "apps/web/src/styles/dark-mode.css",
+      "summary": "Dark-mode theme stylesheet overriding Bootstrap and app colors for the web app's dark appearance.",
+      "tags": ["stylesheet", "web", "theming", "dark-mode"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/web/src/styles/morsebrowser.css",
+      "type": "file",
+      "name": "morsebrowser.css",
+      "filePath": "apps/web/src/styles/morsebrowser.css",
+      "summary": "Primary application stylesheet for the web app, styling the Morse browser layout, accordions, and playback controls to match the upstream fork.",
+      "tags": ["stylesheet", "web", "layout", "ui"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "target": "class:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift:AppDelegate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "target": "class:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift:ReactNativeDelegate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/mobile/scripts/generate-asset-manifests.mjs",
+      "target": "function:apps/mobile/scripts/generate-asset-manifests.mjs:listFilesRecursive",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/mobile/scripts/generate-asset-manifests.mjs",
+      "target": "function:apps/mobile/scripts/generate-asset-manifests.mjs:writeManifest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/mobile/scripts/generate-asset-manifests.mjs",
+      "target": "function:apps/mobile/scripts/generate-asset-manifests.mjs:hashFiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/mobile/scripts/sync-presets.mjs",
+      "target": "function:apps/mobile/scripts/sync-presets.mjs:copyDir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/mobile/scripts/sync-wordfiles.mjs",
+      "target": "function:apps/mobile/scripts/sync-wordfiles.mjs:resolveSource",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/web/src/hooks/playbackTiming.test.ts",
+      "target": "function:apps/web/src/hooks/playbackTiming.test.ts:shouldTrimLastWordSpace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "config:apps/mobile/ios/LICWMorsebrowser/Info.plist",
+      "target": "file:apps/mobile/ios/LICWMorsebrowser/AppDelegate.swift",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/ios/Podfile.properties.json",
+      "target": "file:apps/mobile/ios/Podfile",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/mobile/ios/LICWMorsebrowser.xcworkspace/contents.xcworkspacedata",
+      "target": "config:apps/mobile/ios/LICWMorsebrowser.xcodeproj/project.pbxproj",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

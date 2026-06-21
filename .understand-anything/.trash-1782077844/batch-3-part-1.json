@@ -1,0 +1,844 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/mobile/app/_layout.tsx",
+      "type": "file",
+      "name": "_layout.tsx",
+      "filePath": "apps/mobile/app/_layout.tsx",
+      "summary": "Expo Router root layout that configures the iOS audio session and pre-caches wordfiles/presets on startup before rendering screens.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/app/_layout.tsx:RootLayout",
+      "type": "function",
+      "name": "RootLayout",
+      "filePath": "apps/mobile/app/_layout.tsx",
+      "lineRange": [
+        13,
+        34
+      ],
+      "summary": "RootLayout in _layout.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/app/index.tsx",
+      "type": "file",
+      "name": "index.tsx",
+      "filePath": "apps/mobile/app/index.tsx",
+      "summary": "Mobile home screen composing playback controls, word cards, and navigation to settings.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/app/index.tsx:HomeScreen",
+      "type": "function",
+      "name": "HomeScreen",
+      "filePath": "apps/mobile/app/index.tsx",
+      "lineRange": [
+        18,
+        93
+      ],
+      "summary": "HomeScreen in index.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/app/settings.tsx",
+      "type": "file",
+      "name": "settings.tsx",
+      "filePath": "apps/mobile/app/settings.tsx",
+      "summary": "Mobile settings screen rendering the collapsible settings sections.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/app/settings.tsx:SettingsScreen",
+      "type": "function",
+      "name": "SettingsScreen",
+      "filePath": "apps/mobile/app/settings.tsx",
+      "lineRange": [
+        13,
+        55
+      ],
+      "summary": "SettingsScreen in settings.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/audio/audioSession.ts",
+      "type": "file",
+      "name": "audioSession.ts",
+      "filePath": "apps/mobile/src/audio/audioSession.ts",
+      "summary": "Configures the native audio session for background playback through screen lock via expo-audio setAudioModeAsync.",
+      "tags": [
+        "audio",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/src/audio/audioSession.ts:configureAudioSession",
+      "type": "function",
+      "name": "configureAudioSession",
+      "filePath": "apps/mobile/src/audio/audioSession.ts",
+      "lineRange": [
+        8,
+        23
+      ],
+      "summary": "configureAudioSession in audioSession.ts.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/AboutSection.tsx",
+      "type": "file",
+      "name": "AboutSection.tsx",
+      "filePath": "apps/mobile/src/components/AboutSection.tsx",
+      "summary": "About section listing external project links opened via the native Linking API.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/AboutSection.tsx:AboutSection",
+      "type": "function",
+      "name": "AboutSection",
+      "filePath": "apps/mobile/src/components/AboutSection.tsx",
+      "lineRange": [
+        20,
+        60
+      ],
+      "summary": "AboutSection in AboutSection.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/CheckToggle.tsx",
+      "type": "file",
+      "name": "CheckToggle.tsx",
+      "filePath": "apps/mobile/src/components/CheckToggle.tsx",
+      "summary": "Themed checkbox toggle component for mobile settings.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/CheckToggle.tsx:CheckToggle",
+      "type": "function",
+      "name": "CheckToggle",
+      "filePath": "apps/mobile/src/components/CheckToggle.tsx",
+      "lineRange": [
+        12,
+        35
+      ],
+      "summary": "CheckToggle in CheckToggle.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/InputOptionsSection.tsx",
+      "type": "file",
+      "name": "InputOptionsSection.tsx",
+      "filePath": "apps/mobile/src/components/InputOptionsSection.tsx",
+      "summary": "Mobile settings section for input options including raw-text toggle and flagged-words list.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/InputOptionsSection.tsx:InputOptionsSection",
+      "type": "function",
+      "name": "InputOptionsSection",
+      "filePath": "apps/mobile/src/components/InputOptionsSection.tsx",
+      "lineRange": [
+        8,
+        99
+      ],
+      "summary": "InputOptionsSection in InputOptionsSection.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "type": "file",
+      "name": "LessonOptionsSection.tsx",
+      "filePath": "apps/mobile/src/components/LessonOptionsSection.tsx",
+      "summary": "Mobile settings section exposing lesson generation and apply controls.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/mobile/src/components/LessonOptionsSection.tsx:LessonOptionsSection",
+      "type": "function",
+      "name": "LessonOptionsSection",
+      "filePath": "apps/mobile/src/components/LessonOptionsSection.tsx",
+      "lineRange": [
+        10,
+        180
+      ],
+      "summary": "LessonOptionsSection in LessonOptionsSection.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "type": "file",
+      "name": "LessonsPicker.tsx",
+      "filePath": "apps/mobile/src/components/LessonsPicker.tsx",
+      "summary": "Mobile lesson picker loading word lists/lessons, managing presets, and applying selected practice text.",
+      "tags": [
+        "component",
+        "picker",
+        "typescript",
+        "react"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/mobile/src/components/LessonsPicker.tsx:LessonsPicker",
+      "type": "function",
+      "name": "LessonsPicker",
+      "filePath": "apps/mobile/src/components/LessonsPicker.tsx",
+      "lineRange": [
+        18,
+        173
+      ],
+      "summary": "LessonsPicker in LessonsPicker.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/mobile/src/components/OutputOptionsSection.tsx",
+      "type": "file",
+      "name": "OutputOptionsSection.tsx",
+      "filePath": "apps/mobile/src/components/OutputOptionsSection.tsx",
+      "summary": "Mobile settings section for output/display options.",
+      "tags": [
+        "component",
+        "settings-ui",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/src/components/OutputOptionsSection.tsx:OutputOptionsSection",
+      "type": "function",
+      "name": "OutputOptionsSection",
+      "filePath": "apps/mobile/src/components/OutputOptionsSection.tsx",
+      "lineRange": [
+        7,
+        21
+      ],
+      "summary": "OutputOptionsSection in OutputOptionsSection.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "type": "file",
+      "name": "PlaybackControls.tsx",
+      "filePath": "apps/mobile/src/components/PlaybackControls.tsx",
+      "summary": "Mobile playback transport with play/pause/stop buttons and shuffle/hide/cards toggles.",
+      "tags": [
+        "component",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/mobile/src/components/PlaybackControls.tsx:TransportButton",
+      "type": "function",
+      "name": "TransportButton",
+      "filePath": "apps/mobile/src/components/PlaybackControls.tsx",
+      "lineRange": [
+        11,
+        37
+      ],
+      "summary": "TransportButton in PlaybackControls.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/src/components/PlaybackControls.tsx:IconToggle",
+      "type": "function",
+      "name": "IconToggle",
+      "filePath": "apps/mobile/src/components/PlaybackControls.tsx",
+      "lineRange": [
+        39,
+        62
+      ],
+      "summary": "IconToggle in PlaybackControls.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/mobile/src/components/PlaybackControls.tsx:PlaybackControls",
+      "type": "function",
+      "name": "PlaybackControls",
+      "filePath": "apps/mobile/src/components/PlaybackControls.tsx",
+      "lineRange": [
+        64,
+        159
+      ],
+      "summary": "PlaybackControls in PlaybackControls.tsx.",
+      "tags": [
+        "function",
+        "typescript",
+        "react"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "function:apps/mobile/app/_layout.tsx:RootLayout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "function:apps/mobile/app/_layout.tsx:RootLayout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "function:apps/mobile/app/index.tsx:HomeScreen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "function:apps/mobile/app/index.tsx:HomeScreen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "function:apps/mobile/app/settings.tsx:SettingsScreen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "function:apps/mobile/app/settings.tsx:SettingsScreen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/audio/audioSession.ts",
+      "target": "function:apps/mobile/src/audio/audioSession.ts:configureAudioSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/audio/audioSession.ts",
+      "target": "function:apps/mobile/src/audio/audioSession.ts:configureAudioSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/AboutSection.tsx",
+      "target": "function:apps/mobile/src/components/AboutSection.tsx:AboutSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/AboutSection.tsx",
+      "target": "function:apps/mobile/src/components/AboutSection.tsx:AboutSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/CheckToggle.tsx",
+      "target": "function:apps/mobile/src/components/CheckToggle.tsx:CheckToggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/CheckToggle.tsx",
+      "target": "function:apps/mobile/src/components/CheckToggle.tsx:CheckToggle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/InputOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/InputOptionsSection.tsx:InputOptionsSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/InputOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/InputOptionsSection.tsx:InputOptionsSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/LessonOptionsSection.tsx:LessonOptionsSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/LessonOptionsSection.tsx:LessonOptionsSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "function:apps/mobile/src/components/LessonsPicker.tsx:LessonsPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "function:apps/mobile/src/components/LessonsPicker.tsx:LessonsPicker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/OutputOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/OutputOptionsSection.tsx:OutputOptionsSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/OutputOptionsSection.tsx",
+      "target": "function:apps/mobile/src/components/OutputOptionsSection.tsx:OutputOptionsSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "target": "function:apps/mobile/src/components/PlaybackControls.tsx:TransportButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "target": "function:apps/mobile/src/components/PlaybackControls.tsx:IconToggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "target": "function:apps/mobile/src/components/PlaybackControls.tsx:PlaybackControls",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "target": "function:apps/mobile/src/components/PlaybackControls.tsx:PlaybackControls",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "file:apps/mobile/src/audio/audioSession.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "file:apps/mobile/src/components/ThemedStatusBar.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "file:apps/mobile/src/context/MorseAudioContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "file:apps/mobile/src/context/MorsePlaybackContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/_layout.tsx",
+      "target": "file:apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/components/SettingsSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/components/SpeedSettingsBar.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/components/WordCards.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/components/WorkingTextStats.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/index.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "file:apps/mobile/src/components/AboutSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "file:apps/mobile/src/components/InputOptionsSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "file:apps/mobile/src/components/OutputOptionsSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "file:apps/mobile/src/components/SettingsSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "file:apps/mobile/src/components/ToneSettingsSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "file:apps/mobile/src/components/VoiceOptionsSection.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/app/settings.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/AboutSection.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/CheckToggle.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/InputOptionsSection.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/InputOptionsSection.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "target": "file:apps/mobile/src/components/CheckToggle.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "target": "file:apps/mobile/src/components/ThemedNumField.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonOptionsSection.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "file:apps/mobile/src/components/shared/DropdownPicker.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "file:apps/mobile/src/hooks/usePresets.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "file:apps/mobile/src/utils/lessonPractice.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "file:apps/mobile/src/utils/loadMobileLessonFile.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/LessonsPicker.tsx",
+      "target": "file:packages/core/src/index.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/OutputOptionsSection.tsx",
+      "target": "file:apps/mobile/src/components/CheckToggle.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/OutputOptionsSection.tsx",
+      "target": "file:apps/mobile/src/components/ThemedNumField.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/OutputOptionsSection.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "target": "file:apps/mobile/src/context/MorseAppContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "target": "file:apps/mobile/src/context/MorsePlaybackContext.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/mobile/src/components/PlaybackControls.tsx",
+      "target": "file:apps/mobile/src/utils/theme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

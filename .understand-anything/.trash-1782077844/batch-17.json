@@ -1,0 +1,93 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/web/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "apps/web/index.html",
+      "summary": "Vite HTML entry document for the web app, mounting the React root element and loading the main.tsx bootstrap module.",
+      "tags": ["markup", "entry-point", "web", "html"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/web/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "apps/web/package.json",
+      "summary": "npm manifest for the Vite + React 19 + Bootstrap web app declaring dependencies (@morsebrowser/core, react, bootstrap, rss-parser) and dev/build/test scripts.",
+      "tags": ["configuration", "web", "build-system", "vite"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/web/tsconfig.build.json",
+      "type": "config",
+      "name": "tsconfig.build.json",
+      "filePath": "apps/web/tsconfig.build.json",
+      "summary": "Production TypeScript build configuration used by the web app's build script before invoking Vite.",
+      "tags": ["configuration", "typescript", "build-system", "web"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/web/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "apps/web/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the web app enabling strict mode and React JSX settings.",
+      "tags": ["configuration", "typescript", "build-system", "web"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/web/wrangler.toml",
+      "type": "config",
+      "name": "wrangler.toml",
+      "filePath": "apps/web/wrangler.toml",
+      "summary": "Cloudflare Wrangler configuration for deploying the built web app as a Cloudflare Pages/Workers static site.",
+      "tags": ["configuration", "deployment", "cloudflare", "web"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/web/index.html",
+      "target": "file:apps/web/src/main.tsx",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/web/tsconfig.json",
+      "target": "file:apps/web/src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/web/tsconfig.build.json",
+      "target": "file:apps/web/src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/web/package.json",
+      "target": "file:apps/web/src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/web/tsconfig.build.json",
+      "target": "config:apps/web/tsconfig.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/web/wrangler.toml",
+      "target": "file:apps/web/index.html",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}
