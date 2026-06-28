@@ -89,28 +89,7 @@ Or, once it's built once, just `npx expo start` and press **`i`** to open the Si
    signed into Xcode for ad-hoc signing, or a paid developer account for TestFlight).
 3. **This is the one that matters for show-and-tell** — Simulator audio doesn't survive
    backgrounding; a real device does. Lock the screen mid-lesson and the dits and dahs
-   keep going.
-
----
-
-## 🎤 Show-and-tell checklist (for the next club meeting)
-
-A short script for demoing both apps side by side:
-
-1. **Web** — open the dev server (or the [live club site](https://longislandcw.github.io/morsebrowser/index.html))
-   on a laptop/projector. Walk through lessons → speed/voice/tone settings → playback →
-   word cards → dark mode. This is the "browser, any device" story.
-2. **iOS app** — hand around a phone running the dev build. Show:
-   - The **gear icon** → Settings page (Tone/Voice/Input/Output tucked away so the main
-     practice screen stays uncluttered)
-   - Pick a lesson, hit **Play** — watch the accordions auto-collapse to make room
-   - **Lock the phone** mid-playback — Morse keeps going. *This is the headline feature
-     the web version can't do.*
-   - Dark mode toggle, flagged words, settings persisting across a force-quit/relaunch
-3. Mention **what's shared**: both apps run the *same* `packages/core` timing engine, so
-   the Farnsworth timing you hear is identical on phone and laptop.
-
----
+   keep 
 
 ## 🛠️ Tinkering & contributing
 
