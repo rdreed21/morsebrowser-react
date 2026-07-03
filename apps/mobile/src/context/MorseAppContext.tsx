@@ -1,7 +1,10 @@
 import React, {
   createContext, useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
-import { applySerializedSettings, DEFAULT_SETTINGS, snapshotToSerialized } from '@morsebrowser/core';
+import {
+  addSpeedRacerStep, applySerializedSettings, createSpeedRacerStepDefaults,
+  DEFAULT_SETTINGS, removeSpeedRacerStep, snapshotToSerialized,
+} from '@morsebrowser/core';
 import type { MorseSettings, MorseTimingConfig } from '@morsebrowser/types';
 import { getWords, rawTextCharCount } from '../utils/words';
 import { formatPlayTime } from '../utils/formatTime';
@@ -143,6 +146,19 @@ export interface MorseAppContextValue {
   setShuffleIntraGroup: (v: boolean) => void;
   speedInterval: boolean;
   setSpeedInterval: (v: boolean) => void;
+  speedRacerEnabled: boolean;
+  setSpeedRacerEnabled: (v: boolean) => void;
+  speedRacerWpmSteps: number[];
+  setSpeedRacerWpmSteps: (v: number[]) => void;
+  addSpeedRacerWpmStep: () => void;
+  removeSpeedRacerWpmStep: () => void;
+  speedRacerFinalPlay: boolean;
+  setSpeedRacerFinalPlay: (v: boolean) => void;
+  speedRacerSpeakBeforeReplay: boolean;
+  setSpeedRacerSpeakBeforeReplay: (v: boolean) => void;
+  speedRacerOverlearnDirection: boolean;
+  setSpeedRacerOverlearnDirection: (v: boolean) => void;
+  resetSpeedRacerWpmSteps: () => void;
   intervalTimingsText: string;
   setIntervalTimingsText: (v: string) => void;
   intervalWpmText: string;
@@ -245,6 +261,13 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const [autoCloseLessonAccordion, setAutoCloseLessonAccordionState] = useState(false);
   const [shuffleIntraGroup, setShuffleIntraGroupState] = useState(false);
   const [speedInterval, setSpeedIntervalState] = useState(false);
+  const [speedRacerEnabled, setSpeedRacerEnabledState] = useState(false);
+  const [speedRacerOverlearnDirection, setSpeedRacerOverlearnDirectionState] = useState(false);
+  const [speedRacerWpmSteps, setSpeedRacerWpmStepsState] = useState(() => createSpeedRacerStepDefaults({
+    baseWpm: DEFAULT_SETTINGS.timing.charWPM,
+  }));
+  const [speedRacerFinalPlay, setSpeedRacerFinalPlayState] = useState(true);
+  const [speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplayState] = useState(true);
   const [intervalTimingsText, setIntervalTimingsTextState] = useState('');
   const [intervalWpmText, setIntervalWpmTextState] = useState('');
   const [intervalFwpmText, setIntervalFwpmTextState] = useState('');
@@ -320,6 +343,45 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     });
   }, [voiceVoiceIdx]);
 
+  const setSpeedInterval = useCallback((v: boolean) => {
+    setSpeedIntervalState(v);
+    if (v) setSpeedRacerEnabledState(false);
+  }, []);
+
+  const setSpeedRacerEnabled = useCallback((v: boolean) => {
+    setSpeedRacerEnabledState(v);
+    if (v) setSpeedIntervalState(false);
+  }, []);
+
+  const setSpeedRacerWpmSteps = useCallback((steps: number[]) => setSpeedRacerWpmStepsState(steps), []);
+  const resetSpeedRacerWpmSteps = useCallback(() => {
+    setSpeedRacerWpmStepsState(createSpeedRacerStepDefaults({
+      baseWpm: settings.timing.charWPM,
+      direction: speedRacerOverlearnDirection ? 'up' : 'down',
+    }));
+  }, [settings.timing.charWPM, speedRacerOverlearnDirection]);
+  const addSpeedRacerWpmStep = useCallback(() => {
+    setSpeedRacerWpmStepsState(steps => addSpeedRacerStep(
+      steps,
+      speedRacerOverlearnDirection ? 'up' : 'down',
+    ));
+  }, [speedRacerOverlearnDirection]);
+  const removeSpeedRacerWpmStep = useCallback(() => {
+    setSpeedRacerWpmStepsState(steps => removeSpeedRacerStep(steps));
+  }, []);
+  const setSpeedRacerFinalPlay = useCallback((v: boolean) => setSpeedRacerFinalPlayState(v), []);
+  const setSpeedRacerSpeakBeforeReplay = useCallback((v: boolean) => {
+    setSpeedRacerSpeakBeforeReplayState(v);
+    if (v && voiceCapable) setVoiceEnabledState(true);
+  }, [voiceCapable]);
+  const setSpeedRacerOverlearnDirection = useCallback((v: boolean) => {
+    setSpeedRacerOverlearnDirectionState(v);
+    setSpeedRacerWpmStepsState(createSpeedRacerStepDefaults({
+      baseWpm: settings.timing.charWPM,
+      direction: v ? 'up' : 'down',
+    }));
+  }, [settings.timing.charWPM]);
+
   const setVoiceEnabled = useCallback((v: boolean) => {
     setVoiceEnabledState(v);
     if (v && manualVoice) setManualVoiceState(false);
@@ -355,7 +417,6 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const setSelectedPreset = useCallback((v: string) => setSelectedPresetState(v), []);
   const setAutoCloseLessonAccordion = useCallback((v: boolean) => setAutoCloseLessonAccordionState(v), []);
   const setShuffleIntraGroup = useCallback((v: boolean) => setShuffleIntraGroupState(v), []);
-  const setSpeedInterval = useCallback((v: boolean) => setSpeedIntervalState(v), []);
   const setIntervalTimingsText = useCallback((v: string) => setIntervalTimingsTextState(v), []);
   const setIntervalWpmText = useCallback((v: string) => setIntervalWpmTextState(v), []);
   const setIntervalFwpmText = useCallback((v: string) => setIntervalFwpmTextState(v), []);
@@ -689,6 +750,19 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setShuffleIntraGroup,
     speedInterval,
     setSpeedInterval,
+    speedRacerEnabled,
+    setSpeedRacerEnabled,
+    speedRacerWpmSteps,
+    setSpeedRacerWpmSteps,
+    addSpeedRacerWpmStep,
+    removeSpeedRacerWpmStep,
+    speedRacerFinalPlay,
+    setSpeedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay,
+    setSpeedRacerSpeakBeforeReplay,
+    speedRacerOverlearnDirection,
+    setSpeedRacerOverlearnDirection,
+    resetSpeedRacerWpmSteps,
     intervalTimingsText,
     setIntervalTimingsText,
     intervalWpmText,

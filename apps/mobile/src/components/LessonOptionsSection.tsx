@@ -115,6 +115,57 @@ export function LessonOptionsSection() {
       <View style={s.row}>
         <CheckToggle label="Speed Intervals" checked={app.speedInterval} onChange={app.setSpeedInterval} />
       </View>
+      <View style={s.row}>
+        <CheckToggle label="Speed Racer" checked={app.speedRacerEnabled} onChange={app.setSpeedRacerEnabled} />
+      </View>
+      {app.speedRacerEnabled && (
+        <View style={s.intervalGroup}>
+          <Text style={[s.intervalLabel, { color: t.textMuted }]}>WPM Steps</Text>
+          <View style={s.row}>
+            {app.speedRacerWpmSteps.map((step, index) => (
+              <ThemedNumField
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                label={`Step ${index + 1}`}
+                value={step}
+                onChange={(value) => {
+                  const next = [...app.speedRacerWpmSteps];
+                  next[index] = value;
+                  app.setSpeedRacerWpmSteps(next);
+                }}
+                min={1}
+                max={60}
+                step={1}
+              />
+            ))}
+          </View>
+          <View style={s.row}>
+            <TouchableOpacity style={s.smallBtn} onPress={app.addSpeedRacerWpmStep}>
+              <Text style={[s.smallBtnText, { color: t.accent }]}>+ Speed</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={s.smallBtn} onPress={app.removeSpeedRacerWpmStep}>
+              <Text style={[s.smallBtnText, { color: t.accent }]}>- Speed</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={s.smallBtn} onPress={app.resetSpeedRacerWpmSteps}>
+              <Text style={[s.smallBtnText, { color: t.accent }]}>Reset</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={s.chipRow}>
+            <CheckToggle label="Replay Base Speed" checked={app.speedRacerFinalPlay} onChange={app.setSpeedRacerFinalPlay} />
+            <CheckToggle
+              label={app.speedRacerFinalPlay ? 'Speak Before Replay' : 'Speak'}
+              checked={app.speedRacerSpeakBeforeReplay}
+              onChange={app.setSpeedRacerSpeakBeforeReplay}
+            />
+            <CheckToggle
+              label="Overlearn Direction"
+              checked={app.speedRacerOverlearnDirection}
+              onChange={app.setSpeedRacerOverlearnDirection}
+            />
+          </View>
+        </View>
+      )}
+
       {app.speedInterval && (
         <View style={s.intervalGroup}>
           <View style={s.intervalRow}>
@@ -226,6 +277,8 @@ const s = StyleSheet.create({
   },
   syncBtn: { paddingHorizontal: 8, paddingVertical: 4 },
   syncBtnText: { fontSize: 12 },
+  smallBtn: { paddingHorizontal: 8, paddingVertical: 4 },
+  smallBtnText: { fontSize: 12, fontWeight: '600' },
   applyBtn: {
     borderRadius:    6,
     paddingVertical: 10,

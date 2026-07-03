@@ -18,6 +18,11 @@ export function LessonOptionsPanel() {
     newlineChunking, setNewlineChunking,
     shuffleIntraGroup, setShuffleIntraGroup,
     speedInterval, setSpeedInterval,
+    speedRacerEnabled, setSpeedRacerEnabled,
+    speedRacerWpmSteps, setSpeedRacerWpmSteps, addSpeedRacerWpmStep, removeSpeedRacerWpmStep,
+    speedRacerFinalPlay, setSpeedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
+    speedRacerOverlearnDirection, setSpeedRacerOverlearnDirection, resetSpeedRacerWpmSteps,
     intervalTimingsText, setIntervalTimingsText,
     intervalWpmText, setIntervalWpmText,
     intervalFwpmText, setIntervalFwpmText,
@@ -253,6 +258,60 @@ export function LessonOptionsPanel() {
                         title="Comma-separated FWPM speeds for each interval"
                         value={intervalFwpmText}
                         onChange={e => setIntervalFwpmText(e.target.value)}
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="input-group flex-wrap speed-racer-input-group">
+                  <div className="col-auto">
+                    <SettingsCheckToggle
+                      id="btncheckspeedracer"
+                      label="Speed Racer"
+                      checked={speedRacerEnabled}
+                      onChange={setSpeedRacerEnabled}
+                    />
+                  </div>
+                  {speedRacerEnabled && (
+                    <>
+                      <span className="input-group-text">WPM Steps</span>
+                      {speedRacerWpmSteps.map((step, index) => (
+                        <select
+                          // eslint-disable-next-line react/no-array-index-key
+                          key={index}
+                          className="form-select morse-settings-num"
+                          aria-label={`Speed Racer step ${index + 1} WPM`}
+                          value={step}
+                          onChange={e => {
+                            const next = [...speedRacerWpmSteps];
+                            next[index] = Number(e.target.value);
+                            setSpeedRacerWpmSteps(next);
+                          }}
+                        >
+                          {Array.from({ length: 60 }, (_, i) => i + 1).map(wpm => (
+                            <option key={wpm} value={wpm}>{wpm}</option>
+                          ))}
+                        </select>
+                      ))}
+                      <button type="button" className="btn btn-outline-primary" onClick={addSpeedRacerWpmStep}>+</button>
+                      <button type="button" className="btn btn-outline-primary" onClick={removeSpeedRacerWpmStep}>-</button>
+                      <button type="button" className="btn btn-outline-secondary" onClick={resetSpeedRacerWpmSteps}>Reset</button>
+                      <SettingsCheckToggle
+                        id="btnspeedracerfinalplay"
+                        label="Replay Base Speed"
+                        checked={speedRacerFinalPlay}
+                        onChange={setSpeedRacerFinalPlay}
+                      />
+                      <SettingsCheckToggle
+                        id="btnspeedracerspeak"
+                        label={speedRacerFinalPlay ? 'Speak Before Replay' : 'Speak'}
+                        checked={speedRacerSpeakBeforeReplay}
+                        onChange={setSpeedRacerSpeakBeforeReplay}
+                      />
+                      <SettingsCheckToggle
+                        id="btnspeedraceroverlearn"
+                        label="Overlearn Direction"
+                        checked={speedRacerOverlearnDirection}
+                        onChange={setSpeedRacerOverlearnDirection}
                       />
                     </>
                   )}

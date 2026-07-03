@@ -30,6 +30,11 @@ export interface MorseSettingsSnapshot {
   overrideMax: number;
   cardSpace: number;
   speedInterval: boolean;
+  speedRacerEnabled: boolean;
+  speedRacerWpmSteps: number[];
+  speedRacerFinalPlay: boolean;
+  speedRacerSpeakBeforeReplay: boolean;
+  speedRacerOverlearnDirection: boolean;
   intervalTimingsText: string;
   intervalWpmText: string;
   intervalFwpmText: string;
@@ -70,6 +75,11 @@ export interface PresetSettingsMutator {
   setOverrideMax: (v: number) => void;
   setCardSpace: (v: number) => void;
   setSpeedInterval: (v: boolean) => void;
+  setSpeedRacerEnabled: (v: boolean) => void;
+  setSpeedRacerWpmSteps: (v: number[]) => void;
+  setSpeedRacerFinalPlay: (v: boolean) => void;
+  setSpeedRacerSpeakBeforeReplay: (v: boolean) => void;
+  setSpeedRacerOverlearnDirection: (v: boolean) => void;
   setIntervalTimingsText: (v: string) => void;
   setIntervalWpmText: (v: string) => void;
   setIntervalFwpmText: (v: string) => void;
@@ -91,6 +101,11 @@ function asNumber(val: unknown, fallback = 0): number {
 
 function asString(val: unknown): string {
   return val === undefined || val === null ? '' : String(val);
+}
+
+function asNumberArray(val: unknown): number[] {
+  const raw = Array.isArray(val) ? val : String(val).split(',');
+  return raw.map(item => asNumber(item, NaN)).filter(Number.isFinite);
 }
 
 type KeyHandler = (value: unknown, mutator: PresetSettingsMutator) => void;
@@ -132,6 +147,11 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   overrideSizeMax: (v, m) => m.setOverrideMax(asNumber(v, 3)),
   cardSpace: (v, m) => m.setCardSpace(asNumber(v, 0)),
   speedInterval: (v, m) => m.setSpeedInterval(booleanize(v)),
+  speedRacerEnabled: (v, m) => m.setSpeedRacerEnabled(booleanize(v)),
+  speedRacerWpmSteps: (v, m) => m.setSpeedRacerWpmSteps(asNumberArray(v)),
+  speedRacerFinalPlay: (v, m) => m.setSpeedRacerFinalPlay(booleanize(v)),
+  speedRacerSpeakBeforeReplay: (v, m) => m.setSpeedRacerSpeakBeforeReplay(booleanize(v)),
+  speedRacerOverlearnDirection: (v, m) => m.setSpeedRacerOverlearnDirection(booleanize(v)),
   intervalTimingsText: (v, m) => m.setIntervalTimingsText(asString(v)),
   intervalWpmText: (v, m) => m.setIntervalWpmText(asString(v)),
   intervalFwpmText: (v, m) => m.setIntervalFwpmText(asString(v)),
@@ -185,6 +205,11 @@ export function snapshotToSerialized(snapshot: MorseSettingsSnapshot): Serialize
     { key: 'overrideSizeMax', value: snapshot.overrideMax },
     { key: 'cardSpace', value: snapshot.cardSpace },
     { key: 'speedInterval', value: snapshot.speedInterval },
+    { key: 'speedRacerEnabled', value: snapshot.speedRacerEnabled },
+    { key: 'speedRacerWpmSteps', value: snapshot.speedRacerWpmSteps },
+    { key: 'speedRacerFinalPlay', value: snapshot.speedRacerFinalPlay },
+    { key: 'speedRacerSpeakBeforeReplay', value: snapshot.speedRacerSpeakBeforeReplay },
+    { key: 'speedRacerOverlearnDirection', value: snapshot.speedRacerOverlearnDirection },
     { key: 'intervalTimingsText', value: snapshot.intervalTimingsText },
     { key: 'intervalWpmText', value: snapshot.intervalWpmText },
     { key: 'intervalFwpmText', value: snapshot.intervalFwpmText },
