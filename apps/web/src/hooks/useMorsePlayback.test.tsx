@@ -176,6 +176,136 @@ describe('useMorsePlayback', () => {
     expect(speakPhraseMock).toHaveBeenCalled();
   });
 
+  it('plays each Speed Racer WPM step before advancing the card', async () => {
+    mockPlay.mockImplementation(() => {});
+
+    function SpeedRacerHarness() {
+      const app = useMorseApp();
+      const { currentIndex } = usePlaybackState();
+      const { handlePlay } = useMorsePlaybackControls();
+      const seeded = useRef(false);
+
+      useEffect(() => {
+        if (seeded.current) return;
+        seeded.current = true;
+        app.setShowingText('A B');
+        app.setCardSpace(0);
+        app.setSpeedRacerEnabled(true);
+        app.setSpeedRacerWpmSteps([20, 15]);
+        app.setSpeedRacerFinalPlay(false);
+      }, [app]);
+
+      return (
+        <>
+          <button type="button" onClick={handlePlay}>play</button>
+          <span data-testid="index">{currentIndex}</span>
+        </>
+      );
+    }
+
+    render(
+      <StateProviders>
+        <MorsePlaybackProvider>
+          <SpeedRacerHarness />
+        </MorsePlaybackProvider>
+      </StateProviders>,
+    );
+
+    await act(async () => { await Promise.resolve(); });
+    await act(async () => {
+      screen.getByRole('button', { name: 'play' }).click();
+      vi.runOnlyPendingTimers();
+    });
+
+    expect(mockPlay).toHaveBeenCalledTimes(1);
+    expect(mockPlay.mock.calls[0]?.[0]).toBe('A');
+    expect(mockPlay.mock.calls[0]?.[2]?.charWPM).toBe(20);
+    expect(screen.getByTestId('index')).toHaveTextContent('0');
+
+    await act(async () => {
+      mockPlay.mock.calls[0]?.[1]?.onComplete?.();
+      vi.advanceTimersByTime(1000);
+      vi.runOnlyPendingTimers();
+    });
+
+    expect(mockPlay).toHaveBeenCalledTimes(2);
+    expect(mockPlay.mock.calls[1]?.[0]).toBe('A');
+    expect(mockPlay.mock.calls[1]?.[2]?.charWPM).toBe(15);
+    expect(screen.getByTestId('index')).toHaveTextContent('0');
+
+    await act(async () => {
+      mockPlay.mock.calls[1]?.[1]?.onComplete?.();
+      vi.runOnlyPendingTimers();
+    });
+
+    expect(screen.getByTestId('index')).toHaveTextContent('1');
+  });
+
+  it('speaks Speed Racer recap before the base-speed replay', async () => {
+    mockPlay.mockImplementation(() => {});
+
+    function SpeedRacerSpeakHarness() {
+      const app = useMorseApp();
+      const { currentIndex } = usePlaybackState();
+      const { handlePlay } = useMorsePlaybackControls();
+      const seeded = useRef(false);
+
+      useEffect(() => {
+        if (seeded.current) return;
+        seeded.current = true;
+        app.setShowingText('A B');
+        app.setCardSpace(0);
+        app.setVoiceEnabled(true);
+        app.setVoiceThinkingTime(0);
+        app.setVoiceAfterThinkingTime(0);
+        app.setSpeedRacerEnabled(true);
+        app.setSpeedRacerWpmSteps([20]);
+        app.setSpeedRacerFinalPlay(true);
+        app.setSpeedRacerSpeakBeforeReplay(true);
+      }, [app]);
+
+      return (
+        <>
+          <button type="button" onClick={handlePlay}>play</button>
+          <span data-testid="index">{currentIndex}</span>
+        </>
+      );
+    }
+
+    render(
+      <StateProviders>
+        <MorsePlaybackProvider>
+          <SpeedRacerSpeakHarness />
+        </MorsePlaybackProvider>
+      </StateProviders>,
+    );
+
+    await act(async () => { await Promise.resolve(); });
+    await act(async () => {
+      screen.getByRole('button', { name: 'play' }).click();
+      vi.runOnlyPendingTimers();
+    });
+
+    expect(mockPlay).toHaveBeenCalledTimes(1);
+    expect(mockPlay.mock.calls[0]?.[2]?.charWPM).toBe(20);
+
+    await act(async () => {
+      mockPlay.mock.calls[0]?.[1]?.onComplete?.();
+      vi.advanceTimersByTime(1000);
+      vi.runOnlyPendingTimers();
+    });
+
+    expect(speakPhraseMock).toHaveBeenCalledTimes(1);
+    expect(speakPhraseMock.mock.calls[0]?.[0]).toMatchObject({
+      text: 'A',
+      spellMode: false,
+    });
+    expect(mockPlay).toHaveBeenCalledTimes(2);
+    expect(mockPlay.mock.calls[1]?.[0]).toBe('A');
+    expect(mockPlay.mock.calls[1]?.[2]?.charWPM).toBe(12);
+    expect(screen.getByTestId('index')).toHaveTextContent('0');
+  });
+
   it('advances trail reveal between cards', async () => {
     mockPlay.mockImplementation((_text, opts) => {
       if (typeof opts === 'object' && opts?.onComplete) opts.onComplete();

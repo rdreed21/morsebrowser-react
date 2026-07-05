@@ -1,3 +1,4 @@
+import { normalizeSpeedRacerStep } from '../settings/speedRacerSteps';
 import type { SerializedSetting } from './types';
 
 export interface MorseSettingsSnapshot {
@@ -105,7 +106,20 @@ function asString(val: unknown): string {
 
 function asNumberArray(val: unknown): number[] {
   const raw = Array.isArray(val) ? val : String(val).split(',');
-  return raw.map(item => asNumber(item, NaN)).filter(Number.isFinite);
+  return raw
+    .map(item => asNumber(item, NaN))
+    .filter(Number.isFinite)
+    .map(item => normalizeSpeedRacerStep(item));
+}
+
+function speedRacerMultipliersToSteps(val: unknown, baseWpm: number): number[] {
+  const raw = Array.isArray(val) ? val : String(val).split(',');
+  const base = normalizeSpeedRacerStep(baseWpm);
+  return raw
+    .map(item => asNumber(item, NaN))
+    .filter(Number.isFinite)
+    .filter(multiplier => multiplier > 0)
+    .map(multiplier => normalizeSpeedRacerStep(base * multiplier));
 }
 
 type KeyHandler = (value: unknown, mutator: PresetSettingsMutator) => void;
@@ -166,8 +180,16 @@ export function applySerializedSettings(
   keyBlacklist: readonly string[] = [],
 ): void {
   const blacklist = new Set(keyBlacklist);
+  let currentCharWpm = 20;
   for (const entry of entries) {
     if (blacklist.has(entry.key)) continue;
+    if (entry.key === 'wpm') {
+      currentCharWpm = asNumber(entry.value, currentCharWpm);
+    }
+    if (entry.key === 'speedRacerMultipliers') {
+      mutator.setSpeedRacerWpmSteps(speedRacerMultipliersToSteps(entry.value, currentCharWpm));
+      continue;
+    }
     const handler = KEY_HANDLERS[entry.key];
     if (handler) handler(entry.value, mutator);
   }

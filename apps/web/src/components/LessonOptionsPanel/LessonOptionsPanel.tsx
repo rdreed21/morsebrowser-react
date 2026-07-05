@@ -33,6 +33,7 @@ export function LessonOptionsPanel() {
     trailPostDelay, setTrailPostDelay,
     trailFinal, setTrailFinal,
   } = useMorseApp();
+  const speedRacerWpmOptionMax = Math.max(60, ...speedRacerWpmSteps);
 
   return (
     <SettingsAccordionItem
@@ -287,7 +288,7 @@ export function LessonOptionsPanel() {
                             setSpeedRacerWpmSteps(next);
                           }}
                         >
-                          {Array.from({ length: 60 }, (_, i) => i + 1).map(wpm => (
+                          {Array.from({ length: speedRacerWpmOptionMax }, (_, i) => i + 1).map(wpm => (
                             <option key={wpm} value={wpm}>{wpm}</option>
                           ))}
                         </select>

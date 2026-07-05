@@ -28,6 +28,58 @@ describe('SpeedSettingsBar', () => {
     expect(wpm).toHaveValue(18);
   });
 
+  it('keeps preset WPM and FWPM when applied before syncWpm', async () => {
+    function PresetOrderHarness() {
+      const app = useMorseApp();
+      const seeded = useRef(false);
+
+      useEffect(() => {
+        if (seeded.current) return;
+        seeded.current = true;
+        app.setCharWPM(23);
+        app.setEffectiveWPM(23);
+        app.setSyncWpm(true);
+      }, [app]);
+
+      return <SpeedSettingsBar />;
+    }
+
+    render(
+      <StateProviders>
+        <PresetOrderHarness />
+      </StateProviders>,
+    );
+
+    expect(await screen.findByLabelText(/Character Speed/i)).toHaveValue(23);
+    expect(screen.getByLabelText(/Effective Speed/i)).toHaveValue(23);
+  });
+
+  it('keeps Farnsworth FWPM when preset syncWpm is false', async () => {
+    function FarnsworthPresetHarness() {
+      const app = useMorseApp();
+      const seeded = useRef(false);
+
+      useEffect(() => {
+        if (seeded.current) return;
+        seeded.current = true;
+        app.setCharWPM(12);
+        app.setEffectiveWPM(8);
+        app.setSyncWpm(false);
+      }, [app]);
+
+      return <SpeedSettingsBar />;
+    }
+
+    render(
+      <StateProviders>
+        <FarnsworthPresetHarness />
+      </StateProviders>,
+    );
+
+    expect(await screen.findByLabelText(/Character Speed/i)).toHaveValue(12);
+    expect(screen.getByLabelText(/Effective Speed/i)).toHaveValue(8);
+  });
+
   it('disables FWPM when sync is on', () => {
     renderBar();
     expect(screen.getByLabelText(/Effective Speed/i)).toBeDisabled();

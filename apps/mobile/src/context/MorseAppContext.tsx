@@ -376,11 +376,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   }, [voiceCapable]);
   const setSpeedRacerOverlearnDirection = useCallback((v: boolean) => {
     setSpeedRacerOverlearnDirectionState(v);
-    setSpeedRacerWpmStepsState(createSpeedRacerStepDefaults({
-      baseWpm: settings.timing.charWPM,
-      direction: v ? 'up' : 'down',
-    }));
-  }, [settings.timing.charWPM]);
+  }, []);
 
   const setVoiceEnabled = useCallback((v: boolean) => {
     setVoiceEnabledState(v);
@@ -817,7 +813,14 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     speakFirstAdditionalWordspaces,
     selectedPreset, autoCloseLessonAccordion,
     shuffleIntraGroup,
-    speedInterval, intervalTimingsText, intervalWpmText, intervalFwpmText,
+    speedInterval, setSpeedInterval, speedRacerEnabled, setSpeedRacerEnabled,
+    speedRacerWpmSteps, setSpeedRacerWpmSteps,
+    addSpeedRacerWpmStep, removeSpeedRacerWpmStep,
+    speedRacerFinalPlay, setSpeedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
+    speedRacerOverlearnDirection, setSpeedRacerOverlearnDirection,
+    resetSpeedRacerWpmSteps,
+    intervalTimingsText, intervalWpmText, intervalFwpmText,
     speakFirst, voiceCapable, voiceEnabled, voiceSpelling, manualVoice,
     voiceThinkingTime, voiceThinkingTimeWpm, voiceAfterThinkingTime,
     voiceVoices, voiceVoiceIdx, voiceVolume, voiceLastOnly, voicePitch,

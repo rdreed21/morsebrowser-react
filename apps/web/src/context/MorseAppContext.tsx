@@ -5,7 +5,8 @@ import React, {
 export interface VoiceOption { idx: number; name: string; }
 import {
   loadSettings, saveSettings, DEFAULT_SETTINGS, getCookie, setCookie, loadLessonFile,
-  addSpeedRacerStep, createSpeedRacerStepDefaults, removeSpeedRacerStep,
+  addSpeedRacerStep, createSpeedRacerStepDefaults, normalizeSpeedRacerStep,
+  removeSpeedRacerStep,
 } from '@morsebrowser/core';
 import {
   generateCustomGroupPractice, generateRandomPractice, resolvePracticeSeconds,
@@ -227,7 +228,10 @@ function readShowRaw(): boolean {
 function readNumArrayCookie(name: string, fallback: number[]): number[] {
   const v = getCookie(name);
   if (!v) return fallback;
-  const parsed = v.split(',').map(item => Number(item.trim())).filter(Number.isFinite);
+  const parsed = v.split(',')
+    .map(item => Number(item.trim()))
+    .filter(Number.isFinite)
+    .map(item => normalizeSpeedRacerStep(item));
   return parsed.length > 0 ? parsed : fallback;
 }
 
@@ -332,7 +336,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const [speedRacerWpmSteps, setSpeedRacerWpmStepsState] = useState(() => readNumArrayCookie(
     'speedRacerWpmSteps',
     createSpeedRacerStepDefaults({
-      baseWpm: readNumCookie('wpm', DEFAULT_SETTINGS.timing.charWPM),
+      baseWpm: settings.timing.charWPM,
       direction: readBoolCookie('speedRacerOverlearnDirection', false) ? 'up' : 'down',
     }),
   ));
@@ -428,33 +432,45 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     }
   }, [flaggedWords]);
 
-  const persistSettings = useCallback((next: MorseSettings) => {
-    setSettings(next);
-    saveSettings(next);
+  const persistSettings = useCallback((next: MorseSettings | ((prev: MorseSettings) => MorseSettings)) => {
+    setSettings(prev => {
+      const resolved = typeof next === 'function' ? next(prev) : next;
+      saveSettings(resolved);
+      return resolved;
+    });
   }, []);
 
   const setCharWPM = useCallback((v: number) => {
     const charWPM = Math.max(1, Math.round(v));
-    const effectiveWPM = syncWpm ? charWPM : Math.min(settings.timing.effectiveWPM, charWPM);
-    persistSettings({
-      ...settings,
-      timing: { ...settings.timing, charWPM, effectiveWPM, volume: koVolume / 10 },
+    persistSettings(prev => {
+      const effectiveWPM = syncWpm ? charWPM : Math.min(prev.timing.effectiveWPM, charWPM);
+      return {
+        ...prev,
+        timing: { ...prev.timing, charWPM, effectiveWPM, volume: koVolume / 10 },
+      };
     });
-  }, [syncWpm, settings, koVolume, persistSettings]);
+  }, [syncWpm, koVolume, persistSettings]);
 
   const setEffectiveWPM = useCallback((v: number) => {
-    const effectiveWPM = Math.min(Math.max(1, Math.round(v)), settings.timing.charWPM);
-    persistSettings({
-      ...settings,
-      timing: { ...settings.timing, effectiveWPM, volume: koVolume / 10 },
+    persistSettings(prev => {
+      const effectiveWPM = Math.min(Math.max(1, Math.round(v)), prev.timing.charWPM);
+      return {
+        ...prev,
+        timing: { ...prev.timing, effectiveWPM, volume: koVolume / 10 },
+      };
     });
-  }, [settings, koVolume, persistSettings]);
+  }, [koVolume, persistSettings]);
 
   const setSyncWpm = useCallback((v: boolean) => {
     setSyncWpmState(v);
     setCookie('syncWpm', String(v));
-    if (v) setCharWPM(settings.timing.charWPM);
-  }, [settings.timing.charWPM, setCharWPM]);
+    if (v) {
+      persistSettings(prev => ({
+        ...prev,
+        timing: { ...prev.timing, effectiveWPM: prev.timing.charWPM, volume: koVolume / 10 },
+      }));
+    }
+  }, [koVolume, persistSettings]);
 
   const clampFreq = (v: number) => Math.min(1200, Math.max(100, Math.round(v / 10) * 10));
 
@@ -462,15 +478,15 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     const freq = clampFreq(v);
     setDitFrequencyState(freq);
     setCookie('ditFrequency', String(freq));
-    persistSettings({
-      ...settings,
-      timing: { ...settings.timing, frequency: freq, volume: koVolume / 10 },
-    });
+    persistSettings(prev => ({
+      ...prev,
+      timing: { ...prev.timing, frequency: freq, volume: koVolume / 10 },
+    }));
     if (syncFreq) {
       setDahFrequencyState(freq);
       setCookie('dahFrequency', String(freq));
     }
-  }, [settings, koVolume, syncFreq, persistSettings]);
+  }, [koVolume, syncFreq, persistSettings]);
 
   const setDahFrequency = useCallback((v: number) => {
     const freq = clampFreq(v);
@@ -605,8 +621,9 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const persistSpeedRacerWpmSteps = useCallback((steps: number[]) => {
-    setSpeedRacerWpmStepsState(steps);
-    setCookie('speedRacerWpmSteps', steps.join(','));
+    const normalized = steps.map(step => normalizeSpeedRacerStep(step));
+    setSpeedRacerWpmStepsState(normalized);
+    setCookie('speedRacerWpmSteps', normalized.join(','));
   }, []);
 
   const setSpeedInterval = useCallback((v: boolean) => {
@@ -624,8 +641,12 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     if (v) {
       setSpeedIntervalState(false);
       setCookie('speedInterval', 'false');
+      if (speedRacerSpeakBeforeReplay && voiceCapable) {
+        setVoiceEnabledState(true);
+        setCookie('voiceEnabled', 'true');
+      }
     }
-  }, []);
+  }, [speedRacerSpeakBeforeReplay, voiceCapable]);
 
   const setSpeedRacerWpmSteps = useCallback((steps: number[]) => {
     persistSpeedRacerWpmSteps(steps);
@@ -657,17 +678,19 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const setSpeedRacerSpeakBeforeReplay = useCallback((v: boolean) => {
     setSpeedRacerSpeakBeforeReplayState(v);
     setCookie('speedRacerSpeakBeforeReplay', String(v));
-    if (v && voiceCapable) setVoiceEnabledState(true);
-  }, [voiceCapable]);
+    if (v && voiceCapable) {
+      setVoiceEnabledState(true);
+      setCookie('voiceEnabled', 'true');
+    } else if (!v && speedRacerEnabled) {
+      setVoiceEnabledState(false);
+      setCookie('voiceEnabled', 'false');
+    }
+  }, [speedRacerEnabled, voiceCapable]);
 
   const setSpeedRacerOverlearnDirection = useCallback((v: boolean) => {
     setSpeedRacerOverlearnDirectionState(v);
     setCookie('speedRacerOverlearnDirection', String(v));
-    persistSpeedRacerWpmSteps(createSpeedRacerStepDefaults({
-      baseWpm: settings.timing.charWPM,
-      direction: v ? 'up' : 'down',
-    }));
-  }, [settings.timing.charWPM, persistSpeedRacerWpmSteps]);
+  }, []);
 
   const setIntervalTimingsText = useCallback((v: string) => {
     setIntervalTimingsTextState(v);
@@ -950,12 +973,12 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const setKoVolume = useCallback((v: number) => {
     const vol = Math.min(10, Math.max(1, Math.round(v)));
     setKoVolumeState(vol);
-    persistSettings({
-      ...settings,
-      timing: { ...settings.timing, volume: vol / 10 },
-    });
+    persistSettings(prev => ({
+      ...prev,
+      timing: { ...prev.timing, volume: vol / 10 },
+    }));
     setCookie('volume', String(vol));
-  }, [settings, persistSettings]);
+  }, [persistSettings]);
 
   const setDarkModeDirect = useCallback((v: boolean) => {
     setDarkMode(v);

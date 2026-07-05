@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ScheduleOptions } from '@morsebrowser/core';
+import type { MorseTimingConfig } from '@morsebrowser/types';
 import { useMorseApp } from '../context/MorseAppContext';
 import { usePlaybackState } from '../context/PlaybackStateContext';
 import { CardBufferManager } from '../utils/cardBufferManager';
 import { getDisplayWord } from '../utils/words';
-import { getSpeakText, prepPhraseToSpeakForFinal } from '../utils/speakText';
+import { formatSpelledRecapPhrase, getSpeakText, prepPhraseToSpeakForFinal } from '../utils/speakText';
 import {
   cancelSpeech, primeSpeechPump, resolveSpeechVoice, speakPhrase,
 } from '../utils/voiceSpeech';
@@ -64,6 +65,8 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
   const bufferRef = useRef<CardBufferManager | null>(null);
   const voiceBufferRef = useRef<VoiceBufferEntry[]>([]);
   const speakFirstLastCardIndexRef = useRef(-1);
+  const speedRacerStepIndexRef = useRef(0);
+  const speedRacerCardIndexRef = useRef(-1);
   const lastFullPlayTimeMsRef = useRef(0);
   const [lastFullPlayTimeMs, setLastFullPlayTimeMs] = useState(0);
 
@@ -121,6 +124,78 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     app.voiceSpelling, resolveVoice,
   ]);
 
+  const resetSpeedRacerPlayback = useCallback(() => {
+    speedRacerStepIndexRef.current = 0;
+    speedRacerCardIndexRef.current = -1;
+  }, []);
+
+  const getSpeedRacerSequence = useCallback((): number[] => {
+    if (!app.speedRacerEnabled) return [];
+    const steps = app.speedRacerWpmSteps
+      .map(step => Math.round(step))
+      .filter(step => Number.isFinite(step) && step > 0);
+
+    if (app.speedRacerFinalPlay) {
+      steps.push(Math.max(1, Math.round(app.timingConfig.charWPM)));
+    }
+    return steps;
+  }, [
+    app.speedRacerEnabled,
+    app.speedRacerWpmSteps,
+    app.speedRacerFinalPlay,
+    app.timingConfig.charWPM,
+  ]);
+
+  const speedRacerTimingConfig = useCallback((charWPM: number): MorseTimingConfig => ({
+    ...app.timingConfig,
+    charWPM,
+    effectiveWPM: Math.min(app.timingConfig.effectiveWPM, charWPM),
+  }), [app.timingConfig]);
+
+  const speedRacerReplayDelayMs = useCallback((charWPM: number): number => {
+    const ditSeconds = 1.2 / Math.max(1, charWPM);
+    const wordSpaces = Math.max(1, app.speakFirstAdditionalWordspaces);
+    return wordSpaces * 7 * ditSeconds * 1000;
+  }, [app.speakFirstAdditionalWordspaces]);
+
+  const speedRacerPreSpeakPadMs = useCallback((charWPM: number): number => (
+    Math.max(350, speedRacerReplayDelayMs(charWPM))
+  ), [speedRacerReplayDelayMs]);
+
+  const speakSpeedRacerRecap = useCallback((onComplete: () => void) => {
+    if (!app.voiceEnabled) {
+      onComplete();
+      return;
+    }
+
+    const raw = app.words[indexRef.current];
+    if (!raw) {
+      onComplete();
+      return;
+    }
+
+    let text = getSpeakText(raw, app.voiceSpelling)
+      .replace(/[\r\n]/g, ' ')
+      .trim();
+    if (app.voiceSpelling) {
+      text = formatSpelledRecapPhrase(text);
+    }
+
+    timersRef.current.voiceThink = setTimeout(() => {
+      if (!playingRef.current || !app.voiceEnabled) return;
+      speakPhrase({
+        ...buildSpeakConfig(text),
+        text: prepPhraseToSpeakForFinal(text),
+        spellMode: false,
+      }, () => {
+        if (playingRef.current) onComplete();
+      });
+    }, app.voiceThinkingTime * 1000);
+  }, [
+    app.voiceEnabled, app.words, app.voiceSpelling, app.voiceThinkingTime,
+    buildSpeakConfig,
+  ]);
+
   const addToVoiceBuffer = useCallback(() => {
     const idx = indexRef.current;
     const lastBufIndex = voiceBufferRef.current.length > 0
@@ -175,11 +250,13 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
 
     if (fullRewind) {
       setCurrentIndex(0);
+      resetSpeedRacerPlayback();
     }
     if (fromStopButton) {
       setMaxRevealedTrail(-1);
       voiceBufferRef.current = [];
       speakFirstLastCardIndexRef.current = -1;
+      resetSpeedRacerPlayback();
     }
 
     if (shouldRestartLoop(app.loop, fromStopButton, fromPauseButton, opts?.skipLoopRestart)) {
@@ -191,17 +268,74 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       voiceBufferRef.current = [];
       preSpaceUsedRef.current = false;
       speakFirstLastCardIndexRef.current = -1;
+      resetSpeedRacerPlayback();
       doPlayRef.current(false, false);
     }
   }, [
     app, clearTimers, stopAll, setIsPlaying, setIsPaused,
-    setRunningPlayMs, setCurrentIndex, setMaxRevealedTrail,
+    setRunningPlayMs, setCurrentIndex, setMaxRevealedTrail, resetSpeedRacerPlayback,
   ]);
 
   const playMorseChunk = useCallback((playJustEnded: boolean) => {
     if (app.morseDisabled) {
       lastPartialStartRef.current = Date.now();
       playEndedRef.current(false);
+      return;
+    }
+
+    const speedRacerSequence = getSpeedRacerSequence();
+    if (speedRacerSequence.length > 0) {
+      const idx = indexRef.current;
+      if (speedRacerCardIndexRef.current !== idx) {
+        speedRacerCardIndexRef.current = idx;
+        speedRacerStepIndexRef.current = 0;
+      }
+
+      const stepIndex = Math.min(speedRacerStepIndexRef.current, speedRacerSequence.length - 1);
+      const charWPM = speedRacerSequence[stepIndex];
+      const morseText = getDisplayWord(app.words[idx] ?? '');
+      const isLastStep = stepIndex >= speedRacerSequence.length - 1;
+      const trimLastWordSpace = false;
+
+      lastPartialStartRef.current = Date.now();
+      const opts = scheduleOpts(playJustEnded, trimLastWordSpace);
+
+      play(morseText, {
+        ...opts,
+        onComplete: () => {
+          if (!playingRef.current) return;
+          if (isLastStep) {
+            resetSpeedRacerPlayback();
+            if (app.speedRacerSpeakBeforeReplay && !app.speedRacerFinalPlay) {
+              timersRef.current.voiceThink = setTimeout(() => {
+                speakSpeedRacerRecap(() => playEndedRef.current(false));
+              }, speedRacerPreSpeakPadMs(charWPM));
+            } else {
+              playEndedRef.current(false);
+            }
+            return;
+          }
+
+          const nextStepIndex = stepIndex + 1;
+          const playNextStep = () => {
+            speedRacerStepIndexRef.current = nextStepIndex;
+            doPlayRef.current(true, false);
+          };
+          const nextIsFinalReplay = app.speedRacerFinalPlay
+            && nextStepIndex === speedRacerSequence.length - 1;
+          timersRef.current.cardSpace = setTimeout(() => {
+            if (nextIsFinalReplay && app.speedRacerSpeakBeforeReplay) {
+              speakSpeedRacerRecap(playNextStep);
+            } else {
+              playNextStep();
+            }
+          }, nextIsFinalReplay
+            ? speedRacerPreSpeakPadMs(charWPM)
+            : speedRacerReplayDelayMs(charWPM));
+        },
+      }, speedRacerTimingConfig(charWPM));
+      preSpaceUsedRef.current = true;
+      setCharsPlayed(c => c + morseText.replace(/\s/g, '').length);
       return;
     }
 
@@ -227,7 +361,11 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     });
     preSpaceUsedRef.current = true;
     setCharsPlayed(c => c + morseText.replace(/\s/g, '').length);
-  }, [app, play, scheduleOpts, ifMaxVoiceBufferReached, setCharsPlayed]);
+  }, [
+    app, play, scheduleOpts, ifMaxVoiceBufferReached, setCharsPlayed,
+    getSpeedRacerSequence, resetSpeedRacerPlayback, speedRacerReplayDelayMs,
+    speedRacerTimingConfig, speedRacerPreSpeakPadMs, speakSpeedRacerRecap,
+  ]);
 
   const playEndedRef = useRef<(fromVoiceOrTrail: boolean) => void>(() => {});
 
@@ -242,7 +380,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     const {
       needToSpeak, needToTrail, speakAndTrail, noDelays,
     } = computePlayEndedActions({
-      voiceEnabled: app.voiceEnabled,
+      voiceEnabled: app.speedRacerEnabled ? false : app.voiceEnabled,
       manualVoice: app.manualVoice,
       fromVoiceOrTrail,
       hasMoreMorse,
@@ -351,6 +489,7 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       setCharsPlayed(0);
       preSpaceUsedRef.current = false;
       speakFirstLastCardIndexRef.current = -1;
+      resetSpeedRacerPlayback();
       ensureNoise();
       if (app.voiceCapable) {
         primeSpeechPump(resolveVoice());
@@ -374,11 +513,14 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       stopMorse();
       ensureNoise();
       setMaxRevealedTrail(indexRef.current - 1);
-      addToVoiceBuffer();
+      if (!app.speedRacerEnabled) {
+        addToVoiceBuffer();
+      }
 
       const runMorse = () => playMorseChunk(playJustEnded);
 
-      const shouldSpeakFirst = app.speakFirst
+      const shouldSpeakFirst = !app.speedRacerEnabled
+        && app.speakFirst
         && app.voiceEnabled
         && speakFirstLastCardIndexRef.current !== indexRef.current;
 
@@ -447,16 +589,18 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     if (currentIndex > 0 && app.words.length > 1) {
       stopMorse();
       ensureNoise();
+      resetSpeedRacerPlayback();
       setCurrentIndex(currentIndex - 1);
       timersRef.current.doPlay = setTimeout(() => {
         doPlayRef.current(false, false);
       }, 1000);
     }
-  }, [app, currentIndex, setCurrentIndex, stopMorse, ensureNoise]);
+  }, [app, currentIndex, setCurrentIndex, stopMorse, ensureNoise, resetSpeedRacerPlayback]);
 
   const fullRewind = useCallback(() => {
+    resetSpeedRacerPlayback();
     setCurrentIndex(0);
-  }, [setCurrentIndex]);
+  }, [setCurrentIndex, resetSpeedRacerPlayback]);
 
   const setWordIndex = useCallback((index: number) => {
     if (!playingRef.current) {
@@ -464,15 +608,17 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       return;
     }
     endSession(false, false, false, { skipLoopRestart: true });
+    resetSpeedRacerPlayback();
     setCurrentIndex(index);
     doPlayRef.current(false, false);
-  }, [setCurrentIndex, endSession]);
+  }, [setCurrentIndex, endSession, resetSpeedRacerPlayback]);
 
   const playPracticeFromText = useCallback((text: string) => {
     app.setShowingText(text);
+    resetSpeedRacerPlayback();
     setCurrentIndex(0);
     doPlayRef.current(false, true);
-  }, [app, setCurrentIndex]);
+  }, [app, setCurrentIndex, resetSpeedRacerPlayback]);
 
   const speakVoiceBufferRef = useRef<() => void>(() => {});
 
