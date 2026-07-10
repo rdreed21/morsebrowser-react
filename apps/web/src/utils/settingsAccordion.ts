@@ -23,3 +23,12 @@ export function createDefaultAccordionOpen(): Record<SettingsAccordionId, boolea
     [SETTINGS_ACCORDION_IDS.rss]: false,
   };
 }
+
+/** Open a settings accordion if it is currently collapsed (KO expandVoiceOptionsAccordionIfClosed). */
+export function openAccordionIfClosed(
+  open: Record<SettingsAccordionId, boolean>,
+  panelId: SettingsAccordionId,
+): Record<SettingsAccordionId, boolean> {
+  if (open[panelId]) return open;
+  return { ...open, [panelId]: true };
+}

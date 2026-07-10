@@ -380,13 +380,15 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     const {
       needToSpeak, needToTrail, speakAndTrail, noDelays,
     } = computePlayEndedActions({
-      voiceEnabled: app.speedRacerEnabled ? false : app.voiceEnabled,
+      voiceEnabled: app.voiceEnabled,
       manualVoice: app.manualVoice,
       fromVoiceOrTrail,
       hasMoreMorse,
       maxBufferReached,
       speakFirst: app.speakFirst,
       trailReveal: app.trailReveal,
+      racerOn: app.speedRacerEnabled,
+      speedRacerSpeakBeforeReplay: app.speedRacerSpeakBeforeReplay,
     });
 
     const advanceTrail = () => {
@@ -638,6 +640,13 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
   const speakVoiceBuffer = useCallback(() => {
     speakVoiceBufferRef.current();
   }, []);
+
+  // KO clears the voice buffer when Speak turns off during Speed Racer.
+  useEffect(() => {
+    if (app.voiceBufferClearEpoch > 0) {
+      voiceBufferRef.current = [];
+    }
+  }, [app.voiceBufferClearEpoch]);
 
   useEffect(() => () => {
     clearTimers();

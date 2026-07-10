@@ -6,10 +6,10 @@ import { SettingsCheckToggle } from '../shared/SettingsCheckToggle';
 
 export function VoiceOptionsPanel() {
   const {
-    voiceCapable, voiceEnabled, voiceSpelling, manualVoice, speakFirst,
+    voiceEnabled, voiceSpelling, manualVoice, speakFirst,
     voiceThinkingTime, voiceThinkingTimeWpm, voiceAfterThinkingTime,
     voiceVoices, voiceVoiceIdx, voiceVolume, voiceLastOnly,
-    voicePitch, voiceRate, voiceBufferMaxLength,
+    voicePitch, voiceRate, voiceBufferMaxLength, voiceMasterToggleEnabled,
     setVoiceEnabled, setVoiceSpelling, setManualVoice, setSpeakFirst,
     setVoiceThinkingTime, setVoiceAfterThinkingTime, setVoiceVoiceIdx,
     setVoiceVolume, setVoiceLastOnly, setVoicePitch, setVoiceRate,
@@ -38,7 +38,7 @@ export function VoiceOptionsPanel() {
                 label="Voice"
                 icon="chatquoteImage"
                 checked={voiceEnabled}
-                disabled={!voiceCapable || manualVoice}
+                disabled={!voiceMasterToggleEnabled}
                 onChange={setVoiceEnabled}
               />
               <SettingsCheckToggle

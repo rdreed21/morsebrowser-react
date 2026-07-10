@@ -1,6 +1,8 @@
+import type { MouseEvent } from 'react';
 import { useMorseApp } from '../../context/MorseAppContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
 import { SETTINGS_ACCORDION_IDS } from '../../utils/settingsAccordion';
+import { shouldBlurSpeedRacerAction } from '../../utils/voicePlayback';
 import { SettingsAccordionItem } from '../shared/SettingsAccordionItem';
 import { SettingsCheckToggle } from '../shared/SettingsCheckToggle';
 import { NoiseSettingsGroup } from './NoiseSettingsGroup';
@@ -22,7 +24,8 @@ export function LessonOptionsPanel() {
     speedRacerWpmSteps, setSpeedRacerWpmSteps, addSpeedRacerWpmStep, removeSpeedRacerWpmStep,
     speedRacerFinalPlay, setSpeedRacerFinalPlay,
     speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
-    speedRacerOverlearnDirection, setSpeedRacerOverlearnDirection, resetSpeedRacerWpmSteps,
+    speedRacerOverlearnDirection,
+    resetSpeedRacerDefaults, applyOverlearnSpeedRacer, expandVoiceOptionsAccordionIfClosed,
     intervalTimingsText, setIntervalTimingsText,
     intervalWpmText, setIntervalWpmText,
     intervalFwpmText, setIntervalFwpmText,
@@ -34,6 +37,22 @@ export function LessonOptionsPanel() {
     trailFinal, setTrailFinal,
   } = useMorseApp();
   const speedRacerWpmOptionMax = Math.max(60, ...speedRacerWpmSteps);
+
+  const blurIfPointerClick = (event: MouseEvent<HTMLButtonElement>) => {
+    if (shouldBlurSpeedRacerAction(event)) {
+      event.currentTarget.blur();
+    }
+  };
+
+  const onSpeedRacerEnabledChange = (v: boolean) => {
+    setSpeedRacerEnabled(v);
+    if (v) expandVoiceOptionsAccordionIfClosed();
+  };
+
+  const onSpeedRacerSpeakChange = (v: boolean) => {
+    expandVoiceOptionsAccordionIfClosed();
+    setSpeedRacerSpeakBeforeReplay(v);
+  };
 
   return (
     <SettingsAccordionItem
@@ -269,7 +288,7 @@ export function LessonOptionsPanel() {
                       id="btncheckspeedracer"
                       label="Speed Racer"
                       checked={speedRacerEnabled}
-                      onChange={setSpeedRacerEnabled}
+                      onChange={onSpeedRacerEnabledChange}
                     />
                   </div>
                   {speedRacerEnabled && (
@@ -295,7 +314,28 @@ export function LessonOptionsPanel() {
                       ))}
                       <button type="button" className="btn btn-outline-primary" onClick={addSpeedRacerWpmStep}>+</button>
                       <button type="button" className="btn btn-outline-primary" onClick={removeSpeedRacerWpmStep}>-</button>
-                      <button type="button" className="btn btn-outline-secondary" onClick={resetSpeedRacerWpmSteps}>Reset</button>
+                      <div className="settings-lesson-control speed-racer-advanced-panel">
+                        <button
+                          type="button"
+                          className="btn btn-outline-secondary"
+                          onClick={event => {
+                            resetSpeedRacerDefaults();
+                            blurIfPointerClick(event);
+                          }}
+                        >
+                          Reset to defaults
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-outline-secondary"
+                          onClick={event => {
+                            applyOverlearnSpeedRacer();
+                            blurIfPointerClick(event);
+                          }}
+                        >
+                          Overlearn
+                        </button>
+                      </div>
                       <SettingsCheckToggle
                         id="btnspeedracerfinalplay"
                         label="Replay Base Speed"
@@ -306,14 +346,11 @@ export function LessonOptionsPanel() {
                         id="btnspeedracerspeak"
                         label={speedRacerFinalPlay ? 'Speak Before Replay' : 'Speak'}
                         checked={speedRacerSpeakBeforeReplay}
-                        onChange={setSpeedRacerSpeakBeforeReplay}
+                        onChange={onSpeedRacerSpeakChange}
                       />
-                      <SettingsCheckToggle
-                        id="btnspeedraceroverlearn"
-                        label="Overlearn Direction"
-                        checked={speedRacerOverlearnDirection}
-                        onChange={setSpeedRacerOverlearnDirection}
-                      />
+                      {speedRacerOverlearnDirection && (
+                        <span className="input-group-text">Overlearn</span>
+                      )}
                     </>
                   )}
                 </div>

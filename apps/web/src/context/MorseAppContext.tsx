@@ -15,11 +15,18 @@ import type { WordListOption } from '@morsebrowser/core';
 import type { MorseSettings } from '@morsebrowser/types';
 import { getWords, rawTextCharCount } from '../utils/words';
 import { getUrlParam, isDevBuild } from '../utils/urlParams';
-import { ALLOWED_VOICE_LANGS } from '../utils/voiceSpeech';
+import { ALLOWED_VOICE_LANGS, cancelSpeech } from '../utils/voiceSpeech';
+import {
+  applyLessonVoiceBaseline,
+  buildLessonVoiceBaseline,
+  shouldBypassManualVoiceForToggle,
+  type LessonVoiceBaseline,
+} from '../utils/voicePlayback';
 import { usePlaybackActions } from './PlaybackStateContext';
 import { hasLessonDeepLinkParams } from '../utils/lessonDeepLink';
 import {
   createDefaultAccordionOpen,
+  openAccordionIfClosed,
   SETTINGS_ACCORDION_IDS,
   type SettingsAccordionId,
 } from '../utils/settingsAccordion';
@@ -152,6 +159,12 @@ interface MorseAppContextValue {
   setSpeedRacerSpeakBeforeReplay: (v: boolean) => void;
   setSpeedRacerOverlearnDirection: (v: boolean) => void;
   resetSpeedRacerWpmSteps: () => void;
+  resetSpeedRacerDefaults: () => void;
+  applyOverlearnSpeedRacer: () => void;
+  expandVoiceOptionsAccordionIfClosed: () => void;
+  captureLessonVoiceBaseline: () => void;
+  voiceMasterToggleEnabled: boolean;
+  voiceBufferClearEpoch: number;
   setIntervalTimingsText: (v: string) => void;
   setIntervalWpmText: (v: string) => void;
   setIntervalFwpmText: (v: string) => void;
@@ -406,6 +419,20 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const [voiceBufferMaxLength, setVoiceBufferMaxLengthState] = useState(
     () => readNumCookie('voiceBufferMaxLength', 1),
   );
+  const [voiceBufferClearEpoch, setVoiceBufferClearEpoch] = useState(0);
+  const lessonVoiceBaselineRef = useRef<LessonVoiceBaseline | null>(null);
+  const speedRacerEnabledRef = useRef(speedRacerEnabled);
+  const speedRacerSpeakBeforeReplayRef = useRef(speedRacerSpeakBeforeReplay);
+  const voiceCapableRef = useRef(voiceCapable);
+  const voiceEnabledRef = useRef(voiceEnabled);
+  const manualVoiceRef = useRef(manualVoice);
+  const speakFirstRef = useRef(speakFirst);
+  speedRacerEnabledRef.current = speedRacerEnabled;
+  speedRacerSpeakBeforeReplayRef.current = speedRacerSpeakBeforeReplay;
+  voiceCapableRef.current = voiceCapable;
+  voiceEnabledRef.current = voiceEnabled;
+  manualVoiceRef.current = manualVoice;
+  speakFirstRef.current = speakFirst;
   const [morseDisabled] = useState(() => getUrlParam('morseDisabled') === 'true');
   const isDev = useMemo(() => isDevBuild(), []);
   const [flaggedWords, setFlaggedWordsState] = useState(() => {
@@ -635,18 +662,77 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  const writeVoiceEnabled = useCallback((v: boolean) => {
+    setVoiceEnabledState(v);
+    setCookie('voiceEnabled', String(v));
+    voiceEnabledRef.current = v;
+    // KO MorseVoice: turning Voice off also clears Voice First.
+    if (!v) {
+      setSpeakFirstState(false);
+      setCookie('speakFirst', 'false');
+      speakFirstRef.current = false;
+    }
+  }, []);
+
+  const writeManualVoice = useCallback((v: boolean) => {
+    setManualVoiceState(v);
+    setCookie('voiceRecap', String(v));
+    manualVoiceRef.current = v;
+  }, []);
+
+  const writeSpeakFirst = useCallback((v: boolean) => {
+    setSpeakFirstState(v);
+    setCookie('speakFirst', String(v));
+    speakFirstRef.current = v;
+  }, []);
+
+  const clearVoiceBuffer = useCallback(() => {
+    setVoiceBufferClearEpoch(n => n + 1);
+  }, []);
+
+  const captureLessonVoiceBaseline = useCallback(() => {
+    lessonVoiceBaselineRef.current = buildLessonVoiceBaseline(
+      voiceEnabledRef.current,
+      manualVoiceRef.current,
+      speakFirstRef.current,
+    );
+  }, []);
+
+  const restoreLessonVoiceFromLesson = useCallback(() => {
+    const baseline = lessonVoiceBaselineRef.current;
+    if (!baseline) return;
+    applyLessonVoiceBaseline(
+      baseline,
+      writeVoiceEnabled,
+      writeManualVoice,
+      writeSpeakFirst,
+    );
+  }, [writeManualVoice, writeSpeakFirst, writeVoiceEnabled]);
+
+  const enableVoiceForSpeedRacerSpeak = useCallback(() => {
+    if (speedRacerEnabledRef.current
+        && speedRacerSpeakBeforeReplayRef.current
+        && voiceCapableRef.current) {
+      writeVoiceEnabled(true);
+    }
+  }, [writeVoiceEnabled]);
+
+  const expandVoiceOptionsAccordionIfClosed = useCallback(() => {
+    setSettingsAccordionOpen(prev => openAccordionIfClosed(prev, SETTINGS_ACCORDION_IDS.voice));
+  }, []);
+
   const setSpeedRacerEnabled = useCallback((v: boolean) => {
     setSpeedRacerEnabledState(v);
     setCookie('speedRacerEnabled', String(v));
+    speedRacerEnabledRef.current = v;
     if (v) {
       setSpeedIntervalState(false);
       setCookie('speedInterval', 'false');
-      if (speedRacerSpeakBeforeReplay && voiceCapable) {
-        setVoiceEnabledState(true);
-        setCookie('voiceEnabled', 'true');
-      }
+      enableVoiceForSpeedRacerSpeak();
+    } else {
+      restoreLessonVoiceFromLesson();
     }
-  }, [speedRacerSpeakBeforeReplay, voiceCapable]);
+  }, [enableVoiceForSpeedRacerSpeak, restoreLessonVoiceFromLesson]);
 
   const setSpeedRacerWpmSteps = useCallback((steps: number[]) => {
     persistSpeedRacerWpmSteps(steps);
@@ -678,19 +764,67 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const setSpeedRacerSpeakBeforeReplay = useCallback((v: boolean) => {
     setSpeedRacerSpeakBeforeReplayState(v);
     setCookie('speedRacerSpeakBeforeReplay', String(v));
-    if (v && voiceCapable) {
-      setVoiceEnabledState(true);
-      setCookie('voiceEnabled', 'true');
-    } else if (!v && speedRacerEnabled) {
-      setVoiceEnabledState(false);
-      setCookie('voiceEnabled', 'false');
+    speedRacerSpeakBeforeReplayRef.current = v;
+    if (!speedRacerEnabledRef.current) return;
+    if (v) {
+      enableVoiceForSpeedRacerSpeak();
+    } else {
+      restoreLessonVoiceFromLesson();
+      writeVoiceEnabled(false);
+      clearVoiceBuffer();
     }
-  }, [speedRacerEnabled, voiceCapable]);
+  }, [
+    clearVoiceBuffer,
+    enableVoiceForSpeedRacerSpeak,
+    restoreLessonVoiceFromLesson,
+    writeVoiceEnabled,
+  ]);
 
   const setSpeedRacerOverlearnDirection = useCallback((v: boolean) => {
     setSpeedRacerOverlearnDirectionState(v);
     setCookie('speedRacerOverlearnDirection', String(v));
   }, []);
+
+  const resetSpeedRacerDefaults = useCallback(() => {
+    setSpeedRacerFinalPlayState(true);
+    setCookie('speedRacerFinalPlay', 'true');
+    setSpeedRacerSpeakBeforeReplayState(true);
+    setCookie('speedRacerSpeakBeforeReplay', 'true');
+    speedRacerSpeakBeforeReplayRef.current = true;
+    setSpeedRacerOverlearnDirectionState(false);
+    setCookie('speedRacerOverlearnDirection', 'false');
+    persistSpeedRacerWpmSteps(createSpeedRacerStepDefaults({
+      baseWpm: settings.timing.charWPM,
+      direction: 'down',
+    }));
+    enableVoiceForSpeedRacerSpeak();
+  }, [enableVoiceForSpeedRacerSpeak, persistSpeedRacerWpmSteps, settings.timing.charWPM]);
+
+  /** KO Overlearn button: ascending ladder, no base replay, Speak off. */
+  const applyOverlearnSpeedRacer = useCallback(() => {
+    setSpeedRacerOverlearnDirectionState(true);
+    setCookie('speedRacerOverlearnDirection', 'true');
+    setSpeedRacerFinalPlayState(false);
+    setCookie('speedRacerFinalPlay', 'false');
+    setSpeedRacerSpeakBeforeReplayState(false);
+    setCookie('speedRacerSpeakBeforeReplay', 'false');
+    speedRacerSpeakBeforeReplayRef.current = false;
+    persistSpeedRacerWpmSteps(createSpeedRacerStepDefaults({
+      baseWpm: settings.timing.charWPM,
+      direction: 'up',
+    }));
+    if (speedRacerEnabledRef.current) {
+      restoreLessonVoiceFromLesson();
+      writeVoiceEnabled(false);
+      clearVoiceBuffer();
+    }
+  }, [
+    clearVoiceBuffer,
+    persistSpeedRacerWpmSteps,
+    restoreLessonVoiceFromLesson,
+    settings.timing.charWPM,
+    writeVoiceEnabled,
+  ]);
 
   const setIntervalTimingsText = useCallback((v: string) => {
     setIntervalTimingsTextState(v);
@@ -810,13 +944,20 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   }, [voiceCapable, initVoices]);
 
   const setVoiceEnabled = useCallback((v: boolean) => {
-    setVoiceEnabledState(v);
-    setCookie('voiceEnabled', String(v));
+    writeVoiceEnabled(v);
     if (!v) {
-      setSpeakFirstState(false);
-      setCookie('speakFirst', 'false');
+      cancelSpeech();
+      if (speedRacerEnabledRef.current && speedRacerSpeakBeforeReplayRef.current) {
+        // Turning Voice off during SR+Speak forces Speak off (KO voiceEnabled subscribe).
+        setSpeedRacerSpeakBeforeReplayState(false);
+        setCookie('speedRacerSpeakBeforeReplay', 'false');
+        speedRacerSpeakBeforeReplayRef.current = false;
+        restoreLessonVoiceFromLesson();
+        writeVoiceEnabled(false);
+        clearVoiceBuffer();
+      }
     }
-  }, []);
+  }, [clearVoiceBuffer, restoreLessonVoiceFromLesson, writeVoiceEnabled]);
 
   const setVoiceSpelling = useCallback((v: boolean) => {
     setVoiceSpellingState(v);
@@ -824,14 +965,22 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const setManualVoice = useCallback((v: boolean) => {
-    setManualVoiceState(v);
-    setCookie('voiceRecap', String(v));
-  }, []);
+    writeManualVoice(v);
+  }, [writeManualVoice]);
 
   const setSpeakFirst = useCallback((v: boolean) => {
-    setSpeakFirstState(v);
-    setCookie('speakFirst', String(v));
-  }, []);
+    writeSpeakFirst(v);
+  }, [writeSpeakFirst]);
+
+  const voiceMasterToggleEnabled = useMemo(
+    () => shouldBypassManualVoiceForToggle(
+      manualVoice,
+      speedRacerEnabled,
+      speedRacerSpeakBeforeReplay,
+      voiceCapable,
+    ),
+    [manualVoice, speedRacerEnabled, speedRacerSpeakBeforeReplay, voiceCapable],
+  );
 
   const setVoiceThinkingTime = useCallback((v: number) => {
     const n = Math.min(10, Math.max(0, v));
@@ -1248,6 +1397,12 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setSpeedRacerSpeakBeforeReplay,
     setSpeedRacerOverlearnDirection,
     resetSpeedRacerWpmSteps,
+    resetSpeedRacerDefaults,
+    applyOverlearnSpeedRacer,
+    expandVoiceOptionsAccordionIfClosed,
+    captureLessonVoiceBaseline,
+    voiceMasterToggleEnabled,
+    voiceBufferClearEpoch,
     setIntervalTimingsText,
     setIntervalWpmText,
     setIntervalFwpmText,
@@ -1330,6 +1485,9 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setShuffleIntraGroup, setSpeedInterval, setSpeedRacerEnabled, setSpeedRacerWpmSteps,
     addSpeedRacerWpmStep, removeSpeedRacerWpmStep, setSpeedRacerFinalPlay,
     setSpeedRacerSpeakBeforeReplay, setSpeedRacerOverlearnDirection, resetSpeedRacerWpmSteps,
+    resetSpeedRacerDefaults, applyOverlearnSpeedRacer,
+    expandVoiceOptionsAccordionIfClosed, captureLessonVoiceBaseline,
+    voiceMasterToggleEnabled, voiceBufferClearEpoch,
     setIntervalTimingsText, setIntervalWpmText,
     setIntervalFwpmText, setNumberOfRepeats, setSpeakFirstAdditionalWordspaces,
     setTrailReveal, setTrailPreDelay, setTrailPostDelay,
