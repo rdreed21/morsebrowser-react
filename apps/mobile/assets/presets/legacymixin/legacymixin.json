@@ -29,11 +29,6 @@
             "key": "speedRacerSpeakBeforeReplay",
             "value": true,
             "comment": null
-        },
-        {
-            "key": "speedRacerKeepFwpm",
-            "value": true,
-            "comment": null
         }
     ]
 }

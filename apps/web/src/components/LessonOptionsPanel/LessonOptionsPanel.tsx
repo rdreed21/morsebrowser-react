@@ -26,6 +26,7 @@ export function LessonOptionsPanel() {
     speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
     speedRacerOverlearnDirection,
     resetSpeedRacerDefaults, applyOverlearnSpeedRacer, expandVoiceOptionsAccordionIfClosed,
+    seedSpeedRacerWpmStepsFromCurrentWpm,
     intervalTimingsText, setIntervalTimingsText,
     intervalWpmText, setIntervalWpmText,
     intervalFwpmText, setIntervalFwpmText,
@@ -46,7 +47,10 @@ export function LessonOptionsPanel() {
 
   const onSpeedRacerEnabledChange = (v: boolean) => {
     setSpeedRacerEnabled(v);
-    if (v) expandVoiceOptionsAccordionIfClosed();
+    if (v) {
+      seedSpeedRacerWpmStepsFromCurrentWpm();
+      expandVoiceOptionsAccordionIfClosed();
+    }
   };
 
   const onSpeedRacerSpeakChange = (v: boolean) => {

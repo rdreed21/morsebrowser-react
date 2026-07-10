@@ -178,7 +178,7 @@
 		{
 			"key": "speedRacerMultipliers",
 			"value": "1.0, 1.148, 1.296",
-			"comment": "Slow→fast: 27 → 31 → 35 WPM"
+			"comment": "Slow\u2192fast: 27 \u2192 31 \u2192 35 WPM"
 		},
 		{
 			"key": "speedRacerFinalPlay",
@@ -189,6 +189,11 @@
 			"key": "speedRacerSpeakBeforeReplay",
 			"value": false,
 			"comment": null
+		},
+		{
+			"key": "speedRacerOverlearnDirection",
+			"value": true,
+			"comment": "Ascending Slow\u2192fast ladder; +/Reset continue upward"
 		},
 		{
 			"key": "isShuffledSet",
