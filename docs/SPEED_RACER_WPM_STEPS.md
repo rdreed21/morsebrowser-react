@@ -12,9 +12,22 @@ When Speed Racer is enabled, the first three WPM pickers should default from the
 
 For example, a base speed of `25` creates `25, 20, 15`. Pressing `+` appends the next value by continuing the same 5 WPM difference, so the next value is `10`. Pressing `-` removes the final added speed, but the required three default steps remain.
 
+**Reset to defaults** restores descending steps from the current base WPM, turns **Replay Base Speed** and **Speak** on, and re-enables Voice when SR + Speak are active (KO Reset button parity).
+
 ## Overlearn direction
 
-Overlearn presets use the opposite direction. A base speed of `23` should create ascending steps such as `23, 28, 33`, with added steps continuing upward by 5 WPM.
+The **Overlearn** action uses the opposite direction and KO Overlearn speak/replay defaults: ascending steps, **Replay Base Speed** off, **Speak** off. A base speed of `23` creates `23, 28, 33`, with added steps continuing upward by 5 WPM.
+
+## Voice / Speak coupling (KO parity)
+
+- **Speak** is the sole Speed Racer speech gate. Recap TTS also requires **Voice**.
+- Enabling SR or Speak (while SR is on) auto-enables Voice when the browser is voice-capable.
+- Turning Speak off while SR is on restores the lesson voice baseline, forces Voice off, and clears the voice buffer.
+- Turning Voice off while SR + Speak are on forces Speak off.
+- **Arm Recap** locks the Voice master toggle unless SR + Speak unlock it.
+- Preset apply captures a lesson voice baseline for restore when leaving SR / Speak-off.
+
+Helpers live in `apps/web/src/utils/voicePlayback.ts`.
 
 ## Shared helper
 

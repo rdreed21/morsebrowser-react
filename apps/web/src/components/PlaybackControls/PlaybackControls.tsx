@@ -2,12 +2,14 @@ import { useMorseApp } from '../../context/MorseAppContext';
 import { usePlaybackState } from '../../context/PlaybackStateContext';
 import { useMorsePlaybackControls } from '../../context/MorsePlaybackContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
+import { shouldShowManualVoiceRecapButton } from '../../utils/voicePlayback';
 
 export function PlaybackControls() {
   const {
     hideList, setHideList,
     isShuffled, shuffleWords, loop, loopNoShuffle,
     manualVoice, voiceEnabled,
+    speedRacerEnabled, speedRacerSpeakBeforeReplay,
   } = useMorseApp();
   const { isPlaying, isPaused, playingTime } = usePlaybackState();
 
@@ -15,7 +17,12 @@ export function PlaybackControls() {
     handlePlay, handlePause, handleStop, toggleLoop, speakVoiceBuffer,
   } = useMorsePlaybackControls();
 
-  const showVoiceRecap = manualVoice && voiceEnabled;
+  const showVoiceRecap = shouldShowManualVoiceRecapButton(
+    manualVoice,
+    voiceEnabled,
+    speedRacerEnabled,
+    speedRacerSpeakBeforeReplay,
+  );
 
   const loopLabel = !loop ? 'Loop Off' : loopNoShuffle ? 'Loop On' : 'Loop Shuffle';
 

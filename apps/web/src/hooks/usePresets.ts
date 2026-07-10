@@ -196,6 +196,7 @@ export function usePresets(onPresetApplied?: () => void) {
           buildMutatorFromApp(currentApp),
           DEFAULT_PRESET_KEY_BLACKLIST,
         );
+        currentApp.captureLessonVoiceBaseline();
       } else if (preset.isDummy && !savedYourSettingsRef.current) {
         savedYourSettingsRef.current = snapshotToSerialized(buildSnapshotFromApp(currentApp));
       }
