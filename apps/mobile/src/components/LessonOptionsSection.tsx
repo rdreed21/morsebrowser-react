@@ -116,7 +116,14 @@ export function LessonOptionsSection() {
         <CheckToggle label="Speed Intervals" checked={app.speedInterval} onChange={app.setSpeedInterval} />
       </View>
       <View style={s.row}>
-        <CheckToggle label="Speed Racer" checked={app.speedRacerEnabled} onChange={app.setSpeedRacerEnabled} />
+        <CheckToggle
+          label="Speed Racer"
+          checked={app.speedRacerEnabled}
+          onChange={(v) => {
+            app.setSpeedRacerEnabled(v);
+            if (v) app.seedSpeedRacerWpmStepsFromCurrentWpm();
+          }}
+        />
       </View>
       {app.speedRacerEnabled && (
         <View style={s.intervalGroup}>

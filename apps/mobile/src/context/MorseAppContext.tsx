@@ -159,6 +159,7 @@ export interface MorseAppContextValue {
   speedRacerOverlearnDirection: boolean;
   setSpeedRacerOverlearnDirection: (v: boolean) => void;
   resetSpeedRacerWpmSteps: () => void;
+  seedSpeedRacerWpmStepsFromCurrentWpm: () => void;
   intervalTimingsText: string;
   setIntervalTimingsText: (v: string) => void;
   intervalWpmText: string;
@@ -360,6 +361,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
       direction: speedRacerOverlearnDirection ? 'up' : 'down',
     }));
   }, [settings.timing.charWPM, speedRacerOverlearnDirection]);
+  const seedSpeedRacerWpmStepsFromCurrentWpm = resetSpeedRacerWpmSteps;
   const addSpeedRacerWpmStep = useCallback(() => {
     setSpeedRacerWpmStepsState(steps => addSpeedRacerStep(
       steps,
@@ -532,7 +534,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     try {
       const result = await loadMobileLessonFile(selectedDisplay.fileName);
       if (result.type === 'text') {
-        setShowingText(result.content.trim().replace(/\n/g, selectedDisplay.newlineChunking ? '\n' : ' '));
+        setShowingText(result.content.trim().replace(/\r\n?/g, '\n').replace(/\n/g, selectedDisplay.newlineChunking ? '\n' : ' '));
       } else {
         const practiceSeconds = resolvePracticeSeconds(
           result.config,
@@ -759,6 +761,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     speedRacerOverlearnDirection,
     setSpeedRacerOverlearnDirection,
     resetSpeedRacerWpmSteps,
+    seedSpeedRacerWpmStepsFromCurrentWpm,
     intervalTimingsText,
     setIntervalTimingsText,
     intervalWpmText,
@@ -819,7 +822,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     speedRacerFinalPlay, setSpeedRacerFinalPlay,
     speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
     speedRacerOverlearnDirection, setSpeedRacerOverlearnDirection,
-    resetSpeedRacerWpmSteps,
+    resetSpeedRacerWpmSteps, seedSpeedRacerWpmStepsFromCurrentWpm,
     intervalTimingsText, intervalWpmText, intervalFwpmText,
     speakFirst, voiceCapable, voiceEnabled, voiceSpelling, manualVoice,
     voiceThinkingTime, voiceThinkingTimeWpm, voiceAfterThinkingTime,

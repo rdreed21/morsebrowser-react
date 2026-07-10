@@ -32,3 +32,10 @@ Helpers live in `apps/web/src/utils/voicePlayback.ts`.
 ## Shared helper
 
 Use the shared helpers in `packages/core/src/settings/speedRacerSteps.ts` so the web app, iOS, and Android all use the same defaults, add/remove behavior, rounding, and minimum-WPM clamping.
+
+## Preset / mixin notes
+
+- Snapshots serialize `speedRacerWpmSteps`. Legacy `speedRacerMultipliers` still convert when present **and** steps are absent.
+- `mergeLegacyMixin` does **not** inject multipliers when `speedRacerWpmSteps` is already in the snapshot (prevents clobbering YOUR_SETTINGS).
+- Overlearn SR presets set `speedRacerOverlearnDirection: true` so `+` / Reset continue ascending.
+- Enabling Speed Racer from the UI reseeds steps from the current character WPM; preset apply does not.

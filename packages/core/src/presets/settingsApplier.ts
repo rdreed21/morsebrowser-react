@@ -180,6 +180,11 @@ export function applySerializedSettings(
   keyBlacklist: readonly string[] = [],
 ): void {
   const blacklist = new Set(keyBlacklist);
+  // Prefer explicit WPM steps over legacy multipliers when both are present
+  // (e.g. snapshot steps + mixin multipliers that slipped through).
+  const hasExplicitWpmSteps = entries.some(
+    entry => !blacklist.has(entry.key) && entry.key === 'speedRacerWpmSteps',
+  );
   let currentCharWpm = 20;
   for (const entry of entries) {
     if (blacklist.has(entry.key)) continue;
@@ -187,9 +192,13 @@ export function applySerializedSettings(
       currentCharWpm = asNumber(entry.value, currentCharWpm);
     }
     if (entry.key === 'speedRacerMultipliers') {
-      mutator.setSpeedRacerWpmSteps(speedRacerMultipliersToSteps(entry.value, currentCharWpm));
+      if (!hasExplicitWpmSteps) {
+        mutator.setSpeedRacerWpmSteps(speedRacerMultipliersToSteps(entry.value, currentCharWpm));
+      }
       continue;
     }
+    // KO compat-only key — no React mutator; ignore so mixin/presets stay harmless.
+    if (entry.key === 'speedRacerKeepFwpm') continue;
     const handler = KEY_HANDLERS[entry.key];
     if (handler) handler(entry.value, mutator);
   }

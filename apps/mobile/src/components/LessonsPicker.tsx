@@ -45,7 +45,7 @@ export function LessonsPicker() {
     try {
       const result = await loadMobileLessonFile(option.fileName);
       if (result.type === 'text') {
-        app.setShowingText(result.content.trim().replace(/\n/g, option.newlineChunking ? '\n' : ' '));
+        app.setShowingText(result.content.trim().replace(/\r\n?/g, '\n').replace(/\n/g, option.newlineChunking ? '\n' : ' '));
       } else {
         const practiceSeconds = resolvePracticeSeconds(
           result.config,

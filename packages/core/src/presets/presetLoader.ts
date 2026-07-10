@@ -76,10 +76,14 @@ export async function fetchSettingsPresetsForLesson(
 export function mergeLegacyMixin(settings: SerializedSetting[]): SerializedSetting[] {
   const merged = settings.map(s => ({ ...s }));
   const existing = new Set(merged.map(s => s.key));
+  // React snapshots serialize speedRacerWpmSteps, not multipliers. Do not inject
+  // legacy multipliers on top — applySerializedSettings would convert them and
+  // clobber the saved step list.
+  const hasWpmSteps = existing.has('speedRacerWpmSteps');
   for (const entry of LEGACY_MIXIN.morseSettings) {
-    if (!existing.has(entry.key)) {
-      merged.push({ ...entry });
-    }
+    if (existing.has(entry.key)) continue;
+    if (hasWpmSteps && entry.key === 'speedRacerMultipliers') continue;
+    merged.push({ ...entry });
   }
   return merged;
 }

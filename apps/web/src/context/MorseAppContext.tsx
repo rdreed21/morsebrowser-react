@@ -159,6 +159,8 @@ interface MorseAppContextValue {
   setSpeedRacerSpeakBeforeReplay: (v: boolean) => void;
   setSpeedRacerOverlearnDirection: (v: boolean) => void;
   resetSpeedRacerWpmSteps: () => void;
+  /** Seed steps from current char WPM when the user enables Speed Racer in the UI. */
+  seedSpeedRacerWpmStepsFromCurrentWpm: () => void;
   resetSpeedRacerDefaults: () => void;
   applyOverlearnSpeedRacer: () => void;
   expandVoiceOptionsAccordionIfClosed: () => void;
@@ -733,6 +735,14 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
       restoreLessonVoiceFromLesson();
     }
   }, [enableVoiceForSpeedRacerSpeak, restoreLessonVoiceFromLesson]);
+
+  /** Seed WPM steps from current char WPM (UI enable / Reset). Not used by preset apply. */
+  const seedSpeedRacerWpmStepsFromCurrentWpm = useCallback(() => {
+    persistSpeedRacerWpmSteps(createSpeedRacerStepDefaults({
+      baseWpm: settings.timing.charWPM,
+      direction: speedRacerOverlearnDirection ? 'up' : 'down',
+    }));
+  }, [persistSpeedRacerWpmSteps, settings.timing.charWPM, speedRacerOverlearnDirection]);
 
   const setSpeedRacerWpmSteps = useCallback((steps: number[]) => {
     persistSpeedRacerWpmSteps(steps);
@@ -1397,6 +1407,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setSpeedRacerSpeakBeforeReplay,
     setSpeedRacerOverlearnDirection,
     resetSpeedRacerWpmSteps,
+    seedSpeedRacerWpmStepsFromCurrentWpm,
     resetSpeedRacerDefaults,
     applyOverlearnSpeedRacer,
     expandVoiceOptionsAccordionIfClosed,
@@ -1485,6 +1496,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setShuffleIntraGroup, setSpeedInterval, setSpeedRacerEnabled, setSpeedRacerWpmSteps,
     addSpeedRacerWpmStep, removeSpeedRacerWpmStep, setSpeedRacerFinalPlay,
     setSpeedRacerSpeakBeforeReplay, setSpeedRacerOverlearnDirection, resetSpeedRacerWpmSteps,
+    seedSpeedRacerWpmStepsFromCurrentWpm,
     resetSpeedRacerDefaults, applyOverlearnSpeedRacer,
     expandVoiceOptionsAccordionIfClosed, captureLessonVoiceBaseline,
     voiceMasterToggleEnabled, voiceBufferClearEpoch,

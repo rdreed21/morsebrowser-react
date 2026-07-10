@@ -25,6 +25,19 @@ describe('presets', () => {
     expect(merged.some(s => s.key === 'shuffleIntraGroup')).toBe(true);
   });
 
+  it('mergeLegacyMixin skips multipliers when speedRacerWpmSteps already present', () => {
+    const merged = mergeLegacyMixin([
+      { key: 'speedRacerWpmSteps', value: [25, 20, 15] },
+    ]);
+    expect(merged.some(s => s.key === 'speedRacerMultipliers')).toBe(false);
+    expect(merged.find(s => s.key === 'speedRacerWpmSteps')?.value).toEqual([25, 20, 15]);
+  });
+
+  it('mergeLegacyMixin still injects multipliers when no WPM steps exist', () => {
+    const merged = mergeLegacyMixin([{ key: 'wpm', value: 12 }]);
+    expect(merged.some(s => s.key === 'speedRacerMultipliers')).toBe(true);
+  });
+
   it('applyPresetOverrides matches lesson file names', () => {
     const base = [{ key: 'ifStickySets', value: false }];
     const { settings, overridden } = applyPresetOverrides(base, '', 'IB228BK5.json');
@@ -82,6 +95,29 @@ describe('presets', () => {
       } as never,
     );
     expect(steps).toEqual([23, 27, 31]);
+  });
+
+  it('prefers explicit speedRacerWpmSteps over legacy multipliers', () => {
+    let steps: number[] = [];
+    applySerializedSettings(
+      [
+        { key: 'wpm', value: 23 },
+        { key: 'speedRacerWpmSteps', value: [25, 20, 15] },
+        { key: 'speedRacerMultipliers', value: '1.0, 1.174, 1.348' },
+      ],
+      {
+        setCharWPM: () => {},
+        setSpeedRacerWpmSteps: (v: number[]) => { steps = v; },
+      } as never,
+    );
+    expect(steps).toEqual([25, 20, 15]);
+  });
+
+  it('ignores unused speedRacerKeepFwpm without throwing', () => {
+    expect(() => applySerializedSettings(
+      [{ key: 'speedRacerKeepFwpm', value: true }],
+      {} as never,
+    )).not.toThrow();
   });
 
   it('snapshotToSerialized round-trips core speed fields', () => {
