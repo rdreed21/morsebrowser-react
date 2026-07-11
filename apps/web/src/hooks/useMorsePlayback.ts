@@ -515,7 +515,8 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       stopMorse();
       ensureNoise();
       setMaxRevealedTrail(indexRef.current - 1);
-      if (!app.speedRacerEnabled) {
+      if (!app.speedRacerEnabled
+          || (app.manualVoice && !app.speedRacerSpeakBeforeReplay)) {
         addToVoiceBuffer();
       }
 
