@@ -73,6 +73,7 @@ export async function fetchSettingsPresetsForLesson(
   return buildPresetOptions(setData.options, customOptions);
 }
 
+/** Adds missing legacy defaults without overriding explicit Speed Racer steps. */
 export function mergeLegacyMixin(settings: SerializedSetting[]): SerializedSetting[] {
   const merged = settings.map(s => ({ ...s }));
   const existing = new Set(merged.map(s => s.key));
