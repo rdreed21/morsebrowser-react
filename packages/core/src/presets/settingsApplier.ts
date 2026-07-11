@@ -174,6 +174,7 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   shuffleIntraGroup: (v, m) => m.setShuffleIntraGroup(booleanize(v)),
 };
 
+/** Applies serialized preset values through a platform-specific settings mutator. */
 export function applySerializedSettings(
   entries: SerializedSetting[],
   mutator: PresetSettingsMutator,
@@ -204,6 +205,7 @@ export function applySerializedSettings(
   }
 }
 
+/** Serializes a settings snapshot into the preset-compatible key/value format. */
 export function snapshotToSerialized(snapshot: MorseSettingsSnapshot): SerializedSetting[] {
   return [
     { key: 'wpm', value: snapshot.charWPM },
