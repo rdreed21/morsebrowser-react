@@ -12,11 +12,13 @@ export interface SpeedRacerStepDefaultsOptions {
   minWpm?: number;
 }
 
+/** Rounds a WPM value and clamps it to the configured minimum. */
 export function normalizeSpeedRacerStep(value: number, minWpm = SPEED_RACER_MIN_WPM): number {
   if (!Number.isFinite(value)) return minWpm;
   return Math.max(minWpm, Math.round(value));
 }
 
+/** Creates a normalized WPM ladder from a base speed and direction. */
 export function createSpeedRacerStepDefaults({
   baseWpm,
   count = SPEED_RACER_DEFAULT_STEP_COUNT,
@@ -34,6 +36,7 @@ export function createSpeedRacerStepDefaults({
   ));
 }
 
+/** Appends one normalized WPM step in the requested direction. */
 export function addSpeedRacerStep(
   steps: number[],
   direction: SpeedRacerDirection = 'down',
@@ -49,6 +52,7 @@ export function addSpeedRacerStep(
   return [...normalized, normalizeSpeedRacerStep(previous + (sign * safeDelta), minWpm)];
 }
 
+/** Removes the final WPM step without dropping below the minimum count. */
 export function removeSpeedRacerStep(steps: number[], minCount = SPEED_RACER_DEFAULT_STEP_COUNT): number[] {
   const safeMinCount = Math.max(1, Math.floor(minCount));
   if (steps.length <= safeMinCount) return steps.slice();
