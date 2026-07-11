@@ -38,4 +38,4 @@ Use the shared helpers in `packages/core/src/settings/speedRacerSteps.ts` so the
 - Snapshots serialize `speedRacerWpmSteps`. Legacy `speedRacerMultipliers` still convert when present **and** steps are absent.
 - `mergeLegacyMixin` does **not** inject multipliers when `speedRacerWpmSteps` is already in the snapshot (prevents clobbering YOUR_SETTINGS).
 - Overlearn SR presets set `speedRacerOverlearnDirection: true` so `+` / Reset continue ascending.
-- Enabling Speed Racer from the UI reseeds steps from the current character WPM; preset apply does not.
+- Enabling Speed Racer from the UI resets steps from the current character WPM; preset apply does not.
