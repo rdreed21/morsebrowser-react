@@ -6,7 +6,7 @@ Owner: Roger Reed (rdreed21) | KQ4NKF
 |---|---|---|
 | 1 | iOS audio through screen lock | react-native-audio-api + UIBackgroundModes:audio + configureAudioSession() |
 | 2 | Accurate Morse timing | Pre-schedule on AudioContext clock — zero setTimeout |
-| 3 | Match fork look/feel | rdreed21/morsebrowser_dev develop, Bootstrap 5, no redesign |
+| 3 | Match club KO look/feel | LongIslandCW/morsebrowser main, Bootstrap 5, no redesign |
 
 ## Migration Status (2026-06-14)
 

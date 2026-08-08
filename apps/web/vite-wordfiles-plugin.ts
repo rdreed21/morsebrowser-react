@@ -2,12 +2,23 @@ import fs from 'fs';
 import path from 'path';
 import type { Plugin, ViteDevServer } from 'vite';
 
+const SIBLING_KO_NAMES = ['morsebrowser', 'licw-morsebrowser', 'morsebrowser_dev'];
+
 function resolveWordfilesDir(): string {
   if (process.env.WORDFILES_DIR) {
     return path.resolve(process.env.WORDFILES_DIR);
   }
-  // Default: sibling KO fork checked out next to morsebrowser-react
-  return path.resolve(__dirname, '../../../morsebrowser_dev/src/wordfiles');
+  const envDir = process.env.MORSEBROWSER_KO_DIR || process.env.MORSEBROWSER_DEV_DIR;
+  if (envDir) {
+    return path.join(path.resolve(envDir), 'src/wordfiles');
+  }
+  // Prefer club LongIslandCW/morsebrowser, then legacy personal fork.
+  const workspaceRoot = path.resolve(__dirname, '../..');
+  for (const name of SIBLING_KO_NAMES) {
+    const candidate = path.resolve(workspaceRoot, '..', name, 'src/wordfiles');
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return path.resolve(workspaceRoot, '..', 'morsebrowser', 'src/wordfiles');
 }
 
 function serveWordfile(wordfilesDir: string, urlPath: string, res: import('http').ServerResponse): boolean {
@@ -75,7 +86,8 @@ export function wordfilesDevPlugin(): Plugin {
       if (!fs.existsSync(wordfilesDir)) {
         server.config.logger.warn(
           `[wordfiles] Directory not found: ${wordfilesDir}\n`
-          + '  Set WORDFILES_DIR or clone morsebrowser_dev next to morsebrowser-react.',
+          + '  Set WORDFILES_DIR / MORSEBROWSER_KO_DIR, or clone LongIslandCW/morsebrowser'
+          + ' next to morsebrowser-react as `morsebrowser`.',
         );
         return;
       }

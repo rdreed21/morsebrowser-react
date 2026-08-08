@@ -11,6 +11,8 @@ Documentation for the LICW Morsebrowser React/React Native monorepo.
 ## Status & plans
 - **[../CLAUDE.md](../CLAUDE.md)** — hard requirements, current migration status, KO→React
   reference (lives at the repo root).
+- **[PARITY_AUDIT.md](PARITY_AUDIT.md)** — club KO `main` ↔ React cutover parity verdict.
+- **[SPEED_RACER.md](SPEED_RACER.md)** — Speed Racer multiplier model (club-parity).
 - **[../apps/mobile/MOBILE_STATUS.md](../apps/mobile/MOBILE_STATUS.md)** — iOS app status.
 - **[ANDROID_FRAMEWORK.md](ANDROID_FRAMEWORK.md)** — plan for an Android build.
 - **[LESSON_DATA_PIPELINE.md](LESSON_DATA_PIPELINE.md)** — proposal to unify lesson/preset

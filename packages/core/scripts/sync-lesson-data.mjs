@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 /**
- * Sync the two lesson-data pieces that previously had NO automation
- * (see LESSON_DATA_PIPELINE.md):
- *   - lesson catalog:  morsebrowser_dev/src/wordfilesconfigs/wordlists.json
+ * Sync lesson catalog + presets from the club Knockout app
+ * (LongIslandCW/morsebrowser main):
+ *   - lesson catalog:  <ko>/src/wordfilesconfigs/wordlists.json
  *                      -> packages/core/src/lessons/wordlists.json
- *   - presets:         morsebrowser_dev/src/presets/**
+ *   - presets:         <ko>/src/presets/**
  *                      -> packages/core/src/presets/data/**
  *
  * Wordfiles themselves are still handled by the existing per-app syncs
  * (apps/mobile/scripts/sync-wordfiles.mjs, apps/web/vite-wordfiles-plugin.ts).
  *
- * Source repo resolution: MORSEBROWSER_DEV_DIR env override, else the
- * sibling checkout next to this repo.
+ * Source repo resolution (first hit wins):
+ *   MORSEBROWSER_KO_DIR / MORSEBROWSER_DEV_DIR env override, else sibling
+ *   checkouts named morsebrowser, licw-morsebrowser, or morsebrowser_dev.
  *
  * Usage: node packages/core/scripts/sync-lesson-data.mjs [--check]
  *   --check  exit 1 if anything is out of sync, without copying
@@ -22,21 +23,30 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const coreRoot = path.resolve(__dirname, '..');
+const workspaceRoot = path.resolve(coreRoot, '../..');
 const checkOnly = process.argv.includes('--check');
 
-function resolveDevRepo() {
-  if (process.env.MORSEBROWSER_DEV_DIR) {
-    return path.resolve(process.env.MORSEBROWSER_DEV_DIR);
+const SIBLING_NAMES = ['morsebrowser', 'licw-morsebrowser', 'morsebrowser_dev'];
+
+function resolveKoRepo() {
+  const envDir = process.env.MORSEBROWSER_KO_DIR || process.env.MORSEBROWSER_DEV_DIR;
+  if (envDir) return path.resolve(envDir);
+
+  for (const name of SIBLING_NAMES) {
+    const sibling = path.resolve(workspaceRoot, '..', name);
+    if (fs.existsSync(path.join(sibling, 'src/wordfilesconfigs/wordlists.json'))) {
+      return sibling;
+    }
   }
-  const sibling = path.resolve(coreRoot, '../../../morsebrowser_dev');
-  return fs.existsSync(sibling) ? sibling : null;
+  return null;
 }
 
-const devRepo = resolveDevRepo();
-if (!devRepo) {
+const koRepo = resolveKoRepo();
+if (!koRepo) {
   console.warn(
-    '[sync-lesson-data] morsebrowser_dev not found.\n'
-    + '  Clone it next to morsebrowser-react, or set MORSEBROWSER_DEV_DIR.',
+    '[sync-lesson-data] Knockout source repo not found.\n'
+    + '  Clone LongIslandCW/morsebrowser next to morsebrowser-react as `morsebrowser`,\n'
+    + '  or set MORSEBROWSER_KO_DIR (legacy: MORSEBROWSER_DEV_DIR).',
   );
   process.exit(0);
 }
@@ -44,13 +54,13 @@ if (!devRepo) {
 const pairs = [
   {
     label: 'catalog',
-    src: path.join(devRepo, 'src/wordfilesconfigs/wordlists.json'),
+    src: path.join(koRepo, 'src/wordfilesconfigs/wordlists.json'),
     dst: path.join(coreRoot, 'src/lessons/wordlists.json'),
   },
 ];
 
 // Presets: mirror every file under src/presets into src/presets/data
-const presetsSrcRoot = path.join(devRepo, 'src/presets');
+const presetsSrcRoot = path.join(koRepo, 'src/presets');
 const presetsDstRoot = path.join(coreRoot, 'src/presets/data');
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
@@ -59,9 +69,11 @@ function walk(dir) {
     return entry.isFile() && !entry.name.startsWith('.') ? [full] : [];
   });
 }
+const srcPresetRels = new Set();
 if (fs.existsSync(presetsSrcRoot)) {
   for (const src of walk(presetsSrcRoot)) {
     const rel = path.relative(presetsSrcRoot, src);
+    srcPresetRels.add(rel);
     pairs.push({ label: `preset ${rel}`, src, dst: path.join(presetsDstRoot, rel) });
   }
 }
@@ -82,8 +94,29 @@ for (const { label, src, dst } of pairs) {
   }
 }
 
+// Remove preset files that no longer exist upstream (configs/sets churn).
+let removed = 0;
+if (fs.existsSync(presetsDstRoot) && srcPresetRels.size > 0) {
+  for (const dst of walk(presetsDstRoot)) {
+    const rel = path.relative(presetsDstRoot, dst);
+    if (srcPresetRels.has(rel)) continue;
+    drifted++;
+    if (checkOnly) {
+      console.error(`[sync-lesson-data] ORPHAN PRESET: ${rel}`);
+    } else {
+      fs.unlinkSync(dst);
+      removed++;
+      console.log(`[sync-lesson-data] removed orphan preset ${rel}`);
+    }
+  }
+}
+
 if (checkOnly) {
   console.log(`[sync-lesson-data] check: ${pairs.length} files, ${drifted} out of sync`);
   process.exit(drifted > 0 ? 1 : 0);
 }
-console.log(`[sync-lesson-data] ${pairs.length} files checked, ${updated} updated from ${devRepo}`);
+console.log(
+  `[sync-lesson-data] ${pairs.length} files checked, ${updated} updated`
+  + (removed ? `, ${removed} orphans removed` : '')
+  + ` from ${koRepo}`,
+);

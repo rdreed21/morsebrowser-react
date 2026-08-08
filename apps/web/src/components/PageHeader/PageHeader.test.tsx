@@ -33,4 +33,12 @@ describe('PageHeader', () => {
     fireEvent.click(btn);
     expect(screen.getByRole('button', { name: /Light mode/i })).toBeInTheDocument();
   });
+
+  it('toggles auto-close settings panels control', () => {
+    renderHeader();
+    const btn = screen.getByRole('button', { name: /Auto-close settings panels/i });
+    expect(btn).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(btn);
+    expect(btn).toHaveAttribute('aria-pressed', 'false');
+  });
 });

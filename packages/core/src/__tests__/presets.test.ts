@@ -25,11 +25,11 @@ describe('presets', () => {
     expect(merged.some(s => s.key === 'shuffleIntraGroup')).toBe(true);
   });
 
-  it('mergeLegacyMixin skips multipliers when speedRacerWpmSteps already present', () => {
+  it('mergeLegacyMixin injects club multipliers even when legacy WPM steps present', () => {
     const merged = mergeLegacyMixin([
       { key: 'speedRacerWpmSteps', value: [25, 20, 15] },
     ]);
-    expect(merged.some(s => s.key === 'speedRacerMultipliers')).toBe(false);
+    expect(merged.some(s => s.key === 'speedRacerMultipliers')).toBe(true);
     expect(merged.find(s => s.key === 'speedRacerWpmSteps')?.value).toEqual([25, 20, 15]);
   });
 
@@ -73,44 +73,44 @@ describe('presets', () => {
     expect(calls).toContainEqual(['effectiveWPM', 15]);
   });
 
-  it('normalizes Speed Racer WPM steps from presets', () => {
-    let steps: number[] = [];
-    applySerializedSettings(
-      [{ key: 'speedRacerWpmSteps', value: '20,0,-4,12.6,nope' }],
-      { setSpeedRacerWpmSteps: (v: number[]) => { steps = v; } } as never,
-    );
-    expect(steps).toEqual([20, 1, 1, 13]);
-  });
-
-  it('converts legacy Speed Racer multipliers to WPM steps from preset WPM', () => {
-    let steps: number[] = [];
+  it('converts legacy Speed Racer WPM steps to multipliers from preset WPM', () => {
+    let multipliers = '';
     applySerializedSettings(
       [
-        { key: 'wpm', value: 23 },
-        { key: 'speedRacerMultipliers', value: '1.0, 1.174, 1.348' },
+        { key: 'wpm', value: 20 },
+        { key: 'speedRacerWpmSteps', value: '30,27,24,20' },
       ],
       {
         setCharWPM: () => {},
-        setSpeedRacerWpmSteps: (v: number[]) => { steps = v; },
+        setSpeedRacerMultipliers: (v: string) => { multipliers = v; },
       } as never,
     );
-    expect(steps).toEqual([23, 27, 31]);
+    expect(multipliers).toBe('1.5, 1.35, 1.2, 1');
   });
 
-  it('prefers explicit speedRacerWpmSteps over legacy multipliers', () => {
-    let steps: number[] = [];
+  it('applies explicit speedRacerMultipliers directly', () => {
+    let multipliers = '';
+    applySerializedSettings(
+      [{ key: 'speedRacerMultipliers', value: '1.5, 1.35, 1.175, 1.0' }],
+      { setSpeedRacerMultipliers: (v: string) => { multipliers = v; } } as never,
+    );
+    expect(multipliers).toBe('1.5, 1.35, 1.175, 1.0');
+  });
+
+  it('prefers explicit multipliers over legacy WPM steps', () => {
+    let multipliers = '';
     applySerializedSettings(
       [
         { key: 'wpm', value: 23 },
         { key: 'speedRacerWpmSteps', value: [25, 20, 15] },
-        { key: 'speedRacerMultipliers', value: '1.0, 1.174, 1.348' },
+        { key: 'speedRacerMultipliers', value: '1.5, 1.35, 1.175, 1.0' },
       ],
       {
         setCharWPM: () => {},
-        setSpeedRacerWpmSteps: (v: number[]) => { steps = v; },
+        setSpeedRacerMultipliers: (v: string) => { multipliers = v; },
       } as never,
     );
-    expect(steps).toEqual([25, 20, 15]);
+    expect(multipliers).toBe('1.5, 1.35, 1.175, 1.0');
   });
 
   it('ignores unused speedRacerKeepFwpm without throwing', () => {
@@ -133,6 +133,7 @@ describe('presets', () => {
       showRaw: false,
       darkMode: false,
       autoCloseLessonAccordion: false,
+      autoCloseSettingsAccordions: true,
       ifCustomGroup: false,
       customGroup: '',
       voiceEnabled: false,
@@ -152,10 +153,9 @@ describe('presets', () => {
       cardSpace: 0,
       speedInterval: false,
       speedRacerEnabled: false,
-      speedRacerWpmSteps: [20, 15, 10],
+      speedRacerMultipliers: '1.5, 1.35, 1.175, 1.0',
       speedRacerFinalPlay: true,
       speedRacerSpeakBeforeReplay: true,
-      speedRacerOverlearnDirection: false,
       intervalTimingsText: '',
       intervalWpmText: '',
       intervalFwpmText: '',
@@ -195,6 +195,7 @@ describe('presets', () => {
       showRaw: false,
       darkMode: false,
       autoCloseLessonAccordion: false,
+      autoCloseSettingsAccordions: true,
       ifCustomGroup: false,
       customGroup: '',
       voiceEnabled: false,
@@ -214,10 +215,9 @@ describe('presets', () => {
       cardSpace: 0,
       speedInterval: false,
       speedRacerEnabled: false,
-      speedRacerWpmSteps: [20, 15, 10],
+      speedRacerMultipliers: '1.5, 1.35, 1.175, 1.0',
       speedRacerFinalPlay: true,
       speedRacerSpeakBeforeReplay: true,
-      speedRacerOverlearnDirection: false,
       intervalTimingsText: '',
       intervalWpmText: '',
       intervalFwpmText: '',

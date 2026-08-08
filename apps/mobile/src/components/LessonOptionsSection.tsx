@@ -119,55 +119,40 @@ export function LessonOptionsSection() {
         <CheckToggle
           label="Speed Racer"
           checked={app.speedRacerEnabled}
-          onChange={(v) => {
-            app.setSpeedRacerEnabled(v);
-            if (v) app.seedSpeedRacerWpmStepsFromCurrentWpm();
-          }}
+          onChange={app.setSpeedRacerEnabled}
         />
       </View>
       {app.speedRacerEnabled && (
         <View style={s.intervalGroup}>
-          <Text style={[s.intervalLabel, { color: t.textMuted }]}>WPM Steps</Text>
-          <View style={s.row}>
-            {app.speedRacerWpmSteps.map((step, index) => (
-              <ThemedNumField
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-                label={`Step ${index + 1}`}
-                value={step}
-                onChange={(value) => {
-                  const next = [...app.speedRacerWpmSteps];
-                  next[index] = value;
-                  app.setSpeedRacerWpmSteps(next);
-                }}
-                min={1}
-                max={60}
-                step={1}
-              />
-            ))}
+          <View style={s.intervalRow}>
+            <Text style={[s.intervalLabel, { color: t.textMuted }]}>Multipliers</Text>
+            <TextInput
+              style={[s.intervalInput, {
+                borderColor: t.border,
+                color: t.inputText,
+                backgroundColor: t.inputBg,
+              }]}
+              value={app.speedRacerMultipliers}
+              onChangeText={app.setSpeedRacerMultipliers}
+              placeholder="1.5, 1.35, 1.175, 1.0"
+              placeholderTextColor={t.textMuted}
+              keyboardType="numbers-and-punctuation"
+            />
           </View>
           <View style={s.row}>
-            <TouchableOpacity style={s.smallBtn} onPress={app.addSpeedRacerWpmStep}>
-              <Text style={[s.smallBtnText, { color: t.accent }]}>+ Speed</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={s.smallBtn} onPress={app.removeSpeedRacerWpmStep}>
-              <Text style={[s.smallBtnText, { color: t.accent }]}>- Speed</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={s.smallBtn} onPress={app.resetSpeedRacerWpmSteps}>
+            <TouchableOpacity style={s.smallBtn} onPress={app.resetSpeedRacerDefaults}>
               <Text style={[s.smallBtnText, { color: t.accent }]}>Reset</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={s.smallBtn} onPress={app.applyOverlearnSpeedRacer}>
+              <Text style={[s.smallBtnText, { color: t.accent }]}>Overlearn</Text>
             </TouchableOpacity>
           </View>
           <View style={s.chipRow}>
-            <CheckToggle label="Replay Base Speed" checked={app.speedRacerFinalPlay} onChange={app.setSpeedRacerFinalPlay} />
+            <CheckToggle label="Replay at First Multiplier" checked={app.speedRacerFinalPlay} onChange={app.setSpeedRacerFinalPlay} />
             <CheckToggle
               label={app.speedRacerFinalPlay ? 'Speak Before Replay' : 'Speak'}
               checked={app.speedRacerSpeakBeforeReplay}
               onChange={app.setSpeedRacerSpeakBeforeReplay}
-            />
-            <CheckToggle
-              label="Overlearn Direction"
-              checked={app.speedRacerOverlearnDirection}
-              onChange={app.setSpeedRacerOverlearnDirection}
             />
           </View>
         </View>

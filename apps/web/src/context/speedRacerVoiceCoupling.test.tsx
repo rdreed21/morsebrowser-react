@@ -51,10 +51,9 @@ function SpeedRacerVoiceHarness() {
       <span data-testid="speakFirst">{String(app.speakFirst)}</span>
       <span data-testid="srSpeak">{String(app.speedRacerSpeakBeforeReplay)}</span>
       <span data-testid="srFinal">{String(app.speedRacerFinalPlay)}</span>
-      <span data-testid="srOverlearn">{String(app.speedRacerOverlearnDirection)}</span>
       <span data-testid="voiceMaster">{String(app.voiceMasterToggleEnabled)}</span>
       <span data-testid="voiceOpen">{String(app.isSettingsAccordionOpen(SETTINGS_ACCORDION_IDS.voice))}</span>
-      <span data-testid="steps">{app.speedRacerWpmSteps.join(',')}</span>
+      <span data-testid="multipliers">{app.speedRacerMultipliers}</span>
       <span data-testid="bufferEpoch">{app.voiceBufferClearEpoch}</span>
     </>
   );
@@ -121,7 +120,7 @@ describe('Speed Racer / Voice UI coupling', () => {
     });
     expect(screen.getByTestId('srSpeak')).toHaveTextContent('false');
     expect(screen.getByTestId('srFinal')).toHaveTextContent('false');
-    expect(screen.getByTestId('srOverlearn')).toHaveTextContent('true');
+    expect(screen.getByTestId('multipliers')).toHaveTextContent('1.348, 1.174, 1.0');
     expect(screen.getByTestId('voiceEnabled')).toHaveTextContent('false');
     expect(screen.getByTestId('manualVoice')).toHaveTextContent('true');
     view.unmount();

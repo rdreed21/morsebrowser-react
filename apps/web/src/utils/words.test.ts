@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getWords, getDisplayWord } from './words';
+import { getWords, getDisplayWord, getMaskedDisplay } from './words';
 
 describe('getWords', () => {
   it('splits on spaces', () => {
@@ -32,5 +32,15 @@ describe('getDisplayWord', () => {
   it('shows morse side of override', () => {
     expect(getDisplayWord('{CQ|c q}')).toBe('CQ');
     expect(getDisplayWord('{LICW|l i c w}')).toBe('LICW');
+  });
+});
+
+describe('getMaskedDisplay', () => {
+  it('keeps spaces between multi-word cards', () => {
+    expect(getMaskedDisplay('CQ DE')).toBe('XX XX');
+  });
+
+  it('collapses spaces inside a single Sending override piece', () => {
+    expect(getMaskedDisplay('{A A A|ay ay ay}')).toBe('XXX');
   });
 });
