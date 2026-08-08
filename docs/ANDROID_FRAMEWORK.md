@@ -1,20 +1,38 @@
-# ANDROID_FRAMEWORK.md — Plan for an Android build of LICW Morsebrowser
+# ANDROID_FRAMEWORK.md — Android build of LICW Morsebrowser
 
-> **Status:** planning only — no Android work has started. `apps/mobile/app.json` currently
-> restricts `"platforms": ["ios"]`. This document maps out what it would take to add
-> Android as a first-class target of the **same** Expo app (not a separate codebase).
+> **Status (2026-08-08):** Phase 0 bring-up is done. `platforms` includes `android`,
+> `android/` is committed (Expo prebuild), local Gradle **debug + release APKs build
+> successfully**, and `configureAudioSession()` configures both iOS and Android via
+> `expo-audio`. Remaining work is real-device background-audio verification and EAS /
+> Play internal testing (Phases 1–3 below).
+
+## Quick build recipes
+
+```bash
+cd apps/mobile
+npm install   # applies patch-package + builds workspace packages
+
+# Local (needs Android SDK 36 + NDK 27.1.12297006; set ANDROID_HOME)
+npm run build:android:debug    # assembleDebug
+npm run build:android:local    # assembleRelease → android/app/build/outputs/apk/release/
+
+# Device / emulator (USB debugging or running AVD)
+npm run android                # expo run:android (syncs wordfiles/presets first)
+
+# Cloud (requires `eas login` or EXPO_TOKEN)
+npm run build:android          # EAS preview profile → sideloadable APK
+```
+
+Known local Gradle fix already in-tree: `patches/@react-native+gradle-plugin+0.85.3.patch`
+(bumps foojay-resolver for Gradle 9.3.1). Applied automatically by `postinstall`.
 
 ## TL;DR
 
-`apps/mobile` is an Expo app, and Expo is cross-platform by default — the `"ios"` -only
-restriction was a deliberate choice (per `CLAUDE.md`, Agent 4's brief was "Expo +
-background audio, test on real iPhone" — Android was simply out of scope for the first
-pass). Most of the app — the shared `packages/core` engine, the React component tree, the
-chip-based UI, dark mode, settings persistence, navigation — **needs no changes** to run
-on Android. The real work is a short, well-scoped list of platform-specific items below,
-and the **#1 hard requirement (background audio) looks far less risky than expected**: the
-audio library already in use ships an Expo config plugin that wires up Android's
-foreground-service media-playback plumbing automatically. See [§ Background audio](#background-audio--the-1-hard-requirement) before assuming this is a multi-week native effort.
+`apps/mobile` is a shared Expo app. Most of the stack — `@morsebrowser/core`, the React
+component tree, chip UI, dark mode, settings persistence, navigation — needs no Android
+rewrite. Background Morse audio uses `react-native-audio-api`'s Expo config plugin
+(foreground-service media playback) plus `expo-audio` session config. See
+[§ Background audio](#background-audio--the-1-hard-requirement).
 
 ---
 
@@ -113,12 +131,11 @@ sits within the safe inner ~66% that survives any mask) plus a **background colo
 the full adaptive-icon asset set from these two inputs — no manual per-density exports
 needed.
 
-### 3. `configureAudioSession()` — add an Android branch
+### 3. `configureAudioSession()` — Android branch ✅
 
-Currently iOS-only (see snippet above). Needs an Android equivalent using `expo-audio`'s
-Android-specific `setAudioModeAsync` options — start by reading the `@platform android`
-annotations in `expo-audio`'s `Audio.types.d.ts` for the audio-focus / interruption knobs,
-and test against the foreground-service notification controls.
+`src/audio/audioSession.ts` now calls `setAudioModeAsync` on both iOS and Android with
+`shouldPlayInBackground: true` and `interruptionMode: 'doNotMix'`. Still needs **device**
+verification against the foreground-service notification / audio-focus behavior.
 
 ### 4. UI/UX — Material vs. Cupertino conventions
 
@@ -202,14 +219,12 @@ eas build --platform android --profile production  # store-ready AAB
 
 ## Suggested phased rollout
 
-1. **Phase 0 — Bring-up**: add `"android"` to `platforms`, fill in the `app.json` android
-   block (package name, adaptive icon placeholder), `npx expo prebuild` + run in the
-   emulator. Goal: app launches, lessons load, Morse plays in the foreground. No background
-   audio work yet — just confirm the shared engine and UI render correctly.
+1. **Phase 0 — Bring-up** ✅: `"android"` in `platforms`, committed `android/` project,
+   local debug/release APKs build. Emulator UI smoke was done in PR #16; re-verify after
+   large content/SR changes if needed.
 2. **Phase 1 — Background audio**: verify the `react-native-audio-api` foreground-service
-   wiring works out of the box on a real device; add the `configureAudioSession()` Android
-   branch; test lock-screen survival across a real practice session length (15-20+ min)
-   on at least two OEMs.
+   wiring on a real device (`configureAudioSession()` Android branch is in place); test
+   lock-screen survival across a real practice session (15-20+ min) on at least two OEMs.
 3. **Phase 2 — Polish pass**: Material touch-feedback, status/navigation bar theming,
    adaptive icon final art, font/spacing spot-check.
 4. **Phase 3 — Internal testing**: EAS build → Google Play internal testing track → club
