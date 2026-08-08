@@ -205,6 +205,7 @@ export function LessonsPicker() {
               value={userTarget}
               placeholder="Select type"
               options={userTargets}
+              colClassName="lessons-picker-col--narrow"
               onSelect={(v) => setUserTarget(v)}
             />
             <DropdownPicker
@@ -214,6 +215,7 @@ export function LessonsPicker() {
               placeholder="Select class"
               options={classes}
               disabled={classes.length === 0}
+              colClassName="lessons-picker-col--narrow"
               onSelect={handleClassSelect}
             />
             <DropdownPicker
@@ -232,9 +234,10 @@ export function LessonsPicker() {
               placeholder="Select lesson"
               options={displays.map(d => d.display)}
               disabled={displays.length === 0}
+              colClassName="lessons-picker-col--wide"
               onSelect={handleDisplaySelect}
             />
-            <div className="col-6 col-md-4 col-lg lessons-picker-col">
+            <div className="col-6 col-md-4 col-lg lessons-picker-col lessons-picker-col--wide">
               <span className="lessons-picker-label" id="lessonsPickerPresetsLabel">PRESETS</span>
               <div
                 ref={presetsRef}

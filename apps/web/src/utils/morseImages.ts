@@ -38,6 +38,7 @@ import bookshelfSvg from 'bootstrap-icons/icons/bookshelf.svg';
 import gearSvg from 'bootstrap-icons/icons/gear.svg';
 import hourglassSvg from 'bootstrap-icons/icons/hourglass-split.svg';
 import rssSvg from 'bootstrap-icons/icons/rss.svg';
+import exclamationOctagonSvg from 'bootstrap-icons/icons/exclamation-octagon.svg';
 
 const IMAGE_MAP: Record<string, string> = {
   logoImage: licwLogo,
@@ -80,6 +81,7 @@ const IMAGE_MAP: Record<string, string> = {
   gearImage: gearSvg,
   rssImage: rssSvg,
   hourglassImage: hourglassSvg,
+  exclamationoctagonImage: exclamationOctagonSvg,
 };
 
 export function getMorseImageSrc(key: string): string {

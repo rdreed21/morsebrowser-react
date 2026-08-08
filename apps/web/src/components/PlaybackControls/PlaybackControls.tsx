@@ -121,8 +121,7 @@ export function PlaybackControls() {
               onClick={speakVoiceBuffer}
             >
               <span>Voice Recap</span>&nbsp;
-              <img alt="" height={20} width={20}
-                src={getMorseImageSrc('bootstrapRebootImage')} />
+              <img alt="" src={getMorseImageSrc('bootstrapRebootImage')} />
             </button>
           )}
         </div>
