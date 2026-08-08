@@ -1,4 +1,7 @@
 import type { MouseEvent } from 'react';
+import {
+  buildSpeedRacerPreview, parseMultipliers, speedRacerSpeakLabel,
+} from '@morsebrowser/core';
 import { useMorseApp } from '../../context/MorseAppContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
 import { SETTINGS_ACCORDION_IDS } from '../../utils/settingsAccordion';
@@ -21,12 +24,11 @@ export function LessonOptionsPanel() {
     shuffleIntraGroup, setShuffleIntraGroup,
     speedInterval, setSpeedInterval,
     speedRacerEnabled, setSpeedRacerEnabled,
-    speedRacerWpmSteps, setSpeedRacerWpmSteps, addSpeedRacerWpmStep, removeSpeedRacerWpmStep,
+    speedRacerMultipliers, setSpeedRacerMultipliers,
     speedRacerFinalPlay, setSpeedRacerFinalPlay,
     speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
-    speedRacerOverlearnDirection,
     resetSpeedRacerDefaults, applyOverlearnSpeedRacer, expandVoiceOptionsAccordionIfClosed,
-    seedSpeedRacerWpmStepsFromCurrentWpm,
+    charWPM,
     intervalTimingsText, setIntervalTimingsText,
     intervalWpmText, setIntervalWpmText,
     intervalFwpmText, setIntervalFwpmText,
@@ -37,7 +39,13 @@ export function LessonOptionsPanel() {
     trailPostDelay, setTrailPostDelay,
     trailFinal, setTrailFinal,
   } = useMorseApp();
-  const speedRacerWpmOptionMax = Math.max(60, ...speedRacerWpmSteps);
+  const speedRacerPreview = buildSpeedRacerPreview(
+    charWPM,
+    speedRacerMultipliers,
+    speedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay,
+  );
+  const speedRacerMultipliersEmpty = parseMultipliers(speedRacerMultipliers).length === 0;
 
   const blurIfPointerClick = (event: MouseEvent<HTMLButtonElement>) => {
     if (shouldBlurSpeedRacerAction(event)) {
@@ -48,7 +56,6 @@ export function LessonOptionsPanel() {
   const onSpeedRacerEnabledChange = (v: boolean) => {
     setSpeedRacerEnabled(v);
     if (v) {
-      seedSpeedRacerWpmStepsFromCurrentWpm();
       expandVoiceOptionsAccordionIfClosed();
     }
   };
@@ -297,27 +304,29 @@ export function LessonOptionsPanel() {
                   </div>
                   {speedRacerEnabled && (
                     <>
-                      <span className="input-group-text">WPM Steps</span>
-                      {speedRacerWpmSteps.map((step, index) => (
-                        <select
-                          // eslint-disable-next-line react/no-array-index-key
-                          key={index}
-                          className="form-select morse-settings-num"
-                          aria-label={`Speed Racer step ${index + 1} WPM`}
-                          value={step}
-                          onChange={e => {
-                            const next = [...speedRacerWpmSteps];
-                            next[index] = Number(e.target.value);
-                            setSpeedRacerWpmSteps(next);
-                          }}
-                        >
-                          {Array.from({ length: speedRacerWpmOptionMax }, (_, i) => i + 1).map(wpm => (
-                            <option key={wpm} value={wpm}>{wpm}</option>
-                          ))}
-                        </select>
-                      ))}
-                      <button type="button" className="btn btn-outline-primary" onClick={addSpeedRacerWpmStep}>+</button>
-                      <button type="button" className="btn btn-outline-primary" onClick={removeSpeedRacerWpmStep}>-</button>
+                      {speedRacerPreview && (
+                        <span className="input-group-text speed-racer-preview" aria-label="Speed Racer sequence preview">
+                          {speedRacerPreview}
+                        </span>
+                      )}
+                      <div className="settings-lesson-control speed-racer-advanced-panel">
+                        <label htmlFor="speedRacerMultipliers" className="input-group-text">Multipliers</label>
+                        <input
+                          id="speedRacerMultipliers"
+                          type="text"
+                          className="form-control morse-settings-text-short"
+                          aria-label="Speed Racer multipliers"
+                          title="Default: 1.5, 1.35, 1.175, 1.0"
+                          placeholder="1.5, 1.35, 1.175, 1.0"
+                          value={speedRacerMultipliers}
+                          onChange={e => setSpeedRacerMultipliers(e.target.value)}
+                        />
+                      </div>
+                      {speedRacerMultipliersEmpty && (
+                        <span className="input-group-text speed-racer-warning" role="alert">
+                          Set at least one non-zero multiplier
+                        </span>
+                      )}
                       <div className="settings-lesson-control speed-racer-advanced-panel">
                         <button
                           type="button"
@@ -342,19 +351,16 @@ export function LessonOptionsPanel() {
                       </div>
                       <SettingsCheckToggle
                         id="btnspeedracerfinalplay"
-                        label="Replay Base Speed"
+                        label="Replay at First Multiplier"
                         checked={speedRacerFinalPlay}
                         onChange={setSpeedRacerFinalPlay}
                       />
                       <SettingsCheckToggle
                         id="btnspeedracerspeak"
-                        label={speedRacerFinalPlay ? 'Speak Before Replay' : 'Speak'}
+                        label={speedRacerSpeakLabel(speedRacerFinalPlay)}
                         checked={speedRacerSpeakBeforeReplay}
                         onChange={onSpeedRacerSpeakChange}
                       />
-                      {speedRacerOverlearnDirection && (
-                        <span className="input-group-text">Overlearn</span>
-                      )}
                     </>
                   )}
                 </div>

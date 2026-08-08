@@ -1,5 +1,9 @@
-import { normalizeSpeedRacerStep } from '../settings/speedRacerSteps';
 import type { SerializedSetting } from './types';
+import {
+  parseMultipliers,
+  SPEED_RACER_DEFAULT_MULTIPLIERS,
+  wpmStepsToMultipliers,
+} from '../settings/speedRacer';
 
 export interface MorseSettingsSnapshot {
   charWPM: number;
@@ -33,10 +37,9 @@ export interface MorseSettingsSnapshot {
   cardSpace: number;
   speedInterval: boolean;
   speedRacerEnabled: boolean;
-  speedRacerWpmSteps: number[];
+  speedRacerMultipliers: string;
   speedRacerFinalPlay: boolean;
   speedRacerSpeakBeforeReplay: boolean;
-  speedRacerOverlearnDirection: boolean;
   intervalTimingsText: string;
   intervalWpmText: string;
   intervalFwpmText: string;
@@ -79,10 +82,9 @@ export interface PresetSettingsMutator {
   setCardSpace: (v: number) => void;
   setSpeedInterval: (v: boolean) => void;
   setSpeedRacerEnabled: (v: boolean) => void;
-  setSpeedRacerWpmSteps: (v: number[]) => void;
+  setSpeedRacerMultipliers: (v: string) => void;
   setSpeedRacerFinalPlay: (v: boolean) => void;
   setSpeedRacerSpeakBeforeReplay: (v: boolean) => void;
-  setSpeedRacerOverlearnDirection: (v: boolean) => void;
   setIntervalTimingsText: (v: string) => void;
   setIntervalWpmText: (v: string) => void;
   setIntervalFwpmText: (v: string) => void;
@@ -104,24 +106,6 @@ function asNumber(val: unknown, fallback = 0): number {
 
 function asString(val: unknown): string {
   return val === undefined || val === null ? '' : String(val);
-}
-
-function asNumberArray(val: unknown): number[] {
-  const raw = Array.isArray(val) ? val : String(val).split(',');
-  return raw
-    .map(item => asNumber(item, NaN))
-    .filter(Number.isFinite)
-    .map(item => normalizeSpeedRacerStep(item));
-}
-
-function speedRacerMultipliersToSteps(val: unknown, baseWpm: number): number[] {
-  const raw = Array.isArray(val) ? val : String(val).split(',');
-  const base = normalizeSpeedRacerStep(baseWpm);
-  return raw
-    .map(item => asNumber(item, NaN))
-    .filter(Number.isFinite)
-    .filter(multiplier => multiplier > 0)
-    .map(multiplier => normalizeSpeedRacerStep(base * multiplier));
 }
 
 type KeyHandler = (value: unknown, mutator: PresetSettingsMutator) => void;
@@ -165,10 +149,12 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   cardSpace: (v, m) => m.setCardSpace(asNumber(v, 0)),
   speedInterval: (v, m) => m.setSpeedInterval(booleanize(v)),
   speedRacerEnabled: (v, m) => m.setSpeedRacerEnabled(booleanize(v)),
-  speedRacerWpmSteps: (v, m) => m.setSpeedRacerWpmSteps(asNumberArray(v)),
+  speedRacerMultipliers: (v, m) => {
+    const s = asString(v).trim();
+    m.setSpeedRacerMultipliers(s || SPEED_RACER_DEFAULT_MULTIPLIERS);
+  },
   speedRacerFinalPlay: (v, m) => m.setSpeedRacerFinalPlay(booleanize(v)),
   speedRacerSpeakBeforeReplay: (v, m) => m.setSpeedRacerSpeakBeforeReplay(booleanize(v)),
-  speedRacerOverlearnDirection: (v, m) => m.setSpeedRacerOverlearnDirection(booleanize(v)),
   intervalTimingsText: (v, m) => m.setIntervalTimingsText(asString(v)),
   intervalWpmText: (v, m) => m.setIntervalWpmText(asString(v)),
   intervalFwpmText: (v, m) => m.setIntervalFwpmText(asString(v)),
@@ -184,10 +170,11 @@ export function applySerializedSettings(
   keyBlacklist: readonly string[] = [],
 ): void {
   const blacklist = new Set(keyBlacklist);
-  // Prefer explicit WPM steps over legacy multipliers when both are present
-  // (e.g. snapshot steps + mixin multipliers that slipped through).
-  const hasExplicitWpmSteps = entries.some(
-    entry => !blacklist.has(entry.key) && entry.key === 'speedRacerWpmSteps',
+  // Prefer club multipliers; convert legacy React WPM steps only when multipliers absent.
+  const hasMultipliers = entries.some(
+    entry => !blacklist.has(entry.key)
+      && entry.key === 'speedRacerMultipliers'
+      && parseMultipliers(asString(entry.value)).length > 0,
   );
   let currentCharWpm = 20;
   for (const entry of entries) {
@@ -195,14 +182,18 @@ export function applySerializedSettings(
     if (entry.key === 'wpm') {
       currentCharWpm = asNumber(entry.value, currentCharWpm);
     }
-    if (entry.key === 'speedRacerMultipliers') {
-      if (!hasExplicitWpmSteps) {
-        mutator.setSpeedRacerWpmSteps(speedRacerMultipliersToSteps(entry.value, currentCharWpm));
+    if (entry.key === 'speedRacerWpmSteps') {
+      if (!hasMultipliers) {
+        const raw = Array.isArray(entry.value)
+          ? entry.value.map(v => asNumber(v, NaN)).filter(Number.isFinite)
+          : String(entry.value).split(',').map(x => asNumber(x, NaN)).filter(Number.isFinite);
+        mutator.setSpeedRacerMultipliers(wpmStepsToMultipliers(raw, currentCharWpm));
       }
       continue;
     }
-    // KO compat-only key — no React mutator; ignore so mixin/presets stay harmless.
+    // KO compat-only key — ignored (FWPM rule is always min(base, variation)).
     if (entry.key === 'speedRacerKeepFwpm') continue;
+    if (entry.key === 'speedRacerOverlearnDirection') continue;
     const handler = KEY_HANDLERS[entry.key];
     if (handler) handler(entry.value, mutator);
   }
@@ -243,10 +234,9 @@ export function snapshotToSerialized(snapshot: MorseSettingsSnapshot): Serialize
     { key: 'cardSpace', value: snapshot.cardSpace },
     { key: 'speedInterval', value: snapshot.speedInterval },
     { key: 'speedRacerEnabled', value: snapshot.speedRacerEnabled },
-    { key: 'speedRacerWpmSteps', value: snapshot.speedRacerWpmSteps },
+    { key: 'speedRacerMultipliers', value: snapshot.speedRacerMultipliers },
     { key: 'speedRacerFinalPlay', value: snapshot.speedRacerFinalPlay },
     { key: 'speedRacerSpeakBeforeReplay', value: snapshot.speedRacerSpeakBeforeReplay },
-    { key: 'speedRacerOverlearnDirection', value: snapshot.speedRacerOverlearnDirection },
     { key: 'intervalTimingsText', value: snapshot.intervalTimingsText },
     { key: 'intervalWpmText', value: snapshot.intervalWpmText },
     { key: 'intervalFwpmText', value: snapshot.intervalFwpmText },
