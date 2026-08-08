@@ -36,7 +36,8 @@ section:last-of-type {
     padding-bottom: 0.25rem;
 }
 
-.theme-toggle-btn {
+.theme-toggle-btn,
+.auto-close-toggle-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -69,6 +70,36 @@ section:last-of-type {
     flex: 0 0 auto;
     width: auto;
     flex-wrap: nowrap;
+}
+
+.speed-racer-sequence-preview {
+    max-width: 600px;
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: normal;
+}
+
+.speed-racer-multipliers-input {
+    max-width: 280px;
+    flex: 1 1 8rem;
+    min-width: 6rem;
+}
+
+.speed-racer-advanced-panel .settings-lesson-control-strip {
+    gap: 0.5rem;
+}
+
+.speed-racer-advanced-panel .settings-lesson-control > label.btn,
+.speed-racer-advanced-panel .settings-lesson-control > .btn {
+    width: 100%;
+}
+
+/* Action buttons (not btn-check toggles) should not keep pressed/focus fill */
+.speed-racer-advanced-panel .settings-lesson-control > button.btn:focus:not(:focus-visible) {
+    color: var(--bs-btn-color);
+    background-color: var(--bs-btn-bg);
+    border-color: var(--bs-btn-border-color);
+    box-shadow: none;
 }
 
 .morse-settings-num {
@@ -193,14 +224,6 @@ section:last-of-type {
     white-space: nowrap;
 }
 
-/* Action buttons (not btn-check toggles) should not keep pressed/focus fill */
-.speed-racer-advanced-panel > button.btn:focus:not(:focus-visible) {
-    color: var(--bs-btn-color);
-    background-color: var(--bs-btn-bg);
-    border-color: var(--bs-btn-border-color);
-    box-shadow: none;
-}
-
 .settings-lesson-control > .input-group {
     width: auto;
     max-width: 100%;
@@ -243,6 +266,40 @@ section:last-of-type {
         flex: 1 1 100%;
         width: 100%;
         max-width: 100%;
+    }
+
+    .speed-racer-input-group > .col-auto,
+    .speed-racer-input-group > .input-group-text,
+    .speed-racer-input-group > .btn {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .speed-racer-sequence-preview {
+        max-width: 100%;
+    }
+
+    #speedRacerAdvanced .input-group {
+        flex-wrap: wrap;
+    }
+
+    #speedRacerAdvanced .input-group > .input-group-text,
+    #speedRacerAdvanced .input-group > .form-control,
+    #speedRacerAdvanced .input-group > .input-group-text.small {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .speed-racer-advanced-panel .settings-lesson-control {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .speed-racer-multipliers-input {
+        max-width: 100%;
+        width: 100%;
     }
 }
 
@@ -388,12 +445,22 @@ html {
     justify-content: space-between;
     gap: 0.35rem;
     min-height: 2.375rem;
+    height: auto;
+    white-space: normal;
 }
 
 .lessons-picker-dropdown .dropdown-menu {
     width: 100%;
     max-height: var(--lesson-panel-height);
     overflow-y: auto;
+}
+
+/* Bootstrap's .dropdown-item defaults to white-space: nowrap, which lets
+   longer preset names (e.g. "OverLearn Words Flow Rate 2 SR") overflow the
+   fixed-width picker instead of wrapping like the shorter names do. */
+.lessons-picker-dropdown .dropdown-item {
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .lessons-picker-dropdown .dropdown-item.active,
@@ -417,6 +484,17 @@ html {
 
 .lessons-picker-row .lessons-picker-col {
     flex: 1 1 9.5rem;
+}
+
+/* TYPE and CLASS only ever hold short words (e.g. "INSTRUCTOR",
+   "OVERLEARN") — give them a smaller share so LESSON and PRESETS, which
+   commonly hold much longer names, get the extra room instead. */
+.lessons-picker-row .lessons-picker-col--narrow {
+    flex: 0.5 1 6.5rem;
+}
+
+.lessons-picker-row .lessons-picker-col--wide {
+    flex: 2 1 13rem;
 }
 
 .lesson-selection-badge {
@@ -527,6 +605,10 @@ html {
 }
 
 /* Playback */
+.playback-controls {
+    scroll-margin-top: 1rem;
+}
+
 .playback-controls .btn,
 .playback-controls .btn-group {
     flex: 0 1 auto;

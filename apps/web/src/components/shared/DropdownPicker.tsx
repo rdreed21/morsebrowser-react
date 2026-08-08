@@ -7,11 +7,14 @@ interface DropdownPickerProps {
   placeholder: string;
   options: string[];
   disabled?: boolean;
+  /** Extra column sizing class, e.g. lessons-picker-col--narrow / --wide (club). */
+  colClassName?: string;
   onSelect: (value: string) => void;
 }
 
 export function DropdownPicker({
-  id, label, value, placeholder, options, disabled = false, onSelect,
+  id, label, value, placeholder, options, disabled = false,
+  colClassName = '', onSelect,
 }: DropdownPickerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
@@ -28,9 +31,12 @@ export function DropdownPicker({
   }, [open]);
 
   const display = value || placeholder;
+  const colClass = ['col-6', 'col-md-4', 'col-lg', 'lessons-picker-col', colClassName]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div className="col-6 col-md-4 col-lg lessons-picker-col">
+    <div className={colClass}>
       <span className="lessons-picker-label" id={`${id}Label`}>{label}</span>
       <div
         ref={ref}

@@ -68,15 +68,21 @@ export function ToneOptionsPanel() {
               <span className="input-group-text">
                 <label htmlFor="dahFrequency">DAH</label>
                 &nbsp;
-                <input
-                  type="image"
-                  role="checkbox"
-                  alt="Sync dit and dah frequencies"
-                  aria-checked={syncFreq}
-                  src={getMorseImageSrc(syncFreq ? 'lockImage' : 'unlockImage')}
-                  title="Sync dit and dah frequencies"
+                <button
+                  type="button"
+                  className="btn btn-sm btn-outline-secondary p-1"
+                  aria-label="Sync dit and dah frequencies"
+                  aria-pressed={syncFreq}
+                  title={syncFreq ? 'Dit and dah frequencies are synced' : 'Dit and dah frequencies are independent'}
                   onClick={() => setSyncFreq(!syncFreq)}
-                />
+                >
+                  <img
+                    alt=""
+                    width={20}
+                    height={20}
+                    src={getMorseImageSrc(syncFreq ? 'lockImage' : 'unlockImage')}
+                  />
+                </button>
               </span>
               <input
                 id="dahFrequency"

@@ -24,7 +24,7 @@ function openLessonOptions() {
 }
 
 describe('LessonOptionsPanel', () => {
-  it('renders all fieldsets including noise after playback', () => {
+  it('renders fieldsets in club order: Playback, Timing, Noise, Trail', () => {
     renderAccordion();
     const panel = openLessonOptions();
     const fieldsets = panel.getAllByRole('group');
@@ -33,11 +33,13 @@ describe('LessonOptionsPanel', () => {
       return legend?.textContent?.trim() ?? '';
     });
     const playbackIdx = legends.findIndex(l => l === 'Playback');
-    const noiseIdx = legends.findIndex(l => l.includes('Noise'));
     const timingIdx = legends.findIndex(l => l === 'Timing');
+    const noiseIdx = legends.findIndex(l => l.includes('Noise'));
+    const trailIdx = legends.findIndex(l => l === 'Trail');
     expect(playbackIdx).toBeGreaterThanOrEqual(0);
-    expect(noiseIdx).toBeGreaterThan(playbackIdx);
-    expect(timingIdx).toBeGreaterThan(noiseIdx);
+    expect(timingIdx).toBeGreaterThan(playbackIdx);
+    expect(noiseIdx).toBeGreaterThan(timingIdx);
+    expect(trailIdx).toBeGreaterThan(noiseIdx);
     expect(panel.getByText('Overrides')).toBeInTheDocument();
     expect(panel.getAllByText('Trail').length).toBeGreaterThan(0);
   });

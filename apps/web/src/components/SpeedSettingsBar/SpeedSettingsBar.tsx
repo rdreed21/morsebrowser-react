@@ -56,14 +56,21 @@ export function SpeedSettingsBar() {
         <span className="input-group-text">
           <label htmlFor="trueWpm">Effective Speed (FWPM)</label>
           &nbsp;
-          <input
-            type="image"
-            role="checkbox"
-            alt="Sync WPM speed"
-            aria-checked={syncWpm}
-            src={getMorseImageSrc(syncWpm ? 'lockImage' : 'unlockImage')}
+          <button
+            type="button"
+            className="btn btn-sm btn-outline-secondary p-1"
+            aria-label="Sync WPM speed"
+            aria-pressed={syncWpm}
+            title={syncWpm ? 'WPM and FWPM are synced' : 'WPM and FWPM are independent'}
             onClick={() => setSyncWpm(!syncWpm)}
-          />
+          >
+            <img
+              alt=""
+              width={20}
+              height={20}
+              src={getMorseImageSrc(syncWpm ? 'lockImage' : 'unlockImage')}
+            />
+          </button>
         </span>
         {!variableSpeedDisplay && (
           <input
