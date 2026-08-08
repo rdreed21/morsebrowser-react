@@ -9,6 +9,10 @@ import { usePresets } from '../../hooks/usePresets';
 import { useLessonDeepLinks } from '../../hooks/useLessonDeepLinks';
 import { getMorseImageSrc } from '../../utils/morseImages';
 import { generateRandomPractice, resolvePracticeSeconds } from '../../utils/lessonPractice';
+import {
+  setLessonReinitHandler,
+  scheduleLessonReinit,
+} from '../../utils/lessonReinit';
 import { upsertLessonQueryParam } from '../../utils/lessonQueryString';
 import { SETTINGS_ACCORDION_IDS } from '../../utils/settingsAccordion';
 import { DropdownPicker } from '../shared/DropdownPicker';
@@ -22,6 +26,7 @@ export function LessonsPicker() {
     isQueryStringSettingsOn,
     ifOverrideTime, overrideMins, ifCustomGroup,
     ifOverrideMinMax, overrideMin, overrideMax,
+    ifStickySets, stickySets, randomizeLessons,
     closeLessonAccordionIfAutoClosing,
   } = useMorseApp();
   // Actions-only: this picker never re-renders on playback ticks.
@@ -66,7 +71,12 @@ export function LessonsPicker() {
         const minWordSize = ifOverrideMinMax ? overrideMin : result.config.minWordSize;
         const maxWordSize = ifOverrideMinMax ? overrideMax : result.config.maxWordSize;
         setShowingText(generateRandomPractice({
-          ...result.config, practiceSeconds, minWordSize, maxWordSize,
+          ...result.config,
+          practiceSeconds,
+          minWordSize,
+          maxWordSize,
+          stickySets: ifStickySets ? stickySets : undefined,
+          randomize: randomizeLessons,
         }));
       }
       setNewlineChunking(option.newlineChunking);
@@ -81,6 +91,7 @@ export function LessonsPicker() {
     setShowingText, setNewlineChunking, setCurrentIndex,
     ifOverrideTime, overrideMins, ifCustomGroup,
     ifOverrideMinMax, overrideMin, overrideMax,
+    ifStickySets, stickySets, randomizeLessons,
     closeLessonAccordionIfAutoClosing,
   ]);
 
@@ -101,9 +112,17 @@ export function LessonsPicker() {
     saveSettings,
     loadSettingsFromFile,
   } = usePresets(() => {
-    const display = selectedDisplayRef.current;
-    if (display) void loadLessonRef.current(display);
+    // Club: schedule (don't immediately run) so mid-play preset loads defer.
+    scheduleLessonReinit();
   });
+
+  useEffect(() => {
+    setLessonReinitHandler(() => {
+      const display = selectedDisplayRef.current;
+      if (display) void loadLessonRef.current(display);
+    });
+    return () => setLessonReinitHandler(null);
+  }, []);
 
   const handleDisplaySelect = useCallback((displayName: string) => {
     const option = displays.find(d => d.display === displayName);

@@ -10,7 +10,9 @@ import {
 } from '@morsebrowser/core';
 import {
   generateCustomGroupPractice, generateRandomPractice, resolvePracticeSeconds,
+  shufflePracticeText,
 } from '../utils/lessonPractice';
+import { abortPendingLessonReinit } from '../utils/lessonReinit';
 import type { WordListOption } from '@morsebrowser/core';
 import type { MorseSettings } from '@morsebrowser/types';
 import { getWords, rawTextCharCount } from '../utils/words';
@@ -1012,6 +1014,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const loadFlaggedAsText = useCallback(() => {
     if (!flaggedWords.trim()) return;
+    abortPendingLessonReinit();
     setShowingText(flaggedWords.trim());
     setShowRawState(true);
     setCookie('showRaw', 'true');
@@ -1074,7 +1077,12 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
         const minWordSize = ifOverrideMinMax ? overrideMin : result.config.minWordSize;
         const maxWordSize = ifOverrideMinMax ? overrideMax : result.config.maxWordSize;
         setShowingText(generateRandomPractice({
-          ...result.config, practiceSeconds, minWordSize, maxWordSize,
+          ...result.config,
+          practiceSeconds,
+          minWordSize,
+          maxWordSize,
+          stickySets: ifStickySets ? stickySets : undefined,
+          randomize: randomizeLessons,
         }));
       }
       setNewlineChunking(selectedDisplay.newlineChunking);
@@ -1083,7 +1091,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     }
   }, [
     ifCustomGroup, customGroup, ifOverrideTime, overrideMins, ifOverrideMinMax, overrideMin, overrideMax,
-    ifStickySets, stickySets, selectedDisplay, setNewlineChunking,
+    ifStickySets, stickySets, randomizeLessons, selectedDisplay, setNewlineChunking,
     closeLessonAccordionIfAutoClosing,
   ]);
 
@@ -1112,6 +1120,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const clearText = useCallback(() => {
+    abortPendingLessonReinit();
     setShowingText('');
     setCurrentIndex(0);
   }, []);
@@ -1154,16 +1163,14 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
       if (!isShuffled) {
         setPreShuffled(showingText);
       }
-      const parts = showingText.split(/\s+/);
-      const shuffled = [...parts].sort(() => Math.random() - 0.5).join(' ');
-      setShowingText(shuffled);
+      setShowingText(shufflePracticeText(showingText, newlineChunking, shuffleIntraGroup));
       setIsShuffled(true);
     } else {
       setShowingText(preShuffled);
       setIsShuffled(false);
     }
     setCurrentIndex(0);
-  }, [isShuffled, showingText, preShuffled]);
+  }, [isShuffled, showingText, preShuffled, newlineChunking, shuffleIntraGroup]);
 
   const toggleLoop = useCallback(() => {
     if (!loop) {

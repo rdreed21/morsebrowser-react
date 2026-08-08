@@ -202,7 +202,8 @@ export function usePresets(onPresetApplied?: () => void) {
       }
 
       if (!skipReinit && currentApp.selectedDisplay?.display) {
-        window.setTimeout(() => onPresetAppliedRef.current?.(), 1000);
+        // Caller (LessonsPicker) schedules club-parity deferred reinit.
+        onPresetAppliedRef.current?.();
       }
 
       if (

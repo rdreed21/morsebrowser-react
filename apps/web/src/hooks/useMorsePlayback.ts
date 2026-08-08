@@ -22,6 +22,11 @@ import {
   isVoiceBufferFull,
   shouldRestartLoop,
 } from './playbackOrchestration';
+import {
+  cancelPendingLessonReinit,
+  runDeferredLessonReinitIfPending,
+  setLessonReinitActiveChecker,
+} from '../utils/lessonReinit';
 
 type TimerKey =
   | 'doPlay'
@@ -243,6 +248,13 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
       speakFirstLastCardIndexRef.current = -1;
       resetSpeedRacerPlayback();
       doPlayRef.current(false, false);
+      return;
+    }
+
+    // Club: run post-preset lesson reload that was deferred while playing/paused.
+    // Only on terminal stop (not pause).
+    if (fromStopButton || (!fromPauseButton && fullRewind)) {
+      runDeferredLessonReinitIfPending();
     }
   }, [
     app, clearTimers, stopAll, setIsPlaying, setIsPaused,
@@ -474,6 +486,9 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     const freshStart = fromPlayButton && !wasPlaying;
 
       if (freshStart) {
+      // Club cancelPendingLessonReinit: Play before the 1s post-preset timer
+      // defers the reload until terminal Stop.
+      cancelPendingLessonReinit();
       if (app.autoCloseSettingsAccordions) {
         app.collapseSettingsAccordions();
       }
@@ -640,6 +655,10 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
   }, []);
 
   // KO clears the voice buffer when Speak turns off during Speed Racer.
+  useEffect(() => {
+    setLessonReinitActiveChecker(() => playingRef.current || isPaused);
+  }, [isPaused]);
+
   useEffect(() => {
     if (app.voiceBufferClearEpoch > 0) {
       voiceBufferRef.current = [];
