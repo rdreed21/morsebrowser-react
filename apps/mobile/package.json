@@ -9,6 +9,8 @@
     "android": "expo run:android",
     "build:ios": "eas build --platform ios --profile preview",
     "build:android": "eas build --platform android --profile preview",
+    "build:android:local": "cd android && ./gradlew :app:assembleRelease",
+    "build:android:debug": "cd android && ./gradlew :app:assembleDebug",
     "sync-wordfiles": "node scripts/sync-wordfiles.mjs",
     "sync-presets": "node scripts/sync-presets.mjs",
     "generate-asset-manifests": "node scripts/generate-asset-manifests.mjs",

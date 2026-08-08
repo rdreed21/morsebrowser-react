@@ -1,28 +1,29 @@
-# Mobile App Status — LICW Morsebrowser (iOS)
+# Mobile App Status — LICW Morsebrowser (iOS + Android)
 
-> **Last updated:** 2026-06-06  
+> **Last updated:** 2026-08-08  
 > **Scope:** `apps/mobile/` only  
-> **Target:** Expo 56 + React Native 0.85, iOS first (real-device background audio required)
+> **Target:** Expo 56 + React Native 0.85; iOS first, Android bring-up complete for local builds
 
 ---
 
 ## Executive summary
 
-The iOS app **builds, runs on simulator, and supports day-to-day Morse practice** with the core engine from `@morsebrowser/core`. Major UI sections from the web/KO fork are ported in a mobile-native layout (StyleSheet, chip pickers, accordions).
+The app **builds for iOS (simulator) and Android (local Gradle debug + release APK)** and supports day-to-day Morse practice with `@morsebrowser/core`. Major UI sections from the web/KO fork are ported in a mobile-native layout (StyleSheet, chip pickers, accordions).
 
-**Rough progress: ~70%** of web day-to-day practice features. **Not production-ready** until background audio is verified on a **real iPhone**, settings persistence is added, and release bundling for wordfiles/presets is hardened.
+**Rough progress: ~70%** of web day-to-day practice features. **Not production-ready** until background audio is verified on a **real iPhone and Android device**, settings persistence is added, and release bundling for wordfiles/presets is hardened.
 
 | Area | Status |
 |---|---|
 | Core Morse engine (shared) | ✅ Complete (`packages/core`) |
 | iOS native build | ✅ Simulator build working |
+| Android native build | ✅ Local `assembleDebug` / `assembleRelease` verified |
 | Main practice UI | ✅ Usable |
 | Lessons + presets | ✅ Dev workflow working |
 | Voice (TTS) | ✅ Wired (`expo-speech`) |
-| Background audio (screen lock) | ⚠️ Configured, **not verified on device** |
+| Background audio (screen lock) | ⚠️ Configured (iOS + Android session), **not verified on device** |
 | Settings persistence | ❌ Not started (web uses cookies) |
 | Automated tests | ❌ None |
-| App Store / EAS release | ❌ Not started |
+| App Store / Play / EAS release | ❌ Not started (preview APK profile ready) |
 
 ---
 
@@ -30,7 +31,7 @@ The iOS app **builds, runs on simulator, and supports day-to-day Morse practice*
 
 | # | Requirement | Status | Notes |
 |---|---|---|---|
-| 1 | **Background audio / screen lock** | ⚠️ Partial | `UIBackgroundModes: audio` in `app.json`; `configureAudioSession()` on mount; `react-native-audio-api` + `enableBackgroundAudio`. **Must test on real iPhone** — Simulator does not support lock-screen audio. |
+| 1 | **Background audio / screen lock** | ⚠️ Partial | iOS: `UIBackgroundModes: audio`. Android: mediaPlayback FGS + `POST_NOTIFICATIONS`. Both: `configureAudioSession()` via `expo-audio`. **Must test on real devices** — Simulator/emulator are not proof. |
 | 2 | **Accurate Morse timing** | ✅ Done | `scheduleText` from `@morsebrowser/core` via `useMorsePlayer` + `AudioContext`. No `setTimeout` for tone timing (only for card pacing / voice delays). |
 | 3 | **Match fork look/feel** | ⚠️ Partial | Same layout *order* and behavior adapted for mobile; Bootstrap replaced with RN StyleSheet + chip UI. Dark mode theme added. Not pixel-matched to web. |
 
@@ -139,7 +140,7 @@ Layout order: **Header → Speed → Settings accordions → Stats → Cards →
 ### Priority 3 — Quality & ship
 
 - [ ] Unit/integration tests (none today; web has 93+, core has 58+)
-- [ ] EAS build profile + TestFlight smoke test
+- [ ] EAS build profile + TestFlight / Play internal-testing smoke test (`npm run build:android` → preview APK)
 - [ ] Remove unused deps (`nativewind`, `tailwindcss` — styling uses StyleSheet)
 - [ ] Document/trim `node_modules` patches from iOS build troubleshooting (prefer upstream fixes)
 - [ ] Optional: `LogBox.ignoreLogs` for benign `RecordingNotificationManager` warning from `react-native-audio-api`
