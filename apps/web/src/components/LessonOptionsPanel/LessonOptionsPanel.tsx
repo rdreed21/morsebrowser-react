@@ -1,6 +1,11 @@
+import type { MouseEvent } from 'react';
+import {
+  buildSpeedRacerPreview, parseMultipliers, speedRacerSpeakLabel,
+} from '@morsebrowser/core';
 import { useMorseApp } from '../../context/MorseAppContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
 import { SETTINGS_ACCORDION_IDS } from '../../utils/settingsAccordion';
+import { shouldBlurSpeedRacerAction } from '../../utils/voicePlayback';
 import { SettingsAccordionItem } from '../shared/SettingsAccordionItem';
 import { SettingsCheckToggle } from '../shared/SettingsCheckToggle';
 import { NoiseSettingsGroup } from './NoiseSettingsGroup';
@@ -18,6 +23,12 @@ export function LessonOptionsPanel() {
     newlineChunking, setNewlineChunking,
     shuffleIntraGroup, setShuffleIntraGroup,
     speedInterval, setSpeedInterval,
+    speedRacerEnabled, setSpeedRacerEnabled,
+    speedRacerMultipliers, setSpeedRacerMultipliers,
+    speedRacerFinalPlay, setSpeedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
+    resetSpeedRacerDefaults, applyOverlearnSpeedRacer, expandVoiceOptionsAccordionIfClosed,
+    charWPM,
     intervalTimingsText, setIntervalTimingsText,
     intervalWpmText, setIntervalWpmText,
     intervalFwpmText, setIntervalFwpmText,
@@ -28,6 +39,31 @@ export function LessonOptionsPanel() {
     trailPostDelay, setTrailPostDelay,
     trailFinal, setTrailFinal,
   } = useMorseApp();
+  const speedRacerPreview = buildSpeedRacerPreview(
+    charWPM,
+    speedRacerMultipliers,
+    speedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay,
+  );
+  const speedRacerMultipliersEmpty = parseMultipliers(speedRacerMultipliers).length === 0;
+
+  const blurIfPointerClick = (event: MouseEvent<HTMLButtonElement>) => {
+    if (shouldBlurSpeedRacerAction(event)) {
+      event.currentTarget.blur();
+    }
+  };
+
+  const onSpeedRacerEnabledChange = (v: boolean) => {
+    setSpeedRacerEnabled(v);
+    if (v) {
+      expandVoiceOptionsAccordionIfClosed();
+    }
+  };
+
+  const onSpeedRacerSpeakChange = (v: boolean) => {
+    expandVoiceOptionsAccordionIfClosed();
+    setSpeedRacerSpeakBeforeReplay(v);
+  };
 
   return (
     <SettingsAccordionItem
@@ -253,6 +289,77 @@ export function LessonOptionsPanel() {
                         title="Comma-separated FWPM speeds for each interval"
                         value={intervalFwpmText}
                         onChange={e => setIntervalFwpmText(e.target.value)}
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="input-group flex-wrap speed-racer-input-group">
+                  <div className="col-auto">
+                    <SettingsCheckToggle
+                      id="btncheckspeedracer"
+                      label="Speed Racer"
+                      checked={speedRacerEnabled}
+                      onChange={onSpeedRacerEnabledChange}
+                    />
+                  </div>
+                  {speedRacerEnabled && (
+                    <>
+                      {speedRacerPreview && (
+                        <span className="input-group-text speed-racer-preview" aria-label="Speed Racer sequence preview">
+                          {speedRacerPreview}
+                        </span>
+                      )}
+                      <div className="settings-lesson-control speed-racer-advanced-panel">
+                        <label htmlFor="speedRacerMultipliers" className="input-group-text">Multipliers</label>
+                        <input
+                          id="speedRacerMultipliers"
+                          type="text"
+                          className="form-control morse-settings-text-short"
+                          aria-label="Speed Racer multipliers"
+                          title="Default: 1.5, 1.35, 1.175, 1.0"
+                          placeholder="1.5, 1.35, 1.175, 1.0"
+                          value={speedRacerMultipliers}
+                          onChange={e => setSpeedRacerMultipliers(e.target.value)}
+                        />
+                      </div>
+                      {speedRacerMultipliersEmpty && (
+                        <span className="input-group-text speed-racer-warning" role="alert">
+                          Set at least one non-zero multiplier
+                        </span>
+                      )}
+                      <div className="settings-lesson-control speed-racer-advanced-panel">
+                        <button
+                          type="button"
+                          className="btn btn-outline-secondary"
+                          onClick={event => {
+                            resetSpeedRacerDefaults();
+                            blurIfPointerClick(event);
+                          }}
+                        >
+                          Reset to defaults
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-outline-secondary"
+                          onClick={event => {
+                            applyOverlearnSpeedRacer();
+                            blurIfPointerClick(event);
+                          }}
+                        >
+                          Overlearn
+                        </button>
+                      </div>
+                      <SettingsCheckToggle
+                        id="btnspeedracerfinalplay"
+                        label="Replay at First Multiplier"
+                        checked={speedRacerFinalPlay}
+                        onChange={setSpeedRacerFinalPlay}
+                      />
+                      <SettingsCheckToggle
+                        id="btnspeedracerspeak"
+                        label={speedRacerSpeakLabel(speedRacerFinalPlay)}
+                        checked={speedRacerSpeakBeforeReplay}
+                        onChange={onSpeedRacerSpeakChange}
                       />
                     </>
                   )}

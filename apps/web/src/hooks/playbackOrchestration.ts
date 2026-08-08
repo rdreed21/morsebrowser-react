@@ -1,5 +1,7 @@
 /** Pure helpers mirrored from useMorsePlayback — unit-testable without AudioContext. */
 
+import { computeNeedToSpeak } from '../utils/voicePlayback';
+
 export function isVoiceBufferFull(
   voiceBufferMaxLength: number,
   currentIndex: number,
@@ -19,12 +21,18 @@ export function computePlayEndedActions(flags: {
   maxBufferReached: boolean;
   speakFirst: boolean;
   trailReveal: boolean;
+  racerOn?: boolean;
+  speedRacerSpeakBeforeReplay?: boolean;
 }) {
-  const needToSpeak = flags.voiceEnabled
-    && !flags.fromVoiceOrTrail
-    && !flags.hasMoreMorse
-    && flags.maxBufferReached
-    && !flags.speakFirst;
+  const needToSpeak = computeNeedToSpeak({
+    voiceEnabled: flags.voiceEnabled,
+    fromVoiceOrTrail: flags.fromVoiceOrTrail,
+    hasMoreMorse: flags.hasMoreMorse,
+    maxBufferReached: flags.maxBufferReached,
+    speakFirst: flags.speakFirst,
+    racerOn: flags.racerOn ?? false,
+    speedRacerSpeakBeforeReplay: flags.speedRacerSpeakBeforeReplay ?? false,
+  });
   const needToTrail = flags.trailReveal && !flags.fromVoiceOrTrail;
   return {
     needToSpeak,

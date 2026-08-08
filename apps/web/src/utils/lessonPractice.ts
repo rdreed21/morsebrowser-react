@@ -8,37 +8,67 @@ export interface CustomGroupOptions {
   stickySets?: string;
 }
 
+export interface RandomPracticeOptions extends RandomWordListConfig {
+  stickySets?: string;
+  /** When false, emit letters as a single fixed word (KO randomizeLessons off). Default true. */
+  randomize?: boolean;
+}
+
 const randomInt = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
-function buildCharPool(letters: string, stickySets?: string): string[] {
-  let pool = letters.toUpperCase().replace(/ /g, '');
-  if (stickySets?.trim()) {
-    pool += stickySets.toUpperCase().trim().replace(/ {2}/g, ' ').replace(/ /g, '');
+/**
+ * Build draw tokens from letters + sticky sets.
+ * Sticky tokens are space-separated multi-char units (e.g. "BK" stays "BK"),
+ * matching club `splitWithProsignsAndStcikys`.
+ */
+export function buildTokenPool(letters: string, stickySets?: string): string[] {
+  const tokens: string[] = [];
+  const upper = letters.toUpperCase();
+  // Prefer prosign tokens <...>, else single non-space chars.
+  const letterParts = upper.match(/<[^>]*>|[^<\s]/g) ?? [];
+  for (const part of letterParts) {
+    if (part.startsWith('<') && part.endsWith('>')) {
+      tokens.push(part);
+    } else {
+      for (const ch of part) tokens.push(ch);
+    }
   }
-  return pool.split('').filter(Boolean);
+  if (stickySets?.trim()) {
+    for (const tok of stickySets.toUpperCase().trim().replace(/ {2}/g, ' ').split(' ').filter(Boolean)) {
+      tokens.push(tok);
+    }
+  }
+  return tokens.filter(Boolean);
+}
+
+/** Club getWordLength: prosigns <...> count as 1. */
+export function tokenWordLength(str: string): number {
+  let count = 0;
+  let inside = false;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '<') {
+      inside = true;
+      count++;
+    } else if (str[i] === '>') {
+      inside = false;
+    } else if (!inside) {
+      count++;
+    }
+  }
+  return count;
 }
 
 /** Generate practice text from custom group + overrides — mirrors KO doCustomGroup/randomWordList. */
 export function generateCustomGroupPractice(opts: CustomGroupOptions): string {
-  const chars = buildCharPool(opts.letters, opts.stickySets);
-  if (chars.length === 0) return '';
-
-  const words: string[] = [];
-  let seconds = 0;
-  const minSz = Math.max(1, opts.minWordSize);
-  const maxSz = Math.max(minSz, opts.maxWordSize);
-
-  while (seconds < opts.practiceSeconds) {
-    const len = minSz === maxSz ? minSz : randomInt(minSz, maxSz);
-    let word = '';
-    for (let i = 0; i < len; i++) {
-      word += chars[randomInt(0, chars.length - 1)];
-    }
-    words.push(word);
-    seconds += 6;
-  }
-  return words.join(' ');
+  return generateRandomPractice({
+    letters: opts.letters,
+    minWordSize: opts.minWordSize,
+    maxWordSize: opts.maxWordSize,
+    practiceSeconds: opts.practiceSeconds,
+    stickySets: opts.stickySets,
+    randomize: true,
+  });
 }
 
 /**
@@ -54,23 +84,75 @@ export function resolvePracticeSeconds(
   return config.practiceSeconds;
 }
 
-/** Simplified random practice generator for .json lesson files (KO randomWordList). */
-export function generateRandomPractice(config: RandomWordListConfig): string {
-  const chars = config.letters.toUpperCase().replace(/ /g, '').split('');
-  if (chars.length === 0) return '';
+/**
+ * Random practice generator for .json lesson files — mirrors KO randomWordList
+ * (sticky tokens, prosign-aware length, time loop ~6s/word heuristic).
+ */
+export function generateRandomPractice(config: RandomPracticeOptions): string {
+  const tokens = buildTokenPool(config.letters, config.stickySets);
+  if (tokens.length === 0) return '';
 
+  const minSz = Math.max(1, config.minWordSize);
+  const maxSz = Math.max(minSz, config.maxWordSize);
+  const randomize = config.randomize !== false;
   const words: string[] = [];
-  const targetWords = Math.max(10, Math.ceil(config.practiceSeconds / 6));
+  let seconds = 0;
 
-  for (let i = 0; i < targetWords; i++) {
-    const len = config.minWordSize === config.maxWordSize
-      ? config.minWordSize
-      : randomInt(config.minWordSize, config.maxWordSize);
+  while (seconds < config.practiceSeconds) {
     let word = '';
-    for (let j = 0; j < len; j++) {
-      word += chars[randomInt(0, chars.length - 1)];
+    if (randomize) {
+      const wordLength = minSz === maxSz ? minSz : randomInt(minSz, maxSz);
+      while (tokenWordLength(word) < wordLength) {
+        const free = wordLength - tokenWordLength(word);
+        const usable = tokens.filter(t => (
+          t.length === 1
+          || (t.startsWith('<') && t.endsWith('>'))
+          || tokenWordLength(t) <= free
+        ));
+        if (usable.length === 0) break;
+        word += usable[randomInt(0, usable.length - 1)];
+      }
+    } else {
+      word = config.letters;
     }
-    words.push(word);
+    if (!word) break;
+    words.push(word.toUpperCase());
+    seconds += 6;
   }
   return words.join(' ');
+}
+
+/** Fisher–Yates shuffle (in place copy). */
+export function fisherYatesShuffle<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = copy[i];
+    copy[i] = copy[j];
+    copy[j] = tmp;
+  }
+  return copy;
+}
+
+/**
+ * Shuffle practice text into units — club shuffleWords (phrase vs word units).
+ * When `shuffleIntraGroup` and newline chunking, words inside each line are
+ * shuffled before lines are shuffled as units.
+ */
+export function shufflePracticeText(
+  text: string,
+  newlineChunking: boolean,
+  shuffleIntraGroup: boolean,
+): string {
+  const hasPhrases = newlineChunking && text.includes('\n');
+  if (hasPhrases) {
+    const lines = text.split('\n').filter(l => l.length > 0);
+    const units = lines.map(line => {
+      const words = line.split(/\s+/).filter(Boolean);
+      return shuffleIntraGroup ? fisherYatesShuffle(words).join(' ') : words.join(' ');
+    });
+    return fisherYatesShuffle(units).join('\n');
+  }
+  const words = text.split(/\s+/).filter(Boolean);
+  return fisherYatesShuffle(words).join(' ');
 }

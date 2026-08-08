@@ -25,6 +25,19 @@ describe('presets', () => {
     expect(merged.some(s => s.key === 'shuffleIntraGroup')).toBe(true);
   });
 
+  it('mergeLegacyMixin injects club multipliers even when legacy WPM steps present', () => {
+    const merged = mergeLegacyMixin([
+      { key: 'speedRacerWpmSteps', value: [25, 20, 15] },
+    ]);
+    expect(merged.some(s => s.key === 'speedRacerMultipliers')).toBe(true);
+    expect(merged.find(s => s.key === 'speedRacerWpmSteps')?.value).toEqual([25, 20, 15]);
+  });
+
+  it('mergeLegacyMixin still injects multipliers when no WPM steps exist', () => {
+    const merged = mergeLegacyMixin([{ key: 'wpm', value: 12 }]);
+    expect(merged.some(s => s.key === 'speedRacerMultipliers')).toBe(true);
+  });
+
   it('applyPresetOverrides matches lesson file names', () => {
     const base = [{ key: 'ifStickySets', value: false }];
     const { settings, overridden } = applyPresetOverrides(base, '', 'IB228BK5.json');
@@ -60,6 +73,53 @@ describe('presets', () => {
     expect(calls).toContainEqual(['effectiveWPM', 15]);
   });
 
+  it('converts legacy Speed Racer WPM steps to multipliers from preset WPM', () => {
+    let multipliers = '';
+    applySerializedSettings(
+      [
+        { key: 'wpm', value: 20 },
+        { key: 'speedRacerWpmSteps', value: '30,27,24,20' },
+      ],
+      {
+        setCharWPM: () => {},
+        setSpeedRacerMultipliers: (v: string) => { multipliers = v; },
+      } as never,
+    );
+    expect(multipliers).toBe('1.5, 1.35, 1.2, 1');
+  });
+
+  it('applies explicit speedRacerMultipliers directly', () => {
+    let multipliers = '';
+    applySerializedSettings(
+      [{ key: 'speedRacerMultipliers', value: '1.5, 1.35, 1.175, 1.0' }],
+      { setSpeedRacerMultipliers: (v: string) => { multipliers = v; } } as never,
+    );
+    expect(multipliers).toBe('1.5, 1.35, 1.175, 1.0');
+  });
+
+  it('prefers explicit multipliers over legacy WPM steps', () => {
+    let multipliers = '';
+    applySerializedSettings(
+      [
+        { key: 'wpm', value: 23 },
+        { key: 'speedRacerWpmSteps', value: [25, 20, 15] },
+        { key: 'speedRacerMultipliers', value: '1.5, 1.35, 1.175, 1.0' },
+      ],
+      {
+        setCharWPM: () => {},
+        setSpeedRacerMultipliers: (v: string) => { multipliers = v; },
+      } as never,
+    );
+    expect(multipliers).toBe('1.5, 1.35, 1.175, 1.0');
+  });
+
+  it('ignores unused speedRacerKeepFwpm without throwing', () => {
+    expect(() => applySerializedSettings(
+      [{ key: 'speedRacerKeepFwpm', value: true }],
+      {} as never,
+    )).not.toThrow();
+  });
+
   it('snapshotToSerialized round-trips core speed fields', () => {
     const serialized = snapshotToSerialized({
       charWPM: 20,
@@ -73,6 +133,7 @@ describe('presets', () => {
       showRaw: false,
       darkMode: false,
       autoCloseLessonAccordion: false,
+      autoCloseSettingsAccordions: true,
       ifCustomGroup: false,
       customGroup: '',
       voiceEnabled: false,
@@ -91,6 +152,10 @@ describe('presets', () => {
       overrideMax: 3,
       cardSpace: 0,
       speedInterval: false,
+      speedRacerEnabled: false,
+      speedRacerMultipliers: '1.5, 1.35, 1.175, 1.0',
+      speedRacerFinalPlay: true,
+      speedRacerSpeakBeforeReplay: true,
       intervalTimingsText: '',
       intervalWpmText: '',
       intervalFwpmText: '',
@@ -130,6 +195,7 @@ describe('presets', () => {
       showRaw: false,
       darkMode: false,
       autoCloseLessonAccordion: false,
+      autoCloseSettingsAccordions: true,
       ifCustomGroup: false,
       customGroup: '',
       voiceEnabled: false,
@@ -148,6 +214,10 @@ describe('presets', () => {
       overrideMax: 3,
       cardSpace: 0,
       speedInterval: false,
+      speedRacerEnabled: false,
+      speedRacerMultipliers: '1.5, 1.35, 1.175, 1.0',
+      speedRacerFinalPlay: true,
+      speedRacerSpeakBeforeReplay: true,
       intervalTimingsText: '',
       intervalWpmText: '',
       intervalFwpmText: '',

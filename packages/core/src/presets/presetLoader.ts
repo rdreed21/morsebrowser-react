@@ -73,13 +73,13 @@ export async function fetchSettingsPresetsForLesson(
   return buildPresetOptions(setData.options, customOptions);
 }
 
+/** Adds missing legacy defaults without overriding explicit settings. */
 export function mergeLegacyMixin(settings: SerializedSetting[]): SerializedSetting[] {
   const merged = settings.map(s => ({ ...s }));
   const existing = new Set(merged.map(s => s.key));
   for (const entry of LEGACY_MIXIN.morseSettings) {
-    if (!existing.has(entry.key)) {
-      merged.push({ ...entry });
-    }
+    if (existing.has(entry.key)) continue;
+    merged.push({ ...entry });
   }
   return merged;
 }

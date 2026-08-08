@@ -35,6 +35,7 @@ function buildSnapshotFromApp(app: ReturnType<typeof useMorseApp>): MorseSetting
     showRaw: app.showRaw,
     darkMode: app.darkMode,
     autoCloseLessonAccordion: app.autoCloseLessonAccordion,
+    autoCloseSettingsAccordions: app.autoCloseSettingsAccordions,
     ifCustomGroup: app.ifCustomGroup,
     customGroup: app.customGroup,
     voiceEnabled: app.voiceEnabled,
@@ -53,6 +54,10 @@ function buildSnapshotFromApp(app: ReturnType<typeof useMorseApp>): MorseSetting
     overrideMax: app.overrideMax,
     cardSpace: app.cardSpace,
     speedInterval: app.speedInterval,
+    speedRacerEnabled: app.speedRacerEnabled,
+    speedRacerMultipliers: app.speedRacerMultipliers,
+    speedRacerFinalPlay: app.speedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay: app.speedRacerSpeakBeforeReplay,
     intervalTimingsText: app.intervalTimingsText,
     intervalWpmText: app.intervalWpmText,
     intervalFwpmText: app.intervalFwpmText,
@@ -77,6 +82,7 @@ function buildMutatorFromApp(app: ReturnType<typeof useMorseApp>): PresetSetting
     setShowRaw: app.setShowRaw,
     setDarkMode: app.setDarkMode,
     setAutoCloseLessonAccordion: app.setAutoCloseLessonAccordion,
+    setAutoCloseSettingsAccordions: app.setAutoCloseSettingsAccordions,
     setIfCustomGroup: app.setIfCustomGroup,
     setCustomGroup: app.setCustomGroup,
     setVoiceEnabled: app.setVoiceEnabled,
@@ -95,6 +101,10 @@ function buildMutatorFromApp(app: ReturnType<typeof useMorseApp>): PresetSetting
     setOverrideMax: app.setOverrideMax,
     setCardSpace: app.setCardSpace,
     setSpeedInterval: app.setSpeedInterval,
+    setSpeedRacerEnabled: app.setSpeedRacerEnabled,
+    setSpeedRacerMultipliers: app.setSpeedRacerMultipliers,
+    setSpeedRacerFinalPlay: app.setSpeedRacerFinalPlay,
+    setSpeedRacerSpeakBeforeReplay: app.setSpeedRacerSpeakBeforeReplay,
     setIntervalTimingsText: app.setIntervalTimingsText,
     setIntervalWpmText: app.setIntervalWpmText,
     setIntervalFwpmText: app.setIntervalFwpmText,
@@ -186,12 +196,14 @@ export function usePresets(onPresetApplied?: () => void) {
           buildMutatorFromApp(currentApp),
           DEFAULT_PRESET_KEY_BLACKLIST,
         );
+        currentApp.captureLessonVoiceBaseline();
       } else if (preset.isDummy && !savedYourSettingsRef.current) {
         savedYourSettingsRef.current = snapshotToSerialized(buildSnapshotFromApp(currentApp));
       }
 
       if (!skipReinit && currentApp.selectedDisplay?.display) {
-        window.setTimeout(() => onPresetAppliedRef.current?.(), 1000);
+        // Caller (LessonsPicker) schedules club-parity deferred reinit.
+        onPresetAppliedRef.current?.();
       }
 
       if (

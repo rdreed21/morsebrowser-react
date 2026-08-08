@@ -115,6 +115,49 @@ export function LessonOptionsSection() {
       <View style={s.row}>
         <CheckToggle label="Speed Intervals" checked={app.speedInterval} onChange={app.setSpeedInterval} />
       </View>
+      <View style={s.row}>
+        <CheckToggle
+          label="Speed Racer"
+          checked={app.speedRacerEnabled}
+          onChange={app.setSpeedRacerEnabled}
+        />
+      </View>
+      {app.speedRacerEnabled && (
+        <View style={s.intervalGroup}>
+          <View style={s.intervalRow}>
+            <Text style={[s.intervalLabel, { color: t.textMuted }]}>Multipliers</Text>
+            <TextInput
+              style={[s.intervalInput, {
+                borderColor: t.border,
+                color: t.inputText,
+                backgroundColor: t.inputBg,
+              }]}
+              value={app.speedRacerMultipliers}
+              onChangeText={app.setSpeedRacerMultipliers}
+              placeholder="1.5, 1.35, 1.175, 1.0"
+              placeholderTextColor={t.textMuted}
+              keyboardType="numbers-and-punctuation"
+            />
+          </View>
+          <View style={s.row}>
+            <TouchableOpacity style={s.smallBtn} onPress={app.resetSpeedRacerDefaults}>
+              <Text style={[s.smallBtnText, { color: t.accent }]}>Reset</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={s.smallBtn} onPress={app.applyOverlearnSpeedRacer}>
+              <Text style={[s.smallBtnText, { color: t.accent }]}>Overlearn</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={s.chipRow}>
+            <CheckToggle label="Replay at First Multiplier" checked={app.speedRacerFinalPlay} onChange={app.setSpeedRacerFinalPlay} />
+            <CheckToggle
+              label={app.speedRacerFinalPlay ? 'Speak Before Replay' : 'Speak'}
+              checked={app.speedRacerSpeakBeforeReplay}
+              onChange={app.setSpeedRacerSpeakBeforeReplay}
+            />
+          </View>
+        </View>
+      )}
+
       {app.speedInterval && (
         <View style={s.intervalGroup}>
           <View style={s.intervalRow}>
@@ -226,6 +269,8 @@ const s = StyleSheet.create({
   },
   syncBtn: { paddingHorizontal: 8, paddingVertical: 4 },
   syncBtnText: { fontSize: 12 },
+  smallBtn: { paddingHorizontal: 8, paddingVertical: 4 },
+  smallBtnText: { fontSize: 12, fontWeight: '600' },
   applyBtn: {
     borderRadius:    6,
     paddingVertical: 10,

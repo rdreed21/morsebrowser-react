@@ -63,6 +63,21 @@ describe('computePlayEndedActions', () => {
     expect(actions.needToTrail).toBe(true);
     expect(actions.speakAndTrail).toBe(false);
   });
+
+  it('skips normal voice trail while Speed Racer is on', () => {
+    const actions = computePlayEndedActions({
+      voiceEnabled: true,
+      manualVoice: false,
+      fromVoiceOrTrail: false,
+      hasMoreMorse: false,
+      maxBufferReached: true,
+      speakFirst: false,
+      trailReveal: false,
+      racerOn: true,
+      speedRacerSpeakBeforeReplay: true,
+    });
+    expect(actions.needToSpeak).toBe(false);
+  });
 });
 
 describe('shouldRestartLoop', () => {

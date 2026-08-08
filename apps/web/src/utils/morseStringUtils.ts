@@ -99,3 +99,14 @@ export function prepPhraseToSpeakForFinal(beforePhrase: string): string {
     .replace(/^V\W/g, ' VEE ')
     .replace(/\WV$/g, ' VEE ');
 }
+
+export function formatSpelledRecapPhrase(speakText: string): string {
+  const letters = speakText
+    .replace(/[\r\n|]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(t => t.length > 0);
+  if (letters.length === 0) return '';
+  if (letters.length === 1) return letters[0];
+  return letters.map(letter => `${letter.replace(/\.+$/g, '')}.`).join(' ');
+}

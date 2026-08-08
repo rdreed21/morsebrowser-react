@@ -6,7 +6,7 @@ Owner: Roger Reed (rdreed21) | KQ4NKF
 |---|---|---|
 | 1 | iOS audio through screen lock | react-native-audio-api + UIBackgroundModes:audio + configureAudioSession() |
 | 2 | Accurate Morse timing | Pre-schedule on AudioContext clock — zero setTimeout |
-| 3 | Match fork look/feel | rdreed21/morsebrowser_dev develop, Bootstrap 5, no redesign |
+| 3 | Match club KO look/feel | LongIslandCW/morsebrowser main, Bootstrap 5, no redesign |
 
 ## Migration Status (2026-06-14)
 
@@ -51,27 +51,3 @@ node tools/visual-diff.mjs  — screenshot diff
 - Always scheduleText from @morsebrowser/core
 - Mobile: call configureAudioSession() before any AudioContext
 - Background audio: test on real iPhone not Simulator
-
-## gstack (REQUIRED — global install)
-
-**Before doing ANY work, verify gstack is installed:**
-
-```bash
-test -d ~/.claude/skills/gstack/bin && echo "GSTACK_OK" || echo "GSTACK_MISSING"
-```
-
-If GSTACK_MISSING: STOP. Do not proceed. Tell the user:
-
-> gstack is required for all AI-assisted work in this repo.
-> Install it:
-> ```bash
-> git clone --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
-> cd ~/.claude/skills/gstack && ./setup --team
-> ```
-> Then restart your AI coding tool.
-
-Do not skip skills, ignore gstack errors, or work around missing gstack.
-
-Using gstack skills: After install, skills like /qa, /ship, /review, /investigate,
-and /browse are available. Use /browse for all web browsing.
-Use ~/.claude/skills/gstack/... for gstack file paths (the global path).

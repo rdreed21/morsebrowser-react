@@ -1,7 +1,10 @@
 import React, {
   createContext, useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
-import { applySerializedSettings, DEFAULT_SETTINGS, snapshotToSerialized } from '@morsebrowser/core';
+import {
+  applySerializedSettings, DEFAULT_SETTINGS, snapshotToSerialized,
+  SPEED_RACER_DEFAULT_MULTIPLIERS, SPEED_RACER_OVERLEARN_MULTIPLIERS,
+} from '@morsebrowser/core';
 import type { MorseSettings, MorseTimingConfig } from '@morsebrowser/types';
 import { getWords, rawTextCharCount } from '../utils/words';
 import { formatPlayTime } from '../utils/formatTime';
@@ -138,11 +141,23 @@ export interface MorseAppContextValue {
   selectedPreset: string;
   setSelectedPreset: (v: string) => void;
   autoCloseLessonAccordion: boolean;
+  autoCloseSettingsAccordions: boolean;
   setAutoCloseLessonAccordion: (v: boolean) => void;
+  setAutoCloseSettingsAccordions: (v: boolean) => void;
   shuffleIntraGroup: boolean;
   setShuffleIntraGroup: (v: boolean) => void;
   speedInterval: boolean;
   setSpeedInterval: (v: boolean) => void;
+  speedRacerEnabled: boolean;
+  setSpeedRacerEnabled: (v: boolean) => void;
+  speedRacerMultipliers: string;
+  setSpeedRacerMultipliers: (v: string) => void;
+  speedRacerFinalPlay: boolean;
+  setSpeedRacerFinalPlay: (v: boolean) => void;
+  speedRacerSpeakBeforeReplay: boolean;
+  setSpeedRacerSpeakBeforeReplay: (v: boolean) => void;
+  resetSpeedRacerDefaults: () => void;
+  applyOverlearnSpeedRacer: () => void;
   intervalTimingsText: string;
   setIntervalTimingsText: (v: string) => void;
   intervalWpmText: string;
@@ -243,8 +258,13 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const [selectedPreset, setSelectedPresetState] = useState('Your Settings');
   const [autoCloseLessonAccordion, setAutoCloseLessonAccordionState] = useState(false);
+  const [autoCloseSettingsAccordions, setAutoCloseSettingsAccordionsState] = useState(true);
   const [shuffleIntraGroup, setShuffleIntraGroupState] = useState(false);
   const [speedInterval, setSpeedIntervalState] = useState(false);
+  const [speedRacerEnabled, setSpeedRacerEnabledState] = useState(false);
+  const [speedRacerMultipliers, setSpeedRacerMultipliersState] = useState(SPEED_RACER_DEFAULT_MULTIPLIERS);
+  const [speedRacerFinalPlay, setSpeedRacerFinalPlayState] = useState(true);
+  const [speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplayState] = useState(true);
   const [intervalTimingsText, setIntervalTimingsTextState] = useState('');
   const [intervalWpmText, setIntervalWpmTextState] = useState('');
   const [intervalFwpmText, setIntervalFwpmTextState] = useState('');
@@ -320,6 +340,34 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     });
   }, [voiceVoiceIdx]);
 
+  const setSpeedInterval = useCallback((v: boolean) => {
+    setSpeedIntervalState(v);
+    if (v) setSpeedRacerEnabledState(false);
+  }, []);
+
+  const setSpeedRacerEnabled = useCallback((v: boolean) => {
+    setSpeedRacerEnabledState(v);
+    if (v) setSpeedIntervalState(false);
+  }, []);
+
+  const setSpeedRacerMultipliers = useCallback((v: string) => setSpeedRacerMultipliersState(v), []);
+  const setSpeedRacerFinalPlay = useCallback((v: boolean) => setSpeedRacerFinalPlayState(v), []);
+  const setSpeedRacerSpeakBeforeReplay = useCallback((v: boolean) => {
+    setSpeedRacerSpeakBeforeReplayState(v);
+    if (v && voiceCapable) setVoiceEnabledState(true);
+  }, [voiceCapable]);
+  const resetSpeedRacerDefaults = useCallback(() => {
+    setSpeedRacerMultipliersState(SPEED_RACER_DEFAULT_MULTIPLIERS);
+    setSpeedRacerFinalPlayState(true);
+    setSpeedRacerSpeakBeforeReplayState(true);
+    if (voiceCapable) setVoiceEnabledState(true);
+  }, [voiceCapable]);
+  const applyOverlearnSpeedRacer = useCallback(() => {
+    setSpeedRacerMultipliersState(SPEED_RACER_OVERLEARN_MULTIPLIERS);
+    setSpeedRacerFinalPlayState(false);
+    setSpeedRacerSpeakBeforeReplayState(false);
+  }, []);
+
   const setVoiceEnabled = useCallback((v: boolean) => {
     setVoiceEnabledState(v);
     if (v && manualVoice) setManualVoiceState(false);
@@ -354,8 +402,8 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const setSelectedPreset = useCallback((v: string) => setSelectedPresetState(v), []);
   const setAutoCloseLessonAccordion = useCallback((v: boolean) => setAutoCloseLessonAccordionState(v), []);
+  const setAutoCloseSettingsAccordions = useCallback((v: boolean) => setAutoCloseSettingsAccordionsState(v), []);
   const setShuffleIntraGroup = useCallback((v: boolean) => setShuffleIntraGroupState(v), []);
-  const setSpeedInterval = useCallback((v: boolean) => setSpeedIntervalState(v), []);
   const setIntervalTimingsText = useCallback((v: string) => setIntervalTimingsTextState(v), []);
   const setIntervalWpmText = useCallback((v: string) => setIntervalWpmTextState(v), []);
   const setIntervalFwpmText = useCallback((v: string) => setIntervalFwpmTextState(v), []);
@@ -475,7 +523,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     try {
       const result = await loadMobileLessonFile(selectedDisplay.fileName);
       if (result.type === 'text') {
-        setShowingText(result.content.trim().replace(/\n/g, selectedDisplay.newlineChunking ? '\n' : ' '));
+        setShowingText(result.content.trim().replace(/\r\n?/g, '\n').replace(/\n/g, selectedDisplay.newlineChunking ? '\n' : ' '));
       } else {
         const practiceSeconds = resolvePracticeSeconds(
           result.config,
@@ -685,10 +733,22 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setSelectedPreset,
     autoCloseLessonAccordion,
     setAutoCloseLessonAccordion,
+    autoCloseSettingsAccordions,
+    setAutoCloseSettingsAccordions,
     shuffleIntraGroup,
     setShuffleIntraGroup,
     speedInterval,
     setSpeedInterval,
+    speedRacerEnabled,
+    setSpeedRacerEnabled,
+    speedRacerMultipliers,
+    setSpeedRacerMultipliers,
+    speedRacerFinalPlay,
+    setSpeedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay,
+    setSpeedRacerSpeakBeforeReplay,
+    resetSpeedRacerDefaults,
+    applyOverlearnSpeedRacer,
     intervalTimingsText,
     setIntervalTimingsText,
     intervalWpmText,
@@ -741,9 +801,14 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     applyEnabled, applyLesson, randomizeLessons,
     flaggedWords, flaggedWordsCount, clearFlaggedWords, loadFlaggedAsText, addFlaggedWord,
     speakFirstAdditionalWordspaces,
-    selectedPreset, autoCloseLessonAccordion,
+    selectedPreset, autoCloseLessonAccordion, autoCloseSettingsAccordions,
     shuffleIntraGroup,
-    speedInterval, intervalTimingsText, intervalWpmText, intervalFwpmText,
+    speedInterval, setSpeedInterval, speedRacerEnabled, setSpeedRacerEnabled,
+    speedRacerMultipliers, setSpeedRacerMultipliers,
+    speedRacerFinalPlay, setSpeedRacerFinalPlay,
+    speedRacerSpeakBeforeReplay, setSpeedRacerSpeakBeforeReplay,
+    resetSpeedRacerDefaults, applyOverlearnSpeedRacer,
+    intervalTimingsText, intervalWpmText, intervalFwpmText,
     speakFirst, voiceCapable, voiceEnabled, voiceSpelling, manualVoice,
     voiceThinkingTime, voiceThinkingTimeWpm, voiceAfterThinkingTime,
     voiceVoices, voiceVoiceIdx, voiceVolume, voiceLastOnly, voicePitch,

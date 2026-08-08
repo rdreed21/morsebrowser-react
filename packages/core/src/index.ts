@@ -6,6 +6,8 @@ export * from './lessons/lessonLoader';
 export * from './settings/settingsManager';
 export * from './settings/cookieStorage';
 export * from './settings/speedIntervals';
+export * from './settings/speedRacer';
+export * from './settings/speedRacerSteps';
 export * from './presets/types';
 export * from './presets/presetLoader';
 export * from './presets/settingsApplier';

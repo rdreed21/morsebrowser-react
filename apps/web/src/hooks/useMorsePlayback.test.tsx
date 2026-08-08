@@ -176,6 +176,159 @@ describe('useMorsePlayback', () => {
     expect(speakPhraseMock).toHaveBeenCalled();
   });
 
+  it('plays each Speed Racer multiplier variation before advancing the card', async () => {
+    mockPlay.mockImplementation(() => {});
+
+    function SpeedRacerHarness() {
+      const app = useMorseApp();
+      const { currentIndex } = usePlaybackState();
+      const { handlePlay } = useMorsePlaybackControls();
+      const seeded = useRef(false);
+
+      useEffect(() => {
+        if (seeded.current) return;
+        seeded.current = true;
+        app.setShowingText('A B');
+        app.setCardSpace(0);
+        app.setSpeedRacerEnabled(true);
+        // Base charWPM is 12 → variations at 18 and 12 wpm.
+        app.setSpeedRacerMultipliers('1.5, 1.0');
+        app.setSpeedRacerFinalPlay(false);
+      }, [app]);
+
+      return (
+        <>
+          <button type="button" onClick={handlePlay}>play</button>
+          <span data-testid="index">{currentIndex}</span>
+        </>
+      );
+    }
+
+    render(
+      <StateProviders>
+        <MorsePlaybackProvider>
+          <SpeedRacerHarness />
+        </MorsePlaybackProvider>
+      </StateProviders>,
+    );
+
+    await act(async () => { await Promise.resolve(); });
+    await act(async () => {
+      screen.getByRole('button', { name: 'play' }).click();
+      vi.runOnlyPendingTimers();
+    });
+
+    // First variation at 1.5x.
+    expect(mockPlay).toHaveBeenCalledTimes(1);
+    expect(mockPlay.mock.calls[0]?.[0]).toBe('A');
+    expect(mockPlay.mock.calls[0]?.[2]?.charWPM).toBe(18);
+    expect(screen.getByTestId('index')).toHaveTextContent('0');
+
+    // Inter-variation wordspace pad.
+    await act(async () => {
+      mockPlay.mock.calls[0]?.[1]?.onComplete?.();
+      vi.advanceTimersByTime(1000);
+      vi.runOnlyPendingTimers();
+    });
+    expect(mockPlay).toHaveBeenCalledTimes(2);
+    expect(mockPlay.mock.calls[1]?.[0]).toBe('');
+
+    // Second variation at 1.0x, still on the same card.
+    await act(async () => {
+      mockPlay.mock.calls[1]?.[1]?.onComplete?.();
+      vi.advanceTimersByTime(1000);
+      vi.runOnlyPendingTimers();
+    });
+    expect(mockPlay).toHaveBeenCalledTimes(3);
+    expect(mockPlay.mock.calls[2]?.[0]).toBe('A');
+    expect(mockPlay.mock.calls[2]?.[2]?.charWPM).toBe(12);
+    expect(screen.getByTestId('index')).toHaveTextContent('0');
+
+    // Card advances after the last variation.
+    await act(async () => {
+      mockPlay.mock.calls[2]?.[1]?.onComplete?.();
+      vi.advanceTimersByTime(1000);
+      vi.runOnlyPendingTimers();
+    });
+    expect(screen.getByTestId('index')).toHaveTextContent('1');
+  });
+
+  it('speaks Speed Racer recap before the first-multiplier replay', async () => {
+    mockPlay.mockImplementation(() => {});
+
+    function SpeedRacerSpeakHarness() {
+      const app = useMorseApp();
+      const { currentIndex } = usePlaybackState();
+      const { handlePlay } = useMorsePlaybackControls();
+      const seeded = useRef(false);
+
+      useEffect(() => {
+        if (seeded.current) return;
+        seeded.current = true;
+        app.setShowingText('A B');
+        app.setCardSpace(0);
+        app.setVoiceEnabled(true);
+        app.setVoiceThinkingTime(0);
+        app.setVoiceAfterThinkingTime(0);
+        app.setSpeedRacerEnabled(true);
+        // Single 1.5x multiplier → variation and replay both at 18 wpm (base 12).
+        app.setSpeedRacerMultipliers('1.5');
+        app.setSpeedRacerFinalPlay(true);
+        app.setSpeedRacerSpeakBeforeReplay(true);
+      }, [app]);
+
+      return (
+        <>
+          <button type="button" onClick={handlePlay}>play</button>
+          <span data-testid="index">{currentIndex}</span>
+        </>
+      );
+    }
+
+    render(
+      <StateProviders>
+        <MorsePlaybackProvider>
+          <SpeedRacerSpeakHarness />
+        </MorsePlaybackProvider>
+      </StateProviders>,
+    );
+
+    await act(async () => { await Promise.resolve(); });
+    await act(async () => {
+      screen.getByRole('button', { name: 'play' }).click();
+      vi.runOnlyPendingTimers();
+    });
+
+    // Variation play at the first multiplier speed.
+    expect(mockPlay).toHaveBeenCalledTimes(1);
+    expect(mockPlay.mock.calls[0]?.[2]?.charWPM).toBe(18);
+
+    // Inter-variation pad before the replay.
+    await act(async () => {
+      mockPlay.mock.calls[0]?.[1]?.onComplete?.();
+      vi.advanceTimersByTime(2000);
+      vi.runOnlyPendingTimers();
+    });
+    expect(mockPlay.mock.calls[1]?.[0]).toBe('');
+
+    // Pad completes → speak recap → replay at the first multiplier (18, not base 12).
+    await act(async () => {
+      mockPlay.mock.calls[1]?.[1]?.onComplete?.();
+      vi.advanceTimersByTime(2000);
+      vi.runOnlyPendingTimers();
+    });
+
+    expect(speakPhraseMock).toHaveBeenCalledTimes(1);
+    expect(speakPhraseMock.mock.calls[0]?.[0]).toMatchObject({
+      text: 'A',
+      spellMode: false,
+    });
+    expect(mockPlay).toHaveBeenCalledTimes(3);
+    expect(mockPlay.mock.calls[2]?.[0]).toBe('A');
+    expect(mockPlay.mock.calls[2]?.[2]?.charWPM).toBe(18);
+    expect(screen.getByTestId('index')).toHaveTextContent('0');
+  });
+
   it('advances trail reveal between cards', async () => {
     mockPlay.mockImplementation((_text, opts) => {
       if (typeof opts === 'object' && opts?.onComplete) opts.onComplete();

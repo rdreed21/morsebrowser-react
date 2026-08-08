@@ -1,7 +1,7 @@
 import { useMorseApp } from '../../context/MorseAppContext';
 import { usePlaybackState } from '../../context/PlaybackStateContext';
 import { useMorsePlaybackControls } from '../../context/MorsePlaybackContext';
-import { getDisplayWord } from '../../utils/words';
+import { getDisplayWord, getMaskedDisplay } from '../../utils/words';
 
 export function WordCards() {
   const {
@@ -24,9 +24,7 @@ export function WordCards() {
             : (isLast ? 'btn-outline-danger' : 'btn-outline-primary');
           const label = getDisplayWord(word);
           const revealed = !hideList || (trailReveal && index <= maxRevealedTrail);
-          const display = revealed
-            ? label
-            : 'X'.repeat(label.replace(/\r/g, '').replace(/\n/g, '').trim().length);
+          const display = revealed ? label : getMaskedDisplay(word);
 
           return (
             <div key={`${word}-${index}`} className="col-auto">

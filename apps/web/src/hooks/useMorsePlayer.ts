@@ -47,10 +47,11 @@ export function useMorsePlayer(config: MorseTimingConfig, noise: NoiseSettings) 
   const play = useCallback((
     text: string,
     opts?: ScheduleOptions | (() => void),
+    configOverride?: MorseTimingConfig,
   ) => {
     stopMorse();
     const options = typeof opts === 'function' ? { onComplete: opts } : (opts ?? {});
-    const session = scheduleText(getCtx(), text, config, options);
+    const session = scheduleText(getCtx(), text, configOverride ?? config, options);
     cancelRef.current = session.cancel;
   }, [config, getCtx, stopMorse]);
 

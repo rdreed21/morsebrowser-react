@@ -193,6 +193,14 @@ section:last-of-type {
     white-space: nowrap;
 }
 
+/* Action buttons (not btn-check toggles) should not keep pressed/focus fill */
+.speed-racer-advanced-panel > button.btn:focus:not(:focus-visible) {
+    color: var(--bs-btn-color);
+    background-color: var(--bs-btn-bg);
+    border-color: var(--bs-btn-border-color);
+    box-shadow: none;
+}
+
 .settings-lesson-control > .input-group {
     width: auto;
     max-width: 100%;

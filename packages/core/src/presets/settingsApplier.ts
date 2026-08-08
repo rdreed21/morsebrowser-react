@@ -1,4 +1,9 @@
 import type { SerializedSetting } from './types';
+import {
+  parseMultipliers,
+  SPEED_RACER_DEFAULT_MULTIPLIERS,
+  wpmStepsToMultipliers,
+} from '../settings/speedRacer';
 
 export interface MorseSettingsSnapshot {
   charWPM: number;
@@ -12,6 +17,7 @@ export interface MorseSettingsSnapshot {
   showRaw: boolean;
   darkMode: boolean;
   autoCloseLessonAccordion: boolean;
+  autoCloseSettingsAccordions: boolean;
   ifCustomGroup: boolean;
   customGroup: string;
   voiceEnabled: boolean;
@@ -30,6 +36,10 @@ export interface MorseSettingsSnapshot {
   overrideMax: number;
   cardSpace: number;
   speedInterval: boolean;
+  speedRacerEnabled: boolean;
+  speedRacerMultipliers: string;
+  speedRacerFinalPlay: boolean;
+  speedRacerSpeakBeforeReplay: boolean;
   intervalTimingsText: string;
   intervalWpmText: string;
   intervalFwpmText: string;
@@ -52,6 +62,7 @@ export interface PresetSettingsMutator {
   setShowRaw: (v: boolean) => void;
   setDarkMode: (v: boolean) => void;
   setAutoCloseLessonAccordion: (v: boolean) => void;
+  setAutoCloseSettingsAccordions: (v: boolean) => void;
   setIfCustomGroup: (v: boolean) => void;
   setCustomGroup: (v: string) => void;
   setVoiceEnabled: (v: boolean) => void;
@@ -70,6 +81,10 @@ export interface PresetSettingsMutator {
   setOverrideMax: (v: number) => void;
   setCardSpace: (v: number) => void;
   setSpeedInterval: (v: boolean) => void;
+  setSpeedRacerEnabled: (v: boolean) => void;
+  setSpeedRacerMultipliers: (v: string) => void;
+  setSpeedRacerFinalPlay: (v: boolean) => void;
+  setSpeedRacerSpeakBeforeReplay: (v: boolean) => void;
   setIntervalTimingsText: (v: string) => void;
   setIntervalWpmText: (v: string) => void;
   setIntervalFwpmText: (v: string) => void;
@@ -113,6 +128,7 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   showRaw: (v, m) => m.setShowRaw(booleanize(v)),
   darkMode: (v, m) => m.setDarkMode(booleanize(v)),
   autoCloseLessonAccordian: (v, m) => m.setAutoCloseLessonAccordion(booleanize(v)),
+  autoCloseSettingsAccordions: (v, m) => m.setAutoCloseSettingsAccordions(booleanize(v)),
   ifCustomGroup: (v, m) => m.setIfCustomGroup(booleanize(v)),
   customGroup: (v, m) => m.setCustomGroup(asString(v)),
   voiceEnabled: (v, m) => m.setVoiceEnabled(booleanize(v)),
@@ -132,6 +148,13 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   overrideSizeMax: (v, m) => m.setOverrideMax(asNumber(v, 3)),
   cardSpace: (v, m) => m.setCardSpace(asNumber(v, 0)),
   speedInterval: (v, m) => m.setSpeedInterval(booleanize(v)),
+  speedRacerEnabled: (v, m) => m.setSpeedRacerEnabled(booleanize(v)),
+  speedRacerMultipliers: (v, m) => {
+    const s = asString(v).trim();
+    m.setSpeedRacerMultipliers(s || SPEED_RACER_DEFAULT_MULTIPLIERS);
+  },
+  speedRacerFinalPlay: (v, m) => m.setSpeedRacerFinalPlay(booleanize(v)),
+  speedRacerSpeakBeforeReplay: (v, m) => m.setSpeedRacerSpeakBeforeReplay(booleanize(v)),
   intervalTimingsText: (v, m) => m.setIntervalTimingsText(asString(v)),
   intervalWpmText: (v, m) => m.setIntervalWpmText(asString(v)),
   intervalFwpmText: (v, m) => m.setIntervalFwpmText(asString(v)),
@@ -140,19 +163,43 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   shuffleIntraGroup: (v, m) => m.setShuffleIntraGroup(booleanize(v)),
 };
 
+/** Applies serialized preset values through a platform-specific settings mutator. */
 export function applySerializedSettings(
   entries: SerializedSetting[],
   mutator: PresetSettingsMutator,
   keyBlacklist: readonly string[] = [],
 ): void {
   const blacklist = new Set(keyBlacklist);
+  // Prefer club multipliers; convert legacy React WPM steps only when multipliers absent.
+  const hasMultipliers = entries.some(
+    entry => !blacklist.has(entry.key)
+      && entry.key === 'speedRacerMultipliers'
+      && parseMultipliers(asString(entry.value)).length > 0,
+  );
+  let currentCharWpm = 20;
   for (const entry of entries) {
     if (blacklist.has(entry.key)) continue;
+    if (entry.key === 'wpm') {
+      currentCharWpm = asNumber(entry.value, currentCharWpm);
+    }
+    if (entry.key === 'speedRacerWpmSteps') {
+      if (!hasMultipliers) {
+        const raw = Array.isArray(entry.value)
+          ? entry.value.map(v => asNumber(v, NaN)).filter(Number.isFinite)
+          : String(entry.value).split(',').map(x => asNumber(x, NaN)).filter(Number.isFinite);
+        mutator.setSpeedRacerMultipliers(wpmStepsToMultipliers(raw, currentCharWpm));
+      }
+      continue;
+    }
+    // KO compat-only key — ignored (FWPM rule is always min(base, variation)).
+    if (entry.key === 'speedRacerKeepFwpm') continue;
+    if (entry.key === 'speedRacerOverlearnDirection') continue;
     const handler = KEY_HANDLERS[entry.key];
     if (handler) handler(entry.value, mutator);
   }
 }
 
+/** Serializes a settings snapshot into the preset-compatible key/value format. */
 export function snapshotToSerialized(snapshot: MorseSettingsSnapshot): SerializedSetting[] {
   return [
     { key: 'wpm', value: snapshot.charWPM },
@@ -166,6 +213,7 @@ export function snapshotToSerialized(snapshot: MorseSettingsSnapshot): Serialize
     { key: 'showRaw', value: snapshot.showRaw },
     { key: 'darkMode', value: snapshot.darkMode },
     { key: 'autoCloseLessonAccordian', value: snapshot.autoCloseLessonAccordion },
+    { key: 'autoCloseSettingsAccordions', value: snapshot.autoCloseSettingsAccordions },
     { key: 'ifCustomGroup', value: snapshot.ifCustomGroup },
     { key: 'customGroup', value: snapshot.customGroup },
     { key: 'voiceEnabled', value: snapshot.voiceEnabled },
@@ -185,6 +233,10 @@ export function snapshotToSerialized(snapshot: MorseSettingsSnapshot): Serialize
     { key: 'overrideSizeMax', value: snapshot.overrideMax },
     { key: 'cardSpace', value: snapshot.cardSpace },
     { key: 'speedInterval', value: snapshot.speedInterval },
+    { key: 'speedRacerEnabled', value: snapshot.speedRacerEnabled },
+    { key: 'speedRacerMultipliers', value: snapshot.speedRacerMultipliers },
+    { key: 'speedRacerFinalPlay', value: snapshot.speedRacerFinalPlay },
+    { key: 'speedRacerSpeakBeforeReplay', value: snapshot.speedRacerSpeakBeforeReplay },
     { key: 'intervalTimingsText', value: snapshot.intervalTimingsText },
     { key: 'intervalWpmText', value: snapshot.intervalWpmText },
     { key: 'intervalFwpmText', value: snapshot.intervalFwpmText },
