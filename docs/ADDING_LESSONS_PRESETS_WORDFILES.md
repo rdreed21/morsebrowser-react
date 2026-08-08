@@ -15,15 +15,15 @@ Before you start, know where each piece is canonically sourced today:
 
 | Piece | Canonical source | Reaches web via | Reaches mobile via |
 |---|---|---|---|
-| Word files (`.txt`/`.json`) | `morsebrowser_dev/src/wordfiles` (the KO fork), or `WORDFILES_DIR` | `vite-wordfiles-plugin.ts` (dev serve / build copy) | `npm run sync-wordfiles` → `apps/mobile/assets/wordfiles/` |
-| Lesson catalog (`wordlists.json`) | `packages/core/src/lessons/wordlists.json` (core-owned, imported directly) | built into core | built into core |
-| Presets (`config.json`, `configs/`, `sets/`…) | `packages/core/src/presets/data/` (core-owned) | `vite-presets-plugin.ts` (dev serve / build copy) | `npm run sync-presets` → `apps/mobile/assets/presets/` |
+| Word files (`.txt`/`.json`) | `LongIslandCW/morsebrowser` `src/wordfiles` (club KO `main`), or `WORDFILES_DIR` | `vite-wordfiles-plugin.ts` (dev serve / build copy) | `npm run sync-wordfiles` → `apps/mobile/assets/wordfiles/` |
+| Lesson catalog (`wordlists.json`) | Club `src/wordfilesconfigs/wordlists.json` → synced into `packages/core/src/lessons/wordlists.json` | built into core | built into core |
+| Presets (`config.json`, `configs/`, `sets/`…) | Club `src/presets/` → synced into `packages/core/src/presets/data/` | `vite-presets-plugin.ts` (dev serve / build copy) | `npm run sync-presets` → `apps/mobile/assets/presets/` |
 
-> ⚠️ **Known sharp edge:** word files live in the sibling KO fork while the catalog and
-> presets are core-owned, and `wordlists.json` has **no sync script** — it's a manual copy.
-> There's a standing proposal to unify all three into one synced location:
-> [`LESSON_DATA_PIPELINE.md`](LESSON_DATA_PIPELINE.md). Until that lands, follow the steps
-> below exactly so nothing drifts out of sync.
+> **Sync from club:** with `LongIslandCW/morsebrowser` checked out next to this repo as
+> `morsebrowser` (or `MORSEBROWSER_KO_DIR` / `WORDFILES_DIR` set), run:
+> `node packages/core/scripts/sync-lesson-data.mjs` then
+> `cd apps/mobile && npm run sync-wordfiles && npm run sync-presets && npm run generate-asset-manifests`.
+> See also [`LESSON_DATA_PIPELINE.md`](LESSON_DATA_PIPELINE.md).
 
 ---
 
@@ -64,9 +64,10 @@ A "recipe" the app uses to generate random practice words. Must match
 
 ### Where to put the file
 
-1. **Drop the file in the canonical source:** `morsebrowser_dev/src/wordfiles/`
-   (the sibling KO-fork repo). If you don't have that repo checked out next to
-   `morsebrowser-react`, set `WORDFILES_DIR` to wherever your word files live.
+1. **Drop the file in the canonical source:** `LongIslandCW/morsebrowser` `src/wordfiles/`
+   (club KO `main`). If you don't have that repo checked out next to
+   `morsebrowser-react`, set `WORDFILES_DIR` / `MORSEBROWSER_KO_DIR` to wherever your
+   word files live.
 2. **Web:** nothing else to do for *serving* — the Vite dev server reads the directory
    live (`vite-wordfiles-plugin.ts`), and a production build copies it into
    `dist/wordfiles/`.
@@ -90,9 +91,10 @@ catalog entry (next section).
 ## 2. Adding a lesson (making a word file selectable)
 
 The lesson picker is driven entirely by one file:
-**`packages/core/src/lessons/wordlists.json`** (currently 848 entries). It is imported
-directly as a TypeScript module by `lessonLoader.ts` — there is no sync script, so this is
-the single place to edit.
+**`packages/core/src/lessons/wordlists.json`** (currently ~850 entries). It is imported
+directly as a TypeScript module by `lessonLoader.ts`. Prefer syncing it from club with
+`node packages/core/scripts/sync-lesson-data.mjs` rather than hand-editing unless you are
+authoring a React-only lesson.
 
 The picker is a 4-level cascade built from these entries:
 **TYPE (`userTarget`) → CLASS (`class`) → CONTENT (`letterGroup`) → LESSON (`display`)**.

@@ -12,8 +12,8 @@ see [`ADDING_LESSONS_PRESETS_WORDFILES.md`](ADDING_LESSONS_PRESETS_WORDFILES.md)
 ## The 10,000-foot view
 
 This repo is the React/React Native rewrite of the Long Island CW Club's
-[Knockout.js Morse trainer](https://github.com/LongIslandCW/morsebrowser/) (the fork being
-matched is `rdreed21/morsebrowser_dev`, `develop` branch). It is a **Turborepo + npm
+[Knockout.js Morse trainer](https://github.com/LongIslandCW/morsebrowser/) (club
+`main` is the canonical KO source for lessons/presets/wordfiles). It is a **Turborepo + npm
 workspaces monorepo** with one shared engine and two apps:
 
 ```
@@ -159,7 +159,7 @@ apps/mobile/
 │   ├── wordfiles/            # 636 lesson files (synced, committed)
 │   └── presets/              # preset data (synced from packages/core, committed)
 ├── scripts/
-│   ├── sync-wordfiles.mjs    # copy wordfiles from morsebrowser_dev / WORDFILES_DIR
+│   ├── sync-wordfiles.mjs    # copy wordfiles from LongIslandCW/morsebrowser / WORDFILES_DIR
 │   ├── sync-presets.mjs      # copy presets from packages/core/src/presets/data
 │   └── generate-asset-manifests.mjs
 ├── src/
@@ -198,7 +198,7 @@ with `?rssEnabled` in the URL.
 - **CI/CD:** `.github/workflows/deploy.yml` builds the web bundle and deploys it to
   **Cloudflare Pages** (project `morsebrowser`) plus the RSS Worker, on every push to
   `master`. In CI the wordfiles source is the committed copy under
-  `apps/mobile/assets/wordfiles` (via `WORDFILES_DIR`), since the sibling `morsebrowser_dev`
+  `apps/mobile/assets/wordfiles` (via `WORDFILES_DIR`), since the sibling club KO
   repo isn't checked out there.
 
 `turbo.json` exposes `WORDFILES_DIR`, `PRESETS_DIR`, and `VITE_RSS_PROXY` to the `build`
@@ -213,7 +213,7 @@ task so asset sources and the RSS proxy URL can be overridden per environment.
 | Fix Morse timing / scheduling | `packages/core/src/audio/` (then run core tests + web tests) |
 | Change the character/prosign map | `packages/core/src/engine/morseMap.ts` |
 | Add/edit a lesson, preset, or word file | [`ADDING_LESSONS_PRESETS_WORDFILES.md`](ADDING_LESSONS_PRESETS_WORDFILES.md) |
-| Change web UI / layout | `apps/web/src/components/` (Bootstrap 5, match the KO fork) |
+| Change web UI / layout | `apps/web/src/components/` (Bootstrap 5, match club KO) |
 | Change iOS UI | `apps/mobile/src/components/` (native StyleSheet) |
 | Change settings persistence | `packages/core/src/settings/` (web) + `apps/mobile` context (mobile) |
 | Touch the RSS proxy | `workers/rss-proxy/src/index.ts` |
