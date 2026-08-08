@@ -2,7 +2,10 @@ import { useMorseApp } from '../../context/MorseAppContext';
 import { getMorseImageSrc } from '../../utils/morseImages';
 
 export function PageHeader() {
-  const { darkMode, toggleDarkMode, logoClick } = useMorseApp();
+  const {
+    darkMode, toggleDarkMode, logoClick,
+    autoCloseSettingsAccordions, setAutoCloseSettingsAccordions,
+  } = useMorseApp();
 
   return (
     <header className="col page-header">
@@ -37,6 +40,20 @@ export function PageHeader() {
                 src={getMorseImageSrc(darkMode ? 'sunImage' : 'moonImage')}
               />
               <span>{darkMode ? 'Light mode' : 'Dark mode'}</span>
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary btn-sm auto-close-toggle-btn"
+              aria-label="Auto-close settings panels"
+              aria-pressed={autoCloseSettingsAccordions}
+              title={autoCloseSettingsAccordions
+                ? 'Settings panels close when you press Play'
+                : 'Settings panels stay open when you press Play'}
+              onClick={() => setAutoCloseSettingsAccordions(!autoCloseSettingsAccordions)}
+            >
+              <span aria-hidden="true">
+                {autoCloseSettingsAccordions ? 'Keep panels open' : 'Close on Play'}
+              </span>
             </button>
           </div>
         </div>

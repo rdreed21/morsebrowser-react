@@ -13,6 +13,7 @@ export interface MorseSettingsSnapshot {
   showRaw: boolean;
   darkMode: boolean;
   autoCloseLessonAccordion: boolean;
+  autoCloseSettingsAccordions: boolean;
   ifCustomGroup: boolean;
   customGroup: string;
   voiceEnabled: boolean;
@@ -58,6 +59,7 @@ export interface PresetSettingsMutator {
   setShowRaw: (v: boolean) => void;
   setDarkMode: (v: boolean) => void;
   setAutoCloseLessonAccordion: (v: boolean) => void;
+  setAutoCloseSettingsAccordions: (v: boolean) => void;
   setIfCustomGroup: (v: boolean) => void;
   setCustomGroup: (v: string) => void;
   setVoiceEnabled: (v: boolean) => void;
@@ -142,6 +144,7 @@ const KEY_HANDLERS: Record<string, KeyHandler> = {
   showRaw: (v, m) => m.setShowRaw(booleanize(v)),
   darkMode: (v, m) => m.setDarkMode(booleanize(v)),
   autoCloseLessonAccordian: (v, m) => m.setAutoCloseLessonAccordion(booleanize(v)),
+  autoCloseSettingsAccordions: (v, m) => m.setAutoCloseSettingsAccordions(booleanize(v)),
   ifCustomGroup: (v, m) => m.setIfCustomGroup(booleanize(v)),
   customGroup: (v, m) => m.setCustomGroup(asString(v)),
   voiceEnabled: (v, m) => m.setVoiceEnabled(booleanize(v)),
@@ -219,6 +222,7 @@ export function snapshotToSerialized(snapshot: MorseSettingsSnapshot): Serialize
     { key: 'showRaw', value: snapshot.showRaw },
     { key: 'darkMode', value: snapshot.darkMode },
     { key: 'autoCloseLessonAccordian', value: snapshot.autoCloseLessonAccordion },
+    { key: 'autoCloseSettingsAccordions', value: snapshot.autoCloseSettingsAccordions },
     { key: 'ifCustomGroup', value: snapshot.ifCustomGroup },
     { key: 'customGroup', value: snapshot.customGroup },
     { key: 'voiceEnabled', value: snapshot.voiceEnabled },

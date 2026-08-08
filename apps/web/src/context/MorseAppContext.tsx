@@ -127,6 +127,7 @@ interface MorseAppContextValue {
   applyLesson: () => Promise<void>;
   randomizeLessons: boolean;
   autoCloseLessonAccordion: boolean;
+  autoCloseSettingsAccordions: boolean;
   ifStickySets: boolean;
   stickySets: string;
   shuffleIntraGroup: boolean;
@@ -147,6 +148,7 @@ interface MorseAppContextValue {
   trailFinal: number;
   setRandomizeLessons: (v: boolean) => void;
   setAutoCloseLessonAccordion: (v: boolean) => void;
+  setAutoCloseSettingsAccordions: (v: boolean) => void;
   setIfStickySets: (v: boolean) => void;
   setStickySets: (v: string) => void;
   setShuffleIntraGroup: (v: boolean) => void;
@@ -334,6 +336,9 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const [randomizeLessons, setRandomizeLessonsState] = useState(() => readBoolCookie('randomizeLessons', true));
   const [autoCloseLessonAccordion, setAutoCloseLessonAccordionState] = useState(
     () => readBoolCookie('autoCloseLessonAccordian', false),
+  );
+  const [autoCloseSettingsAccordions, setAutoCloseSettingsAccordionsState] = useState(
+    () => readBoolCookie('autoCloseSettingsAccordions', true),
   );
   const [settingsAccordionOpen, setSettingsAccordionOpen] = useState(
     createDefaultAccordionOpen,
@@ -632,6 +637,11 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
   const setAutoCloseLessonAccordion = useCallback((v: boolean) => {
     setAutoCloseLessonAccordionState(v);
     setCookie('autoCloseLessonAccordian', String(v));
+  }, []);
+
+  const setAutoCloseSettingsAccordions = useCallback((v: boolean) => {
+    setAutoCloseSettingsAccordionsState(v);
+    setCookie('autoCloseSettingsAccordions', String(v));
   }, []);
 
   const setIfStickySets = useCallback((v: boolean) => {
@@ -1367,6 +1377,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     applyLesson,
     randomizeLessons,
     autoCloseLessonAccordion,
+    autoCloseSettingsAccordions,
     ifStickySets,
     stickySets,
     shuffleIntraGroup,
@@ -1395,6 +1406,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     trailFinal,
     setRandomizeLessons,
     setAutoCloseLessonAccordion,
+    setAutoCloseSettingsAccordions,
     setIfStickySets,
     setStickySets,
     setShuffleIntraGroup,
@@ -1482,7 +1494,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setPreSpace, setXtraWordSpaceDits, setCardSpace, setCardFontPx, setCardsVisible,
     ifCustomGroup, customGroup, ifOverrideTime, overrideMins, ifOverrideMinMax,
     overrideMin, overrideMax, syncSize, applyEnabled, applyLesson,
-    randomizeLessons, autoCloseLessonAccordion, ifStickySets, stickySets,
+    randomizeLessons, autoCloseLessonAccordion, autoCloseSettingsAccordions, ifStickySets, stickySets,
     shuffleIntraGroup, speedInterval, speedRacerEnabled, speedRacerWpmSteps,
     speedRacerFinalPlay, speedRacerSpeakBeforeReplay, speedRacerOverlearnDirection,
     intervalTimingsText, intervalWpmText,
@@ -1492,7 +1504,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     trailReveal, trailPreDelay, trailPostDelay, trailFinal,
     setIfCustomGroup, setCustomGroup, setIfOverrideTime, setOverrideMins,
     setIfOverrideMinMax, setOverrideMin, setOverrideMax, setSyncSize,
-    setRandomizeLessons, setAutoCloseLessonAccordion, setIfStickySets, setStickySets,
+    setRandomizeLessons, setAutoCloseLessonAccordion, setAutoCloseSettingsAccordions, setIfStickySets, setStickySets,
     setShuffleIntraGroup, setSpeedInterval, setSpeedRacerEnabled, setSpeedRacerWpmSteps,
     addSpeedRacerWpmStep, removeSpeedRacerWpmStep, setSpeedRacerFinalPlay,
     setSpeedRacerSpeakBeforeReplay, setSpeedRacerOverlearnDirection, resetSpeedRacerWpmSteps,

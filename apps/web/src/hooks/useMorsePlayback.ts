@@ -484,7 +484,9 @@ export function useMorsePlayback(): MorsePlaybackHandlers {
     const freshStart = fromPlayButton && !wasPlaying;
 
       if (freshStart) {
-      app.collapseSettingsAccordions();
+      if (app.autoCloseSettingsAccordions) {
+        app.collapseSettingsAccordions();
+      }
       setRunningPlayMs(0);
       bufferRef.current?.clear();
       voiceBufferRef.current = [];

@@ -1,5 +1,8 @@
 /**
  * Port of KO CardBufferManager — plays one card at a time, with optional repeats.
+ * Empty pieces from Sending column pads (`[   ]` → spaces) are filtered out so
+ * Speak First does not hang on silent plays. Wordspace pads go between repeats
+ * only (never after the last audible play).
  */
 
 class CardWordSubPart {
@@ -14,15 +17,11 @@ class CardWord {
   subparts: CardWordSubPart[] = [];
   constructor(contents: string) {
     this.original = contents;
-    contents.split(' ').forEach(piece => {
+    const pieces = this.original.split(' ').filter(piece => piece.length > 0);
+    pieces.forEach(piece => {
       this.subparts.push(new CardWordSubPart(piece));
     });
   }
-}
-
-function appendArrayNTimes<T>(originalArray: T[], n: number): T[] {
-  if (!Number.isInteger(n) || n <= 0) return originalArray;
-  return Array.from({ length: n }, () => [...originalArray]).flat();
 }
 
 export class CardBufferManager {
@@ -39,12 +38,23 @@ export class CardBufferManager {
     const idx = this.getCurrentIndex();
     if (idx < 0 || idx >= words.length) return;
 
-    this.buffer.push(new CardWord(words[idx]));
+    const cardWord = new CardWord(words[idx]);
+    this.buffer.push(cardWord);
+
     if (repeats > 0) {
-      for (let i = 0; i < additionalWordSpaces; i++) {
-        this.buffer[0].subparts.push(new CardWordSubPart(''));
+      const audibleSubparts = cardWord.subparts.map(sp => sp.word);
+      cardWord.subparts = [];
+      for (let r = 0; r < repeats; r++) {
+        audibleSubparts.forEach(word => {
+          cardWord.subparts.push(new CardWordSubPart(word));
+        });
+        // Pads between repeats only — never after the last audible play.
+        if (r < repeats - 1) {
+          for (let i = 0; i < additionalWordSpaces; i++) {
+            cardWord.subparts.push(new CardWordSubPart(''));
+          }
+        }
       }
-      this.buffer[0].subparts = appendArrayNTimes(this.buffer[0].subparts, repeats);
     }
   }
 

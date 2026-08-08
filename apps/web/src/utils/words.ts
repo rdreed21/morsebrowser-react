@@ -39,6 +39,31 @@ export function getDisplayWord(rawWord: string): string {
   }).join(' ');
 }
 
+/**
+ * Hidden-card mask — mirrors KO WordInfo.maskedDisplay.
+ * One X per Morse character within each piece; spaces kept between pieces
+ * (`CQ DE` → `XX XX`). Spaces inside a single piece are ignored so Sending
+ * drills like `{A A A|...}` still show `XXX`.
+ */
+export function getMaskedDisplay(rawWord: string): string {
+  const pieces = rawWord.split(/ (?![^{]*})/);
+  return pieces.map(p => {
+    const trimmed = p.trim();
+    let text: string;
+    if (trimmed.includes('{')) {
+      const inner = (trimmed.startsWith('{') && trimmed.endsWith('}'))
+        ? trimmed.slice(1, -1)
+        : trimmed.replace(/[{}]/g, '');
+      const parts = inner.split('|');
+      text = doReplacements(parts[0] ?? '');
+    } else {
+      text = doReplacements(p);
+    }
+    const letterCount = text.replace(/\s/g, '').length;
+    return letterCount > 0 ? 'X'.repeat(letterCount) : '';
+  }).filter(s => s.length > 0).join(' ');
+}
+
 export function rawTextCharCount(text: string): number {
   return text.replace(/\s/g, '').length;
 }

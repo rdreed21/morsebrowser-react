@@ -141,7 +141,9 @@ export interface MorseAppContextValue {
   selectedPreset: string;
   setSelectedPreset: (v: string) => void;
   autoCloseLessonAccordion: boolean;
+  autoCloseSettingsAccordions: boolean;
   setAutoCloseLessonAccordion: (v: boolean) => void;
+  setAutoCloseSettingsAccordions: (v: boolean) => void;
   shuffleIntraGroup: boolean;
   setShuffleIntraGroup: (v: boolean) => void;
   speedInterval: boolean;
@@ -260,6 +262,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const [selectedPreset, setSelectedPresetState] = useState('Your Settings');
   const [autoCloseLessonAccordion, setAutoCloseLessonAccordionState] = useState(false);
+  const [autoCloseSettingsAccordions, setAutoCloseSettingsAccordionsState] = useState(true);
   const [shuffleIntraGroup, setShuffleIntraGroupState] = useState(false);
   const [speedInterval, setSpeedIntervalState] = useState(false);
   const [speedRacerEnabled, setSpeedRacerEnabledState] = useState(false);
@@ -414,6 +417,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
 
   const setSelectedPreset = useCallback((v: string) => setSelectedPresetState(v), []);
   const setAutoCloseLessonAccordion = useCallback((v: boolean) => setAutoCloseLessonAccordionState(v), []);
+  const setAutoCloseSettingsAccordions = useCallback((v: boolean) => setAutoCloseSettingsAccordionsState(v), []);
   const setShuffleIntraGroup = useCallback((v: boolean) => setShuffleIntraGroupState(v), []);
   const setIntervalTimingsText = useCallback((v: string) => setIntervalTimingsTextState(v), []);
   const setIntervalWpmText = useCallback((v: string) => setIntervalWpmTextState(v), []);
@@ -744,6 +748,8 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     setSelectedPreset,
     autoCloseLessonAccordion,
     setAutoCloseLessonAccordion,
+    autoCloseSettingsAccordions,
+    setAutoCloseSettingsAccordions,
     shuffleIntraGroup,
     setShuffleIntraGroup,
     speedInterval,
@@ -814,7 +820,7 @@ export function MorseAppProvider({ children }: { children: React.ReactNode }) {
     applyEnabled, applyLesson, randomizeLessons,
     flaggedWords, flaggedWordsCount, clearFlaggedWords, loadFlaggedAsText, addFlaggedWord,
     speakFirstAdditionalWordspaces,
-    selectedPreset, autoCloseLessonAccordion,
+    selectedPreset, autoCloseLessonAccordion, autoCloseSettingsAccordions,
     shuffleIntraGroup,
     speedInterval, setSpeedInterval, speedRacerEnabled, setSpeedRacerEnabled,
     speedRacerWpmSteps, setSpeedRacerWpmSteps,

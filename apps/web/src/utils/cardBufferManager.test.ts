@@ -11,10 +11,25 @@ describe('CardBufferManager', () => {
     expect(buf.hasMoreMorse()).toBe(false);
   });
 
+  it('filters empty pieces from Sending-style column pads', () => {
+    const buf = new CardBufferManager(() => 0, () => ['A  B   ']);
+    expect(buf.getNextMorse()).toBe('A');
+    expect(buf.getNextMorse()).toBe('B');
+    expect(buf.hasMoreMorse()).toBe(false);
+  });
+
   it('repeats subparts when repeats > 0', () => {
     const buf = new CardBufferManager(() => 0, () => ['AB']);
-    expect(buf.getNextMorse(1, 0)).toBe('AB');
-    expect(buf.getNextMorse(1, 0)).toBe('AB');
+    expect(buf.getNextMorse(2, 0)).toBe('AB');
+    expect(buf.getNextMorse(2, 0)).toBe('AB');
+    expect(buf.hasMoreMorse()).toBe(false);
+  });
+
+  it('places wordspace pads between repeats only', () => {
+    const buf = new CardBufferManager(() => 0, () => ['CQ']);
+    expect(buf.getNextMorse(2, 1)).toBe('CQ');
+    expect(buf.getNextMorse(2, 1)).toBe('');
+    expect(buf.getNextMorse(2, 1)).toBe('CQ');
     expect(buf.hasMoreMorse()).toBe(false);
   });
 });
