@@ -138,6 +138,10 @@ Living docs:
 
 - [`docs/REPO_MAP.md`](docs/REPO_MAP.md) — full repo tour: where everything lives and where
   to make a given change
+- [`architecture.md`](architecture.md) — why the system is shaped this way (timing, audio,
+  data flow, deployment)
+- [`decisions.md`](decisions.md) — the architecture decision log
+- [`tasks.md`](tasks.md) — the active work backlog across the whole repo
 - [`docs/ADDING_LESSONS_PRESETS_WORDFILES.md`](docs/ADDING_LESSONS_PRESETS_WORDFILES.md) —
   how to add lessons, presets, and word files
 - [`CLAUDE.md`](CLAUDE.md) — hard requirements (background audio, timing accuracy, fork

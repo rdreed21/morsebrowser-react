@@ -225,6 +225,9 @@ task so asset sources and the RSS proxy URL can be overridden per environment.
 
 - [`../README.md`](../README.md) — project overview, quick start, run instructions
 - [`../CLAUDE.md`](../CLAUDE.md) — hard requirements, current status, KO→React reference
+- [`../architecture.md`](../architecture.md) — why the system is shaped this way
+- [`../decisions.md`](../decisions.md) — the architecture decision log
+- [`../tasks.md`](../tasks.md) — the active work backlog
 - [`ADDING_LESSONS_PRESETS_WORDFILES.md`](ADDING_LESSONS_PRESETS_WORDFILES.md) — content guide
 - [`../apps/mobile/MOBILE_STATUS.md`](../apps/mobile/MOBILE_STATUS.md) — iOS status
 - [`ANDROID_FRAMEWORK.md`](ANDROID_FRAMEWORK.md) — Android plan

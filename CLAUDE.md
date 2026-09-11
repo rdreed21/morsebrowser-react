@@ -16,8 +16,9 @@ Owner: Roger Reed (rdreed21) | KQ4NKF
 | `apps/web` | **~95% UI** — all accordions, playback, presets, voice, deep links | 108 passing |
 | `apps/mobile` | **Day-to-day practice ready** — iOS; background audio needs real-device verification; no automated tests yet | — |
 
-Repo tour & architecture: `docs/REPO_MAP.md`. Content authoring (lessons/presets/word
-files): `docs/ADDING_LESSONS_PRESETS_WORDFILES.md`. iOS status: `apps/mobile/MOBILE_STATUS.md`.
+Repo tour: `docs/REPO_MAP.md`. Why it's built this way: `architecture.md`. Decision log:
+`decisions.md`. Active backlog: `tasks.md`. Content authoring (lessons/presets/word files):
+`docs/ADDING_LESSONS_PRESETS_WORDFILES.md`. iOS status: `apps/mobile/MOBILE_STATUS.md`.
 The original KO→React migration bible and agent setup are archived under `docs/archived/`.
 
 ## Agents
@@ -58,7 +59,9 @@ New work on this repo follows Anthropic's AI-Native SDLC Playbook: Plan → Desi
 Test → Deploy → Maintain, with a committed artifact at each of the first three stages
 (`intent.md` → `spec.md` → `plan.md`). Full guide, templates, and the per-change intent log:
 `docs/ai-native-sdlc/README.md`. This CLAUDE.md stays the durable repo-wide context; those
-per-change docs reference it rather than duplicate it.
+per-change docs reference it rather than duplicate it. The other repo-wide-and-persistent
+(not per-change) files: `architecture.md` (the "why"), `decisions.md` (the ADR log),
+`tasks.md` (the active backlog) — update these in place rather than creating new ones.
 
 ## Documentation Maintenance Policy
 
