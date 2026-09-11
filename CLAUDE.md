@@ -59,3 +59,14 @@ Test → Deploy → Maintain, with a committed artifact at each of the first thr
 (`intent.md` → `spec.md` → `plan.md`). Full guide, templates, and the per-change intent log:
 `docs/ai-native-sdlc/README.md`. This CLAUDE.md stays the durable repo-wide context; those
 per-change docs reference it rather than duplicate it.
+
+## Documentation Maintenance Policy
+
+- **10-day audit cadence:** at least every 10 days, before/alongside the next batch of work,
+  validate `CLAUDE.md` and every doc it links to against the actual code — not just spelling,
+  but claims that could now be false (status/progress, "not started" vs. actually shipped,
+  file trees, test/file counts, commands). Fix what's stale as part of that batch of work.
+- **Every commit to `master`/main that changes code or function behavior:** offer to update
+  the relevant documentation (`CLAUDE.md`, `docs/REPO_MAP.md`, `apps/mobile/MOBILE_STATUS.md`,
+  etc.) in the same session — don't wait to be asked. Doc-only or config-only commits don't
+  need this.
