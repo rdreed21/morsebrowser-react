@@ -1,6 +1,6 @@
 # Mobile App Status — LICW Morsebrowser (iOS)
 
-> **Last updated:** 2026-06-06  
+> **Last updated:** 2026-09-11  
 > **Scope:** `apps/mobile/` only  
 > **Target:** Expo 56 + React Native 0.85, iOS first (real-device background audio required)
 
@@ -10,7 +10,7 @@
 
 The iOS app **builds, runs on simulator, and supports day-to-day Morse practice** with the core engine from `@morsebrowser/core`. Major UI sections from the web/KO fork are ported in a mobile-native layout (StyleSheet, chip pickers, accordions).
 
-**Rough progress: ~70%** of web day-to-day practice features. **Not production-ready** until background audio is verified on a **real iPhone**, settings persistence is added, and release bundling for wordfiles/presets is hardened.
+**Rough progress: ~75%** of web day-to-day practice features (was ~70% before settings persistence landed). **Not production-ready** until background audio is verified on a **real iPhone** and release bundling for wordfiles/presets is hardened.
 
 | Area | Status |
 |---|---|
@@ -20,7 +20,7 @@ The iOS app **builds, runs on simulator, and supports day-to-day Morse practice*
 | Lessons + presets | ✅ Dev workflow working |
 | Voice (TTS) | ✅ Wired (`expo-speech`) |
 | Background audio (screen lock) | ⚠️ Configured, **not verified on device** |
-| Settings persistence | ❌ Not started (web uses cookies) |
+| Settings persistence | ✅ Done (`AsyncStorage`, debounced autosave/restore) |
 | Automated tests | ❌ None |
 | App Store / EAS release | ❌ Not started |
 
@@ -46,7 +46,7 @@ The iOS app **builds, runs on simulator, and supports day-to-day Morse practice*
 - [x] Peer deps for `expo-router` (safe-area, screens, linking, etc.)
 - [x] `SafeAreaProvider` + `react-native-safe-area-context` (RN deprecation fix)
 - [x] Dark/light theme system (`src/utils/theme.ts`, `useTheme()`)
-- [x] Wordfiles sync script (`npm run sync-wordfiles` → `assets/wordfiles/`, 634 files)
+- [x] Wordfiles sync script (`npm run sync-wordfiles` → `assets/wordfiles/`, 636 files)
 - [x] Metro dev server serves `/wordfiles/*` and `/presets/*` (from core package data)
 
 ### Audio stack
@@ -64,6 +64,7 @@ The iOS app **builds, runs on simulator, and supports day-to-day Morse practice*
 | File | Purpose |
 |---|---|
 | `src/context/MorseAppContext.tsx` | App state (settings, lessons, voice, presets fields) |
+| `src/utils/settingsPersistence.ts` | `AsyncStorage` load/save of the settings snapshot + mobile-only extras; wired into `MorseAppContext` (load on mount, debounced autosave on change) |
 | `src/utils/loadMobileLessonFile.ts` | Lesson fetch for RN (Metro dev + cached assets) |
 | `src/utils/lessonPractice.ts` | Custom group + random JSON lesson text generation |
 | `src/utils/words.ts`, `formatTime.ts` | Ported from web |
@@ -72,19 +73,24 @@ The iOS app **builds, runs on simulator, and supports day-to-day Morse practice*
 
 ### UI components (ported)
 
-Layout order: **Header → Speed → Settings accordions → Stats → Cards → Playback**
+Layout order: **Header → Speed → Lesson Options → Stats → Cards → Playback**, with Tone /
+Voice / Input / Output / About moved off the main scroll onto a dedicated **`/settings`**
+screen (`app/settings.tsx`), reached via the gear icon in the header — this is a change from
+the single-scroll layout described in earlier versions of this doc.
 
 | Component | Web equivalent | Status |
 |---|---|---|
 | `app/index.tsx` | Page shell | ✅ Header, dark mode toggle, scroll layout |
+| `app/settings.tsx` | — (web keeps these inline) | ✅ Separate screen hosting Tone/Voice/Input/Output/About |
 | `SpeedSettingsBar` | Speed settings | ✅ WPM, FWPM, volume, sync lock |
 | `SettingsSection` | Accordion item | ✅ Collapsible sections |
 | `LessonsPicker` | LICW Lessons + presets | ✅ TYPE/CLASS/CONTENT/LESSON chips, presets Save/Load, auto-load lesson |
 | `LessonOptionsSection` | Lesson Options (subset) | ⚠️ Overrides, playback toggles, repeats, trail — **missing** sticky sets, speed intervals, shuffle intra-group UI |
-| `VoiceOptionsSection` | Voice Options | ✅ Full panel + playback integration |
-| `ToneSettingsSection` | Tone Options | ✅ DIT/DAH Hz, sync, Zero Beat test tone |
-| `InputOptionsSection` | Input Options (subset) | ⚠️ View/Hide, Clear, practice textarea — **no** Insert File |
-| `OutputOptionsSection` | Output Options (subset) | ⚠️ PRE, word space, card wait/size, show cards — **no** WAV download |
+| `VoiceOptionsSection` | Voice Options | ✅ Full panel + playback integration (on `/settings`) |
+| `ToneSettingsSection` | Tone Options | ✅ DIT/DAH Hz, sync, Zero Beat test tone (on `/settings`) |
+| `InputOptionsSection` | Input Options (subset) | ⚠️ View/Hide, Clear, practice textarea — **no** Insert File (on `/settings`) |
+| `OutputOptionsSection` | Output Options (subset) | ⚠️ PRE, word space, card wait/size, show cards — **no** WAV download (on `/settings`) |
+| `AboutSection` | Help footer | ✅ Credits, links, app version, legal (on `/settings`) |
 | `WorkingTextStats` | Working text stats | ✅ Time, chars, word count |
 | `WordCards` | Word cards | ✅ Reveal/hide (X mask), trail, flag on tap, long-press seek |
 | `PlaybackControls` | Playback controls | ✅ Play/pause/stop, nav, loop, shuffle, reveal, voice recap |
@@ -109,13 +115,10 @@ Layout order: **Header → Speed → Settings accordions → Stats → Cards →
 1. **Background audio on real iPhone**  
    Lock screen during playback; confirm audio continues. This is the #1 hard requirement and cannot be validated in Simulator.
 
-2. **Settings persistence**  
-   Web uses cookies (`wpm`, `fwpm`, `hideList`, `darkMode`, voice flags, etc.). Mobile needs `AsyncStorage` (or similar) in `MorseAppContext` with the same keys/logic as `@morsebrowser/core` settings manager.
-
-3. **Release bundling for wordfiles + presets**  
+2. **Release bundling for wordfiles + presets**  
    Dev uses Metro middleware. Standalone/EAS builds need wordfiles in the app bundle (partially configured via `assetBundlePatterns`) and a verified load path in `loadMobileLessonFile.ts` without Metro.
 
-4. **`MorsePlaybackContext`**  
+3. **`MorsePlaybackContext`**  
    `useMorsePlayback()` is called from multiple components (creates duplicate hook instances). Web uses a single provider — refactor to one context to avoid subtle playback bugs.
 
 ### Priority 2 — Feature parity with web
@@ -128,7 +131,7 @@ Layout order: **Header → Speed → Settings accordions → Stats → Cards →
 | Output: WAV download | ✅ | ❌ |
 | Noise settings (white/brown/pink) | ✅ | ❌ |
 | RSS accordion | ✅ (optional) | ❌ |
-| Help footer / shortcuts | ✅ | ❌ |
+| Help footer / shortcuts | ✅ | ⚠️ `AboutSection` covers credits/links/legal; no keyboard shortcuts (N/A on mobile) |
 | Deep links (`?selectedClass=…`) | ✅ | ❌ |
 | Expert settings gating | ✅ | ❌ |
 | Variable-speed display during interval playback | ✅ | ❌ |
@@ -138,7 +141,7 @@ Layout order: **Header → Speed → Settings accordions → Stats → Cards →
 
 ### Priority 3 — Quality & ship
 
-- [ ] Unit/integration tests (none today; web has 93+, core has 58+)
+- [ ] Unit/integration tests (none today; web has 108, core has 71)
 - [ ] EAS build profile + TestFlight smoke test
 - [ ] Remove unused deps (`nativewind`, `tailwindcss` — styling uses StyleSheet)
 - [ ] Document/trim `node_modules` patches from iOS build troubleshooting (prefer upstream fixes)
@@ -163,8 +166,9 @@ Layout order: **Header → Speed → Settings accordions → Stats → Cards →
 apps/mobile/
 ├── app/
 │   ├── _layout.tsx          # Root: audio session, providers, SafeAreaProvider
-│   └── index.tsx            # Main screen
-├── assets/wordfiles/        # 634 lesson files (synced from morsebrowser_dev)
+│   ├── index.tsx            # Main screen
+│   └── settings.tsx         # Tone/Voice/Input/Output/About screen
+├── assets/wordfiles/        # 636 lesson files (synced from morsebrowser_dev)
 ├── scripts/sync-wordfiles.mjs
 ├── src/
 │   ├── audio/audioSession.ts
@@ -245,12 +249,11 @@ eas submit --platform ios
 ## Suggested next steps (ordered)
 
 1. Test background audio on a **real iPhone** (lock screen during play).
-2. Add **AsyncStorage** persistence for settings (match web cookie keys).
-3. Harden **release asset loading** for wordfiles/presets without Metro.
-4. Refactor **`MorsePlaybackProvider`** (single playback hook instance).
-5. Fill **Lesson Options** gaps (sticky sets, speed intervals UI + playback).
-6. **Flagged Words** panel (Load As Text).
-7. Add **smoke tests** and EAS/TestFlight path (see "Getting the app onto a real iPhone" above — option 3 is the pre-TestFlight soak-test build).
+2. Harden **release asset loading** for wordfiles/presets without Metro.
+3. Refactor **`MorsePlaybackProvider`** (single playback hook instance).
+4. Fill **Lesson Options** gaps (sticky sets, speed intervals UI + playback).
+5. **Flagged Words** panel (Load As Text).
+6. Add **smoke tests** and EAS/TestFlight path (see "Getting the app onto a real iPhone" above — option 3 is the pre-TestFlight soak-test build).
 
 ---
 

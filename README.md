@@ -68,7 +68,7 @@ drift), wrapped in a native iOS shell with `react-native-audio-api` so Morse kee
 
 ```bash
 cd apps/mobile
-npm run sync-wordfiles   # pulls 634 lesson wordfiles (needs morsebrowser_dev as a sibling, or WORDFILES_DIR=...)
+npm run sync-wordfiles   # pulls 636 lesson wordfiles (needs morsebrowser_dev as a sibling, or WORDFILES_DIR=...)
 npm run sync-presets     # pulls preset configs from packages/core
 ```
 
@@ -89,7 +89,9 @@ Or, once it's built once, just `npx expo start` and press **`i`** to open the Si
    signed into Xcode for ad-hoc signing, or a paid developer account for TestFlight).
 3. **This is the one that matters for show-and-tell** — Simulator audio doesn't survive
    backgrounding; a real device does. Lock the screen mid-lesson and the dits and dahs
-   keep 
+   keep coming.
+
+---
 
 ## 🛠️ Tinkering & contributing
 
@@ -102,7 +104,8 @@ learning curve as the feature set grew.
   `scheduleText`, lesson + preset loaders. Both apps depend on this; change it once, both
   benefit (and both test suites should still pass).
 - **Web UI**: `apps/web/src/components/` — React + Bootstrap 5, structured to mirror the
-  KO fork's accordion layout exactly (see `COMPONENT_MAP.md` for the KO → React map).
+  KO fork's accordion layout exactly (see `docs/archived/COMPONENT_MAP.md` for the KO →
+  React map).
 - **iOS UI**: `apps/mobile/src/components/` — native `StyleSheet` + chip UI (Bootstrap
   doesn't translate to native, so the mobile app intentionally diverges into a
   touch-friendly layout while keeping the same section order and behavior).
