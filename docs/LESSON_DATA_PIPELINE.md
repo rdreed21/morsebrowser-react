@@ -11,7 +11,7 @@ repo) — and one of them has no automation at all, making it an easy step to fo
 
 | Piece | What it is | Canonical source today | How it reaches the apps |
 |---|---|---|---|
-| **Lesson content files** | 634 `.txt`/`.json` practice-text files | `morsebrowser_dev/src/wordfiles/` | Two separate sync paths (see below) |
+| **Lesson content files** | 636 `.txt`/`.json` practice-text files | `morsebrowser_dev/src/wordfiles/` | Two separate sync paths (see below) |
 | **Lesson catalog** (`wordlists.json`) | Maps class/letter-group/display-name → filename — **this is what makes a lesson selectable in the UI** | `morsebrowser_dev/src/wordfilesconfigs/wordlists.json` | **One-time copy**, `import`ed directly into `packages/core/src/lessons/wordlists.json`. **No sync script — manual copy required.** |
 | **Presets** | Per-class/lesson settings bundles | `morsebrowser_dev/src/presets/` | **One-time copy** into `packages/core/src/presets/data/`. No sync script either, but both apps at least consume *from core* now. |
 
@@ -71,5 +71,5 @@ pipelines, and nothing can silently drift out of sync again.
 - `lessonLoader.ts` (`packages/core/src/lessons/`) directly `import`s `wordlists.json` as
   a TS module — moving its physical location may require updating that import path and
   re-running `tsc`/`turbo build` for core before web/mobile will pick up the change.
-- Re-run both test suites (`turbo test`) after relocating — `packages/core` has 58+ tests
-  and `apps/web` has 93+ that may reference these paths.
+- Re-run both test suites (`turbo test`) after relocating — `packages/core` has 71 tests
+  and `apps/web` has 108 that may reference these paths.

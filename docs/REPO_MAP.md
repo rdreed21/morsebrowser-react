@@ -154,7 +154,8 @@ translate to native, so the mobile UI intentionally diverges into a touch-friend
 apps/mobile/
 ├── app/
 │   ├── _layout.tsx           # root: configureAudioSession() BEFORE any AudioContext
-│   └── index.tsx             # main practice screen
+│   ├── index.tsx             # main practice screen
+│   └── settings.tsx          # Tone/Voice/Input/Output/About, reached via gear icon
 ├── assets/
 │   ├── wordfiles/            # 636 lesson files (synced, committed)
 │   └── presets/              # preset data (synced from packages/core, committed)

@@ -1,8 +1,13 @@
 # ANDROID_FRAMEWORK.md — Plan for an Android build of LICW Morsebrowser
 
-> **Status:** planning only — no Android work has started. `apps/mobile/app.json` currently
-> restricts `"platforms": ["ios"]`. This document maps out what it would take to add
-> Android as a first-class target of the **same** Expo app (not a separate codebase).
+> **Status:** scaffolding started, not verified. `apps/mobile/app.json` now lists
+> `"platforms": ["ios", "android"]` and includes an `"android"` block (package id, adaptive
+> icon, `FOREGROUND_SERVICE`/`FOREGROUND_SERVICE_MEDIA_PLAYBACK` permissions), and
+> `Platform.OS === 'android'` branches already exist in `loadMobileLessonFile.ts`. What's
+> *not* confirmed yet: this has not been built/run on an Android device or emulator, and the
+> rest of the plan below (UI verification, background-audio soak test, etc.) is still
+> outstanding. This document maps out what remains to make Android a fully first-class
+> target of the **same** Expo app (not a separate codebase).
 
 ## TL;DR
 
